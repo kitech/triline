@@ -136,7 +136,7 @@ function test_day_gongyuan_to_ganzhi()
 // test_day_gongyuan_to_ganzhi();
 // echo day_gongyuan_to_ganzhi(10);
 
-function day_ganzhi_to_gongyuan($gz_day)
+function day_ganzhi_to_gongyuan_old($gz_day)
 {
     global $tiangan_pairs, $dizhi_pairs;
     $tg_idx = 0;
@@ -169,15 +169,97 @@ function day_ganzhi_to_gongyuan($gz_day)
     return -1;
 }
 
+function day_ganzhi_to_gongyuan($gz_day)
+{
+    global $tiangan_pairs, $dizhi_pairs;
+    // $tg_idx = 0;
+    // $dz_idx = 0;
+    $tgs = array_keys($tiangan_pairs);
+    $dzs = array_keys($dizhi_pairs);
+
+    $tgki = array();
+    $dzki = array();
+
+    foreach ($tgs as $idx => $key) {
+        $tgki[$key] = $idx+1;
+    }
+
+    foreach($dzs as $idx => $key) {
+        $dzki[$key] = $idx+1;
+    }
+
+    // print_r($tgki);
+    // print_r($dzki);
+
+    $gy_day = -1;
+
+    $mch1 = substr($gz_day, 0, 3);
+    $mch2 = substr($gz_day, 3, 3);
+    $idx1 = $tgki[$mch1];
+    $idx2 = $dzki[$mch2];
+
+    // echo $mch1 . " $idx1 -- " . $mch2 . " $idx2 \n";
+
+    $gy_day = $tgki[$mch1];
+    $diff12 = ($tgki[$mch1] - $dzki[$mch2] + 12) % 12;
+    $gy_day += 10 * $diff12/2;
+
+    return $gy_day;
+    return -1;
+}
+
 function test_day_ganzhi_to_gongyuan()
 {
+    global $tiangan_pairs, $dizhi_pairs;
+    $tg_idx = 0;
+    $dz_idx = 0;
+    $tgs = array_keys($tiangan_pairs);
+    $dzs = array_keys($dizhi_pairs);
+
+    $mch1 = "";
+    $mch2 = "";
+
     for ($i = 1; $i <= 60; ++$i) {
         $gz_day = day_gongyuan_to_ganzhi($i);
         $gy_day = day_ganzhi_to_gongyuan($gz_day);
 
-        echo "$i ==? $gz_day ==? $gy_day \n";
+        $idx1 = 0;
+        $idx2 = 0;
+        $mch1 = substr($gz_day, 0, 3);
+        $mch2 = substr($gz_day, 3, 3);
+
+        // echo strlen($gz_day) . "$mch1 , $mch2 \n";
+        for ($j = 0; $j < count($tgs); ++$j) {
+            if ($tgs[$j] == $mch1) {
+                $idx1 = $j + 1;
+                break;
+            }
+        }
+
+        for ($j = 0; $j < count($dzs); ++$j) {
+            if ($dzs[$j] == $mch2) {
+                $idx2 = $j + 1;
+                break;
+            }
+        }
+
+        // $idx1 = $tiangan_pairs[$mch1];
+        // $idx2 = $dizhi_pairs[$mch2];
+        
+        $d12 = ($idx1 - $idx2 + 12) % 12;
+        $rd12_div2 = $d12 / 2;
+        echo "$i ==? $gz_day ==? $gy_day, $mch1($idx1)-$mch2($idx2)=$d12 => r/2($rd12_div2)\n";
+
+        // break;
     }
 }
 
 test_day_ganzhi_to_gongyuan();
 // echo day_ganzhi_to_gongyuan("丁酉");
+
+/*
+  60六十花甲子规律：
+  第一位的天干的顺序号为阿拉伯数字日期的个位
+  第一位序号与第二位序号的差加12的和模12,然后再除以2,其结果为阿拉伯数据日期的十位
+  
+ */
