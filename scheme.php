@@ -1,5 +1,7 @@
 <?php
 
+// ini_set('precision', 1000000);
+
 function scm_tokenize($src)
 {
     $tokens = array();
@@ -82,6 +84,8 @@ function STParse($tokens)
         }
     }
 
+    $clause_count = count($program->children);
+    echo "clause count: {$clause_count}\n";
     return $program->children[0];
 }
 
@@ -114,7 +118,7 @@ function evaluate(STNode $tnode, STScope $scope)
 {
     if (count($tnode->children) <= 0) {
         if (is_numeric($tnode->value)) {
-            return intval($tnode->value);
+            return gmp_strval(gmp_init($tnode->value));
         }
 
         return STScope::find($scope, $tnode->value);
@@ -125,13 +129,26 @@ function evaluate(STNode $tnode, STScope $scope)
 
     $builtInFuns = array();
     $builtInFuns['+'] = function ($args, $scope) {
-        $ret = 0;
+        $ret = gmp_init(0);
         
         for ($i = 1; $i < count($args); $i ++) {
-            $ret += evaluate($args[$i], $scope);
+            // $ret += evaluate($args[$i], $scope);
+            $ret = gmp_add($ret, gmp_init(evaluate($args[$i], $scope)));
         }
 
-        return $ret;
+        return gmp_strval($ret);
+    };
+
+    $builtInFuns['*'] = function ($args, $scope) {
+        $ret = gmp_init(1);
+
+        for ($i = 0; $i < count($args); $i ++) {
+            $v = evaluate($args[$i], $scope);
+            if ($v == '') $v = 1;
+            $ret = gmp_mul($ret, gmp_init($v));
+        }
+
+        return gmp_strval($ret);
     };
 
 
@@ -139,7 +156,37 @@ function evaluate(STNode $tnode, STScope $scope)
         return $builtInFuns[$first->value]($tnode->children, $scope);
     }
 
+    echo "evaling: {$first->value}...\n";
+    if ($first->value == "begin") {
+        $ret = null;
+        for ($i = 0; $i < count($tnode->children); $i ++) {
+            $ret = evaluate($tnode->children[$i], $scope);
+        }
+        return $ret;
+    }
 
+    if ($first->value == "defun") {
+        
+    }
+
+    if ($first->value == "defvar") {
+        echo "tnode count:" . count($tnode->children) . "\n";
+        $varname = $tnode->children[1]->value;
+        echo "varname: {$varname}\n";        
+        $varval = evaluate($tnode->children[2], $scope);
+
+
+
+
+        $scope->vars[$varname] = $varval;
+        return $varval;
+    }
+
+    if ($first->value == "display") {
+        $val = evaluate($tnode->children[1], $scope);
+        echo $val;
+        return null;
+    }
 
     $func = null;
     if ($first->value == '(') {
@@ -162,4 +209,34 @@ function evaluate(STNode $tnode, STScope $scope)
         return evaluate($cnode, $cscope);
     }
 }
+
+
+
+class Scheme
+{
+    private $_scope = null;
+    private $_rnode = null;
+
+    public function __construct()
+    {
+
+    }
+
+    public function do_eval($source)
+    {
+        $fmt_source = "(begin $source )";
+        $tokens = scm_tokenize($fmt_source);
+        
+        $this->_rnode = STParse($tokens);
+
+        $this->_scope = new STScope(null);
+
+        return evaluate($this->_rnode, $this->_scope);
+    }
+
+    public function do_shell()
+    {
+
+    }
+};
 
