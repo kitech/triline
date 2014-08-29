@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CCMD=$0
+echo $CCMD
+ARGS=$@
+ARGC=$#
+echo $ARGC
+echo $ARGS
+
+CKALL=no
+NARGS=""
+for arg in $ARGS
+do
+   if [[ $arg == "-a" ]] ; then
+       CKALL=yes
+       continue;
+   fi
+   NARGS="${NARGS} ${arg}"
+done
+
+echo $NARGS
+
+/usr/bin/btrfsck ${NARGS}
+
+

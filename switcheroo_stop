@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Finished Stopping profile ${1}"
+/etc/init.d/xdm stop

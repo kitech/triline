@@ -1,0 +1,14 @@
+[Unit]
+Description=Old sysvinit rc.local service
+Wants=
+Before=
+After=
+
+[Service]
+Type=forking
+User=root
+ExecStart=/usr/bin/bash /etc/rc.local.systemd start
+ExecStop=/usr/bin/true
+
+[Install]
+WantedBy=multi-user.target

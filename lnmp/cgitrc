@@ -1,0 +1,67 @@
+# prepend this string to every url
+virtual-root=/cgit
+
+# title, heading, desc, about...
+root-title=201 develop server git repositories
+root-desc=qtchina giter!!! testing purpose, try it just now. git clone http://git.qtchina.com/pubtest.git; cd pubtest; echo "123" >> abc.txt;
+#root-readme=/files/web/example.com/code/about.html
+root-readme=/usr/local/nginx/fcgi-bin/cgit_about.html
+
+
+# styling
+#css=/htdocs/cgit/cgit.css
+#logo=/htdocs/cgit/cgit.png
+
+
+#
+# "STATIC" REPOSITORIES
+#
+# Add them one by one, or include a file...
+# section=Hosted repos
+
+# First repository
+#repo.url=<project_name>
+#repo.owner=<user>
+#repo.path=/path/to/git_repo/.git
+#repo.desc=A test project.
+
+# admtools
+repo.url=admtools
+repo.owner=git201
+repo.path=/data1/git/admtools.git
+repo.desc=Develop server admin tools.
+
+repo.url=couchbase-devel
+repo.owner=git201
+repo.path=/data1/git/couchbase-devel.git
+repo.desc=
+
+repo.url=fastdfs
+repo.owner=git201
+repo.path=/data1/git/fastdfs.git
+repo.desc=
+
+repo.url=framework
+repo.owner=git201
+repo.path=/data1/git/framework.git
+repo.desc=
+
+repo.url=gearman
+repo.owner=git201
+repo.path=/data1/git/gearman.git
+repo.desc=
+
+repo.url=so
+repo.owner=git201
+repo.path=/data1/git/so.git
+repo.desc=
+
+repo.url=pubtest
+repo.owner=git201
+repo.path=/data1/git/pubtest.git
+repo.desc=供大家测试用的git库
+
+
+
+
+

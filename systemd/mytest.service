@@ -1,0 +1,17 @@
+[Unit]
+Description=test custom unit
+#Wants=network.target
+#Before=network.target
+
+ 
+[Service]
+#Type=oneshot
+Type=forking
+User=gzleo
+#ExecStart=/usr/sbin/ifrename -c /etc/iftab
+#ExecStart=/usr/bin/modprobe vboxdrv
+ExecStart=/home/gzleo/myscripts-svn/start_mini_x.sh
+ExecStop=/usr/bin/killall  -9 X
+ 
+[Install]
+WantedBy=multi-user.target
