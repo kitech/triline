@@ -1,5 +1,5 @@
 
-(defvar tvar 123)
+(defvar tvar (+ 123 123))
 (display tvar)
 
 (+ 1 2)
