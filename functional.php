@@ -40,6 +40,12 @@ class Funt
 {
     public static function map($var, $proc)
     {
+        switch (gettype($var)) {
+        case 'string': function() {
+            };
+            break;
+        }
+
         if (!is_callable($proc)) {
             return false;
         }
