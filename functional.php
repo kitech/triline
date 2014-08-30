@@ -40,14 +40,12 @@ class Funt
 {
     public static function map($var, $proc)
     {
+        if (!is_callable($proc)) return false;
+
         switch (gettype($var)) {
         case 'string': function() {
             };
             break;
-        }
-
-        if (!is_callable($proc)) {
-            return false;
         }
 
         if (is_resource($var)) {
@@ -62,6 +60,7 @@ class Funt
             }
         } else {
         }
+
     }
 
     public static function reduce($var, $proc, $default)
@@ -89,6 +88,144 @@ class Lambda
     }
 };
 
+class Characters {
+    public static $isLowerCase = null;
+    public static $isUpperCase = null;
+};
+
+// shit PHP syntax limitation
+Characters::$isLowerCase = function($v) { return ($v == strtolower($v)); };
+Characters::$isUpperCase = function($v) { return ($v == strtoupper($v)); };
+
+
+// ruby首页的5.times {}实现
+function O($var)
+{
+    if (!class_exists('Oimp')) {
+
+        class Oimp
+        {
+            private $obj = null;
+            public function __construct($var)
+            {
+                $this->setVar($var);
+            }
+            public function __distruct()
+            {
+                var_dump("distructed");
+            }
+
+            public function setVar($var)
+            {
+                $this->obj = $var;
+            }
+        
+            public function __call($m, $a)
+            {
+                switch ($m) {
+                case 'times':
+                    if (is_numeric($this->obj)) {
+                        foreach (range(1, $this->obj) as $v)
+                            call_user_func($proc = $a[0], $v);
+                    }
+                    break;
+                case 'exists':
+                    if (is_array($this->obj)) {
+                        $ok = false;
+                        foreach ($this->obj as $k => $v) {
+                            $ok = $ok || call_user_func($proc = $a[0], $v);
+                            if ($ok) break;
+                        }
+                        return $ok;
+                    }
+                    break;
+                case 'filter':
+                    if (is_array($this->obj)) {
+                        $res = array();
+                        foreach ($this->obj as $k => $v) {
+                            if (call_user_func($proc = $a[0], $v)) $res[] = $v;
+                        }
+                        return $res;
+                    }
+                    break;   
+                case 'abc':
+                    break;
+                default:
+                    throw new Exception("unknown method:".$m);
+                    break;
+                }
+
+            }
+
+            public static function __get_o_handle($var)
+            {
+                // 对象缓存
+                static $ho = null;
+                is_null($ho) ? $ho = new Oimp($var) : $ho->setVar($var);
+
+                return $ho;
+            }
+
+        };
+    }
+
+
+    if (0) {
+        $bt = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 2);
+        print_r($bt);
+    }
+
+    // 引入这个类，保证使用方无论保证这个引用，还是一直创建新的对象，都能够正确调用到相应方法
+    // 这个类的代价相对更小
+    if (!class_exists('__StdClass')) {
+        class __StdClass extends StdClass
+        {
+            private $obj = null;
+            public function __construct($var)
+            {
+                $this->obj = $var;
+            }
+
+            public function __call($m, $a)
+            {
+                $ho = Oimp::__get_o_handle($this->obj);
+                return call_user_func_array(array($ho, $m), $a);
+            }
+        };
+    }
+
+    $obj = new __StdClass($var);
+
+    // return $ho;
+    return $obj;
+};
+
+function ff()
+{
+
+}
+
+function OTest() {
+    /*
+    O(5)->times(function ($i) {
+            echo($i . "\n");
+        });
+
+    O(3)->times(function ($i) {
+            echo($i . "\n");
+        });
+    */
+    $arr = array("Hello", "There", "what", "DAY", "iS", "iT");
+    $b = O($arr)->exists(Characters::$isLowerCase);
+    var_dump($b);
+
+    $arr = array(97, 44, 67, 3, 22, 90, 1, 77, 98, 1078, 6, 64, 6, 79, 42);
+    $arr2 = O($arr)->filter(function($v) { return $v % 2 == 0;});
+    print_r($arr2);
+}
+
+OTest();
+
 $arr = array('fdjiefwf', '123');
 
 Funt::map($arr, function ($k, $v) {
@@ -109,3 +246,16 @@ echo(Math::add(1, 2, 3, 4, 5, 6) . "\n");
 echo(Math::mul(1, 2, 3, 4, 5, 6) . "\n");
 echo(Math::pow(2, 3, 2) . "\n");
 echo(2 ** (3 ** 2)) . "\n";
+
+function abc(){}
+var_dump('abc') . "\n";
+
+// PHP不支持“惰性特征”
+// $arr = array(1/0, 3, 4);
+// var_dump(count($arr));
+// PHP的闭包“惰性特征”
+$arr = function() {
+    return array(1/0);
+};
+
+
