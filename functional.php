@@ -1,5 +1,12 @@
 <?php
 
+/*
+
+  需要给PHP添加StdClass一个__call方法
+  代码块传递
+  轻量级eval
+ */
+
 class Math
 {
     public static function add()
@@ -73,12 +80,57 @@ class Funt
 
         return $val;
     }
+
+    // lambda('$x, $y => aaaaa'
+    // body必须是有返回值的语句，不能使用echo语句
+    // lambda语法的parser
+    // @return Closure object
+    public static function lambda($body)
+    {
+        $margs_str = trim(explode('=>', $body)[0]);
+        $margs_list = explode(',', $margs_str);
+        $mbody = trim(explode('=>', $body)[1]);
+
+        $f = function(...$_lambda_args) use ($margs_list, $mbody) {
+            $code = "<?php\n\n";
+
+            foreach ($margs_list as $_lambda_k => $_lambda_v) {
+                if (empty($_lambda_v)) continue;
+                $code .= "" . trim($_lambda_v) . " = \$_lambda_args[{$_lambda_k}];\n";
+            }
+
+            $code .= "\nreturn ( " . $mbody . " );\n";
+
+            $code_hash = md5($mbody);
+            $fname = "/tmp/php_lambda_{$code_hash}.php";
+            file_put_contents($fname, $code);
+            
+            $lv = require($fname);
+
+            // unlink($fname);
+
+            return $lv;
+        };
+
+        return $f;
+    }
+
+    public static function literal($body)
+    {
+
+    }
 };
+
 
 class String
 {
     
 };
+
+function lambda($body)
+{
+    return Funt::lambda($body);
+}
 
 class Lambda
 {
@@ -193,6 +245,7 @@ function O($var)
             }
         };
     }
+    
 
     $obj = new __StdClass($var);
 
@@ -204,6 +257,7 @@ function ff()
 {
 
 }
+
 
 function OTest() {
     /*
@@ -222,15 +276,18 @@ function OTest() {
     $arr = array(97, 44, 67, 3, 22, 90, 1, 77, 98, 1078, 6, 64, 6, 79, 42);
     $arr2 = O($arr)->filter(function($v) { return $v % 2 == 0;});
     print_r($arr2);
+
+    $arr2 = o($arr)->filter(lambda('$v => $v % 2 == 1'));
+    print_r($arr2);
 }
 
 OTest();
 
 $arr = array('fdjiefwf', '123');
 
-Funt::map($arr, function ($k, $v) {
-        echo "$k => $v \n";
-    });
+Funt::map($arr, function($k, $v) { echo "$k => $v \n";});
+Funt::map($arr, lambda('$k, $v => print "$k -> $v \n"'));
+
 
 $str = "abcdefg";
 Funt::map($str, function ($ch) {
@@ -258,4 +315,5 @@ $arr = function() {
     return array(1/0);
 };
 
+// 使用PHP的yeild协同机制，可以实现类似nodejs的事件机制。
 
