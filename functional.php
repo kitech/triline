@@ -364,17 +364,21 @@ $arr = function() {
 
   三、使用闭包匿名函数实现数组求和
   先来看一下在PHP中使用闭包的方式，
+  <code type="php">
   $fn = function($a, $b) { return $a + $b; };
   echo $fn(1, 2);
+  </code>
 
   这里实现了把一个类似函数的语句赋值给一个变量，然后这个变量执行'()'操作。
   最终的输出结果为3。
   乍一看，这也没有什么了不起的，和函数的功能一样的。
   接下来，我们用这种方法实现一个求和功能，看下这种方式的优势。
 
+  <code type="php">
   $arr = array(1, 2, 3, 4, 5);
   $sum = array_reduce($arr, $fn, 0);
   echo $sum;
+  </code>
 
   这段代码的输出结果为15。
   其执行过程为给定一个初始值，遍历数组，并调用这个$fn变量所表示的匿名函数，然后返回结果。
@@ -390,11 +394,196 @@ $arr = function() {
 
   
   四、具有更丰富函数式编程特征的求和方式
-  上一节中，
+  上一节中，我们使用了针对array类型的array_reduce函数实现了求和功能。
+  本节中，我们将编写一个更通用的遍历数据的函数map实现任意数据类型的遍历语义。
+  同时，提供一个更通用的reduce函数，将相同的算法用于更复杂的不同的数据结构中。
 
-  
+  通用的遍历函数map的实现，
 
-  这段代码的最大特点是什么呢？是要做什么为主，这个说清楚了，后面才是怎么做。
+  <code type="php">
+    function map($var, $proc)
+    {
+        if (!is_callable($proc)) return false;
+
+        if (is_array($var)) {
+            foreach ($var as $k => $v) {
+                call_user_func($proc, $k, $v);
+            }
+        } else if (is_string($var)) {
+            for ($i = 0; $i < strlen($var); $i ++) {
+                call_user_func($proc, $var[$i]);
+            }
+        } else {
+        }
+
+    }
+    </code>
+
+    目前该map函数不但能够遍历数组，还能够遍历字符串，然后把遍历出来的每个元素逐个应用于可调用的$proc上。
+    这就是函数式编程中的关注要做什么，map函数就是提供遍历，而遍历什么数据结构则放在其次。
+
+    实现聚合的通用的reduce函数实现，
+    <code type="php">
+    function reduce($var, $proc, $default)
+    {
+        $val = $default;
+        map($var, function ($k, $v) use (&$val, $proc) {
+                $val = call_user_func($proc, $val, $v, $k);
+                return $val;
+            });
+
+        return $val;
+    }
+    </code>
+    
+    聚合首先要遍历，所以使用了map函数，在些函数基础出做进一步函数调用。
+    reduce函数同样也是关注了要做什么。
+
+    现在来看怎么用函数式编程方式实现求和，
+
+    <code type="php">
+    function add()
+    {
+        $args = func_get_args();
+        
+        return Funt::reduce($args, function ($r, $k, $v) {
+                return $r + $v; 
+            }, 0);
+    }
+    </code>
+
+    <code type="php">
+    $sum = add(1, 2, 3, 4, 5); 
+    </code>
+    
+    或者
+    <code type="php">
+    $sum = add($arr);
+    </code>
+    
+    是不是非常简单呢，甚至可以通过完善add函数实现不同数据类型的求和。
+    
+    这段代码的最大特点是什么呢？是要做什么为主，这个说清楚了，后面才是怎么做。
+
+
+    五、 PHP中函数式编程特性的不足与补充
+    
+    在以上两节，从PHP引入的闭包/匿名函数开始，介绍基本使用，并通过示例演示函数编程的基本方式。
+    不过，如果再要使用更多的函数编程特性的话，PHP目前就显得力不从心了。
+    像在Hack语言中提供的“表达式闭包”，它是简化版本的匿名函数，由解释器自动当作函数执行。
+    如在Hack语言中遍历数组并打印， map($arr, ($k, $v) ==> print $k . " --> " $v);
+    这在PHP中很难以做到。
+
+    还有通用算法方面，虽然有些涉及，但也不够完善和通用。
+    不过在下一节中，我将试着用一种比较难看的方式实现类似的功能，
+    变通地为PHP添加更多的函数式编程特征，同时也给出一种在此基础上再次扩展的思路。
+
+    六、扩展PHP的函数式编程特性
+
+    首先介绍强大的O函数，它让所有PHP变量成为一个StdClass对象，然后捕捉在这个对象上的所有调用，
+    从而实现任意变量的函数调用。
+
+    <code type="php">
+    function O($var)
+    {
+     
+        // 引入这个类，保证使用方无论保证这个引用，还是一直创建新的对象，都能够正确调用到相应方法
+        // 这个类的代价相对更小
+        if (!class_exists('__StdClass')) {
+            class __StdClass extends StdClass
+            {
+                private $obj = null;
+                public function __construct($var)
+                {
+                    $this->obj = $var;
+                }
+     
+                public function __call($m, $a)
+                {
+                    $ho = Oimp::__get_o_handle($this->obj);
+                    return call_user_func_array(array($ho, $m), $a);
+                }
+            };
+        }
+        
+     
+        $obj = new __StdClass($var);
+     
+        return $obj;
+    };
+    </code>
+
+    这个函数让我们能实现类似ruby中5.times()这种功能。
+    O(5)->times(function ($i) { print("say $i"); });
+    是不是很强大。
+    这个函数中使用到的Oimp类实现请查询完整的<a href="https://github.com/kitech/functionalphp">源代码</a>文件。
+    除了在Oimp中实现times方法，只要不断扩充Oimp实现新的方法，就能够提供更多具有函数式特征的功能。
+    
+    另外一点，现在来看一下“表达式闭包”的模拟，
+
+    <code type="php">
+    // lambda('$x, $y => aaaaa'
+    // @return Closure object
+    function lambda($body)
+    {
+        $margs_str = trim(explode('=>', $body)[0]);
+        $margs_list = explode(',', $margs_str);
+        $mbody = trim(explode('=>', $body)[1]);
+
+        $f = function(...$_lambda_args) use ($margs_list, $mbody) {
+            $code = "<?php\n\n";
+
+            foreach ($margs_list as $_lambda_k => $_lambda_v) {
+                if (empty($_lambda_v)) continue;
+                $code .= "" . trim($_lambda_v) . " = \$_lambda_args[{$_lambda_k}];\n";
+            }
+
+            $code .= "\nreturn ( " . $mbody . " );\n";
+
+            $code_hash = md5($mbody);
+            $fname = "/tmp/php_lambda_{$code_hash}.php";
+            file_put_contents($fname, $code);
+            
+            $lv = require($fname);
+            unlink($fname);
+
+            return $lv;
+        };
+
+        return $f;
+    }
+    </code>
+
+    它使用PHP的require解释写到临时文件的表达式代码，实现类似eval的功能。
+    但应该比eval要轻量级一些，并且功能上也更容易控制。
+
+    有了这个函数，本节开始时的示例可以实现如下，
+    <code type="php">
+    map($arr, lambda('$k, $v ===> print($k . " ---> " . $v)'));
+    </code>
+
+    由于无法在这一层级上修改PHP的语法，只能使用传递字符串做再次解析的方式。
+
+    七、总结
+    
+    现在的PHP已经支持一点函数式编程特性，不过却没能很好的组织起来。
+    这体现了在函数式编程方面PHP语言还有很长的路要走。
+    通过一些额外的方法能完善PHP的函数式编程特性，
+    即使有本文实现的基本框架，还有很多工作要做。
+
+
+    参考：
+    http://hhvm.org/
+    http://php.net/
+
+
+  1,2
+  通用算法的缺失（算法与数组绑定）
+  代码块传递的缺失（简洁lambda表达式）
+  补充O函数。
+  更多的函数式算法，groupby/some/any/exists/filter/contains/
+
+
 
  */
 
