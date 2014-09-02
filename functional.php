@@ -115,6 +115,19 @@ class Funt
         return $f;
     }
 
+    /*
+      (parameters) ->expression                or         (parameters) ->{ statements; }
+      1.  () -> 5                           		// takes no value and returns 5
+      2.  x -> 2 * x            					// takes a number and returns the result of doubling it
+      3.  (x, y) -> x - y                     		// takes two numbers and returns their difference
+      4.  (int x, int y) -> x + y      				// takes two integers and returns their sum
+      5.  (String s) -> System.out.print(s) 		// takes a string and prints it to console without returning anything
+     */
+    public static function lamexp($exp)
+    {
+
+    }
+
     public static function literal($body)
     {
 
@@ -132,6 +145,11 @@ function lambda($body)
     return Funt::lambda($body);
 }
 
+function lamexp($exp)
+{
+    return Funt::lamexp($exp);
+}
+
 class Lambda
 {
     public function __construct()
@@ -140,14 +158,51 @@ class Lambda
     }
 };
 
+
+Characters::init(); // needed
 class Characters {
+    // case 1
+    // map($arr, Characters::$isLowerCase);
     public static $isLowerCase = null;
     public static $isUpperCase = null;
-};
 
-// shit PHP syntax limitation
-Characters::$isLowerCase = function($v) { return ($v == strtolower($v)); };
-Characters::$isUpperCase = function($v) { return ($v == strtoupper($v)); };
+    public static function init()
+    {
+        // shit PHP syntax limitation
+        Characters::$isLowerCase = function($v) { return ($v == strtolower($v)); };
+        Characters::$isUpperCase = function($v) { return ($v == strtoupper($v)); };
+    }
+
+    // case 2
+    // map($arr, 'Characters::isLowerCase');
+    // case 3
+    // map($arr, Characters::isLowerCase());
+    public static function __callStatic($m, $a)
+    {
+        $case = 3; // for switch
+
+        if ($case == 2) {
+            switch ($m) {
+            case 'isLowerCase': return call_user_func_array(Characters::$$m, $a);
+            case 'isUpperCase': return call_user_func_array(Characters::$$m, $a);
+            default:
+                throw new Exception('Unkown method');
+                break;
+            }
+        } else if ($case == 3) {
+            switch ($m) {
+            case 'isLowerCase': return Characters::$$m;
+            case 'isUpperCase': return Characters::$$m;
+            default:
+                throw new Exception('Unkown method');
+                break;
+            }
+        } else {
+            throw new Exception('Not Possible');
+        }
+    }
+
+};
 
 
 // ruby首页的5.times {}实现
@@ -322,6 +377,16 @@ $arr = function() {
 
 
 /*
+  从functionaljava学习函数式编程
+  函数式编程概念：
+  数据结构，集合数据类型，其他抽象算法
+  全函数/偏函数，
+  高阶函数
+  一阶函数
+  匿名表达式
+  map函数：在遍历的每个元素上应用某个函数，返回相同数目的相同类型的集合，该集合是一个新的集合，还不是修改的原来的集合。
+  
+
   phpng可能有的特性，
   正式发布的版本号为PHP7.0，但有些优化可能反抽合并到5.x,6.x版本。
   效率提升，现有的2倍以上
