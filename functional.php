@@ -563,6 +563,9 @@ $arr = function() {
     </code>
 
     由于无法在这一层级上修改PHP的语法，只能使用传递字符串做再次解析的方式。
+    还有一些像常见的函数式算法，all/some/any/exists/filter/contains/groupby，
+    也将在以后试着添加到这个基本的函数式PHP框架中。
+
 
     七、总结
     
