@@ -159,6 +159,52 @@ class Lambda
 };
 
 
+// 函数式风格错误处理类
+class Either
+{
+    private $_left = null; // save Exception
+    private $_right = null; // save return value
+
+    public function __construct($left, $right)
+    {
+        $this->_left = $left;
+        $this->_right = $right;
+
+        assert($left == null || $right == null);
+    }
+
+    public static function LEither($left)
+    {
+        return new Either($left, null);
+    }
+
+    public static function REither($right)
+    {
+        return new Either(null, $right);
+    }
+
+    public function isLeft()
+    {
+        return ($this->_left !== null);
+    }
+
+    public function isRight()
+    {
+        return ($this->_right !== null);
+    }
+
+    public function left()
+    {
+        return $this->_left;
+    }
+
+    public function right()
+    {
+        return $this->_right;
+    }
+};
+
+
 Characters::init(); // needed
 class Characters {
     // case 1
@@ -384,6 +430,8 @@ $arr = function() {
   高阶函数
   一阶函数
   匿名表达式
+  monads: 单体，传说中非常难的一个函数式语言主题
+  半群，幺半群
   map函数：在遍历的每个元素上应用某个函数，返回相同数目的相同类型的集合，该集合是一个新的集合，还不是修改的原来的集合。
   
 
