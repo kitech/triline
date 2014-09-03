@@ -14,9 +14,9 @@ class Math
         $argc = func_num_args();
         $args = func_get_args();
         
-        return Funt::reduce($args, function ($r, $k, $v) {
+        return Funt::reduce(function ($r, $k, $v) {
                 return $r + $v; 
-            }, 0);
+            }, 0, $args);
     }
 
     public static function mul()
@@ -24,9 +24,9 @@ class Math
         $argc = func_num_args();
         $args = func_get_args();
         
-        return Funt::reduce($args, function ($r, $v, $k) {
+        return Funt::reduce(function ($r, $v, $k) {
                 return $r * $v; 
-            }, 1);
+            }, 1, $args);
     }
 
     public static function pow()
@@ -36,16 +36,32 @@ class Math
         
         array_reverse($args);
         
-        return Funt::reduce($args, function ($r, $v, $k) {
+        return Funt::reduce(function ($r, $v, $k) {
                 return $v ** $r; 
-            }, 1);
+            }, 1, $args);
     }
 };
 
 
 class Funt
 {
-    public static function map($var, $proc)
+
+    // 
+    public static function append($var, $elem)
+    {
+        switch (gettype($var)) {
+        case 'array': return array_push($var, $elem);
+        case 'string': return $var . $elem;
+        default: return $var;
+        }
+    }
+
+    /**
+     * functional map/mapn function
+     *
+     * @param $mvars support mapn feature
+     */
+    public static function map($proc, $var, ...$mvars)
     {
         if (!is_callable($proc)) return false;
 
@@ -58,19 +74,31 @@ class Funt
         if (is_resource($var)) {
         } else if (is_object($var)) {
         } else if (is_array($var)) {
+            $ret = array();
             foreach ($var as $k => $v) {
-                call_user_func($proc, $k, $v);
+                $elem = call_user_func($proc, $v, $k);
+                $ret = Funt::append($ret, $elem);
             }
+            return $ret;
         } else if (is_string($var)) {
+            $ret = '';
             for ($i = 0; $i < strlen($var); $i ++) {
-                call_user_func($proc, $var[$i]);
+                $elem = call_user_func($proc, $var[$i]);
+                $ret = Funt::append($ret, $elem);
             }
+            return $ret;
         } else {
         }
 
     }
 
-    public static function reduce($var, $proc, $default)
+    /**
+     * functional reduce/reducen function
+     * default reduce by left, like reduceLeft/foldLeft/fold
+     *
+     * @param $mvars support mapn feature
+     */
+    public static function reduce($proc, $default, $var, ...$mvars)
     {
         $val = $default;
         Funt::map($var, function ($k, $v) use (&$val, $proc) {
@@ -81,15 +109,43 @@ class Funt
         return $val;
     }
 
-    // lambda('$x, $y => aaaaa'
+    /**
+     * functional filter function
+     *
+     * @param $mvars support mapn feature
+     */
+    public static function filter($proc, $var)
+    {
+        switch ($vt = gettype($var)) {
+        case 'array':
+            $ret = array();
+            foreach ($var as $k => $v) {
+                $elem = call_user_func($proc, $v, $k);
+                if ($elem) $ret[$k] = $v;
+            }
+            return $ret;
+        case 'string':
+            $ret = '';
+            for ($i = 0; $i < strlen($var); $i ++) {
+                $elem = call_user_func($proc, $var[$i]);
+                if ($elem) $ret .= $var[$i];
+            }
+            return $ret;
+            break;
+            default:
+                throw new Exception('unknown type:'. gettype($vt));
+        }
+    }
+
+    // lambda('$x, $y -> aaaaa'
     // body必须是有返回值的语句，不能使用echo语句
     // lambda语法的parser
     // @return Closure object
     public static function lambda($body)
     {
-        $margs_str = trim(explode('=>', $body)[0]);
+        $margs_str = trim(explode('->', $body)[0]);
         $margs_list = explode(',', $margs_str);
-        $mbody = trim(explode('=>', $body)[1]);
+        $mbody = trim(explode('->', $body)[1]);
 
         $f = function(...$_lambda_args) use ($margs_list, $mbody) {
             $code = "<?php\n\n";
@@ -120,12 +176,15 @@ class Funt
       1.  () -> 5                           		// takes no value and returns 5
       2.  x -> 2 * x            					// takes a number and returns the result of doubling it
       3.  (x, y) -> x - y                     		// takes two numbers and returns their difference
+      注，PHP不考虑类型。以下两种语法格式不需要支持
       4.  (int x, int y) -> x + y      				// takes two integers and returns their sum
       5.  (String s) -> System.out.print(s) 		// takes a string and prints it to console without returning anything
+
+      see lamda for case 2 like syntax implimention.
      */
     public static function lamexp($exp)
     {
-
+        
     }
 
     public static function literal($body)
@@ -214,6 +273,55 @@ class Either
         return $this->_right;
     }
 };
+
+
+class Monad 
+{
+    private $M = Monad::unit;
+
+    // same return, value type, type constructure function
+    public static function unit($value)
+    {
+        return array($value, '');
+    }
+
+    // 
+    public static function bind($monadicValue, $transformWithLog)
+    {
+        $value = $monadicValue[0];
+        $log = $monadicValue[1];
+        $return = $transformWithLog($value);
+
+        return array($return[0], $log . ',,,' . $return[1]);
+    }
+
+    // 
+    public static function pipeline($monadicValue, $functions)
+    {
+        foreach ($functions as $k => $f) {
+            $monadicValue = Monad::bind($monadicValue, $functions[$k]);
+        }
+        return $monadicValue;
+    }
+
+    // 
+    public static function test()
+    {
+        $squire = function ($x) {
+            return array($x * $x, 'squared func');
+        };
+
+        $halved =  function ($x) {
+            return array($x / 2, 'halved func');
+        };
+
+
+        $v = Monad::pipeline(Monad::unit(4), array($squire, $halved));
+        var_dump($v);
+    }
+};
+////////// testit
+Monad::test();
 
 
 Characters::init(); // needed
@@ -389,7 +497,7 @@ function OTest() {
     $arr2 = O($arr)->filter(function($v) { return $v % 2 == 0;});
     print_r($arr2);
 
-    $arr2 = o($arr)->filter(lambda('$v => $v % 2 == 1'));
+    $arr2 = o($arr)->filter(lambda('$v -> $v % 2 == 1'));
     print_r($arr2);
 }
 
@@ -399,8 +507,8 @@ OTest();
 
 $arr = array('fdjiefwf', '123');
 
-Funt::map($arr, function($k, $v) { echo "$k => $v \n";});
-Funt::map($arr, lambda('$k, $v => print "$k -> $v \n"'));
+Funt::map($arr, function($k, $v) { echo "$k -> $v \n";});
+Funt::map($arr, lambda('$k, $v -> print "$k ==> $v \n"'));
 
 
 $str = "abcdefg";
@@ -409,9 +517,9 @@ Funt::map($str, function ($ch) {
     });
 
 $arr = array(1, 2, 3, 4, 5);
-echo(Funt::reduce($arr, function ($r, $k, $v) {
-        return $r + $v;
-        }, 1)) . "\n";
+echo(Funt::reduce(function ($r, $k, $v) {
+            return $r + $v;
+        }, 1, $arr)) . "\n";
 
 echo(Math::add(1, 2, 3, 4, 5, 6) . "\n");
 echo(Math::mul(1, 2, 3, 4, 5, 6) . "\n");
@@ -453,7 +561,7 @@ $arr = function() {
   高阶函数
   一阶函数
   匿名表达式
-  monads: 单体，传说中非常难的一个函数式语言主题
+  monads: 单体，传说中非常难的一个函数式语言主题。序列化/管道化。数据库方式表达状态变化。
   半群，幺半群
   map函数：在遍历的每个元素上应用某个函数，返回相同数目的相同类型的集合，该集合是一个新的集合，还不是修改的原来的集合。
   
@@ -607,7 +715,7 @@ $arr = function() {
     在以上两节，从PHP引入的闭包/匿名函数开始，介绍基本使用，并通过示例演示函数编程的基本方式。
     不过，如果再要使用更多的函数编程特性的话，PHP目前就显得力不从心了。
     像在Hack语言中提供的“表达式闭包”，它是简化版本的匿名函数，由解释器自动当作函数执行。
-    如在Hack语言中遍历数组并打印， map($arr, ($k, $v) ==> print $k . " --> " $v);
+    如在Hack语言中遍历数组并打印， map($arr, ($k, $v) -> print $k . " --> " $v);
     这在PHP中很难以做到。
 
     还有通用算法方面，虽然有些涉及，但也不够完善和通用。
@@ -658,13 +766,13 @@ $arr = function() {
     另外一点，现在来看一下“表达式闭包”的模拟，
 
     <code type="php">
-    // lambda('$x, $y => aaaaa'
+    // lambda('$x, $y -> aaaaa'
     // @return Closure object
     function lambda($body)
     {
-        $margs_str = trim(explode('=>', $body)[0]);
+        $margs_str = trim(explode('->', $body)[0]);
         $margs_list = explode(',', $margs_str);
-        $mbody = trim(explode('=>', $body)[1]);
+        $mbody = trim(explode('->', $body)[1]);
 
         $f = function(...$_lambda_args) use ($margs_list, $mbody) {
             $code = "<?php\n\n";
@@ -695,7 +803,7 @@ $arr = function() {
 
     有了这个函数，本节开始时的示例可以实现如下，
     <code type="php">
-    map($arr, lambda('$k, $v ===> print($k . " ---> " . $v)'));
+    map($arr, lambda('$k, $v -> print($k . " ---> " . $v)'));
     </code>
 
     由于无法在这一层级上修改PHP的语法，只能使用传递字符串做再次解析的方式。
