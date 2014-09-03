@@ -134,6 +134,17 @@ class Funt
     }
 };
 
+// High Order Functions
+class FPHOF
+{
+    // map,reduce,filter
+};
+
+// First Order Functions
+class FPFOF
+{
+    // apply
+};
 
 class String
 {
@@ -420,7 +431,19 @@ $arr = function() {
 
 // 使用PHP的yeild协同机制，可以实现类似nodejs的事件机制。
 
-
+/*
+  函数式编程通用方法语义说明：
+  *map 对每个元素应用一个函数，得到数目相等的列表。注意mapn的情况。
+  *reduce 即fold*
+  fold 对每个元素应用一个函数，得到一个结果。需要前置初值。
+  foldLeft 指定从左到右的顺序，与fold的默认语义相同
+  foldRight 指定从右到左的顺序
+  exists 是否有符合一个条件的元素
+  forall 
+  count
+  *filter 返回一个小于等于原list的新list。
+  
+ */
 
 /*
   从functionaljava学习函数式编程
