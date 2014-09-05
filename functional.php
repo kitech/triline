@@ -275,8 +275,9 @@ class Either
 };
 
 
-class Monad 
+class Monad_Writer 
 {
+
     private $M = Monad::unit;
 
     // same return, value type, type constructure function
@@ -299,7 +300,7 @@ class Monad
     public static function pipeline($monadicValue, $functions)
     {
         foreach ($functions as $k => $f) {
-            $monadicValue = Monad::bind($monadicValue, $functions[$k]);
+            $monadicValue = Monad_Writer::bind($monadicValue, $functions[$k]);
         }
         return $monadicValue;
     }
@@ -316,12 +317,52 @@ class Monad
         };
 
 
-        $v = Monad::pipeline(Monad::unit(4), array($squire, $halved));
+        $v = Monad_Writer::pipeline(Monad_Writer::unit(4), array($squire, $halved));
         var_dump($v);
     }
 };
 ////////// testit
-Monad::test();
+Monad_Writer::test();
+
+class Monad_Reader
+{
+
+    public static function typecon()
+    {
+
+    }
+
+    // prototype: A = $f(B)
+    public static function unit($f)
+    {
+        return $f;
+    }
+
+    public static function constant($b)
+    {
+        //                                 ??????
+        return Monad_Reader::unit(lamda('$a -> ' . $b));
+    }
+
+    public static function bind()
+    {
+
+    }
+
+    public static function test()
+    {
+        $f = function($b) {
+            return $a;
+        };
+
+        $u = Monad_Reader::unit($f);
+
+        $fp = fopen('semichan.php');
+        
+        fclose($fp);
+    }
+};
+Monad_Reader::test();
 
 
 Characters::init(); // needed
