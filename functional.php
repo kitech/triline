@@ -329,7 +329,8 @@ $arr = function() {
   await 异步编程关键字
   完全线程安全
 
-  
+
+  http://www.qtchina.tk/?q=node/825
   PHP中的函数式编程特性分析
   
   一、引言
@@ -396,5 +397,13 @@ $arr = function() {
 
   这段代码的最大特点是什么呢？是要做什么为主，这个说清楚了，后面才是怎么做。
 
+
+  * PHP中函数式编程特性的不足与补充
+  1,2
+  通用算法的缺失（算法与数组绑定）
+  代码块传递的缺失（简洁lambda表达式）
+  补充O函数。
+  更多的函数式算法，groupby/some/any/exists/filter/contains/
+  
  */
 
