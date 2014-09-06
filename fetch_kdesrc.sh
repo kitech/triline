@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-KDE_VER=4.13.97
 KDE_VER=4.14.0
+#KDE_VER=4.10.95
 LAST_VER=`echo "$KDE_VER" | awk -F. '{print $3}'`
 
 STABLE_DIR=
@@ -18,9 +18,8 @@ KDE_SRC_LIST_URI=ftp://ftp.kde.org/pub/kde/${STABLE_DIR}/${KDE_VER}/src/
 #KDE_SRC_LIST_URI2=http://mirror.bjtu.edu.cn/kde/${STABLE_DIR}/${KDE_VER}/src/
 KDE_SRC_LIST_URI2=http://mirror.bjtu.edu.cn/kde/${STABLE_DIR}/${KDE_VER}/src/
 KDE_SRC_LIST_URI3=http://mirrors.ustc.edu.cn/kde/${STABLE_DIR}/${KDE_VER}/src/
-KDE_SRC_LIST_URI4=http://ftp.cs.pu.edu.tw/pub/kde/${STABLE_DIR}/${KDE_VER}/src/
 #KDE_SRC_LIST_URI3=http://ixion.pld-linux.org/~arekm/kde/
-KDE_SRC_LIST_URI2=$KDE_SRC_LIST_URI3
+KDE_SRC_LIST_URI2=$KDE_SRC_LIST_URI2
 KDE_LIST_FNAME=kde-${KDE_VER}-list.html
 
 echo "Fetcing list from ${KDE_SRC_LIST_URI} ..., to ${KDE_LIST_FNAME}..."
