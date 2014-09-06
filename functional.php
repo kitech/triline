@@ -205,10 +205,6 @@ class FPFOF
     // apply
 };
 
-class String
-{
-    
-};
 
 function lambda($body)
 {
@@ -228,6 +224,52 @@ class Lambda
     }
 };
 
+class String
+{
+    
+};
+
+class FList
+{
+    private $_cells = array();
+
+    /**
+       @param $cells
+     */
+    public function __construct($cells = array())
+    {
+        $this->_cells = array_values($cells);
+    }
+
+    public function head()
+    {
+        return count($this->_cells) > 0 ? $this->_cells[0] : null;
+    }
+
+    public function tail()
+    {
+        return count($this->_cells) > 0 ? $this->_cells[count($this->_cells) - 1] : null;
+    }
+
+    public function length()
+    {
+        return count($this->_cells);
+    }
+
+    public function car()
+    {
+        return $this->head();
+    }
+
+
+
+    public function cdr()
+    {
+        return new FList(array_slice($this->_cells, 1));
+    }
+
+
+};
 
 // 函数式风格错误处理类
 class Either
@@ -274,6 +316,144 @@ class Either
     }
 };
 
+class Monad
+{
+    
+};
+
+
+class Monad_Identity
+{
+    private $_val = null;
+
+    public function __construct($value)
+    {
+        $this->_val = $value;
+    }
+
+    public function val()
+    {
+        return $this->_val;
+    }
+
+    public static function unit($value)
+    {
+        return new Monad_Identity($value);
+    }
+
+    public function bind($transform)
+    {
+        return $transform($this->_val);
+    }
+
+    public static function bind2(Monad_Identity $val, $transform)
+    {
+        return $transform($val->val());
+    }
+
+    public static function test()
+    {
+        $result = (new Monad_Identity(5))->bind(function ($v) {
+                return (new Monad_Identity(6))->bind(function ($v2) use ($v) {
+                        return (new Monad_Identity($v + $v2));
+                    });
+            });
+        var_dump($result);
+
+        $result = Monad_Identity::bind2(new Monad_Identity(5), 
+                                       Monad_Identity::bind2(new Monad_Identity(6), 
+                                                             function ($v2) {
+                                                                 return function ($v1) use ($v2) {
+                                                                     return new Monad_Identity($v1 + $v2);
+                                                                 };
+                                                             }));
+        var_dump($result);
+    }
+};
+Monad_Identity::test();
+
+
+class Monad_Maybe
+{
+    private $_val = null;
+    private $_empty = null;
+    public static $NOTHING = null;
+    
+    // 
+    public function __construct($value, $is_empty = false)
+    {
+        $this->_val = $value;
+        $this->_empty = $is_empty;
+    }
+
+    public function val()
+    {
+        return $this->_val;
+    }
+
+    // return Maybe<A>
+    public static function m($value)
+    {
+        return 'Monad_Maybe';
+    }
+
+    public static function unit($value)
+    {
+        return new Monad_Maybe($value);
+    }
+
+    public function bind($transform)
+    {
+        return $this->_val == null ? self::$NOTHING : $transform($this->_val);
+    }
+
+    /**
+       @param $mv monad value
+       @param $func  $func($mv)
+       @return monad value
+     */
+    public static function bind2($mv, $transform)
+    {
+        return $transform($mv->val());
+    }
+
+    public static function test()
+    {
+        $result = (new Monad_Maybe(5))->bind(function ($v1) {
+                return (new Monad_Maybe(6))->bind(function ($v2) use ($v1) {
+                        return new Monad_Maybe($v1 + $v2);
+                    });
+            });
+        var_dump($result);
+
+        $result = Monad_Maybe::bind2(new Monad_Maybe(5), 
+                                    Monad_Maybe::bind2(new Monad_Maybe(6),
+                                                      function ($v2) {
+                                                          return function ($v1) use ($v2) {
+                                                              return new Monad_Maybe($v1 + $v2);
+                                                          };
+                                                      }));
+        var_dump($result);
+
+        function getUser()
+        {
+            function getAvata()
+            {
+                return Monad_Maybe::$NOTHING;
+            }
+            return new Monad_Maybe('getAvata');
+        }
+
+        $url = getUser()
+            ->bind('getAvata')
+            ->bind(function ($v1) {
+                    var_dump('aaaaaaaa');
+                });
+        var_dump(var_export($url, true). "bbbbbbbbbbb");
+    }
+};
+Monad_Maybe::$NOTHING = new Monad_Maybe(null, true);
+Monad_Maybe::test();
 
 class Monad_Writer 
 {
