@@ -1,0 +1,95 @@
+#!/usr/bin/ash
+
+# need kernel command line param
+# rootimg /path/to/rootdisk.img
+# root the ntfs partition dev, like /dev/sda4
+# logfile the initramfs run log, like /var/log/initramfs.log
+# rootfstype disk img's file system type, such as ext3/ext4/btrfs/reiserfs/reiser4
+# slowdown=5
+run_latehook() {
+
+    umount /new_root
+    mkdir /ntfs_root
+    "$mount_handler" /ntfs_root
+
+    date
+    sleep 2
+
+    rootdevname=$(echo $root | sed s/dev/mnt/g)    
+
+    # mkdir /new_root 
+    set -x
+    fsck.ext4  -n /ntfs_root/ntfspage.img > /fsck.log  2>&1
+    fsckret=$?
+    date
+    sleep 3
+    set +x
+
+    date >> /fsck.log
+    mount -t ext4 /ntfs_root/ntfspage.img /new_root
+    # mount --bind /ahost /new_root2/ahost
+    mount --bind /ntfs_root /new_root/ahost
+    mount --bind /ntfs_root /new_root/mnt/sda4
+
+    date >> $IRLOG
+    IRLOG=/new_root/initramfs.log
+    touch $IRLOG
+    echo "from rootntfsimg step 1"  > $IRLOG
+    echo "root is $root, rootdev is $rootdev, real_root is $real_root."   >> $IRLOG
+    echo "device $dev/$device, rootdelay is $rootdelay." >> $IRLOG
+    echo "rootfstype: $rootfstype" >> $IRLOG
+    echo "mount handler: $mount_handler"   >> $IRLOG
+    echo "from rootntfsimg step 2"   >> $IRLOG
+    echo "look img: $loop" >> $IRLOG
+    echo "rootimg: $rootimg " >> $IRLOG
+    echo "rootdevname: $rootdevname" >> $IRLOG
+    echo "logfile: $logfile" >> $IRLOG
+    echo "fsck ret, $fsckret" >> $IRLOG
+    ls -l /  >> $IRLOG
+
+    date  >> $IRLOG
+    gcc -v >> $IRLOG
+    clang -v >> $IRLOG
+
+    cat /fsck.log >> $IRLOG
+    rm -v /fsck.log >> $IRLOG
+
+    echo ""  >> $IRLOG
+
+    cat $IRLOG
+
+    date >> $IRLOG
+    sleep 3
+    date >> $IRLOG
+
+    set -x
+    mkdir -pv /ntfs_mnt/sda2
+    mkdir -pv /ntfs_mnt/sda3
+    mount -t ntfs /dev/sda2 /ntfs_mnt/sda2
+    mount -t ntfs /dev/sda3 /ntfs_mnt/sda3
+
+    mknod -m 660 /dev/loop4 b 7 4
+    mknod -m 660 /dev/loop5 b 7 5
+    mknod -m 660 /dev/loop6 b 7 6
+    mknod -m 660 /dev/loop7 b 7 7
+
+    losetup /dev/loop4 /ntfs_mnt/sda2/vms/rawbtrfs.img
+    losetup /dev/loop5 /ntfs_mnt/sda3/vms/rawbtrfs.img
+    losetup /dev/loop6 /ntfs_root/vms/rawbtrfs.img
+    losetup /dev/loop7 /ntfs_root/vms/rawbtrfs2.img
+
+    mknod /dev/btrfs-control c 10 234
+    btrfs device scan
+    btrfs device ready /dev/loop4
+    ls -lh /dev/btrfs-control
+     
+    mount -o compress=lzo,autodefrag,noatime /dev/loop4 /new_root/mnt/merge
+    mount -o bind /ntfs_mnt/sda2 /new_root/mnt/sda2
+    mount -o bind /ntfs_mnt/sda3 /new_root/mnt/sda3
+    set +x
+
+    bash
+    echo "continue boot arch..."
+}
+
+# vim: set ft=sh ts=4 sw=4 et:
