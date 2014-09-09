@@ -2,9 +2,9 @@
 
 /*
 
-  需要给PHP添加StdClass一个__call方法
-  代码块传递
-  轻量级eval
+  需要给PHP添加StdClass一个__call方法 -- OK
+  代码块传递  --semiOK
+  轻量级eval --OK
  */
 
 class Math
@@ -141,6 +141,7 @@ class Funt
     // body必须是有返回值的语句，不能使用echo语句
     // lambda语法的parser
     // @return Closure object
+    // TODO lambda的缓存优化,memorize内存化
     public static function lambda($body)
     {
         $margs_str = trim(explode('->', $body)[0]);
@@ -191,6 +192,32 @@ class Funt
     {
 
     }
+
+    public static function lazy()
+    {
+
+    }
+
+    // 局部应用函数
+    public static function apply($afun, ...$args)
+    {
+        return function (...$args2) use ($afun, $args) {
+            return $afun(...$args, ...$args2);
+        };
+    }
+
+    public static function applyLeft($afun, ...$args)
+    {
+        return self::apply($afun, ...$args);
+    }
+
+    public static function applyRight($afun, ...$args)
+    {
+        return function (...$args2) use ($afun, $args) {
+            return $afun(...$args2, ...$args);
+        };
+    }
+
 };
 
 // High Order Functions
@@ -223,6 +250,26 @@ class Lambda
         
     }
 };
+
+class Macro
+{
+    public function def($name, $rules, $syntax)
+    {
+        
+    }
+
+    public function run($macexp)
+    {
+        
+    }
+
+    public static function test()
+    {
+        
+    }
+};
+Macro::test();
+
 
 class String
 {
@@ -686,7 +733,6 @@ function O($var)
             }
         };
     }
-    
 
     $obj = new __StdClass($var);
 
@@ -724,8 +770,33 @@ function OTest() {
 
 OTest();
 
+// test partial apply
+$afun = function ($x, $y) {
+    var_dump($x, $y);
+};
+
+$partial_fun = Funt::apply($afun, "abc");
+var_dump($partial_fun("efg")); // should == var_dump("abc", "efg");
+
+$partial_right_fun = Funt::applyRight($afun, "abc");
+var_dump($partial_right_fun("efg")); // should == var_dump("efg", "abc");
+
+var_dump($partial_fun, $partial_right_fun);
 
 
+// test closure bind
+echo('Test closure bind...' . "\n");
+$a = new __StdClass(0);
+$f = function ($x) {
+};
+var_dump($a);
+$f2 = $f->bindTo($a, '__StdClass');
+// i see.
+
+    
+var_dump($f, $f2, $a);
+
+// test map
 $arr = array('fdjiefwf', '123');
 
 Funt::map($arr, function($k, $v) { echo "$k -> $v \n";});
@@ -771,9 +842,30 @@ $arr = function() {
   forall 
   count
   *filter 返回一个小于等于原list的新list。
-  
+
+  monadic law:
+  1、bind(unit(x), f) ≡ f(x)
+  2、bind(m, unit) ≡ m
+  3、bind(bind(m, f), g) ≡ bind(m, x ⇒ bind(f(x), g))
+
+  第一条比较好理解，第二条中，unit不是一个函数，怎么能够作为bind的参数呢？
+  第三条是结合顺序无关性。
  */
 
+/*
+  函数式编程语言特性：
+  模式匹配
+  局部套用
+  列表推导
+  函数为一等公民
+  高阶函数
+  lazy惰性计算
+  lambda表达式
+  
+  ///
+  内存化
+  无副作用
+ */
 /*
   从functionaljava学习函数式编程
   函数式编程概念：
@@ -785,7 +877,7 @@ $arr = function() {
   monads: 单体，传说中非常难的一个函数式语言主题。序列化/管道化。数据库方式表达状态变化。
   半群，幺半群
   map函数：在遍历的每个元素上应用某个函数，返回相同数目的相同类型的集合，该集合是一个新的集合，还不是修改的原来的集合。
-  
+  curry将一个接收多个参数的函数l转换为函数的链式调用，链条中每个函数接收单个参数。
 
   phpng可能有的特性，
   正式发布的版本号为PHP7.0，但有些优化可能反抽合并到5.x,6.x版本。
@@ -794,6 +886,26 @@ $arr = function() {
   await 异步编程关键字
   完全线程安全
 
+  java语言这半路货函数式特性，可能带来新一轮java热潮。
+  让ruby，haskell，javascript这些函数式特性丰富的语言呢。
+  java与go一样，限制大，自由小，适合工业开发，但算无聊语言。
+  工业语言要求是不同水平的人写出的代码风格差异不大。
+
+  关于开发语言的限制与灵活，经历了几次大潮流的变化，
+  从70,80年代及以前，做开发的人并不多，而且项目规模普遍还不会太大，
+  人员的素质容易保证，所以这个时代出的语言都是以灵活性著称的，像C等。
+  而到了90年代，由于项目规模的扩大，开发人员的大量扩充，开发人员素质难以保证，
+  这时候出现了一些限制性语言，像java,python。
+  不过在90年代，灵活性著称的语言也发展到了顶峰，像C++,perl,php等。
+  到00年后，可以算作是限制与灵活性的折衷期，所有出的语言具有特性丰富，
+  适合工业级开发使用，像scala,closure等。
+  go语言就算了吧，特性少还限制多，想做工业级、系统级的C语言，这是它的定位吧。
+ 
+
+  用ruby,java,php,实现同一套框架。尽量接近函数式的方法。
+  在没有花不完的钱之前，不建议大规模使用java语言做主要的开发语言。
+  不能用自身实现自身的编程语言不是好语言。
+  
 
   http://www.qtchina.tk/?q=node/825
   PHP中的函数式编程特性分析
