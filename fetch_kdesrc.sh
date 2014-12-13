@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-KDE_VER=4.14.0
+KDE_VER=4.14.3
 #KDE_VER=4.10.95
 LAST_VER=`echo "$KDE_VER" | awk -F. '{print $3}'`
 
