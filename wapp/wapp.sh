@@ -1,10 +1,20 @@
 #!/bin/sh
 
 # usage:
-# ln -sv wapp.sh /usr/bin/weixin
-# ln -sv wapp.sh /usr/bin/nitro
+# ln -sv `readlink -f wapp.sh` /usr/bin/weixin
+# ln -sv `readlink -f wapp.sh` /usr/bin/nitro
+# ...
 
 USER_DATA_DIR_BASE=$HOME/.config/wapp
+
+function help()
+{
+    echo "Usage:";
+    echo "    First, link to app name:"
+    echo "        ln -sv `readlink -f $0` /usr/bin/nitro";
+    echo "    Second, run it:"
+    echo "        nitro"
+}
 
 function init()
 {
@@ -15,6 +25,11 @@ function init()
 function main()
 {
     app=$(basename $0)
+    rname=$(basename $(readlink -f $0))
+    if [ x"$app" == x"$rname" ] ; then
+        help && exit 1;
+    fi
+    
     echo "running app: $app"
     APP_DIR="${USER_DATA_DIR_BASE}/${app}";
     # echo $APP_DIR;
@@ -25,6 +40,7 @@ function main()
     elif [ x"$app" == x"weixin" ] ; then
         APP_URL=https://wx.qq.com/
     else
+        help
         echo "Unknown app:$app";
         exit 1;
     fi
