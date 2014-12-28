@@ -44,10 +44,13 @@ function main()
         echo "Unknown app:$app";
         exit 1;
     fi
-    
-    chromium --user-data-dir=$APP_DIR --app=$APP_URL #--incognito
+
+    # clean and mini env
+    EXTRA_ARGS="--no-sandbox"
+    chromium --user-data-dir=$APP_DIR --app=$APP_URL $EXTRA_ARGS #--incognito
 }
 
 init && main
 
-
+# List of Chromium Command Line Switches
+# http://peter.sh/experiments/chromium-command-line-switches/
