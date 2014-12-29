@@ -32,5 +32,34 @@ int main(int argc, char *argv[])
     a.setWindowIcon(ico);
 
     we.showMaximized();
+
+    // systray 菜单
+    auto *menu = sti.contextMenu();
+    menu = new QMenu();
+    auto *act_exit = menu->addAction("&Exit");
+    auto *act_xdg = menu->addAction(QString("&Open %1 in browser").arg(a.applicationName()));
+
+    QObject::connect(act_exit, &QAction::triggered, &a, &QApplication::quit);
+    QObject::connect(act_xdg, &QAction::triggered, [&url] () {
+        QProcess::startDetached(QString("xdg-open \"%1\"").arg(url));
+    });
+
+    QObject::connect(&sti, &QSystemTrayIcon::activated,
+                     [&we, &sti, menu] (QSystemTrayIcon::ActivationReason reason) {
+        qDebug()<<"acitved:"<<reason<<menu;
+
+        switch (reason) {
+        case QSystemTrayIcon::Trigger:
+            we.isVisible() ? we.hide() : we.show();
+            break;
+        case QSystemTrayIcon::DoubleClick:
+            break;
+        case QSystemTrayIcon::Context:
+            if (menu) menu->popup(sti.geometry().topRight());
+            break;
+        default: break;
+        }
+    });
+
     return a.exec();
 }
