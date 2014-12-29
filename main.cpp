@@ -46,7 +46,6 @@ int main(int argc, char *argv[])
 
     QObject::connect(&sti, &QSystemTrayIcon::activated,
                      [&we, &sti, menu] (QSystemTrayIcon::ActivationReason reason) {
-        qDebug()<<"acitved:"<<reason<<menu;
 
         switch (reason) {
         case QSystemTrayIcon::Trigger:
