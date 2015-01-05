@@ -8,14 +8,6 @@ subcmd=$1
 ARGV=$@
 ARGC=$#
 
-STR_ARGV=""
-for arg in "$@" ; do
-    STR_ARGV="${STR_ARGV} \"${arg}\""
-done
-#echo $STR_ARGV
-#exit;
-
-
 function run_with_mine()
 {
     echo "Note: run with mine...";
@@ -85,7 +77,6 @@ if [ x"$subcmd" == x"commit" ] ; then
     
     set -x
     # run real git command now.
-    # $GIT $STR_ARGV
     $GIT "$@"
 else
     $GIT "$@"
