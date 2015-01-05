@@ -60,16 +60,25 @@ function run_with_didi()
     $GIT config --global user.name gzleo
 }
 
+function cleanup_with_user()
+{
+    $GIT config --global --unset user.email
+    $GIT config --global --unset user.name
+}
+
 if [ x"$subcmd" == x"commit" ] ; then
+    cleanup_with_user;
+    
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
     # git repo url
     # echo $origin
-    (echo $origin | grep "git.xiaojukeju.com") && run_with_work;
-    (echo $origin | grep "git.leju.com") && run_with_sina;
 
-    (echo $origin | grep "github.com") && run_with_mine;
-    (echo $origin | grep "bitbucket.com")  && run_with_mine;
-    (echo $origin | grep "git.oschina.net")  && run_with_mine;
+    [ x"$origin" == x"" ] && run_with_mine;    
+    a=$(echo $origin | grep "git.xiaojukeji.com") && run_with_didi;
+    a=$(echo $origin | grep "git.leju.com") && run_with_leju;
+    a=$(echo $origin | grep "github.com") && run_with_mine;
+    a=$(echo $origin | grep "bitbucket.org")  && run_with_mine;
+    a=$(echo $origin | grep "git.oschina.net")  && run_with_mine;
 
     user_name=$($GIT config --global user.name);
     user_email=$($GIT config --global user.email);
@@ -78,6 +87,9 @@ if [ x"$subcmd" == x"commit" ] ; then
     # set -x
     # run real git command now.
     $GIT "$@"
+    # echo "dryrun... $GIT $@";
+
+    cleanup_with_user;
 else
     $GIT "$@"
 fi
