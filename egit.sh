@@ -79,6 +79,10 @@ if [ x"$subcmd" == x"commit" ] ; then
     (echo $origin | grep "bitbucket.com")  && run_with_mine;
     (echo $origin | grep "git.oschina.net")  && run_with_mine;
 
+    user_name=$($GIT config --global user.name);
+    user_email=$($GIT config --global user.email);
+    echo "Using author: ${user_name} <${user_email}";
+    
     set -x
     # run real git command now.
     # $GIT $STR_ARGV
