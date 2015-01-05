@@ -75,7 +75,7 @@ if [ x"$subcmd" == x"commit" ] ; then
     user_email=$($GIT config --global user.email);
     echo "Using author: ${user_name} <${user_email}>...";
     
-    set -x
+    # set -x
     # run real git command now.
     $GIT "$@"
 else
