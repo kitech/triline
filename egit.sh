@@ -1,23 +1,35 @@
 #!/bin/sh
 
+### Usage:
+# alias git=$HOME/myscripts/egit.sh
+
 GIT=/usr/bin/git
 subcmd=$1
 ARGV=$@
+ARGC=$#
+
+STR_ARGV=""
+for arg in "$@" ; do
+    STR_ARGV="${STR_ARGV} \"${arg}\""
+done
+#echo $STR_ARGV
+#exit;
+
 
 function run_with_mine()
 {
     echo "Note: run with mine...";
 
-    rdn=$RANDOM
-    idx=$(expr $rdn % 3)
+    rdn=$RANDOM # bash builtin variable
+    idx=$(expr $RANDOM % 3)
 
     email=
     if [ x"$idx" == x"2" ] ; then
         email=liuguangzhao@users.sf.net
     elif [ x"$idx" == x"1" ] ; then
-        email=drswinghead@163.com        
+        email=drswinghead@163.com
     else
-        email=drswinghead@gmail.com        
+        email=drswinghead@gmail.com
     fi
 
     if [ x"$email" == x"" ] ; then
@@ -40,9 +52,6 @@ function run_with_mine()
         echo "git config --global error.";
         exit;
     fi
-
-    # run real git command now.
-    $GIT $ARGV
 }
 
 function run_with_leju()
@@ -63,14 +72,18 @@ if [ x"$subcmd" == x"commit" ] ; then
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
     # git repo url
     # echo $origin
-    (echo $origin | grep "git.xiaojukeju.com") && (run_with_work || exit);
-    (echo $origin | grep "git.leju.com") && (run_with_sina || exit);
+    (echo $origin | grep "git.xiaojukeju.com") && run_with_work;
+    (echo $origin | grep "git.leju.com") && run_with_sina;
 
-    (echo $origin | grep "github.com")
-    (echo $origin | grep "bitbucket.com")
-    (echo $origin | grep "git.oschina.net")
-    run_with_mine;
+    (echo $origin | grep "github.com") && run_with_mine;
+    (echo $origin | grep "bitbucket.com")  && run_with_mine;
+    (echo $origin | grep "git.oschina.net")  && run_with_mine;
+
+    set -x
+    # run real git command now.
+    # $GIT $STR_ARGV
+    $GIT "$@"
 else
-    $GIT $@
+    $GIT "$@"
 fi
 
