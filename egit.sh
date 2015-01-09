@@ -64,6 +64,7 @@ function cleanup_with_user()
 {
     $GIT config --global --unset user.email
     $GIT config --global --unset user.name
+    $GIT config --global --remove-section user
 }
 
 if [ x"$subcmd" == x"commit" ] ; then
