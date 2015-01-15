@@ -26,6 +26,11 @@ void MainWindow::on_pushButton_clicked()
     QString SESSION_TOKEN = "966D2373534B733BA75A6FCA77C14445";
     QString LoginType = "Explicit";
 
+    if (password.isEmpty()) {
+        this->ui->plainTextEdit->appendPlainText("password can not empty.");
+        return;
+    }
+
     QNetworkAccessManager *nam = new QNetworkAccessManager();
     QNetworkRequest req(url);
     QString data = QString("user=%1&").arg(user_name)
