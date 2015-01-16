@@ -3,6 +3,10 @@
 ### Usage:
 # alias git=$HOME/myscripts/egit.sh
 
+###
+# 自动检测git项目路径，动态智能设置提交用户名与邮件
+# 
+
 GIT=/usr/bin/git
 subcmd=$1
 ARGV=$@
