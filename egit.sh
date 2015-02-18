@@ -67,7 +67,7 @@ function cleanup_with_user()
     $GIT config --global --remove-section user
 }
 
-if [ x"$subcmd" == x"commit" ] ; then
+if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] ; then
     cleanup_with_user;
     
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
@@ -80,6 +80,7 @@ if [ x"$subcmd" == x"commit" ] ; then
     a=$(echo $origin | grep "github.com") && run_with_mine;
     a=$(echo $origin | grep "bitbucket.org")  && run_with_mine;
     a=$(echo $origin | grep "git.oschina.net")  && run_with_mine;
+    a=$(echo $origin | grep "kde.org")  && run_with_mine;
 
     user_name=$($GIT config --global user.name);
     user_email=$($GIT config --global user.email);
