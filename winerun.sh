@@ -34,6 +34,17 @@ function cleanup_wine_programs()
             kill -9 $pid;
         done
     fi
+
+    pids=$(ps aux|grep "defunct"|grep -v grep|awk '{print $2}')
+    echo $pids
+    if [ x"$pids" != x"" ] ; then
+        for pid in $pids ; do
+            true;
+            kill -9 $pid;
+            kill -9 $pid;
+            kill -9 $pid;
+        done
+    fi
 }
 
 function cleanup_wine_process()
@@ -108,6 +119,18 @@ function runverb_QQGame()
     wine "C:/Program Files/Tencent/QQGame/QQGame.exe"
 }
 
+function runverb_evernote()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/evernote
+    wine "C:/Program Files/Evernote/Evernote/Evernote.exe"
+}
+
+function runverb_ynote()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/ynote
+    wine "C:/Program Files/Youdao/YoudaoNote/YoudaoNote.exe"
+}
+
 ### main
 if [ x"$act" == x"" ] ; then
     echo "Need least one argument";
@@ -133,6 +156,10 @@ else
         runverb_THS;
     elif [ x"$act" == x"QQGame" ] ; then
         runverb_QQGame;
+    elif [ x"$act" == x"evernote" ] ; then
+        runverb_evernote;
+    elif [ x"$act" == x"ynote" ] ; then
+        runverb_ynote;
     else
         echo "Not impled: $act";
     fi

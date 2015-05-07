@@ -2,10 +2,22 @@
 
 ### Usage:
 # alias git=$HOME/myscripts/egit.sh
+#
+# git config --get custom.private
+# git config --set custom.private false|true
+#
 
 ###
 # 自动检测git项目路径，动态智能设置提交用户名与邮件
+# TODO 支持同步提交到github,bitbucket,oschina,gitcafe
+# TODO 其中bitbucket和gitcafe只提交公开项目。
+# TODO 把托管分为两个功能，一个是私有项目类型，只提交到bitbucket和oschina
+# TODO 另一个公开项目，把项目提交到全部4个托管站点上。
 # 
+
+### ChangeLog
+# 2015-05-07 支持不同站点间的仓库镜像提交
+
 
 GIT=/usr/bin/git
 subcmd=$1
@@ -96,6 +108,57 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     # echo "dryrun... $GIT $@";
 
     cleanup_with_user;
+elif [ x"$subcmd" == x"push" ] ; then
+    # 自动镜像提交
+    true;
+
+    priv=$(git config --get custom.private)
+    echo "is priv: $priv";
+    brch=$(git branch)
+    echo "cur branch: $brch"
+    a3="ffffff"
+    echo "$@, $1 $2 $3 $4"
+    echo "============"
+
+    # origin push
+    $GIT "$@"
+    # others push
+    for rs in `git remote` ; do
+        true;
+        echo "process remote: $rs ...";
+
+        if [ x"$priv" == x"false" ] ; then
+            true;
+            if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
+                newargs=
+                for arg in "$@" ; do
+                    # echo "argx: $arg";
+                    if [ x"$arg" == x"origin" ] ; then
+                        arg=$rs
+                    fi
+                    newargs="$newargs $arg"
+                done
+                echo "Runing $GIT $newargs"
+                $GIT $newargs
+                true;
+            fi
+        else
+            true;
+            if [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
+                true;
+                newargs=
+                for arg in "$@" ; do
+                    # echo "argx: $arg";
+                    if [ x"$arg" == x"origin" ] ; then
+                        arg=$rs
+                    fi
+                    newargs="$newargs $arg"
+                done
+                echo "Runing $GIT $newargs"                
+                $GIT $newargs
+            fi
+        fi
+    done
 else
     $GIT "$@"
 fi
