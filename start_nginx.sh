@@ -1,6 +1,6 @@
 #!/bin/sh
 
-nginx -c /serv/etc/nginx.conf
+nginx -c /srv/etc/nginx.conf
 
 
 
