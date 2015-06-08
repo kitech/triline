@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+echo "127.0.0.1 mysql-n"
+
 # mysql_install_db --user=mysql --basedir=/usr --datadir=/srv/var/mysql
 
 
