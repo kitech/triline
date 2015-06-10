@@ -9,7 +9,7 @@ qcow2_disk_path=/mnt/sda6/vms/datastore.qcow2
 set -x
 function vdfuse_mount()
 {
-    vdfuse -v -w -a -f /mnt/sda6/vms/datastore.vdi /mnt/vdfuse/
+    vdfuse -v -r -a -f /mnt/sda6/vms/datastore.vdi /mnt/vdfuse/
     ntfs-3g -o ro /mnt/vdfuse/Partition1 /mnt/vsd1
 }
 
