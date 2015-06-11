@@ -1,0 +1,6 @@
+#!/bin/sh
+#ssh -o ProxyCommand="/path/to/socks5proxywrapper %h %p" "$@"
+ssh -o ProxyCommand="$HOME/myscripts-svn/socks5proxywrapper %h %p" "$@"
+
+# 用法
+# export GIT_SSH="/path/to/socks5proxyssh“

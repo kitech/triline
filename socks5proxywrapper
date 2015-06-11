@@ -1,0 +1,5 @@
+#!/bin/sh
+#socks
+#connect -S 127.0.0.1:7070 "$@"
+#http
+connect -H 127.0.0.1:8117 "$@"
