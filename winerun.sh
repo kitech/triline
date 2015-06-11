@@ -95,6 +95,12 @@ function runverb_qq()
     wine "C:/Program Files/Tencent/QQ/Bin/QQ.exe"
 }
 
+function runverb_weixin()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/qq
+    wine "C:/Program Files/Tencent/WeChat/WeChat.exe"
+}
+
 function runverb_meitu()
 {
     export WINEPREFIX=$HOME/.local/share/wineprefixes/meitu
@@ -148,6 +154,8 @@ else
         runverb_qqlight;
     elif [ x"$act" == x"qq" ] ; then
         runverb_qq;
+    elif [ x"$act" == x"weixin" ] ; then
+        runverb_weixin;
     elif [ x"$act" == x"meitu" ] ; then
         runverb_meitu;
     elif [ x"$act" == x"edraw" ] ; then

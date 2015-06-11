@@ -90,7 +90,9 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     # git repo url
     # echo $origin
 
-    [ x"$origin" == x"" ] && run_with_mine;    
+    [ x"$origin" == x"" ] && run_with_mine;
+    ### fix just local git storage file:///some/path
+    a=$(echo $origin | grep "^/home/") && run_with_mine;
     a=$(echo $origin | grep "git.xiaojukeji.com") && run_with_didi;
     a=$(echo $origin | grep "git.leju.com") && run_with_leju;
     a=$(echo $origin | grep "github.com") && run_with_mine;
