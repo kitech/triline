@@ -13,8 +13,10 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+    mainwindow.cpp \
+    debugoutput.cpp
 
-HEADERS  += mainwindow.h
+
+HEADERS  += mainwindow.h debugoutput.h
 
 FORMS    += mainwindow.ui

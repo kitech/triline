@@ -23,7 +23,7 @@ void MainWindow::on_pushButton_clicked()
 
     QString user_name = this->ui->comboBox->currentText().trimmed();
     QString password = this->ui->lineEdit_2->text();
-    QString SESSION_TOKEN = "966D2373534B733BA75A6FCA77C14445";
+    QString SESSION_TOKEN = "9FFD14CFE9B8ED5D0D07DFA9B8FCAFA6"; // "966D2373534B733BA75A6FCA77C14445";
     QString LoginType = "Explicit";
 
     if (password.isEmpty()) {
@@ -34,10 +34,11 @@ void MainWindow::on_pushButton_clicked()
     QNetworkAccessManager *nam = new QNetworkAccessManager();
     QNetworkRequest req(url);
     QString data = QString("user=%1&").arg(user_name)
-            + QString("SESSION_TOKEN=%1&").arg(SESSION_TOKEN)
-            + QString("LoginType=%1&").arg(LoginType)
-            + QString("password=%1").arg(password);
+        + QString("SESSION_TOKEN=%1&").arg(SESSION_TOKEN)
+        + QString("LoginType=%1&").arg(LoginType)
+        + QString("password=%1").arg(password);
 
+    qDebug()<<data;
     QNetworkReply *reply = nam->post(req, data.toLatin1());
 //    connect(reply, &QNetworkReply::finished, [reply] () {
 //        qDebug()<<"request finished."<<reply->rawHeaderList()
@@ -54,20 +55,27 @@ void MainWindow::on_pushButton_clicked()
         QNetworkRequest req = reply->request();
         QString  reqpath = reply->request().url().path();
         qDebug()<<reply->attribute(QNetworkRequest::HttpStatusCodeAttribute)
-               <<reply->header(QNetworkRequest::ContentLengthHeader);
+        <<reply->header(QNetworkRequest::ContentLengthHeader)
+        << req.url() << req.url().query() << req.url().hasQuery();
+        
         if (reqpath.startsWith("/Citrix/XenApp/auth/login.aspx")) {
-            QString loc = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
-            QVariant cookie = reply->header(QNetworkRequest::SetCookieHeader);
-            QVariant cookie2 = reply->header(QNetworkRequest::CookieHeader);
+            // /Citrix/XenApp/auth/login.aspx%3FCTX_MessageType=ERROR&CTX_MessageKey=InvalidCredentials
+            if (reqpath.indexOf("CTX_MessageType=ERROR") >= 0) {
+                reqpath = reqpath.replace("%3F", "?");
+                qDebug()<<"has error:"<<QUrl(reqpath).query();
+            } else {
+                QString loc = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
+                QVariant cookie = reply->header(QNetworkRequest::SetCookieHeader);
+                QVariant cookie2 = reply->header(QNetworkRequest::CookieHeader);
 
-            qDebug()<<loc<<cookie<<cookie2<<nam->cookieJar()->cookiesForUrl(url);
+                qDebug()<<loc<<cookie<<cookie2<<nam->cookieJar()->cookiesForUrl(url);
 
-            QUrl newurl = url;
-            newurl.setPath(loc);
-            QNetworkRequest newreq(newurl);
+                QUrl newurl = url;
+                newurl.setPath(loc);
+                QNetworkRequest newreq(newurl);
 
-            nam->get(newreq);
-
+                nam->get(newreq);
+            }
         } else if (reqpath.startsWith("/Citrix/XenApp/site/default.aspx")) {
             qDebug()<<"to be impled";
             QByteArray html = reply->readAll();
