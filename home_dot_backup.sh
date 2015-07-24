@@ -1,8 +1,12 @@
 #!/bin/sh
 
-set -x 
 
+
+### backup dir $HOME/backup/
+
+set -x 
 CPWD=`pwd`
+bakdir=$HOME/backup
 
 cd $HOME
 
