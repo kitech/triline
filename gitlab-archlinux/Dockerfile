@@ -9,5 +9,17 @@ ADD . /
 # RUN /tmp/buildroot/bootstrap.sh
 RUN  /bootstrap.sh
 
-EXPOSE 8009
+VOLUME ["/home/git/repositories", "/home/git/gitlab-satellites"]
+# VOLUME /home/git/gitlab/log
 
+EXPOSE 8009 80 443 22
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["gitlab-server"]
+
+
+
+### readme
+### just docker run somehex 
+### 

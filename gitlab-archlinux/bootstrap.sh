@@ -26,10 +26,13 @@ function install_deps()
     # pacman-key --populate archlinux
     # pacman-key --populate manjaro
     # pacman-key --refresh-keys
-    # pacman -Syy
-    pacman -S --noconfirm ruby mariadb-clients nginx git postfix nodejs redis
+    pacman -Syy
+    pacman -S --noconfirm sudo ruby mariadb-clients nginx git postfix nodejs redis vim cronie
     # pacman -U --noconfirm /var/cache/pacman/pkg/*.xz
-
+    ret=$?
+    if [ x"$ret" != x"0" ] ; then
+        exit $ret;
+    fi
 }
 # install_deps;
 
@@ -80,20 +83,32 @@ function install_gitlab_shell()
 function install_extra_post()
 {
     true;
+    # sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production GITLAB_ROOT_PASSWORD=yourpassword
+    # sudo -u git -H bundle exec rake gitlab:env:info RAILS_ENV=production
+    # sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production
     cp -va /home/git/gitlab/lib/support/init.d /etc/
     ln -sv /home/git/.gem/ruby/2.2.0/bin/bundle /usr/bin/
+    cp -va /etc/nginx/nginx.conf.pacorig /etc/nginx/nginx.conf
+    cp -va /etc/pam.d/crond{.pacorig,}
+    cp -va /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-    echo "" >> /etc/hosts
-    echo "10.97.198.249  gitlab-redis-n" >> /etc/hosts
-    echo "10.97.198.249  gitlab-mysql-n" >> /etc/hosts
+    # move to /entrypoint.sh
+    # echo "" >> /etc/hosts
+    # echo "10.97.198.249  gitlab-redis-n" >> /etc/hosts
+    # echo "10.97.198.249  gitlab-mysql-n" >> /etc/hosts
 
 }
 
 function cleanup_env()
 {
     true;
-    pacman -R --no-confirm sudo vim vim-runtime gcc
-    rm -f /var/cache/pacman/pkg/*.xz
+    # pacman -R --no-confirm vim vim-runtime
+    # pacman -R --no-confirm sudo gcc
+    # rm -f /var/cache/pacman/pkg/*.xz
+    find /var/cache/pacman/pkg/ -name "*.xz" | xargs rm -f
+    rm -fr /usr/share/doc/postfix/
+    # rm -f  /usr/share/man/man{1,5,8}/*.gz
+    find /usr/share/man/ -name "*.gz" | xargs rm -f
 }
 # cleanup_env;
 
@@ -105,6 +120,16 @@ function install_all()
     
     install_extra_post;
     cleanup_env;
+}
+
+function make_sslkeys()
+{
+    openssl genrsa -out server.key 2048
+    openssl req -new -key server.key -out server.csr -sha256
+    openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+    # openssl req -newkey rsa:2048 -x509 -nodes -days 3560 -out gitlab.crt -keyout gitlab.key
+    true;
 }
 
 install_all;
