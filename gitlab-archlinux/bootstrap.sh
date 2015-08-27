@@ -13,6 +13,7 @@ function install_user()
     groupadd -g 997 git
     # useradd -g 997 -d /home/git -m git
     useradd -g 997 -u 997 -d /home/git -m git
+    passwd -d git
     id git
     chown git.git -R /home/git
 }
@@ -27,12 +28,15 @@ function install_deps()
     # pacman-key --populate manjaro
     # pacman-key --refresh-keys
     pacman -Syy
-    pacman -S --noconfirm sudo ruby mariadb-clients nginx git postfix nodejs redis vim cronie
+    pacman -S --noconfirm sudo ruby mariadb-clients nginx git postfix nodejs redis vim cronie openssh
+    pacman -Su --noconfirm
     # pacman -U --noconfirm /var/cache/pacman/pkg/*.xz
     ret=$?
     if [ x"$ret" != x"0" ] ; then
         exit $ret;
     fi
+
+    /usr/bin/ssh-keygen -A
 }
 # install_deps;
 
@@ -88,6 +92,7 @@ function install_extra_post()
     # sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production
     cp -va /home/git/gitlab/lib/support/init.d /etc/
     ln -sv /home/git/.gem/ruby/2.2.0/bin/bundle /usr/bin/
+    cp -va /etc/ssh/sshd_config.pacorig /etc/ssh/sshd_config
     cp -va /etc/nginx/nginx.conf.pacorig /etc/nginx/nginx.conf
     cp -va /etc/pam.d/crond{.pacorig,}
     cp -va /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

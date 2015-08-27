@@ -11,11 +11,24 @@ function smart_hosts()
 {
     if [ ! -f "/etc/hosts.orig" ] ; then
         cp -va /etc/hosts{,.orig}
-
-        echo "" >> /etc/hosts
-        echo "10.97.198.249  gitlab-redis-n" >> /etc/hosts
+    fi
+    
+    echo "" >> /etc/hosts
+    if [ "$MYSQL_HOST" ] ; then
+        echo "$MYSQL_HOST  gitlab-mysql-n" >> /etc/hosts
+    else
         echo "10.97.198.249  gitlab-mysql-n" >> /etc/hosts
     fi
+
+    if [ "$REDIS_HOST" ] ; then
+        echo "$REDIS_HOST  gitlab-redis-n" >> /etc/hosts
+    else
+        echo "10.97.198.249  gitlab-redis-n" >> /etc/hosts
+    fi
+
+    # for gitlab-shell api call
+    echo "127.0.0.1 git.coc.io" >> /etc/hosts
+    
     true;
 }
 
@@ -51,6 +64,8 @@ smart_hosts;
 if [ "$1" = 'gitlab-server' ]; then
     init_gitlab_db;
 
+    /usr/bin/ssh-keygen -A
+    /usr/bin/sshd
     /usr/bin/crond  # -i -n -s
     /usr/bin/postfix start   # stop|reload
     /etc/init.d/gitlab restart
