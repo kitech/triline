@@ -68,8 +68,28 @@ arch-chroot $ROOTFS /bin/sh -c "haveged -w 1024; pacman-key --init; pkill havege
 arch-chroot $ROOTFS /bin/sh -c "ln -s /usr/share/zoneinfo/UTC /etc/localtime"
 echo 'en_US.UTF-8 UTF-8' > $ROOTFS/etc/locale.gen
 arch-chroot $ROOTFS locale-gen
-arch-chroot $ROOTFS /bin/sh -c 'echo "# Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+
+### deep cleanup, deep minimize it
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'unlink /etc/localtime'
+arch-chroot $ROOTFS /bin/sh -c "cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime"
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/man/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/doc/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/info/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/i18n/*'
+arch-chroot $ROOTFS /bin/sh -c 'cd /usr/share/locale/ && ls | grep -v en_US| grep -v locale.alias|xargs rm -r'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/{share,lib}/perl5/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/bin/core_perl/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/zoneinfo/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/iana-etc/*'
+# Keep only xterm related profiles in terminfo.
+arch-chroot $ROOTFS /bin/sh -c 'find /usr/share/terminfo/. ! -name "*xterm*" ! -name "*screen*" ! -name "*screen*" -type f -delete'
+arch-chroot $ROOTFS /bin/sh -c 'find /usr/share/texinfo/. -name "*.pm" -type f -delete'
+arch-chroot $ROOTFS /bin/sh -c 'find /usr/lib/. -name "*.a" -type f -delete'
+# arch-chroot $ROOTFS /bin/sh -c 'rm -f /var/lib/pacman/sync/*'
+
 
 # udev doesn't work in containers, rebuild /dev
 DEV=$ROOTFS/dev
