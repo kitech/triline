@@ -2,4 +2,9 @@
 #socks
 #connect -S 127.0.0.1:7070 "$@"
 #http
-connect -H 127.0.0.1:8117 "$@"
+
+SELF=$(readlink -f $0)
+
+set -x
+echo "$SELF..."
+/usr/bin/connect -H 127.0.0.1:8117 "$@"

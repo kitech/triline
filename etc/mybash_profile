@@ -30,6 +30,9 @@ AKKA_LIB=$HOME/jars/akka-2.3.8/lib/akka
 JAR_EXTS=$JAVA_HOME/jre/lib/ext:$AKKA_LIB
 
 export DTPXY=127.0.0.1:8117
+export GIT_SSH=$HOME/myscripts/socks5proxyssh
+export GIT_TRACE=0
+export GIT_CURL_VERBOSE=0
 
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
