@@ -119,7 +119,7 @@ if [ "$1" = 'dktoxsrv' ]; then
     # looping
     echo "$(hostname) started at $(date)"
     # while true; do sleep 9876543210; done;
-    while true; relax_tail_sleep;
+    while true; relax_tail_sleep; done;
 else
     exec "$@"
 fi
