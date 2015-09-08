@@ -29,7 +29,7 @@ function install_deps()
     # pacman-key --refresh-keys
     pacman -Syy
     # pacman -S --noconfirm sudo ruby mariadb-clients nginx git postfix nodejs redis vim cronie openssh
-    pacman -S --noconfirm git toxcore
+    pacman -S --noconfirm git toxcore dbus python nginx python-pyqt5
     # pacman -Su --noconfirm
     # pacman -U --noconfirm /var/cache/pacman/pkg/*.xz
     ret=$?
@@ -40,6 +40,21 @@ function install_deps()
     /usr/bin/ssh-keygen -A
 }
 # install_deps;
+
+
+#######
+function sync_wxagent()
+{
+    cd /
+    url='https://git.oschina.net/kitech/mkuse.git'
+    if [ -d mkuse ] ; then
+        cd mkuse
+        git pull
+        cd ..
+    else
+        git clone $url
+    fi
+}
 
 ###
 GITHOME=/home/git
@@ -123,7 +138,9 @@ function install_all()
 {
     install_user;
     install_deps;
-    
+
+    sync_wxagent;
+
     # install_extra_post;
     cleanup_env;
 }
@@ -139,7 +156,9 @@ function make_sslkeys()
 }
 
 install_all;
-echo "Install gitlab done.";
+echo "Install dktox done.";
 
 
+# TODO
+# who depends systemd/llvm
 

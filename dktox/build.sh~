@@ -31,7 +31,7 @@ function pre_build()
     confirm_local_gitlab;
     sync_gitlab;
 }
-# pre_build;
+pre_build;
 
 # because home/git is not readable for gzleo user
 sudo docker build .

@@ -71,6 +71,9 @@ arch-chroot $ROOTFS locale-gen
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
 
 ### deep cleanup, deep minimize it
+echo 'LANG=en_US.UTF-8' > $ROOTFS/etc/locale.conf
+echo 'LANG=en_US.UTF-8' > $ROOTFS/etc/default/locale
+echo 'export LANG=en_US.UTF-8' >> $ROOTFS/etc/bash.bashrc
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'unlink /etc/localtime'

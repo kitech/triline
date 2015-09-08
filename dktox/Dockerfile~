@@ -1,5 +1,5 @@
 # FROM base/archlinux
-FROM kitech/archlinux
+FROM archlinux
 
 MAINTAINER yatseni <yatseni@gmail.com>
 
