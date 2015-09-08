@@ -73,7 +73,8 @@ function start_pubsvc()
 function relax_tail_sleep()
 {
     echo "====================........"
-    tail -s 1.0 -f /var/log/wxagent.log /var/log/wx2tox.log
+    # waitup for every 3 secs
+    /usr/bin/timeout 3 tail -f /var/log/wxagent.log /var/log/wx2tox.log
     echo "====================........"
     env
     locale
