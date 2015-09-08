@@ -3,6 +3,8 @@
 set -e
 set -x
 
+export LANG=en_US.UTF-8
+
 # REDIS_HOST=ip:port, MYSQL_HOST=ip:port, MYSQL_USER=, MYSQL_PASSWORD=
 # 如果没有设置REDIS_HOST，则使用本机的？
 # 如果没有设置MYSQL_HOST, 则使用本机的？
@@ -74,6 +76,7 @@ function relax_tail_sleep()
     tail -s 1.0 -f /var/log/wxagent.log /var/log/wx2tox.log
     echo "====================........"
     env
+    locale
     pwd
     echo "====================........"
     exists_wxagent=$(ps axu | grep wxagent.wxagent | grep -v grep)
