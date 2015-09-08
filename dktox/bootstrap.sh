@@ -27,17 +27,18 @@ function install_deps()
     # pacman-key --populate archlinux
     # pacman-key --populate manjaro
     # pacman-key --refresh-keys
-    pacman -Syy
+    # pacman -Syy
     # pacman -S --noconfirm sudo ruby mariadb-clients nginx git postfix nodejs redis vim cronie openssh
-    pacman -S --noconfirm git toxcore dbus python nginx python-pyqt5
+    # pacman -S --noconfirm git toxcore dbus python nginx python-pyqt5
     # pacman -Su --noconfirm
     # pacman -U --noconfirm /var/cache/pacman/pkg/*.xz
-    ret=$?
-    if [ x"$ret" != x"0" ] ; then
-        exit $ret;
-    fi
+    # ret=$?
+    # if [ x"$ret" != x"0" ] ; then
+    #    exit $ret;
+    # fi
 
-    /usr/bin/ssh-keygen -A
+    # /usr/bin/ssh-keygen -A
+    true
 }
 # install_deps;
 

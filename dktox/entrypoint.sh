@@ -14,7 +14,7 @@ function smart_hosts()
     if [ ! -f "/etc/hosts.orig" ] ; then
         cp -va /etc/hosts{,.orig}
     fi
-    
+
     echo "" >> /etc/hosts
     if [ "$MYSQL_HOST" ] ; then
         echo "$MYSQL_HOST  gitlab-mysql-n" >> /etc/hosts
@@ -74,7 +74,7 @@ function relax_tail_sleep()
 {
     echo "====================........"
     # waitup for every 3 secs
-    /usr/bin/timeout 3 tail -f /var/log/wxagent.log /var/log/wx2tox.log
+    /usr/bin/timeout --preserve-status -s TERM 3 tail -f /var/log/wxagent.log /var/log/wx2tox.log || true
     echo "====================........"
     env
     locale
