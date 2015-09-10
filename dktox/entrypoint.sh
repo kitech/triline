@@ -5,61 +5,15 @@ set -x
 
 export LANG=en_US.UTF-8
 
-# REDIS_HOST=ip:port, MYSQL_HOST=ip:port, MYSQL_USER=, MYSQL_PASSWORD=
-# 如果没有设置REDIS_HOST，则使用本机的？
-# 如果没有设置MYSQL_HOST, 则使用本机的？
-
-function smart_hosts()
+function show_banner()
 {
-    if [ ! -f "/etc/hosts.orig" ] ; then
-        cp -va /etc/hosts{,.orig}
-    fi
-
-    echo "" >> /etc/hosts
-    if [ "$MYSQL_HOST" ] ; then
-        echo "$MYSQL_HOST  gitlab-mysql-n" >> /etc/hosts
-    else
-        echo "10.97.198.249  gitlab-mysql-n" >> /etc/hosts
-    fi
-
-    if [ "$REDIS_HOST" ] ; then
-        echo "$REDIS_HOST  gitlab-redis-n" >> /etc/hosts
-    else
-        echo "10.97.198.249  gitlab-redis-n" >> /etc/hosts
-    fi
-
-    # for gitlab-shell api call
-    echo "127.0.0.1 git.coc.io" >> /etc/hosts
-    
-    true;
+    echo "====================........dktox"
+    echo "$(hostname) started at $(date)"
+    env
+    locale
+    pwd
+    echo "====================........"
 }
-
-function start_gitlab_redis()
-{
-    true;
-}
-
-function start_gitlab_db()
-{
-    true;
-}
-
-function init_gitlab_db()
-{
-    dbs=$(mysql -h gitlab-mysql-n -u root -p"coc.123" -e "show databases" -N -s | grep gitlabhq_ | wc -l)
-    # echo $dbs
-    if [ x"$dbs" == x"0" ] ; then
-        cd /home/git/gitlab
-        # maybe need except yes
-        echo "yes" | sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production GITLAB_ROOT_PASSWORD=yourpassword
-        cd -
-    fi
-    true;
-}
-
-
-### all need this
-smart_hosts;
 
 function start_pubsvc()
 {
@@ -76,35 +30,30 @@ function relax_tail_sleep()
     # waitup for every 3 secs
     /usr/bin/timeout --preserve-status -s TERM 3 tail -f /var/log/wxagent.log /var/log/wx2tox.log || true
     echo "====================........"
-    env
-    locale
-    pwd
-    echo "====================........"
-    exists_wxagent=$(ps axu | grep wxagent.wxagent | grep -v grep)
-    if [ x"$exists_wxagent" == x"" ] ; then
+    exists_wxagent=$(ps axu | grep wxagent.wxagent | grep -v grep | wc -l)
+    if [ x"$exists_wxagent" == x"0" ] ; then
         echo "restart wxagent.........."
-        /usr/bin/python -m wxagent.wxagent > /var/log/wxagent.log 2>&1 &
+        /usr/bin/python3 -m wxagent.wxagent > /var/log/wxagent.log 2>&1 &
         return
     fi
 
-    exists_wx2tox=$(ps axu | grep wxagent.wx2tox | grep -v grep)
-    if [ x"$exists_wx2tox" == x"" ] ; then
+    exists_wx2tox=$(ps axu | grep wxagent.wx2tox | grep -v grep|wc -l)
+    if [ x"$exists_wx2tox" == x"0" ] ; then
         echo "restart wxagent.........."
-        /usr/bin/python -m wxagent.wx2tox > /var/log/wx2tox.log 2>&1 &
+        /usr/bin/python3 -m wxagent.wx2tox > /var/log/wx2tox.log 2>&1 &
         return
     fi
 }
 
-# TODO need dynamic init database
+######
+show_banner;
+
 if [ "$1" = 'dktoxsrv' ]; then
     ######################
-    # init_gitlab_db;
-
     #/usr/bin/ssh-keygen -A
     #/usr/bin/sshd
     #/usr/bin/crond  # -i -n -s
     #/usr/bin/postfix start   # stop|reload
-    #/etc/init.d/gitlab restart
     # /usr/bin/nginx
 
     start_pubsvc;
@@ -118,12 +67,10 @@ if [ "$1" = 'dktoxsrv' ]; then
     /usr/bin/python -m wxagent.wx2tox > /var/log/wx2tox.log 2>&1 &
 
     # looping
-    echo "$(hostname) started at $(date)"
     # while true; do sleep 9876543210; done;
     while true; do relax_tail_sleep; done;
 else
     exec "$@"
 fi
-
 
 
