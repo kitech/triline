@@ -1,0 +1,42 @@
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+::1		localhost.localdomain	localhost
+
+# 127.0.0.1 ajax.googleapis.com
+# 127.0.0.1 fonts.googleapis.com
+2404:6800:4005:802::1008 chrome.google.com
+
+#10.10.8.128 static.xiaojukeji.com
+#127.0.0.1 crm.xiaojukeji.com
+#10.10.8.128 crm.xiaojukeji.com
+10.97.27.122 crm.xiaojukeji.com
+#10.10.8.128 game.xiaojukeji.com
+
+127.0.0.2  secure.gravatar.com
+23.32.241.33 download.virtualbox.org
+
+###
+127.0.0.1  qtchina.net
+#127.0.0.1  qtchina.tk www.qtchina.tk
+127.0.0.1  mysql-n 
+127.0.0.1  pma.qtchina.net wim.qtchina.net 
+
+
+123.57.191.150 git.coc.io # git.coderoncloud.com
+#172.17.0.22 git.coc.io git.coderoncloud.com
+#127.0.0.1 git.coc.io git.coderoncloud.com
+127.0.0.1 gitlab-mysql-n
+127.0.0.1 gitlab-redis-n
+
+################### shit network fix
+127.0.0.1  ajax.googleapis.com
+# 127.0.0.1  tromey.com
+# 127.0.0.1  melpa.org
+#mirrors.dormforce.net dl-ssl.google.com
+202.115.22.208 dl-ssl.google.com
+202.115.22.208 dl.google.com
+# End of file

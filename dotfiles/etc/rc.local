@@ -1,0 +1,6 @@
+#!/bin/bash
+# generated: Sun Jun 21 15:13:50 CST 2015
+
+su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
+
+
