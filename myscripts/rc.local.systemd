@@ -1,0 +1,11 @@
+hostname myarchlap
+
+/usr/bin/modprobe vboxdrv
+/usr/bin/modprobe vboxpci
+/usr/bin/modprobe vboxnetflt
+/usr/bin/modprobe vboxnetadp
+
+/home/gzleo/auto_light.sh &
+
+
+

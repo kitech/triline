@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -x
+SELF=$(readlink -f $0)
+#echo "$SELF"
+
+#ssh -o ProxyCommand="/path/to/socks5proxywrapper %h %p" "$@"
+if [ -d "$HOME/myscripts-svn" ] ; then
+    ssh -o ProxyCommand="$HOME/myscripts-svn/socks5proxywrapper %h %p" "$@"
+else
+    ssh -o ProxyCommand="$HOME/myscripts/socks5proxywrapper %h %p" "$@"
+fi
+
+# 用法
+# export GIT_SSH="/path/to/socks5proxyssh“
+
+#
+#GIT_SSH=$HOME/myscripts/socks5proxyssh GIT_TRACE=0 GIT_CURL_VERBOSE=1
+

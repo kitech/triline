@@ -1,0 +1,32 @@
+#!/bin/bash
+
+build() {
+    echo "install rootntfsimg..."
+
+    add_module loop
+    add_module fuse
+    add_module ntfs
+
+    add_binary /usr/bin/tee
+    add_binary /usr/bin/bash
+    add_binary /usr/bin/date
+    add_binary /usr/bin/ntfsck
+    add_symlink /usr/bin/fsck.ntfs /usr/bin/ntfsck
+    add_binary /usr/bin/gcc
+    add_binary /usr/bin/clang
+
+    add_file /usr/include/stdlib.h
+    add_file /usr/include/stdio.h
+ 
+    echo "install run script"
+    SCRIPT="rootntfsimg"
+    add_runscript $SCRIPT   
+}
+
+help() {
+    cat <<HELPEOF
+    for run linux installed on ntfs partitions somedisk.img. liuguangzhao@users.sf.net
+HELPEOF
+}
+
+# vim: set ft=sh ts=4 sw=4 et:

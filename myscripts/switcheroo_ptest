@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# This script should echo the name of the profile that should be used (only).
+
+#check if we have switchable graphics
+if [ ! -f /sys/kernel/debug/vgaswitcheroo/switch ] ; then
+    echo "intel"
+    exit 0
+fi
+
+
+
+if [ `grep "0:+" /sys/kernel/debug/vgaswitcheroo/switch` ] ; then
+    echo "intel"
+    exit 0
+fi
+if [ `grep "1:+" /sys/kernel/debug/vgaswitcheroo/switch` ] ; then
+    echo "radeon"
+    exit 0
+fi
+
+echo "invalid switcheroo setting."
+exit 1

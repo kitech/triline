@@ -1,0 +1,17 @@
+##### IPv6
+nameserver 10.207.27.149
+#nameserver 127.0.0.1
+#nameserver ::1
+#nameserver 2002:5968:c28e::53  # 300ms
+#nameserver 2001:4860:4860::8888  # 350ms
+#nameserver 2a00:1508:0:4::9   # 400ms
+#nameserver 2620:0:ccc::2     # 500ms
+#nameserver 2620:0:ccd::2      # 500ms
+
+
+##### IPv4
+#nameserver 223.5.5.5
+#nameserver 223.6.6.6
+#nameserver 8.8.8.8
+#nameserver 202.106.0.20
+#nameserver 202.106.196.115

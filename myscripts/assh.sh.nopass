@@ -1,0 +1,45 @@
+#!/bin/sh
+
+###
+### assh.sh <user@ip/host>
+
+
+argc=$#
+argv=$@
+last_arg=$(echo $argv | awk '{print $NF}')
+
+auser=$(echo $argv | awk -F@ '{print $1}')
+ahost=$(echo $argv | awk -F@ '{print $2}')
+ 
+function help()
+{
+    echo "";
+    echo "Usage:";
+    echo "    assh.sh [user@]ip";
+    exit 21;
+}
+
+if [[ $argv == "" || $ahost == "" ]] ; then
+    help;
+fi
+
+if [[ $auser == "" ]] ; then
+    auser=$USER;
+fi
+
+ip1=$(echo $ahost | awk -F. '{print $1}')
+ip2=$(echo $ahost | awk -F. '{print $2}')
+ip3=$(echo $ahost | awk -F. '{print $3}')
+ip4=$(echo $ahost | awk -F. '{print $4}')
+
+if [[ "$ip1.$ip2.$ip3" == "10.207.0" ]] ; then
+    # /usr/bin/plink -ssh -C -X -pw leju2011\!@#\$QWER $auser@$ahost
+    sshpass -p xxxxxxxx ssh -CXY $auser@$ahost
+elif [[ "$ip1.$ip2.$ip3" == "10.207.16" && $ip4 -ge 250 ]] ; then
+    # /usr/bin/plink -ssh -C -X -pw fuckroot $auser@$ahost
+    sshpass -p xxxxxxxxxxxx ssh -CXY $auser@$ahost
+else
+    ssh -CXY $auser@$host
+fi
+
+

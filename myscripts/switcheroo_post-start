@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Finished starting profile ${1}"
+/etc/init.d/xdm start
