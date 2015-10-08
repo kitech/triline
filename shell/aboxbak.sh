@@ -19,6 +19,7 @@ etcfiles="
 ~/.zshrc
 ~/.emacs
 ~/.spacemacs
+~/.emacs.d/handby
 ~/.vimrc
 ~/.gtkrc-2.0
 ~/.xinitrc
@@ -29,13 +30,18 @@ etcfiles="
 ~/.ssh/config
 ~/.gitconfig
 ~/.gitignore
+~/.tmux.conf
 ~/bin/elimg
 ~/bin/winerun
+~/.config/systemd/user/postgresql.service
+~/.config/systemd/user/mysqld.service
 ~/.config/tox/yatsen21.tox
 ~/.config/tox/yatsen21.ini
 ~/.config/tox/yatsen31.tox
 ~/.config/tox/yatsen31.ini
-~/.cow
+~/.cow/rc.eg
+~/.cow/direct
+~/.cow/blocked
 /etc/profile.d/zzl_gzleo.sh
 /etc/pacman.d/mirrorlist
 /etc/pacman.conf
@@ -58,7 +64,7 @@ etcfiles="
 /var/spool/cron
 "
 
-echo $etcfiles
+# echo $etcfiles
 
 ######
 
@@ -67,7 +73,10 @@ if [ ! -d $BAKDIR ] ; then
 fi
 
 # set -x
+echo ""
+echo "Begin backup all dot files......"
 for ef in $etcfiles ; do
+    rawef=$ef
 
     # echo ${ef:0:2}
     first_char=${ef:0:2}
@@ -81,7 +90,8 @@ for ef in $etcfiles ; do
         continue;
     fi
 
-    ref=$(readlink -f "$ef")
+    # ref=$(readlink -f "$ef")  # 对于symlink来说，这么处理并不是想要的结果
+    ref="$ef"  # for link, must keep it there, not realpath
     # echo "$ef => $ref"
 
     if [ -d $ref ] ; then
@@ -89,21 +99,25 @@ for ef in $etcfiles ; do
         if [ ! -e $path ] ; then
             mkdir -pv $path
         fi
-        rsync -avzp $ref/ $path/
+        rsync -azp -l --progress $ref/ $path/
     else
         path=$BAKDIR$ref
         bpath=$(dirname $path)
         if [ ! -d $bpath ] ; then
             mkdir -pv $bpath
         fi
-        rsync -avzp  $ref $path
+        rsync -azp  -l  --progress $ref $path
     fi
+done
 
- done
+echo "Finished backup all dot files."
+echo ""
 
 ### cleanup some tmp files
 
 ### show result
+echo "Showing backup dot files tree view......"
 tree -h -a -I '.git' $BAKDIR
+
 echo "======================"
 du -hs $BAKDIR

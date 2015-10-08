@@ -3,4 +3,6 @@
 
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 
+su - gzleo -c "/home/gzleo/myscripts/vdmnt2.sh m"
+
 

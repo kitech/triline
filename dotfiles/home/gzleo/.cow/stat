@@ -1,5 +1,5 @@
 {
-	"update": "2015-10-05",
+	"update": "2015-10-07",
 	"site_info": {
 		"0.client-channel.google.com": {
 			"direct": 0,
@@ -9,12 +9,12 @@
 		"0.gravatar.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"0d077ef9e74d8.cdn.sohucs.com": {
-			"direct": 37,
+			"direct": 41,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-07"
 		},
 		"1.client-channel.google.com": {
 			"direct": 0,
@@ -40,11 +40,6 @@
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-02"
-		},
-		"123.zol.com.cn": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"16rd.com": {
 			"direct": 24,
@@ -77,34 +72,14 @@
 			"recent": "2015-10-04"
 		},
 		"219.232.48.10": {
-			"direct": 2,
+			"direct": 13,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"2c.zol-img.com.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"2p66nmmycsj3.statuspage.io": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"3.bp.blogspot.com": {
-			"direct": 0,
-			"block": 3,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"3.im.guokr.com": {
 			"direct": 9,
 			"block": 0,
 			"recent": "2015-10-01"
-		},
-		"49.5.6.172": {
-			"direct": 14,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"54.169.49.211": {
 			"direct": 0,
@@ -119,7 +94,7 @@
 		"59.108.34.106": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"64.4.46.204": {
 			"direct": 4,
@@ -136,15 +111,10 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"8.zol-img.com.cn": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"a.disquscdn.com": {
-			"direct": 8,
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"a.thumbs.redditmedia.com": {
 			"direct": 1,
@@ -152,9 +122,9 @@
 			"recent": "2015-10-03"
 		},
 		"a.yunshipei.com": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"a1.itc.cn": {
 			"direct": 2,
@@ -180,6 +150,16 @@
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
+		},
+		"ace-cdn.atlassian.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
+		},
+		"acgtyrant.disqus.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"actor.im": {
 			"direct": 0,
@@ -216,6 +196,11 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
+		"airdownload.adobe.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"ajax.cloudflare.com": {
 			"direct": 5,
 			"block": 0,
@@ -224,12 +209,7 @@
 		"ajax.googleapis.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
-		},
-		"akamaicovers.oreilly.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"alexott.net": {
 			"direct": 6,
@@ -261,11 +241,6 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"api.geetest.com": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"api.github.com": {
 			"direct": 4,
 			"block": 0,
@@ -281,30 +256,30 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"api.imgur.com": {
-			"direct": 0,
-			"block": 2,
-			"recent": "2015-09-26"
-		},
 		"api.kickstarter.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-09-29"
-		},
-		"api.letv.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"api.mixpanel.com": {
 			"direct": 16,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
+		"api.queryly.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"api.travis-ci.org": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-05"
+		},
+		"api.uyan.cc": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"api.viglink.com": {
 			"direct": 6,
@@ -314,7 +289,7 @@
 		"apis.google.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"app.actor.im": {
 			"direct": 7,
@@ -326,20 +301,35 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"apple.www.letv.com": {
-			"direct": 0,
-			"block": 3,
-			"recent": "2015-09-27"
+		"app.wumii.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"aral.github.io": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"ark.letv.com": {
+		"arch.acgtyrant.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
+		},
+		"archlinux.org": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
+		},
+		"articles.csdn.net": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"ask.csdn.net": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"asset.tuicool.com": {
 			"direct": 2,
@@ -347,19 +337,19 @@
 			"recent": "2015-09-29"
 		},
 		"assets-cdn.github.com": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-10-05"
+			"direct": 0,
+			"block": 3,
+			"recent": "2015-10-06"
 		},
 		"assets.adobedtm.com": {
 			"direct": 7,
 			"block": 0,
 			"recent": "2015-09-30"
 		},
-		"assets.imgix.net": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-27"
+		"assets.insnw.net": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
 		},
 		"attach.anzhi.com": {
 			"direct": 5,
@@ -377,14 +367,14 @@
 			"recent": "2015-10-04"
 		},
 		"aur.archlinux.org": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-02"
+			"recent": "2015-10-06"
 		},
 		"aur4.archlinux.org": {
-			"direct": 20,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"author.brothersoft.com": {
 			"direct": 2,
@@ -399,12 +389,17 @@
 		"avatar.csdn.net": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"avatar3.status.net": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-01"
+		},
+		"avatars.discourse.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"avatars.githubusercontent.com": {
 			"direct": 0,
@@ -412,24 +407,24 @@
 			"recent": "2015-10-04"
 		},
 		"avatars0.githubusercontent.com": {
-			"direct": 8,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"avatars1.githubusercontent.com": {
-			"direct": 0,
-			"block": 6,
-			"recent": "2015-10-05"
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"avatars2.githubusercontent.com": {
-			"direct": 1,
+			"direct": 10,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"avatars3.githubusercontent.com": {
 			"direct": 0,
-			"block": 7,
-			"recent": "2015-10-04"
+			"block": 13,
+			"recent": "2015-10-07"
 		},
 		"b.engadget.com": {
 			"direct": 2,
@@ -442,24 +437,24 @@
 			"recent": "2015-09-30"
 		},
 		"b.scorecardresearch.com": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-10-05"
+			"direct": 0,
+			"block": 3,
+			"recent": "2015-10-07"
 		},
 		"b.thumbs.redditmedia.com": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-05"
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"bam.nr-data.net": {
-			"direct": 50,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"bandwagonhost.com": {
-			"direct": 22,
+			"direct": 31,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"bbs.amigo.cn": {
 			"direct": 39,
@@ -472,14 +467,9 @@
 			"recent": "2015-09-28"
 		},
 		"bbs.archlinuxcn.org": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-28"
-		},
-		"bbs.cfanclub.net": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"bbs.chinaunix.net": {
 			"direct": 7,
@@ -490,6 +480,11 @@
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-09-28"
+		},
+		"bbs.linuxeden.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"bbs.tianya.cn": {
 			"direct": 2,
@@ -511,6 +506,21 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
+		"bigeagle.me": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"bitbucket-assetroot.s3.amazonaws.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
+		"bitbucket.org": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
+		},
 		"bitcointalk.org": {
 			"direct": 0,
 			"block": 1,
@@ -527,9 +537,9 @@
 			"recent": "2015-10-04"
 		},
 		"blocklist.addons.mozilla.org": {
-			"direct": 27,
+			"direct": 29,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"blog.8thlight.com": {
 			"direct": 2,
@@ -541,15 +551,20 @@
 			"block": 2,
 			"recent": "2015-10-05"
 		},
-		"blog.csdn.net": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-27"
+		"blog.cathayan.org": {
+			"direct": 0,
+			"block": 2,
+			"recent": "2015-10-07"
 		},
-		"blog.felixc.at": {
-			"direct": 16,
-			"block": 0,
-			"recent": "2015-09-26"
+		"blog.dimroc.com": {
+			"direct": 0,
+			"block": 6,
+			"recent": "2015-10-06"
+		},
+		"blog.dualspark.com": {
+			"direct": 0,
+			"block": 15,
+			"recent": "2015-10-06"
 		},
 		"blog.huangz.me": {
 			"direct": 1,
@@ -561,6 +576,11 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
+		"blog.linuxeye.com": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"blog.smalleycreative.com": {
 			"direct": 0,
 			"block": 2,
@@ -568,18 +588,13 @@
 		},
 		"blog.tox.chat": {
 			"direct": 0,
-			"block": 2,
-			"recent": "2015-10-04"
+			"block": 3,
+			"recent": "2015-10-06"
 		},
 		"blog.wearewizards.io": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"blog.yhathq.com": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"blog.zamith.pt": {
 			"direct": 17,
@@ -611,10 +626,10 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"bshare.optimix.asia": {
-			"direct": 10,
+		"bss.csdn.net": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"bugreports.qt.io": {
 			"direct": 8,
@@ -626,10 +641,10 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"build.tox.chat": {
-			"direct": 6,
-			"block": 0,
-			"recent": "2015-09-27"
+		"bugs.mysql.com": {
+			"direct": 0,
+			"block": 7,
+			"recent": "2015-10-07"
 		},
 		"c.58cdn.com.cn": {
 			"direct": 1,
@@ -642,14 +657,14 @@
 			"recent": "2015-09-29"
 		},
 		"c.cnzz.com": {
-			"direct": 100,
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"c.csdnimg.cn": {
-			"direct": 86,
+			"direct": 100,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"c.newsinc.com": {
 			"direct": 6,
@@ -657,9 +672,9 @@
 			"recent": "2015-09-29"
 		},
 		"c.statcounter.com": {
-			"direct": 2,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"c.thumbs.redditmedia.com": {
 			"direct": 0,
@@ -672,14 +687,19 @@
 			"recent": "2015-09-29"
 		},
 		"camo.githubusercontent.com": {
-			"direct": 4,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"careers.stackoverflow.com": {
 			"direct": 3,
 			"block": 0,
 			"recent": "2015-09-29"
+		},
+		"cbcrypt.org": {
+			"direct": 4,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"cbtj.iciba.com": {
 			"direct": 16,
@@ -698,8 +718,8 @@
 		},
 		"cdn-images-1.medium.com": {
 			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-05"
+			"block": 2,
+			"recent": "2015-10-06"
 		},
 		"cdn-images.mailchimp.com": {
 			"direct": 0,
@@ -708,8 +728,13 @@
 		},
 		"cdn-static-1.medium.com": {
 			"direct": 0,
-			"block": 2,
-			"recent": "2015-10-05"
+			"block": 3,
+			"recent": "2015-10-06"
+		},
+		"cdn.aixifan.com": {
+			"direct": 22,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"cdn.bootcss.com": {
 			"direct": 25,
@@ -721,10 +746,20 @@
 			"block": 0,
 			"recent": "2015-10-01"
 		},
+		"cdn.discourse.org": {
+			"direct": 0,
+			"block": 9,
+			"recent": "2015-10-06"
+		},
 		"cdn.downdetector.com": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-03"
+		},
+		"cdn.embedly.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"cdn.goroost.com": {
 			"direct": 2,
@@ -769,7 +804,7 @@
 		"cdn.mathjax.org": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"cdn.mxpnl.com": {
 			"direct": 22,
@@ -777,19 +812,14 @@
 			"recent": "2015-10-05"
 		},
 		"cdn.optimizely.com": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-10-04"
-		},
-		"cdn.oreillystatic.com": {
 			"direct": 6,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
-		"cdn.segment.io": {
+		"cdn.segment.com": {
 			"direct": 0,
-			"block": 2,
-			"recent": "2015-09-27"
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"cdn.sspai.com": {
 			"direct": 50,
@@ -798,8 +828,8 @@
 		},
 		"cdn.sstatic.net": {
 			"direct": 0,
-			"block": 36,
-			"recent": "2015-10-05"
+			"block": 43,
+			"recent": "2015-10-07"
 		},
 		"cdn.taboola.com": {
 			"direct": 3,
@@ -809,22 +839,17 @@
 		"cdn.v2ex.co": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"cdn.v2ex.com": {
 			"direct": 0,
-			"block": 100,
-			"recent": "2015-10-05"
+			"block": 4,
+			"recent": "2015-10-07"
 		},
 		"cdn.viglink.com": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-03"
-		},
-		"cdn00.baidu-img.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"cdn01.gitter.im": {
 			"direct": 0,
@@ -868,8 +893,8 @@
 		},
 		"cdnjs.cloudflare.com": {
 			"direct": 0,
-			"block": 2,
-			"recent": "2015-10-04"
+			"block": 3,
+			"recent": "2015-10-06"
 		},
 		"cdns.gigya.com": {
 			"direct": 1,
@@ -877,14 +902,14 @@
 			"recent": "2015-09-28"
 		},
 		"cfp.vim-cn.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-10-05"
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"changyan.itc.cn": {
-			"direct": 100,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
 		"chart.googleapis.com": {
 			"direct": 0,
@@ -921,11 +946,6 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"click.iciba.com": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"click.tianyaui.com": {
 			"direct": 4,
 			"block": 0,
@@ -944,7 +964,7 @@
 		"clients1.google.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"clients4.google.com": {
 			"direct": 0,
@@ -972,9 +992,9 @@
 			"recent": "2015-10-05"
 		},
 		"cm.g.doubleclick.net": {
-			"direct": 10,
+			"direct": 12,
 			"block": 0,
-			"recent": "2015-09-28"
+			"recent": "2015-10-06"
 		},
 		"cms.analytics.yahoo.com": {
 			"direct": 1,
@@ -994,12 +1014,7 @@
 		"cn.gravatar.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
-		},
-		"cn.wordpress.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"cnrust.com": {
 			"direct": 1,
@@ -1007,9 +1022,9 @@
 			"recent": "2015-09-30"
 		},
 		"cnzz.mmstat.com": {
-			"direct": 97,
+			"direct": 99,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"code.activestate.com": {
 			"direct": 30,
@@ -1022,19 +1037,9 @@
 			"recent": "2015-10-03"
 		},
 		"code.jquery.com": {
-			"direct": 15,
+			"direct": 16,
 			"block": 0,
-			"recent": "2015-10-04"
-		},
-		"code.svnspot.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"coding.net": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"collect01.ptengine.jp": {
 			"direct": 1,
@@ -1042,19 +1047,14 @@
 			"recent": "2015-10-05"
 		},
 		"collector.githubapp.com": {
-			"direct": 33,
+			"direct": 34,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-05"
 		},
 		"comment.bjcnc.img.sohucs.com": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-09-29"
-		},
-		"comments.dennogumi.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"comments.us1.gigya.com": {
 			"direct": 2,
@@ -1067,14 +1067,9 @@
 			"recent": "2015-10-03"
 		},
 		"connect.facebook.net": {
-			"direct": 3,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"content.atomz.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"content.googleapis.com": {
 			"direct": 0,
@@ -1122,19 +1117,19 @@
 			"recent": "2015-10-02"
 		},
 		"counter.cnblogs.com": {
-			"direct": 4,
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"counter.csdn.net": {
-			"direct": 21,
+			"direct": 65,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"counter.kds.iciba.com": {
-			"direct": 25,
+			"direct": 26,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"crates.io": {
 			"direct": 5,
@@ -1146,25 +1141,30 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"crunchbangplusplus.org": {
-			"direct": 4,
+		"creatim.qtmojo.cn": {
+			"direct": 100,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"crypto-js.googlecode.com": {
 			"direct": 0,
 			"block": 2,
 			"recent": "2015-09-28"
 		},
-		"csdnimg.cn": {
-			"direct": 61,
+		"csdn.net": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
+		},
+		"csdnimg.cn": {
+			"direct": 6,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"cse.google.com": {
 			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-03"
+			"block": 2,
+			"recent": "2015-10-07"
 		},
 		"csi.gstatic.com": {
 			"direct": 10,
@@ -1195,11 +1195,6 @@
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-03"
-		},
-		"d1gqiycb7x9t7x.cloudfront.net": {
-			"direct": 6,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"d1n0x3qji82z53.cloudfront.net": {
 			"direct": 1,
@@ -1246,10 +1241,15 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"d3o9n90jt9ujhx.cloudfront.net": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
+		"d3isfnyiuldmfu.cloudfront.net": {
+			"direct": 0,
+			"block": 13,
+			"recent": "2015-10-06"
+		},
+		"d3oaxc4q5k2d6q.cloudfront.net": {
+			"direct": 0,
+			"block": 7,
+			"recent": "2015-10-07"
 		},
 		"d5phz18u4wuww.cloudfront.net": {
 			"direct": 0,
@@ -1271,15 +1271,30 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"dc.csdn.net": {
-			"direct": 31,
+		"data.queryly.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
-		"dc.letv.com": {
-			"direct": 2,
+		"db0nus869y26v.cloudfront.net": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
+		},
+		"dbus.freedesktop.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"dc.aliyun.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
+		"dc.csdn.net": {
+			"direct": 36,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"dc.services.visualstudio.com": {
 			"direct": 0,
@@ -1287,54 +1302,34 @@
 			"recent": "2015-10-03"
 		},
 		"dc2.csdn.net": {
-			"direct": 28,
+			"direct": 34,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
-		"detail.zol.com.cn": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
+		"de.tynt.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"dev.meowbot.tv": {
 			"direct": 7,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"dev.microsoft.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"dev.xiaomi.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"developer.android.com": {
-			"direct": 0,
-			"block": 3,
-			"recent": "2015-09-26"
-		},
-		"developer.pidgin.im": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"developer.qiniu.com": {
-			"direct": 18,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"dict-co.iciba.com": {
 			"direct": 12,
 			"block": 0,
 			"recent": "2015-10-03"
 		},
+		"dimroc.disqus.com": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"disqus.com": {
 			"direct": 0,
-			"block": 3,
-			"recent": "2015-10-04"
+			"block": 6,
+			"recent": "2015-10-07"
 		},
 		"diyitui.com": {
 			"direct": 5,
@@ -1366,6 +1361,11 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
+		"dn-bigeagle.qbox.me": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"dn-firweb.qbox.me": {
 			"direct": 1,
 			"block": 0,
@@ -1375,11 +1375,6 @@
 			"direct": 30,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"dn-portal.qbox.me": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"dn-zhou92.qbox.me": {
 			"direct": 4,
@@ -1407,9 +1402,9 @@
 			"recent": "2015-10-04"
 		},
 		"doc.rust-lang.org": {
-			"direct": 2,
+			"direct": 9,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"docs.google.com": {
 			"direct": 0,
@@ -1441,15 +1436,10 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"download.csdn.net": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"download.cyanogenmod.org": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-10-03"
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"download.ntalker.com": {
 			"direct": 1,
@@ -1472,14 +1462,14 @@
 			"recent": "2015-10-03"
 		},
 		"ds.api.baifendian.com": {
-			"direct": 59,
+			"direct": 94,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"ds.cdncache.org": {
-			"direct": 10,
+			"direct": 12,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"dt.vim-cn.com": {
 			"direct": 4,
@@ -1491,20 +1481,35 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"dup.baidustatic.com": {
-			"direct": 2,
+		"dualspark.disqus.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
+		},
+		"duckduckgo.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
+		},
+		"dup.baidustatic.com": {
+			"direct": 3,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"dushibaiyu.duoshuo.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"easylist-downloads.adblockplus.org": {
-			"direct": 4,
-			"block": 0,
+		"dwslqfcs3j6fj.cloudfront.net": {
+			"direct": 0,
+			"block": 4,
 			"recent": "2015-10-05"
+		},
+		"easylist-downloads.adblockplus.org": {
+			"direct": 6,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"ec2-54-226-192-118.compute-1.amazonaws.com": {
 			"direct": 1,
@@ -1587,19 +1592,19 @@
 			"recent": "2015-10-01"
 		},
 		"en.wikipedia.org": {
-			"direct": 6,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"endl.ch": {
-			"direct": 51,
+			"direct": 54,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"engine.adzerk.net": {
-			"direct": 2,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"euphoria-os.ninja": {
 			"direct": 0,
@@ -1641,11 +1646,6 @@
 			"block": 1,
 			"recent": "2015-10-02"
 		},
-		"favicons.githubusercontent.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"fbcdn-photos-e-a.akamaihd.net": {
 			"direct": 1,
 			"block": 0,
@@ -1667,14 +1667,19 @@
 			"recent": "2015-10-03"
 		},
 		"fbstatic-a.akamaihd.net": {
-			"direct": 3,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"feed.pivotce.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
+		},
+		"feedproxy.google.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
 		},
 		"feeds.wordpress.com": {
 			"direct": 0,
@@ -1718,13 +1723,13 @@
 		},
 		"fonts.googleapis.com": {
 			"direct": 0,
-			"block": 30,
-			"recent": "2015-10-05"
+			"block": 37,
+			"recent": "2015-10-07"
 		},
 		"fonts.gstatic.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"fonts.staticworld.net": {
 			"direct": 1,
@@ -1740,11 +1745,6 @@
 			"direct": 41,
 			"block": 0,
 			"recent": "2015-09-28"
-		},
-		"forum.kde.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"forum.qt.io": {
 			"direct": 4,
@@ -1776,6 +1776,11 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
+		"g.csdn.net": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"g1cncltbase.ganjistatic1.com": {
 			"direct": 1,
 			"block": 0,
@@ -1787,29 +1792,24 @@
 			"recent": "2015-10-04"
 		},
 		"g2.symcb.com": {
-			"direct": 25,
+			"direct": 32,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"g3.letv.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
 		"ga.fir.im": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"gajim.org": {
-			"direct": 0,
-			"block": 16,
-			"recent": "2015-09-27"
-		},
 		"ganji.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
+		},
+		"gateway.ipfs.io": {
+			"direct": 0,
+			"block": 6,
+			"recent": "2015-10-07"
 		},
 		"gatherer.wizards.com": {
 			"direct": 9,
@@ -1817,14 +1817,14 @@
 			"recent": "2015-10-02"
 		},
 		"gb.symcd.com": {
-			"direct": 28,
+			"direct": 29,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
-		"geo0.ggpht.com": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-27"
+		"geek.csdn.net": {
+			"direct": 7,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"gerrit.twrp.me": {
 			"direct": 5,
@@ -1832,14 +1832,19 @@
 			"recent": "2015-10-03"
 		},
 		"ghbtns.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-10-02"
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"ghosertblog.github.io": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-05"
+		},
+		"giodamelio.disqus.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
 		},
 		"git.eden-3d.org": {
 			"direct": 3,
@@ -1847,14 +1852,14 @@
 			"recent": "2015-09-30"
 		},
 		"git.oschina.net": {
-			"direct": 100,
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"github.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"gitter.im": {
 			"direct": 2,
@@ -1867,9 +1872,9 @@
 			"recent": "2015-10-04"
 		},
 		"gn.symcd.com": {
-			"direct": 63,
+			"direct": 66,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"goku.brightcove.com": {
 			"direct": 18,
@@ -1877,19 +1882,14 @@
 			"recent": "2015-09-29"
 		},
 		"googleads.g.doubleclick.net": {
-			"direct": 20,
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
 		"gratipay.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-05"
-		},
-		"gravatar.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"gravatar.ifanrx.com": {
 			"direct": 36,
@@ -1901,40 +1901,25 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"groups.google.com": {
-			"direct": 0,
-			"block": 4,
-			"recent": "2015-09-26"
-		},
 		"gu.symcd.com": {
-			"direct": 21,
+			"direct": 26,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"gv.symcd.com": {
-			"direct": 45,
+			"direct": 46,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"gw.symcd.com": {
-			"direct": 3,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-02"
+			"recent": "2015-10-06"
 		},
-		"gzcp.127.net": {
+		"hacfun-tv.n1.yun.tf": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"gzep.127.net": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"gztp.127.net": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"hackersome.com": {
 			"direct": 0,
@@ -1946,15 +1931,10 @@
 			"block": 2,
 			"recent": "2015-10-03"
 		},
-		"help.imgur.com": {
+		"heavenapi.aliyun.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"help.trillian.im": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"helpprogramming.xyz": {
 			"direct": 1,
@@ -2004,7 +1984,7 @@
 		"hzs11.cnzz.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"hzs14.cnzz.com": {
 			"direct": 1,
@@ -2027,9 +2007,14 @@
 			"recent": "2015-09-30"
 		},
 		"hzs22.cnzz.com": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
+		"hzvs1.cnzz.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"i.creativecommons.org": {
 			"direct": 4,
@@ -2037,29 +2022,19 @@
 			"recent": "2015-10-05"
 		},
 		"i.imgur.com": {
-			"direct": 4,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"i.stack.imgur.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"i.tietuku.com": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"i.w55c.net": {
 			"direct": 3,
 			"block": 0,
 			"recent": "2015-09-29"
-		},
-		"i0.bbs.fd.zol-img.com.cn": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"i0.itc.cn": {
 			"direct": 0,
@@ -2081,20 +2056,10 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
-		"i1.mypp.fd.zol-img.com.cn": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"i1.tietuku.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"i11.tietuku.com": {
-			"direct": 21,
-			"block": 0,
-			"recent": "2015-09-26"
+		"i1.wp.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
 		},
 		"i2.bbs.fd.zol-img.com.cn": {
 			"direct": 2,
@@ -2106,35 +2071,15 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
-		"i2.tietuku.com": {
-			"direct": 65,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"i2.wp.com": {
 			"direct": 0,
-			"block": 3,
-			"recent": "2015-10-05"
-		},
-		"i3.bbs.fd.zol-img.com.cn": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
+			"block": 1,
+			"recent": "2015-10-07"
 		},
 		"i3.itc.cn": {
 			"direct": 0,
 			"block": 3,
 			"recent": "2015-10-02"
-		},
-		"i3.letvimg.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"i3.tietuku.com": {
-			"direct": 70,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"i4.bbs.fd.zol-img.com.cn": {
 			"direct": 2,
@@ -2146,30 +2091,35 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"icon.51.la": {
-			"direct": 2,
+		"ib.adnxs.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
+		},
+		"ic.tynt.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"ichef-1.bbci.co.uk": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"icon.cnzz.com": {
-			"direct": 42,
+			"direct": 44,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
-		"icon.zol-img.com.cn": {
-			"direct": 36,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"icon.zol.com.cn": {
-			"direct": 12,
-			"block": 0,
-			"recent": "2015-09-27"
+		"icons.duckduckgo.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"id.jiathis.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"idge.staticworld.net": {
 			"direct": 11,
@@ -2177,9 +2127,9 @@
 			"recent": "2015-09-28"
 		},
 		"idsync.rlcdn.com": {
-			"direct": 11,
+			"direct": 12,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"ift.tt": {
 			"direct": 0,
@@ -2206,10 +2156,20 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
+		"images.csdn.net": {
+			"direct": 33,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"images.dmca.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-03"
+		},
+		"images.duckduckgo.com": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"images.huxiu.com": {
 			"direct": 36,
@@ -2217,9 +2177,9 @@
 			"recent": "2015-09-29"
 		},
 		"images.newsmth.net": {
-			"direct": 86,
+			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"images.sourceforge.net": {
 			"direct": 1,
@@ -2242,14 +2202,19 @@
 			"recent": "2015-10-04"
 		},
 		"img.blog.csdn.net": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"img.brothersoft.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-09-29"
+		},
+		"img.bss.csdn.net": {
+			"direct": 6,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"img.jb51.net": {
 			"direct": 2,
@@ -2259,22 +2224,22 @@
 		"img.meijutt.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"img.my.csdn.net": {
-			"direct": 12,
+			"direct": 30,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
+		},
+		"img.ptcms.csdn.net": {
+			"direct": 22,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"img.shields.io": {
 			"direct": 3,
 			"block": 0,
 			"recent": "2015-09-28"
-		},
-		"img.solidot.com.cn": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"img.taodocs.com": {
 			"direct": 2,
@@ -2282,9 +2247,9 @@
 			"recent": "2015-09-30"
 		},
 		"img.vim-cn.com": {
-			"direct": 0,
-			"block": 3,
-			"recent": "2015-10-04"
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"img.xiami.net": {
 			"direct": 1,
@@ -2292,9 +2257,9 @@
 			"recent": "2015-10-01"
 		},
 		"img0.tuicool.com": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"img1.blogblog.com": {
 			"direct": 0,
@@ -2316,20 +2281,10 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
-		"imgix.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"imgur.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"imgur.zendesk.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"imp.optaim.com": {
 			"direct": 1,
@@ -2338,13 +2293,8 @@
 		},
 		"in.getclicky.com": {
 			"direct": 0,
-			"block": 20,
-			"recent": "2015-10-03"
-		},
-		"in.ml314.com": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-26"
+			"block": 21,
+			"recent": "2015-10-06"
 		},
 		"infoscience.epfl.ch": {
 			"direct": 1,
@@ -2357,9 +2307,14 @@
 			"recent": "2015-09-30"
 		},
 		"internalapi.csdn.net": {
-			"direct": 20,
+			"direct": 51,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
+		},
+		"internals.rust-lang.org": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"irs01.com": {
 			"direct": 5,
@@ -2372,19 +2327,14 @@
 			"recent": "2015-10-03"
 		},
 		"is.gd": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-10-04"
+			"direct": 0,
+			"block": 2,
+			"recent": "2015-10-07"
 		},
 		"isocpp.org": {
 			"direct": 6,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"itlab.idcquan.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"j1.58cdn.com.cn": {
 			"direct": 5,
@@ -2406,10 +2356,20 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"js-agent.newrelic.com": {
-			"direct": 31,
+		"job.csdn.net": {
+			"direct": 23,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
+		},
+		"js-agent.newrelic.com": {
+			"direct": 38,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
+		"js.hs-analytics.net": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"js.live.net": {
 			"direct": 1,
@@ -2446,25 +2406,30 @@
 			"block": 1,
 			"recent": "2015-10-04"
 		},
+		"kernel.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"kivy.org": {
 			"direct": 92,
 			"block": 0,
 			"recent": "2015-09-29"
+		},
+		"kiwivm.it7.net": {
+			"direct": 8,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"ksr-ugc.imgix.net": {
 			"direct": 0,
 			"block": 5,
 			"recent": "2015-09-29"
 		},
-		"l.lilydjwg.me": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"l.sharethis.com": {
-			"direct": 7,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"lastpass.com": {
 			"direct": 1,
@@ -2481,11 +2446,6 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"letv.irs01.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"lh3.ggpht.com": {
 			"direct": 0,
 			"block": 1,
@@ -2498,8 +2458,8 @@
 		},
 		"lh3.googleusercontent.com": {
 			"direct": 0,
-			"block": 30,
-			"recent": "2015-10-03"
+			"block": 31,
+			"recent": "2015-10-06"
 		},
 		"lh4.ggpht.com": {
 			"direct": 0,
@@ -2551,20 +2511,25 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"linkout.zol.com.cn": {
-			"direct": 2,
+		"ling0322.info": {
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"linux.ximizi.com": {
 			"direct": 7,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"live.github.com": {
-			"direct": 3,
+		"linuxeye.duoshuo.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
+		},
+		"live.github.com": {
+			"direct": 4,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"llvm.org": {
 			"direct": 4,
@@ -2577,14 +2542,14 @@
 			"recent": "2015-09-29"
 		},
 		"loadus.exelator.com": {
-			"direct": 12,
+			"direct": 14,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
-		"login.persona.org": {
+		"log.mmstat.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"lucumr.pocoo.org": {
 			"direct": 2,
@@ -2601,6 +2566,16 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
+		"lwn.net": {
+			"direct": 3,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"lzone.de": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-07"
+		},
 		"m.addthis.com": {
 			"direct": 15,
 			"block": 0,
@@ -2610,6 +2585,11 @@
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-09-30"
+		},
+		"m.blog.csdn.net": {
+			"direct": 3,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"m.burt.io": {
 			"direct": 0,
@@ -2656,20 +2636,20 @@
 			"block": 3,
 			"recent": "2015-10-04"
 		},
-		"maxcdn.bootstrapcdn.com": {
-			"direct": 40,
+		"marsyas.info": {
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
+		},
+		"maxcdn.bootstrapcdn.com": {
+			"direct": 0,
+			"block": 2,
+			"recent": "2015-10-07"
 		},
 		"mc.yandex.ru": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-01"
-		},
-		"medal.blog.csdn.net": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"media.ifanrusercontent.com": {
 			"direct": 1,
@@ -2682,9 +2662,9 @@
 			"recent": "2015-10-03"
 		},
 		"medium.com": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"meetingcpp.com": {
 			"direct": 0,
@@ -2721,25 +2701,10 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"ml314.com": {
-			"direct": 13,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"mmbiz.qpic.cn": {
 			"direct": 9,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"moto.debian.org.tw": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"moto.debian.tw": {
-			"direct": 20,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"ms386.slack-msgs.com": {
 			"direct": 2,
@@ -2761,10 +2726,10 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"my.oschina.net": {
-			"direct": 75,
+		"my.csdn.net": {
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"myaccount.google.com": {
 			"direct": 0,
@@ -2776,15 +2741,30 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
+		"netcn.console.aliyun.com": {
+			"direct": 7,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"netdna.bootstrapcdn.com": {
 			"direct": 9,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
+		"news.csdn.net": {
+			"direct": 8,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"news.ycombinator.com": {
 			"direct": 10,
 			"block": 0,
 			"recent": "2015-09-30"
+		},
+		"nim-lang.org": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"nljb.duoshuo.com": {
 			"direct": 1,
@@ -2808,23 +2788,23 @@
 		},
 		"oauth.googleusercontent.com": {
 			"direct": 0,
-			"block": 55,
-			"recent": "2015-10-05"
+			"block": 56,
+			"recent": "2015-10-06"
 		},
 		"ocsp.comodoca.com": {
-			"direct": 99,
+			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"ocsp.comodoca4.com": {
-			"direct": 7,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"ocsp.digicert.com": {
-			"direct": 0,
-			"block": 4,
-			"recent": "2015-10-05"
+			"direct": 83,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"ocsp.gandi.net": {
 			"direct": 1,
@@ -2837,44 +2817,39 @@
 			"recent": "2015-10-04"
 		},
 		"ocsp.msocsp.com": {
-			"direct": 13,
+			"direct": 14,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"ocsp.startssl.com": {
-			"direct": 21,
+			"direct": 25,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"ocsp.usertrust.com": {
-			"direct": 45,
+			"direct": 49,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"ocsp.verisign.com": {
-			"direct": 13,
+			"direct": 9,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"ocsp1.wosign.com": {
-			"direct": 10,
+			"direct": 12,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"ocsp2.globalsign.com": {
-			"direct": 50,
+			"direct": 54,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"ocsp2.wosign.cn": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"ohaha123.duoshuo.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"oimagea4.ydstatic.com": {
 			"direct": 1,
@@ -2886,11 +2861,6 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"online.cnzz.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"ooo.0o0.ooo": {
 			"direct": 2,
 			"block": 0,
@@ -2901,50 +2871,35 @@
 			"block": 16,
 			"recent": "2015-10-04"
 		},
-		"open.lenovo.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"open.pcpop.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-02"
-		},
-		"open.tietuku.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"oreilly.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"orgmode.org": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-03"
 		},
+		"oss.maxcdn.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"outer.anquan.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"outofmemory.cn": {
 			"direct": 9,
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"p.imgur.com": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"p.skimresources.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"p.typekit.net": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"p.univide.com": {
 			"direct": 6,
@@ -2952,9 +2907,9 @@
 			"recent": "2015-09-29"
 		},
 		"p.vim-cn.com": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-10-01"
+			"recent": "2015-10-06"
 		},
 		"p0.map.gtimg.com": {
 			"direct": 2,
@@ -2976,30 +2931,10 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"p4.zbjimg.com": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"p4.zdassets.com": {
-			"direct": 6,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"p5.zbjimg.com": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"pairprogramwith.me": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-05"
-		},
-		"papyros.io": {
-			"direct": 15,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"partner.googleadservices.com": {
 			"direct": 19,
@@ -3012,9 +2947,9 @@
 			"recent": "2015-10-04"
 		},
 		"passport.csdn.net": {
-			"direct": 9,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"passport.ganji.com": {
 			"direct": 6,
@@ -3052,14 +2987,19 @@
 			"recent": "2015-09-28"
 		},
 		"pcookie.cnzz.com": {
-			"direct": 66,
+			"direct": 68,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"pcworldcommunication.d2.sc.omtrdc.net": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-09-28"
+		},
+		"perl6.org": {
+			"direct": 0,
+			"block": 6,
+			"recent": "2015-10-07"
 		},
 		"pf.pcpop.com": {
 			"direct": 1,
@@ -3076,35 +3016,15 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"php.net": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"pic.cnblogs.com": {
-			"direct": 3,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-03"
-		},
-		"pic.gimhoy.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"pic.haowj.com.cn": {
-			"direct": 12,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"pic.wenwo.com": {
-			"direct": 14,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"pic1.zhimg.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"pic2.52pk.com": {
 			"direct": 1,
@@ -3117,29 +3037,24 @@
 			"recent": "2015-10-04"
 		},
 		"pic2.zhimg.com": {
-			"direct": 98,
+			"direct": 99,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"pic3.zhimg.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"pic4.zhimg.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"pivotce.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-10-04"
-		},
-		"piwik.dennogumi.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
+			"direct": 0,
+			"block": 6,
+			"recent": "2015-10-07"
 		},
 		"piwikstats.meetingcpp.com": {
 			"direct": 3,
@@ -3154,12 +3069,12 @@
 		"pixel.quantserve.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"pixel.redditmedia.com": {
-			"direct": 19,
-			"block": 0,
-			"recent": "2015-10-03"
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"pixel.staticworld.net": {
 			"direct": 1,
@@ -3171,15 +3086,10 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
-		"play.google.com": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-26"
-		},
 		"play.rust-lang.org": {
-			"direct": 2,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"plugins.guifications.org": {
 			"direct": 1,
@@ -3191,30 +3101,15 @@
 			"block": 0,
 			"recent": "2015-09-30"
 		},
-		"portal-res.qiniucdn.com": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"portal.qiniu.com": {
-			"direct": 21,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"pp.newsmth.net": {
-			"direct": 4,
+			"direct": 6,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"preware.pivotce.com": {
 			"direct": 0,
 			"block": 2,
 			"recent": "2015-10-04"
-		},
-		"prism-break.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"privateinternetaccess.disqus.com": {
 			"direct": 1,
@@ -3231,10 +3126,20 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
+		"projects.archlinux.org": {
+			"direct": 0,
+			"block": 13,
+			"recent": "2015-10-07"
+		},
 		"promowiz.gatehousemedia.com": {
 			"direct": 6,
 			"block": 0,
 			"recent": "2015-09-29"
+		},
+		"ptcms.csdn.net": {
+			"direct": 7,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"pub.idqqimg.com": {
 			"direct": 5,
@@ -3251,25 +3156,15 @@
 			"block": 1,
 			"recent": "2015-10-01"
 		},
-		"pv.zol.com.cn": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"pvm.zol.com.cn": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"pvtest.zol.com.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"pypi.python.org": {
-			"direct": 11,
+			"direct": 0,
+			"block": 3,
+			"recent": "2015-10-06"
+		},
+		"pypl.github.io": {
+			"direct": 6,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"python-with-github-pypi-and-readthedoc-guide.readthedocs.org": {
 			"direct": 3,
@@ -3311,25 +3206,25 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"quartzos.disqus.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"quininer.disqus.com": {
+		"qsc.is.quoracdn.net": {
 			"direct": 0,
 			"block": 1,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
-		"quininer.github.io": {
-			"direct": 0,
-			"block": 10,
-			"recent": "2015-09-27"
+		"qsf.is.quoracdn.net": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"quit.email": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-02"
+		},
+		"quiterss.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"qzapp.qlogo.cn": {
 			"direct": 5,
@@ -3346,20 +3241,10 @@
 			"block": 1,
 			"recent": "2015-10-04"
 		},
-		"raoulito.info": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-26"
-		},
-		"rapidssl-ocsp.geotrust.com": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"raw.githubusercontent.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"rawgit.com": {
 			"direct": 2,
@@ -3369,17 +3254,12 @@
 		"rec.api.baifendian.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"rel.discuz.soso.com": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-09-28"
-		},
-		"relate.kde.org": {
-			"direct": 12,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"render.githubusercontent.com": {
 			"direct": 3,
@@ -3387,9 +3267,9 @@
 			"recent": "2015-10-05"
 		},
 		"res.iciba.com": {
-			"direct": 2,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"ri.revolvermaps.com": {
 			"direct": 0,
@@ -3401,10 +3281,20 @@
 			"block": 18,
 			"recent": "2015-10-03"
 		},
+		"rosettacode.org": {
+			"direct": 5,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"ruby-china.org": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-01"
+		},
+		"ruby-lang.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"rubygems.global.ssl.fastly.net": {
 			"direct": 0,
@@ -3428,13 +3318,13 @@
 		},
 		"rust.cc": {
 			"direct": 0,
-			"block": 50,
-			"recent": "2015-10-04"
+			"block": 59,
+			"recent": "2015-10-06"
 		},
 		"rustbyexample.com": {
-			"direct": 27,
+			"direct": 52,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"s.doubanio.com": {
 			"direct": 1,
@@ -3446,30 +3336,15 @@
 			"block": 8,
 			"recent": "2015-10-03"
 		},
-		"s.imgur.com": {
-			"direct": 0,
-			"block": 6,
-			"recent": "2015-09-26"
-		},
-		"s.swiftypecdn.com": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"s.w.org": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"s.webp2p.letv.com": {
-			"direct": 41,
-			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"s.zkcdn.net": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-05"
+			"direct": 8,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"s0.wordpress.com": {
 			"direct": 0,
@@ -3509,7 +3384,7 @@
 		"s11.cnzz.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"s14.cnzz.com": {
 			"direct": 1,
@@ -3520,11 +3395,6 @@
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"s19.cnzz.com": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"s2.cr.itc.cn": {
 			"direct": 1,
@@ -3542,14 +3412,9 @@
 			"recent": "2015-10-03"
 		},
 		"s2.symcb.com": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-04"
-		},
-		"s2.upload.tf": {
 			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"s2.wp.com": {
 			"direct": 0,
@@ -3562,9 +3427,9 @@
 			"recent": "2015-09-30"
 		},
 		"s22.cnzz.com": {
-			"direct": 3,
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"s25.cnzz.com": {
 			"direct": 1,
@@ -3578,8 +3443,8 @@
 		},
 		"s3.amazonaws.com": {
 			"direct": 0,
-			"block": 26,
-			"recent": "2015-10-05"
+			"block": 27,
+			"recent": "2015-10-06"
 		},
 		"s3.cn-north-1.amazonaws.com.cn": {
 			"direct": 62,
@@ -3603,8 +3468,8 @@
 		},
 		"s7.addthis.com": {
 			"direct": 0,
-			"block": 5,
-			"recent": "2015-10-05"
+			"block": 6,
+			"recent": "2015-10-06"
 		},
 		"s9.cnzz.com": {
 			"direct": 9,
@@ -3612,9 +3477,9 @@
 			"recent": "2015-09-30"
 		},
 		"s95.cnzz.com": {
-			"direct": 11,
+			"direct": 12,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"sachac.disqus.com": {
 			"direct": 3,
@@ -3629,7 +3494,17 @@
 		"safebrowsing-cache.google.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
+		},
+		"sc.tynt.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"scripts.demandbase.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"scs.ganjistatic1.com": {
 			"direct": 26,
@@ -3637,24 +3512,29 @@
 			"recent": "2015-10-04"
 		},
 		"sd.symcd.com": {
-			"direct": 45,
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
+		},
+		"sdtimes.com": {
+			"direct": 40,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"se.symcd.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
 		},
+		"search.acfun.tv": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"search.tianya.cn": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-10-05"
-		},
-		"search.zol.com.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"searchcode.com": {
 			"direct": 0,
@@ -3673,8 +3553,8 @@
 		},
 		"secure.gravatar.com": {
 			"direct": 0,
-			"block": 30,
-			"recent": "2015-10-05"
+			"block": 31,
+			"recent": "2015-10-07"
 		},
 		"secure.xsolla.com": {
 			"direct": 1,
@@ -3682,44 +3562,44 @@
 			"recent": "2015-09-28"
 		},
 		"seg.sharethis.com": {
-			"direct": 6,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"segmentfault.com": {
-			"direct": 2,
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"selector.webp2p.letv.com": {
-			"direct": 79,
-			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
 		"services.addons.mozilla.org": {
-			"direct": 33,
+			"direct": 35,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"sflogo.sourceforge.net": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
+		"shahuwang.com": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
+		"shahuwang.github.io": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"shared.ydstatic.com": {
-			"direct": 3,
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
-		"shop.oreilly.com": {
-			"direct": 25,
+		"shop.linuxeden.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"sina.wrating.com": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"sjs.bizographics.com": {
 			"direct": 3,
@@ -3741,16 +3621,6 @@
 			"block": 0,
 			"recent": "2015-10-02"
 		},
-		"sleekxmpp.com": {
-			"direct": 42,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"sleekxmpp.readthedocs.org": {
-			"direct": 0,
-			"block": 2,
-			"recent": "2015-09-26"
-		},
 		"sm.ms": {
 			"direct": 2,
 			"block": 0,
@@ -3765,6 +3635,11 @@
 			"direct": 0,
 			"block": 20,
 			"recent": "2015-10-01"
+		},
+		"snackr.net": {
+			"direct": 0,
+			"block": 4,
+			"recent": "2015-10-07"
 		},
 		"snippets.mozilla.com": {
 			"direct": 1,
@@ -3802,9 +3677,9 @@
 			"recent": "2015-10-03"
 		},
 		"sr.symcd.com": {
-			"direct": 26,
+			"direct": 27,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
 		},
 		"srv-2015-09-28-11.config.parsely.com": {
 			"direct": 1,
@@ -3833,8 +3708,8 @@
 		},
 		"ssl.gstatic.com": {
 			"direct": 0,
-			"block": 98,
-			"recent": "2015-10-03"
+			"block": 99,
+			"recent": "2015-10-06"
 		},
 		"ssl.mail.126.com": {
 			"direct": 9,
@@ -3845,11 +3720,6 @@
 			"direct": 11,
 			"block": 0,
 			"recent": "2015-09-29"
-		},
-		"st.symcd.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"sta.ganji.com": {
 			"direct": 8,
@@ -3866,15 +3736,10 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"stackexchange.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"stackoverflow.com": {
-			"direct": 4,
+			"direct": 6,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"stat.dnspod.cn": {
 			"direct": 2,
@@ -3886,25 +3751,25 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"static-b.imgix.net": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"static-c.imgix.net": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"static.adzerk.net": {
 			"direct": 5,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
+		"static.anquan.org": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"static.baifendian.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
+		},
+		"static.bbci.co.uk": {
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"static.bbs.miui.com": {
 			"direct": 9,
@@ -3912,24 +3777,19 @@
 			"recent": "2015-10-03"
 		},
 		"static.blog.csdn.net": {
-			"direct": 13,
+			"direct": 21,
 			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"static.bshare.cn": {
-			"direct": 34,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"static.cnblogs.com": {
-			"direct": 13,
+			"direct": 17,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"static.csdn.net": {
-			"direct": 29,
+			"direct": 32,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"static.djlmgdigital.com": {
 			"direct": 8,
@@ -3937,14 +3797,9 @@
 			"recent": "2015-09-29"
 		},
 		"static.duoshuo.com": {
-			"direct": 52,
+			"direct": 54,
 			"block": 0,
-			"recent": "2015-10-05"
-		},
-		"static.geetest.com": {
-			"direct": 12,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"static.getclicky.com": {
 			"direct": 3,
@@ -3974,52 +3829,42 @@
 		"static.oschina.net": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"static.parsely.com": {
 			"direct": 5,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"static.qiniucdn.com": {
-			"direct": 28,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"static.segmentfault.com": {
 			"direct": 0,
-			"block": 1,
-			"recent": "2015-10-05"
+			"block": 14,
+			"recent": "2015-10-07"
 		},
 		"static.tianyaui.com": {
 			"direct": 28,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"static.tietuku.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"static.v2ex.com": {
 			"direct": 0,
 			"block": 3,
 			"recent": "2015-09-28"
 		},
-		"static.wenwo.com": {
-			"direct": 22,
+		"static.wumii.cn": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
-		"static.witmart.com": {
-			"direct": 6,
+		"static.wumii.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"static0.tuicool.com": {
-			"direct": 3,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"static1.anzhi.com": {
 			"direct": 1,
@@ -4029,22 +3874,27 @@
 		"static1.baifendian.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"static1.tuicool.com": {
-			"direct": 4,
+			"direct": 10,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"static2.tuicool.com": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
-		"stats.kde.org": {
+		"statistics.aixifan.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
+		},
+		"stats.bbc.co.uk": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"stats.wp.com": {
 			"direct": 5,
@@ -4057,9 +3907,14 @@
 			"recent": "2015-10-05"
 		},
 		"stimg3.tuicool.com": {
-			"direct": 1,
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
+		},
+		"stop-ttip.org": {
+			"direct": 6,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"strck.hackersome.com": {
 			"direct": 0,
@@ -4070,6 +3925,11 @@
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
+		},
+		"sunng.info": {
+			"direct": 3,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"superuser.com": {
 			"direct": 2,
@@ -4091,10 +3951,10 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"t.p.mybuys.com": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-26"
+		"t.status.api.csdn.net": {
+			"direct": 0,
+			"block": 20,
+			"recent": "2015-10-06"
 		},
 		"t.vim-cn.com": {
 			"direct": 1,
@@ -4111,25 +3971,20 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"t5.zbjimg.com": {
-			"direct": 3,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"tags.api.umbel.com": {
+		"tag.perfectaudience.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"tags.bluekai.com": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"task.zhubajie.com": {
+		"tcr.tynt.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"telegram.com": {
 			"direct": 1,
@@ -4151,11 +4006,6 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"tietuku.com": {
-			"direct": 36,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"tinyurl.com": {
 			"direct": 1,
 			"block": 0,
@@ -4175,6 +4025,11 @@
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-05"
+		},
+		"tn.symcd.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"topic.it168.com": {
 			"direct": 1,
@@ -4216,11 +4071,6 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"travis-ci.org": {
-			"direct": 13,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"trc.taboola.com": {
 			"direct": 8,
 			"block": 0,
@@ -4232,19 +4082,9 @@
 			"recent": "2015-10-03"
 		},
 		"tu.rrsub.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-10-03"
-		},
-		"tuchuang.duoshuo.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"tuchuang.org": {
-			"direct": 8,
-			"block": 0,
-			"recent": "2015-09-26"
+			"direct": 0,
+			"block": 1,
+			"recent": "2015-10-06"
 		},
 		"tuhdo.github.io": {
 			"direct": 0,
@@ -4261,20 +4101,10 @@
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"ubuntuforums.org": {
-			"direct": 19,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"unix.stackexchange.com": {
 			"direct": 0,
 			"block": 2,
 			"recent": "2015-10-05"
-		},
-		"up.tietuku.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"update.gitter.im": {
 			"direct": 0,
@@ -4292,9 +4122,9 @@
 			"recent": "2015-09-29"
 		},
 		"upload.wikimedia.org": {
-			"direct": 9,
+			"direct": 11,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"us.blackberry.com": {
 			"direct": 0,
@@ -4321,25 +4151,30 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"v1.cnzz.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"v1.jiathis.com": {
 			"direct": 3,
 			"block": 0,
 			"recent": "2015-09-29"
 		},
+		"v2.uyan.cc": {
+			"direct": 8,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"v2ex.com": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"v3.jiathis.com": {
 			"direct": 0,
-			"block": 7,
-			"recent": "2015-10-05"
+			"block": 8,
+			"recent": "2015-10-06"
+		},
+		"v6.cnzz.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"vacuum.qiniudn.com": {
 			"direct": 1,
@@ -4347,9 +4182,9 @@
 			"recent": "2015-10-05"
 		},
 		"vassg141.ocsp.omniroot.com": {
-			"direct": 52,
+			"direct": 53,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
 		},
 		"vassg142.ocsp.omniroot.com": {
 			"direct": 23,
@@ -4360,11 +4195,6 @@
 			"direct": 19,
 			"block": 0,
 			"recent": "2015-10-05"
-		},
-		"video.fd.zol-img.com.cn": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"vk.com": {
 			"direct": 1,
@@ -4377,19 +4207,24 @@
 			"recent": "2015-10-03"
 		},
 		"w.sharethis.com": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"wallet.google.com": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-01"
 		},
-		"wd-edge.sharethis.com": {
-			"direct": 14,
+		"wanwang.aliyun.com": {
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-07"
+		},
+		"wd-edge.sharethis.com": {
+			"direct": 16,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"wearewizards.disqus.com": {
 			"direct": 1,
@@ -4400,11 +4235,6 @@
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"web.51.la": {
-			"direct": 5,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"webim.ganji.com": {
 			"direct": 23,
@@ -4426,25 +4256,25 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"wiki.52poke.com": {
-			"direct": 4,
+		"widget.wumii.cn": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
+		},
+		"widget.wumii.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"wiki.archlinux.org": {
-			"direct": 14,
+			"direct": 19,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
 		"wiki.python.org": {
 			"direct": 2,
 			"block": 0,
 			"recent": "2015-10-01"
-		},
-		"wiki.tox.chat": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-27"
 		},
 		"wiki.tox.im": {
 			"direct": 0,
@@ -4461,11 +4291,6 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"wordpress.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"wprp.zemanta.com": {
 			"direct": 0,
 			"block": 1,
@@ -4481,35 +4306,20 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"ws.pusherapp.com": {
-			"direct": 28,
+		"wumii-cc.wumii.cn": {
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"www.01responsible.com": {
-			"direct": 10,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.06ps.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.16rd.com": {
 			"direct": 35,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"www.1mima.com": {
-			"direct": 14,
+		"www.2cto.com": {
+			"direct": 31,
 			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"www.28im.com": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"www.51ibm.com": {
 			"direct": 3,
@@ -4521,20 +4331,20 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"www.51testing.com": {
-			"direct": 1,
+		"www.acfun.tv": {
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.72dao.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.airscr.com": {
 			"direct": 6,
 			"block": 0,
 			"recent": "2015-10-03"
+		},
+		"www.aliyun.com": {
+			"direct": 5,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"www.amigo.cn": {
 			"direct": 1,
@@ -4557,9 +4367,9 @@
 			"recent": "2015-09-29"
 		},
 		"www.archlinux.org": {
-			"direct": 7,
+			"direct": 10,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"www.archlinuxcn.org": {
 			"direct": 1,
@@ -4569,7 +4379,7 @@
 		"www.assoc-amazon.cn": {
 			"direct": 100,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-05"
 		},
 		"www.asus.com": {
 			"direct": 0,
@@ -4577,14 +4387,14 @@
 			"recent": "2015-10-03"
 		},
 		"www.atlassian.com": {
-			"direct": 6,
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
-		"www.bitscn.com": {
+		"www.bbc.com": {
 			"direct": 1,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.blogblog.com": {
 			"direct": 0,
@@ -4617,49 +4427,34 @@
 			"recent": "2015-09-29"
 		},
 		"www.cnblogs.com": {
-			"direct": 26,
+			"direct": 34,
 			"block": 0,
-			"recent": "2015-10-03"
-		},
-		"www.cocoachina.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.codeproject.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.csdn.net": {
-			"direct": 1,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-06"
+		},
+		"www.csto.com": {
+			"direct": 100,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"www.cubic.org": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"www.d9soft.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.dennogumi.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
-		"www.digitalocean.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
-		},
 		"www.donews.com": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-10-02"
+		},
+		"www.dualspark.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"www.dushibaiyu.com": {
 			"direct": 2,
@@ -4671,20 +4466,15 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"www.eclipse.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"www.edgewall.org": {
 			"direct": 7,
 			"block": 0,
 			"recent": "2015-09-28"
 		},
 		"www.educity.cn": {
-			"direct": 1,
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"www.emacswiki.org": {
 			"direct": 5,
@@ -4706,6 +4496,11 @@
 			"block": 1,
 			"recent": "2015-10-04"
 		},
+		"www.freedesktop.org": {
+			"direct": 3,
+			"block": 0,
+			"recent": "2015-10-06"
+		},
 		"www.friendeye.com": {
 			"direct": 1,
 			"block": 0,
@@ -4715,11 +4510,6 @@
 			"direct": 5,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"www.garden29.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"www.gfan.com": {
 			"direct": 1,
@@ -4737,44 +4527,34 @@
 			"recent": "2015-10-03"
 		},
 		"www.google-analytics.com": {
-			"direct": 100,
+			"direct": 62,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"www.google.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
-		},
-		"www.googleadservices.com": {
-			"direct": 18,
-			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-07"
 		},
 		"www.googletagmanager.com": {
-			"direct": 37,
+			"direct": 39,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"www.googletagservices.com": {
-			"direct": 38,
+			"direct": 40,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
 		},
 		"www.gravatar.com": {
 			"direct": 0,
 			"block": 100,
-			"recent": "2015-10-05"
+			"recent": "2015-10-07"
 		},
 		"www.gstatic.com": {
 			"direct": 0,
 			"block": 23,
 			"recent": "2015-10-03"
-		},
-		"www.haowj.com.cn": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"www.hitbox.tv": {
 			"direct": 14,
@@ -4795,11 +4575,6 @@
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-10-04"
-		},
-		"www.imgix.com": {
-			"direct": 7,
-			"block": 0,
-			"recent": "2015-09-27"
 		},
 		"www.infoq.com": {
 			"direct": 71,
@@ -4826,20 +4601,20 @@
 			"block": 1,
 			"recent": "2015-10-01"
 		},
-		"www.jb51.net": {
+		"www.ixueyi.com": {
 			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"www.jianshu.com": {
 			"direct": 9,
 			"block": 0,
 			"recent": "2015-09-29"
 		},
-		"www.kde.org": {
-			"direct": 6,
+		"www.kernel.org": {
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.kickstarter.com": {
 			"direct": 0,
@@ -4856,30 +4631,30 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
+		"www.lewanscheck.de": {
+			"direct": 0,
+			"block": 3,
+			"recent": "2015-10-07"
+		},
 		"www.linkedin.com": {
 			"direct": 1,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"www.linuxdiyf.com": {
-			"direct": 1,
+		"www.linuxeden.com": {
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.linuxfly.org": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-10-05"
 		},
-		"www.lua.org": {
-			"direct": 1,
+		"www.linuxidc.com": {
+			"direct": 19,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.lupaworld.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"www.mamicode.com": {
 			"direct": 7,
@@ -4892,9 +4667,9 @@
 			"recent": "2015-10-04"
 		},
 		"www.meijutt.com": {
-			"direct": 100,
-			"block": 0,
-			"recent": "2015-10-04"
+			"direct": 0,
+			"block": 90,
+			"recent": "2015-10-07"
 		},
 		"www.miranda-im.org": {
 			"direct": 9,
@@ -4906,30 +4681,30 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"www.muimi.me": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-26"
-		},
 		"www.net.cn": {
 			"direct": 5,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
 		"www.newsmth.net": {
-			"direct": 64,
+			"direct": 95,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-07"
+		},
+		"www.nitrous.io": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-05"
 		},
 		"www.nljb.net": {
 			"direct": 3,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"www.ohaha123.com": {
-			"direct": 9,
+		"www.nowamagic.net": {
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-07"
 		},
 		"www.ohloh.net": {
 			"direct": 1,
@@ -4946,15 +4721,10 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"www.oreilly.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"www.oschina.net": {
-			"direct": 42,
+			"direct": 95,
 			"block": 0,
-			"recent": "2015-10-03"
+			"recent": "2015-10-06"
 		},
 		"www.pairprogramwith.me": {
 			"direct": 1,
@@ -4976,40 +4746,35 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
+		"www.phoronix.com": {
+			"direct": 12,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
 		"www.placona.co.uk": {
 			"direct": 6,
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"www.poll-maker.com": {
-			"direct": 7,
+		"www.policat.org": {
+			"direct": 2,
 			"block": 0,
-			"recent": "2015-10-04"
+			"recent": "2015-10-07"
+		},
+		"www.poll-maker.com": {
+			"direct": 8,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"www.privateinternetaccess.com": {
 			"direct": 0,
 			"block": 3,
 			"recent": "2015-10-05"
 		},
-		"www.programcreek.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.psahz.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"www.python-camelot.com": {
 			"direct": 0,
 			"block": 1,
 			"recent": "2015-09-30"
-		},
-		"www.python-course.eu": {
-			"direct": 9,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"www.python.org": {
 			"direct": 30,
@@ -5021,30 +4786,40 @@
 			"block": 27,
 			"recent": "2015-10-03"
 		},
-		"www.reddit.com": {
-			"direct": 2,
+		"www.queryly.com": {
+			"direct": 1,
 			"block": 0,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
 		},
-		"www.refheap.com": {
+		"www.quora.com": {
+			"direct": 1,
+			"block": 0,
+			"recent": "2015-10-07"
+		},
+		"www.reddit.com": {
 			"direct": 0,
-			"block": 2,
-			"recent": "2015-09-26"
+			"block": 5,
+			"recent": "2015-10-07"
 		},
-		"www.rust-lang.org": {
+		"www.ruby-lang.org": {
 			"direct": 0,
 			"block": 1,
-			"recent": "2015-10-05"
+			"recent": "2015-10-06"
+		},
+		"www.rust-lang.org": {
+			"direct": 2,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"www.rust.cc": {
 			"direct": 7,
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"www.seowhy.com": {
-			"direct": 1,
+		"www.scala-js.org": {
+			"direct": 4,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.star01.net": {
 			"direct": 29,
@@ -5052,14 +4827,9 @@
 			"recent": "2015-10-05"
 		},
 		"www.statcounter.com": {
-			"direct": 4,
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-10-03"
-		},
-		"www.svnchina.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
 		"www.swig.org": {
 			"direct": 0,
@@ -5106,30 +4876,15 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"www.trillian.im": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"www.tuicool.com": {
-			"direct": 1,
+			"direct": 3,
 			"block": 0,
-			"recent": "2015-09-29"
+			"recent": "2015-10-06"
 		},
 		"www.ubuntu.org.cn": {
 			"direct": 0,
 			"block": 4,
 			"recent": "2015-10-05"
-		},
-		"www.v2ex.com": {
-			"direct": 0,
-			"block": 33,
-			"recent": "2015-09-27"
-		},
-		"www.w3school.com.cn": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"www.weblogsinc.com": {
 			"direct": 1,
@@ -5161,10 +4916,10 @@
 			"block": 0,
 			"recent": "2015-10-05"
 		},
-		"www.witmart.com": {
-			"direct": 1,
+		"www.wikiwand.com": {
+			"direct": 5,
 			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"www.xabber.com": {
 			"direct": 0,
@@ -5181,20 +4936,15 @@
 			"block": 0,
 			"recent": "2015-09-28"
 		},
-		"www.yiibai.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"www.yiichina.com": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"www.youtube-nocookie.com": {
 			"direct": 0,
 			"block": 8,
 			"recent": "2015-10-03"
+		},
+		"www.zgguan.com": {
+			"direct": 6,
+			"block": 0,
+			"recent": "2015-10-07"
 		},
 		"www.zhou92.com": {
 			"direct": 4,
@@ -5251,20 +5001,10 @@
 			"block": 0,
 			"recent": "2015-10-04"
 		},
-		"xmpp.jp": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
 		"xmpp.org": {
 			"direct": 4,
 			"block": 0,
 			"recent": "2015-10-03"
-		},
-		"xmpppy.sourceforge.net": {
-			"direct": 0,
-			"block": 1,
-			"recent": "2015-09-26"
 		},
 		"yejinxin.disqus.com": {
 			"direct": 1,
@@ -5275,11 +5015,6 @@
 			"direct": 6,
 			"block": 0,
 			"recent": "2015-09-29"
-		},
-		"yiyar.org": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-26"
 		},
 		"ypit.ypskz.com.cn": {
 			"direct": 1,
@@ -5311,35 +5046,25 @@
 			"block": 0,
 			"recent": "2015-10-03"
 		},
-		"z6.cnzz.com": {
-			"direct": 100,
+		"zb.oschina.net": {
+			"direct": 8,
 			"block": 0,
-			"recent": "2015-09-26"
+			"recent": "2015-10-06"
 		},
-		"z7.cnzz.com": {
-			"direct": 1,
+		"zbackup.org": {
+			"direct": 7,
 			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"z8.cnzz.com": {
-			"direct": 4,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"zdw.w8.com.cn": {
-			"direct": 2,
-			"block": 0,
-			"recent": "2015-09-26"
-		},
-		"zengrong.net": {
-			"direct": 1,
-			"block": 0,
-			"recent": "2015-09-27"
+			"recent": "2015-10-06"
 		},
 		"zh.wikipedia.org": {
 			"direct": 0,
 			"block": 2,
 			"recent": "2015-09-29"
+		},
+		"zhizhiyuedu.github.io": {
+			"direct": 5,
+			"block": 0,
+			"recent": "2015-10-06"
 		},
 		"zhou92.duoshuo.com": {
 			"direct": 1,

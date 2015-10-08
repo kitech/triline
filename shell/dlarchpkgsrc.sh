@@ -2,20 +2,38 @@
 
 # 下载archlinux包的工程源文件PKGBUILD
 # 官方版git仓库中的，非aur包。
+# TODO
+#     aur4 support
+#     detail error report
 
 pkgname=linux
 pkgname=$1
 
+function help()
+{
+    echo "Usage:"
+    echo "    [http_proxy=127.0.0.1:8117] dlarchpkgsrc.sh <pkgname>"
+    echo ""
+}
 if [ x"$pkgname" == x"" ] ; then
-    echo "dlarchpkgsrc.sh <pkgname>"
+    help;
     exit 1
 fi
 
 burl="https://projects.archlinux.org"
 tree_url="$burl/svntogit/packages.git/tree/trunk?h=packages/${pkgname}"
+
+# 支持proxy
+proxy=""
+if [ x"$http_proxy" != x"" ] ; then
+    proxy="--proxy $http_proxy"
+    echo "Using proxy setting: $proxy"
+fi
+
+# set -x
 echo "Get list files for $pkgname ..."
 mkdir -p $pkgname
-curl "$tree_url" > $pkgname/pkgsrc.tree.html
+curl $proxy "$tree_url" > $pkgname/pkgsrc.tree.html
 echo ""
 echo ""
 
@@ -32,7 +50,7 @@ for upath in $upaths ; do
 
     plain_url="$burl/svntogit/packages.git/plain/trunk/$fname?h=packages/$pkgname"
     echo "Get $fname ..."
-    curl "$plain_url" > $pkgname/$fname
+    curl $proxy "$plain_url" > $pkgname/$fname
     cnter=$(expr $cnter + 1)
 done
 

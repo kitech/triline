@@ -9,13 +9,13 @@ function backonsf()
 {
     echo "backing drupal..."
     ls -lh n186258_drupal_ok.sql.gz
-    mysqldump --add-drop-database -hmysql-n -un186258admin -padmin0lgz0atsf n186258_drupal >n186258_drupal_ok.sql
+    mysqldump --add-drop-database -hmysql-n -un186258admin -padminxxx n186258_drupal >n186258_drupal_ok.sql
     gzip n186258_drupal_ok.sql
     ls -lh n186258_drupal_ok.sql.gz
 
     echo "backing mantis..."
     ls -lh n186258_mantis_utf8.sql.gz
-    mysqldump --add-drop-database -h mysql-n  -u n186258admin -padmin0lgz0atsf n186258_mantis_utf8 >n186258_mantis_utf8.sql
+    mysqldump --add-drop-database -h mysql-n  -u n186258admin -padminxxx n186258_mantis_utf8 >n186258_mantis_utf8.sql
     gzip n186258_mantis_utf8.sql
     ls -lh n186258_mantis_utf8.sql.gz
 
@@ -29,9 +29,9 @@ ssh -t liuguangzhao,nullget@shell.sf.net create
 
 echo "fetch drupal db..."
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/groups/n/nu/nullget/temp/n186258_drupal_ok.sql.gz   .
-scp liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_drupal_ok.sql.gz   .
+scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_drupal_ok.sql.gz   .
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_drupal_ok.sql.gz   .
 
 echo "fetch mantis db..."
-scp liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_mantis_utf8.sql.gz	.
+scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_mantis_utf8.sql.gz	.
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_mantis_utf8.sql.gz	.

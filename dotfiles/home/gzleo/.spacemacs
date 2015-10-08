@@ -13,7 +13,8 @@
 ;; (load "~/.emacs.d/shackle.el")
 ;; (shackle-mode t)
 ;; (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)))
-(load "~/.emacs.d/duplicate-line.el")
+(load "~/.emacs.d/handby/duplicate-line.el")
+(load "~/.emacs.d/handby/pkgbuild-mode.el")
 (global-set-key "\M-p" 'duplicate-previous-line)
 (global-set-key "\M-n" 'duplicate-following-line)
 

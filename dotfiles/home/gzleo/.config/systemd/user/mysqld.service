@@ -1,0 +1,18 @@
+[Unit]
+Description=MariaDB database server
+After=syslog.target
+
+[Service]
+Type=simple
+TimeoutSec=120
+# User=mysql
+# Group=mysql
+
+ExecStart=/usr/bin/mysqld --pid-file=/srv/var/mysqld.pid --default-storage-engine=myisam --innodb=OFF --datadir=/srv/var/mysql --socket=/tmp/mysqld.sock
+# ExecStartPost=/usr/bin/mysqld-post
+
+Restart=always
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

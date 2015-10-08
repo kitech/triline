@@ -9,11 +9,12 @@ alias ssh='ssh -CXY'
 #alias ssh=$HOME/myscripts/assh.sh
 alias aria2c='aria2c -x 5 -k 1M'
 alias ec='emacsclient -n'
-alias eml='emacs -nw -Q'     # 非常轻量级新的emacs实例
 alias ecv='emacsclient -t -c -q'    # 用于简单编辑配置文件，轻量级命令行emacs view
+alias eml='emacs -nw -Q'     # 非常轻量级新的emacs实例
 alias git=$HOME/myscripts/egit.sh
 # about X selection
 alias pwdxs='pwd | xsel -p -b'
+# alias pip='pip --user'   # 以普通用户安装pip包
 
 export GOPATH=/serv/golib/:$HOME/opensource/beeapp
 
@@ -25,7 +26,7 @@ export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
 export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export GOPATH=$HOME/golib:$GOPATH:$PWD
-export RUST_SRC_PATH=/usr/local/src/rust/src   # for rust-racer
+export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 
 JAVA_OPTS="-Xmx128M -Xms16M -Xss2M"
 JAVA_HOME=/usr/lib/jvm/default
