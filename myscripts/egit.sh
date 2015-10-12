@@ -13,7 +13,7 @@
 # TODO 其中bitbucket和gitcafe只提交公开项目。
 # TODO 把托管分为两个功能，一个是私有项目类型，只提交到bitbucket和oschina
 # TODO 另一个公开项目，把项目提交到全部4个托管站点上。
-# 
+# TODO 使用异步方式，push到向多个repo。
 
 ### ChangeLog
 # 2015-05-07 支持不同站点间的仓库镜像提交
@@ -29,10 +29,14 @@ function run_with_mine()
     echo "Note: run with mine...";
 
     rdn=$RANDOM # bash builtin variable
-    idx=$(expr $RANDOM % 3)
+    idx=$(expr $RANDOM % 5)
 
     email=
-    if [ x"$idx" == x"2" ] ; then
+    if [ x"$idx" == x"4" ] ; then
+        email=kitech@users.sf.net
+    elif [ x"$idx" == x"3" ] ; then
+        email=drswinghead@gmail.com
+    elif [ x"$idx" == x"2" ] ; then
         email=yatsen3@gmail.com
     elif [ x"$idx" == x"1" ] ; then
         email=drswinghead@163.com

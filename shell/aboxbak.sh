@@ -33,6 +33,7 @@ etcfiles="
 ~/.tmux.conf
 ~/bin/elimg
 ~/bin/winerun
+~/.config/flake8
 ~/.config/systemd/user/postgresql.service
 ~/.config/systemd/user/mysqld.service
 ~/.config/tox/yatsen21.tox
@@ -61,6 +62,8 @@ etcfiles="
 /etc/systemd/journald.conf
 /etc/systemd/system/delegate-shadowsocks.service
 /etc/systemd/system/delegate-tor.service
+/etc/supervisord.conf
+/etc/supervisor.d
 /var/spool/cron
 "
 
