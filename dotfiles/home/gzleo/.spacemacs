@@ -4,7 +4,9 @@
 
 (set-variable 'ycmd-server-command '("python2" "/home/gzleo/opensource/ycmd/ycmd"))
 (add-hook 'python-mode-hook 'ycmd-mode)
-(add-hook 'ruby-mode-hook 'ycmd-mode)
+;; (add-hook 'ruby-mode-hook 'ycmd-mode)
+;; (add-hook 'enhruby-mode-hook 'ycmd-mode)
+;; (add-hook 'enh-ruby-mode-hook 'ycmd-mode)
 (add-hook 'php-mode-hook 'ycmd-mode)
 (add-hook 'go-mode-hook 'ycmd-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
@@ -90,14 +92,13 @@ values."
      syntax-checking
      version-control
      flycheck
-
      semantic
      color
      c-c++
      python
-     ruby
      php
      go
+     ruby
      rust
      html
      javascript
@@ -270,18 +271,6 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  (progn
-    (setq indent-tabs-mode nil)
-    (setq default-tab-width 4)
-    (setq tab-width 4)
-    (setq c-basic-offset 4)
-    (setq ruby-indent-level 4)
-    ;; (setq helm-completing-read-handlers-alist
-    ;;       '((minibuffer-complete . ido)))
-    ;; (setq helm-split-window-default-side 'below)
-    ;; (setq helm-split-window-in-side-p           t)
-    ;; (setq helm-always-two-windows t)
-    )
   )
 
 (defun dotspacemacs/user-config ()
@@ -293,7 +282,12 @@ layers configuration. You are free to put any user code."
     (setq default-tab-width 4)
     (setq tab-width 4)
     (setq c-basic-offset 4)
+    (setq go-indent-level 4)
+    (setq php-indent-level 4)
+    (setq python-indent-level 4)
     (setq ruby-indent-level 4)
+    (setq enh-ruby-indent-level 4)
+    (setq js-indent-level 4)
     (setq-default flycheck-flake8-maximum-line-length 100)
     ;; (setq helm-completing-read-handlers-alist
     ;;       '((minibuffer-complete . ido)))
@@ -301,12 +295,12 @@ layers configuration. You are free to put any user code."
     ;; (setq helm-split-window-in-side-p           t)
     ;; (setq helm-always-two-windows t)
 
-    (push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
-    (add-hook 'helm-after-initialize-hook (lambda ()
-					    (popwin:display-buffer helm-buffer t)
-					    (popwin-mode -1)))
+    ;; (push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
+    ;; (add-hook 'helm-after-initialize-hook (lambda ()
+	;; 				    (popwin:display-buffer helm-buffer t)
+	;; 				    (popwin-mode -1)))
     ;;  Restore popwin-mode after a Helm session finishes.
-    (add-hook 'helm-cleanup-hook (lambda () (popwin-mode 1)))
+    ;; (add-hook 'helm-cleanup-hook (lambda () (popwin-mode 1)))
 
     ;; (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)))
     )

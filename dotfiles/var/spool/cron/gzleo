@@ -1,1 +1,2 @@
 # */1 * * * *  /home/gzleo/opensource/mkuse/lwwx/bin/wxagent.sh
+*/30 * * * * /usr/bin/supervisorctl restart mitmis

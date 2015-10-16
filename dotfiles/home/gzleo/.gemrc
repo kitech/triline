@@ -3,7 +3,9 @@
 :bulk_threshold: 1000
 :sources:
 - https://rubygems.org/
-- http://ruby.taobao.org/
+- https://ruby.taobao.org/
 :update_sources: true
 :verbose: true
-gem: "--user-install"
+gem: "--http-proxy=http://127.0.0.1:8117 --user-install"
+
+# 可以这么注释吗？

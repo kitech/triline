@@ -1,26 +1,65 @@
 #!/usr/bin/env python
-# vim:fileencoding=utf-8
+# vim:fileencoding=utf-8,tab=4
+
+import sys
+from subprocess import Popen, PIPE
+import pyperclip
 
 # you may want change this
 dest_url = 'https://img.vim-cn.com/'
 
-import sys
-from subprocess import Popen, PIPE
-
 args = []
 for f in sys.argv[1:]:
-  if f == '-':
-    args.extend(['-F', 'name=@-;-.png'])
-  else:
-    args.extend(['-F', 'name=@'+f])
-cmd = ['curl', '--proxy', '127.0.0.1:8117', '--compressed', dest_url] + args
+    if f == '-':
+        args.extend(['-F', 'name=@-;-.png'])
+    else:
+        args.extend(['-F', 'name=@' + f])
+cmd = ['curl', '--verbose', '--proxy', '127.0.0.1:8117', '--compressed', dest_url] + args
 p = Popen(cmd, stdout=PIPE)
 ret = p.wait()
 url = p.stdout.read()
 sys.stdout.buffer.write(url)
+
 # TODO 如果是用的X桌面，则试着把地址拷贝到clipboard
 # echo $url | xclip -i -selection clipboard
-import pyperclip
 pyperclip.copy(url.decode().rstrip())
 spam = pyperclip.paste()
+
 sys.exit(ret)
+
+
+# just for py3k
+def uploadFile(self, fname):
+    import io
+    import pycurl
+
+    dest_url = 'https://img.vim-cn.com/'
+
+    c = pycurl.Curl()
+    c.setopt(pycurl.URL, dest_url)
+    c.setopt(pycurl.POST, 1)
+
+    filename = fname
+    c.setopt(c.HTTPPOST, [(('file', (c.FORM_FILE, filename)))])
+    c.setopt(pycurl.SSL_VERIFYPEER, 0)
+    c.setopt(pycurl.SSL_VERIFYHOST, 0)
+    c.setopt(pycurl.USERAGENT, 'curl/7.45.0')
+    # c.setopt(pycurl.VERBOSE, 1)
+    # c.setopt(pycurl.PROXY, '127.0.0.1:8117')
+    # c.setopt(pycurl.PROXYTYPE_HTTP, 1)
+
+    outval = io.BytesIO()
+    hdrval = io.BytesIO()
+    c.setopt(pycurl.WRITEFUNCTION, outval.write)
+    c.setopt(pycurl.HEADERFUNCTION, hdrval.write)
+    c.setopt(pycurl.TIMEOUT, 7)
+
+    c.perform()
+    c.close()
+
+    # print(outval.getvalue().decode(), hdrval.getvalue().decode())
+    url = outval.getvalue().decode()
+    if not url.startswith('https://'): print('upload error: ', hdrval.getvalue())
+
+    return url
+
