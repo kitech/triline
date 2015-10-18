@@ -1,3 +1,5 @@
+#!/bin/sh
+# 添加个#!头，帮助编辑器识别文件类型，但并不影响 source 该脚本
 
 ### ref this file
 ### add line to $HOME/.bash_profile
@@ -16,24 +18,17 @@ alias git=$HOME/myscripts/egit.sh
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
 
+export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin
+export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts
 export GOPATH=/serv/golib/:$HOME/opensource/beeapp
-
+export GOPATH=$GOPATH:$HOME/golib:$GOPATH:$PWD
+export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 
 export PYTHONPATH=$PYTHONPATH:.
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
 
 export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
-export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin
-export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
-export GOPATH=$HOME/golib:$GOPATH:$PWD
 export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
-
-JAVA_OPTS="-Xmx128M -Xms16M -Xss2M"
-JAVA_HOME=/usr/lib/jvm/default
-AKKA_LIB=$HOME/jars/akka-2.3.8/lib/akka
-#export CLASSPATH=$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/config-1.2.1.jar
-# use -Djava.ext.dirs=...替代
-JAR_EXTS=$JAVA_HOME/jre/lib/ext:$AKKA_LIB
 
 export DTPXY=127.0.0.1:8117
 export GIT_SSH=$HOME/myscripts/socks5proxyssh
@@ -43,6 +38,15 @@ export GIT_CURL_VERBOSE=0
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
 
+JAVA_OPTS="-Xmx128M -Xms16M -Xss2M"
+JAVA_HOME=/usr/lib/jvm/default
+AKKA_LIB=$HOME/jars/akka-2.3.8/lib/akka
+#export CLASSPATH=$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/config-1.2.1.jar
+# use -Djava.ext.dirs=...替代
+JAR_EXTS=$JAVA_HOME/jre/lib/ext:$AKKA_LIB
 
 #######shity
 alias youtube-dl='youtube-dl --proxy 127.0.0.1:8117'
+# alias go='http_proxy=127.0.0.1:8080 go'
+# 显示go get的网络流量进度
+# strace -f -e trace=network go get github.com/divan/gofresh 2>&1 | pv -i 0.05 > /dev/null

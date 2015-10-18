@@ -31,6 +31,7 @@ etcfiles="
 ~/.gitconfig
 ~/.gitignore
 ~/.tmux.conf
+~/.pip/pip.conf
 ~/bin/elimg
 ~/bin/winerun
 ~/.config/flake8

@@ -87,7 +87,8 @@ function cleanup_with_user()
     $GIT config --global --remove-section user
 }
 
-if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] ; then
+if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
+       || [ x"$subcmd" == x"rebase" ] ; then
     cleanup_with_user;
     
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')

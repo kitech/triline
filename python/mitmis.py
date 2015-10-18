@@ -86,6 +86,8 @@ pushbullet.com
 blogspot.com
 travis-ci.org
 travis-ci.com
+docker.com
+msecnd.net
     """
     builtin_rules = builtin_rules.split('\n')
 
@@ -305,7 +307,8 @@ def error(context, flow):
 
 loglevel = logging.DEBUG
 # loglevel = logging.INFO
-# loglevel = logging.WARNING
+loglevel = logging.WARNING
+# loglevel = logging.ERROR
 
 logging.basicConfig(level=loglevel,
                     format='%(asctime)-11s %(levelname)-8s %(filename)s:%(lineno)s %(funcName)s %(message)s')
@@ -321,8 +324,9 @@ if __name__ == '__main__':
     logging.info('Starting main program...')
     # __file__ should be like this: ~/triline/mitmis.py']
     # -v --port 8119 -U http://127.0.0.1:8118/ -s ~/triline/mitmis.py --no-upstream-cert
-    autopxy_args = ('-v --port 8119 -U http://127.0.0.1:8118/ -s ' + __file__).split(' ')
+    autopxy_args = ('--port 8119 -U http://127.0.0.1:8118/ -s ' + __file__).split(' ')
     sys.argv += autopxy_args
+    if loglevel <= logging.INFO: sys.argv.append('-v')
     logging.debug('Using args: ' + str(autopxy_args))
     sys.exit(load_entry_point('mitmproxy>=0.13', 'console_scripts', 'mitmdump')())
 
