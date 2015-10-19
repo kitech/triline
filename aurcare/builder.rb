@@ -57,7 +57,7 @@ abort('repo add error.') if !ret;
 ret = mysystem("git add -v #{pkgname}*.pkg.tar.xz");
 abort('add to git error.') if !ret;
 
-fresh_aurdb();
+refresh_aurdb();
 
 # 打包失败的临时文件，手动决定如果处理，有可能要查找错误原因，有可能直接删除。
 # 删除成功打包的临时文件。
