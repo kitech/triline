@@ -1,3 +1,0 @@
-[submodule "private"]
-	path = private
-	url = git@bitbucket.org:kibtech/triline-private.git
