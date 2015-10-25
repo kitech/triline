@@ -1,0 +1,17 @@
+[Unit]
+Description=A special mitm with pac daemon
+After=network.target
+
+[Service]
+Type=fork
+# User=nobody
+# Environment="DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-XXBRdFQxlY,guid=adc3d044b0c8e6fb961e747a55d7ef59"
+ExecStart=/bin/sh -c "/usr/bin/python2 /home/$USER/triline/python/mitmis.py"
+ExecStop=
+# ExecReload=
+# Restart=on-failure|on-abnormal
+
+[Install]
+# WantedBy=multi-user.target
+WantedBy=default.target
+

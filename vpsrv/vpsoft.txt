@@ -1,0 +1,14 @@
+tmux
+emacs
+LNMP
+toxcore/pytox
+toxbot
+toxtun
+toxnode
+privoxy
+shadowsocks-python: git checkout 2.8.2
+shadowsocks-libev???
+
+当前系统是centos-7
+下个月重装系统吧，装成ubuntu算了。
+然后尝试安装pacstrap，chroot进 archlinux。

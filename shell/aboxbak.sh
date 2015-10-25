@@ -35,12 +35,19 @@ etcfiles="
 ~/bin/elimg
 ~/bin/winerun
 ~/.config/flake8
+~/.config/systemd/user
 ~/.config/systemd/user/postgresql.service
 ~/.config/systemd/user/mysqld.service
+~/.config/systemd/user/mitmis.service
+~/.config/systemd/user/v2ray.service
+~/.config/systemd/user/delegate-shadowsocks.service
+~/.config/systemd/user/delegate-v2ray.service
+~/.config/systemd/user/delegate-tor.service
 ~/.config/tox/yatsen21.tox
 ~/.config/tox/yatsen21.ini
 ~/.config/tox/yatsen31.tox
 ~/.config/tox/yatsen31.ini
+~/.cow/rc
 ~/.cow/rc.eg
 ~/.cow/direct
 ~/.cow/blocked
@@ -61,7 +68,6 @@ etcfiles="
 /etc/miredo
 /etc/modules-load.d
 /etc/systemd/journald.conf
-/etc/systemd/system/delegate-shadowsocks.service
 /etc/systemd/system/delegate-tor.service
 /etc/supervisord.conf
 /etc/supervisor.d
@@ -69,6 +75,10 @@ etcfiles="
 "
 
 # echo $etcfiles
+
+private_etcfiles="
+/etc/shadowsocks/ss.json
+"
 
 ######
 

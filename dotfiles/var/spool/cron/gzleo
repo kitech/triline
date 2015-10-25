@@ -1,2 +1,11 @@
 # */1 * * * *  /home/gzleo/opensource/mkuse/lwwx/bin/wxagent.sh
-*/30 * * * * /usr/bin/supervisorctl restart mitmis
+# */1 * * * *  echo `id -un` >> /tmp/abc.log
+# */30 * * * * /usr/bin/supervisorctl restart mitmis
+*/30 * * * * systemctl --user restart mitmis
+*/30 * * * * akonadictl stop
+*/30 * * * * balooctl  stop
+* */1 * * *  /home/`id -un`/triline/shell/aboxbak.sh 
+
+# * * * * * ntpdate s1a.time.edu.cn
+# * * * * * ntpdate 207.32.191.59
+# * * * * * ntpdate ntp.sjtu.edu.cn

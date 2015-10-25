@@ -71,7 +71,8 @@ google.com
 google.co.jp
 google.co.hk
 google.com.hk
-github.com
+# github.com
+bitbucket.org
 wikipedia.org
 akamaihd.net
 add-more-domains-below.org
@@ -88,8 +89,10 @@ travis-ci.org
 travis-ci.com
 docker.com
 msecnd.net
+it7.net
     """
     builtin_rules = builtin_rules.split('\n')
+    builtin_rules = list(filter(lambda x: not x.startswith('#'), builtin_rules))
 
     gfwlist = content.splitlines(False)
     domains = set(builtin_rules)
@@ -238,11 +241,12 @@ def auto_proxy_address(flow):
     pxy = find_proxy_for_url(url, host)
     logging.debug('Result proxy: ' + pxy)
     if pxy == 'DIRECT;':
-        logging.debug('Changing upstream proxy server to :8118...')
+        logging.debug('Changing upstream local proxy server to :8118...')
         flow.live.change_server(('127.0.0.1', 8118), persistent_change=True)
     else:
         logging.debug('Changing upstream proxy server to :8116...')
-        flow.live.change_server(('127.0.0.1', 8116), persistent_change=True)
+        # flow.live.change_server(('127.0.0.1', 8116), persistent_change=True)
+        flow.live.change_server(('127.0.0.1', 8113), persistent_change=True)
 
     return
 
