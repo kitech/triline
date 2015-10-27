@@ -111,6 +111,7 @@ values."
 
      gtags
      yaml
+     latex ;; 可能导致主界面freeze
 
      (ranger :variables ranger-show-preview t)
      ;; sr-speedbar  ;; 目前还很难用

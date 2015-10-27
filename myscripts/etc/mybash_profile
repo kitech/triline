@@ -45,6 +45,13 @@ AKKA_LIB=$HOME/jars/akka-2.3.8/lib/akka
 # use -Djava.ext.dirs=...替代
 JAR_EXTS=$JAVA_HOME/jre/lib/ext:$AKKA_LIB
 
+# queueit变量
+export QUEUEIT_HOST=127.0.0.1
+export QUEUEIT_PORT=11300
+export QUEUEIT_TIMEOUT=100
+export QUEUEIT_TTR=5000
+
+
 #######shity
 alias youtube-dl='youtube-dl --proxy 127.0.0.1:8117'
 # alias go='http_proxy=127.0.0.1:8080 go'
