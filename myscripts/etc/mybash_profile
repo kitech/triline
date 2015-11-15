@@ -8,6 +8,7 @@
 alias ll='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
+alias scu='systemctl --user'
 #alias ssh=$HOME/myscripts/assh.sh
 alias aria2c='aria2c -x 5 -k 1M'
 alias ec='emacsclient -n'
@@ -18,7 +19,7 @@ alias git=$HOME/myscripts/egit.sh
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
 
-export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts
 export GOPATH=/serv/golib/:$HOME/opensource/beeapp
 export GOPATH=$GOPATH:$HOME/golib:$GOPATH:$PWD

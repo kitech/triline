@@ -2,15 +2,24 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(set-variable 'ycmd-server-command '("python2" "/home/gzleo/opensource/ycmd/ycmd"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/handby/"))
+(require 'gzleo)
+
+(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
+(set-variable 'ycmd-global-config (expand-file-name "~/.emacs.d/handby/ycm_global_extra_conf.py"))
+(add-hook 'after-init-hook #'global-ycmd-mode)
+(add-hook 'c++-mode-hook 'ycmd-mode)
+(add-hook 'cc-mode-hook 'ycmd-mode)
+(add-hook 'c-mode-hook 'ycmd-mode)
 (add-hook 'python-mode-hook 'ycmd-mode)
-;; (add-hook 'ruby-mode-hook 'ycmd-mode)
-;; (add-hook 'enhruby-mode-hook 'ycmd-mode)
-;; (add-hook 'enh-ruby-mode-hook 'ycmd-mode)
 (add-hook 'php-mode-hook 'ycmd-mode)
 (add-hook 'go-mode-hook 'ycmd-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
+;; (add-hook 'ruby-mode-hook 'ycmd-mode)
+;; (add-hook 'enhruby-mode-hook 'ycmd-mode)
+;; (add-hook 'enh-ruby-mode-hook 'ycmd-mode)
+;; (global-ycmd-mode t)
 
 ;; (load "~/.emacs.d/shackle.el")
 ;; (shackle-mode t)
@@ -19,6 +28,32 @@
 (load "~/.emacs.d/handby/pkgbuild-mode.el")
 (global-set-key "\M-p" 'duplicate-previous-line)
 (global-set-key "\M-n" 'duplicate-following-line)
+
+;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20151021.113/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20150924.406/"))
+(require 'dash)
+(require 's)
+(require 'origami)
+(global-origami-mode t)
+(global-set-key (kbd "<C-return>") 'origami-toggle-node)
+;;(global-set-key "\C-c @ \C-M-s" 'origami-open-all-nodes)
+;;(global-set-key "\C-c @ \C-M-h" 'origami-close-all-nodes)
+;; (global-set-key "\C-c @ \C-s" 'origami-open-node)
+;; (global-set-key "\C-c @ \C-h" 'origami-close-node)
+;;(global-set-key "\C-c @ \C-c" 'origami-toggle-node)
+
+;; for hideshow/hs
+;; hs的快捷键太长了，麻烦。
+;; C-c @ C-M-s show all
+;; C-c @ C-M-h hide all
+;; C-c @ C-s show block
+;; C-c @ C-h hide block
+;; C-c @ C-c toggle hide/show
+
+;; yafolding的问题，光标定位不准确，在括号范围内时。
+(require 'yafolding)
+;; (yafolding-mode t)
 
 ;;; for ecb
 (setq ecb-display-news-for-upgrade nil)

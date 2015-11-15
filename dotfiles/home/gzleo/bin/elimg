@@ -20,6 +20,8 @@ ret = p.wait()
 url = p.stdout.read()
 sys.stdout.buffer.write(url)
 
+sys.exit(ret)
+
 # TODO 如果是用的X桌面，则试着把地址拷贝到clipboard
 # echo $url | xclip -i -selection clipboard
 pyperclip.copy(url.decode().rstrip())

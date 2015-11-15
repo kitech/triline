@@ -71,7 +71,7 @@ google.com
 google.co.jp
 google.co.hk
 google.com.hk
-# github.com
+github.com
 bitbucket.org
 wikipedia.org
 akamaihd.net
