@@ -4,6 +4,10 @@
 # level <level> (<level> is 0-7, auto, disengaged, full-speed)
 level=$1
 echo "level $level" > /proc/acpi/ibm/fan
+ret=$?
+if [ x"$ret" != x"0" ] ; then
+    exit
+fi
 
 cat /proc/acpi/ibm/fan
 

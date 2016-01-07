@@ -6,6 +6,7 @@
 ### [[ -f ~/myscripts/mybash_profile ]] && . ~/myscripts/mybash_profile
 
 alias ll='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
+alias lla='ls -a --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
 alias scu='systemctl --user'
@@ -19,10 +20,10 @@ alias git=$HOME/myscripts/egit.sh
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
 
-export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin:$HOME/bin:$HOME/golib/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts
-export GOPATH=/serv/golib/:$HOME/opensource/beeapp
-export GOPATH=$GOPATH:$HOME/golib:$GOPATH:$PWD
+export PATH=$PATH:$HOME/golib/bin:$HOME/work/bin:$HOME/oss/bin  # for other compiled go bin
+export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 
 export PYTHONPATH=$PYTHONPATH:.

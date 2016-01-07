@@ -13,17 +13,17 @@ listen = http://0.0.0.0:8117
 # proxy = socks5://127.0.0.1:9050
 proxy = http://127.0.0.1:8112
 
-# tor 本地
-# proxy = socks5://127.0.0.1:9050
-# proxy = http://127.0.0.1:8115
-
 # v2ray 本地
 proxy = socks5://127.0.0.1:9051
 # proxy = http://127.0.0.1:8113
 
 # shadowsocks 本地
-proxy = socks5://127.0.0.1:1080
+# proxy = socks5://127.0.0.1:1080
 # proxy = http://127.0.0.1:8116
+
+# tor 本地
+# proxy = socks5://127.0.0.1:9050
+# proxy = http://127.0.0.1:8115
 
 # i2p 本地
 # proxy = http://127.0.0.1:4444

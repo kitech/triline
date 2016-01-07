@@ -4,6 +4,7 @@
 # backupsf函数下面的部分在本地执行
 # 还不能做到完全自动化
 
+set -x
 ## 
 function backonsf()
 {
@@ -29,9 +30,14 @@ ssh -t liuguangzhao,nullget@shell.sf.net create
 
 echo "fetch drupal db..."
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/groups/n/nu/nullget/temp/n186258_drupal_ok.sql.gz   .
-scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_drupal_ok.sql.gz   .
+scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/n186258_drupal_ok.sql.gz   .
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_drupal_ok.sql.gz   .
 
 echo "fetch mantis db..."
-scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_mantis_utf8.sql.gz	.
+scp -C liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/n186258_mantis_utf8.sql.gz	.
 # scp.orig liuguangzhao,nullget@shell.sf.net:/home/users/l/li/liuguangzhao/nullget/temp/n186258_mantis_utf8.sql.gz	.
+
+
+# mysqldump --host=mysql-{LETTER}.sourceforge.net \
+#--user={LETTER}{GROUP ID}admin -p --opt \
+#    {LETTER}{GROUP ID}_{DATABASENAME} | gzip --fast > dumpfile.mysql.gz

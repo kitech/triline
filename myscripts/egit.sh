@@ -76,7 +76,7 @@ function run_with_leju()
 function run_with_didi()
 {
     echo "Note: run with didi...";
-    $GIT config --global user.email liuguangzhao@diditaxi.com.cn
+    $GIT config --global user.email liuguangzhao@didichuxing.com
     $GIT config --global user.name gzleo
 }
 
@@ -87,10 +87,15 @@ function cleanup_with_user()
     $GIT config --global --remove-section user
 }
 
+function rewrite_args()
+{
+    true;
+}
+
 if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
        || [ x"$subcmd" == x"rebase" ] ; then
     cleanup_with_user;
-    
+
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
     # git repo url
     # echo $origin
@@ -134,9 +139,25 @@ elif [ x"$subcmd" == x"push" ] ; then
         true;
         echo "process remote: $rs ...";
 
-        if [ x"$priv" == x"false" ] ; then
+        if [ x"$priv" == x"true" ] ; then
             true;
-            if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
+            if [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
+                true;
+                newargs=
+                for arg in "$@" ; do
+                    # echo "argx: $arg";
+                    if [ x"$arg" == x"origin" ] ; then
+                        arg=$rs
+                    fi
+                    newargs="$newargs $arg"
+                done
+                echo "Runing $GIT $newargs"
+                $GIT $newargs
+            fi
+        elif [ x"$priv" == x"false" ] || [ x"$priv" == x"" ] ; then
+            true;
+            if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] \
+                   || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
                 newargs=
                 for arg in "$@" ; do
                     # echo "argx: $arg";
@@ -150,20 +171,7 @@ elif [ x"$subcmd" == x"push" ] ; then
                 true;
             fi
         else
-            true;
-            if [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
-                true;
-                newargs=
-                for arg in "$@" ; do
-                    # echo "argx: $arg";
-                    if [ x"$arg" == x"origin" ] ; then
-                        arg=$rs
-                    fi
-                    newargs="$newargs $arg"
-                done
-                echo "Runing $GIT $newargs"                
-                $GIT $newargs
-            fi
+            echo "check the priv option."
         fi
     done
 else

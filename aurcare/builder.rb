@@ -42,7 +42,7 @@ abort("can not get pkgbuild: #{pkgname}") if !Dir.exists?(pkgname)
 
 
 Dir.chdir(pkgname) do
-    ret = mysystem("makepkg -c -f --skippgpcheck");
+    ret = mysystem("makepkg -c -f --skippgpcheck --skipchecksums");
     exit if !ret;
 end
 

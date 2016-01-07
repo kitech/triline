@@ -29,14 +29,19 @@
 (global-set-key "\M-p" 'duplicate-previous-line)
 (global-set-key "\M-n" 'duplicate-following-line)
 
+;; (require 'protobuf-mode)
+(autoload 'protobuf-mode "protobuf-mode" "Protobuf mode." t)
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20151021.113/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20151216.1315/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20150924.406/"))
 (require 'dash)
 (require 's)
 (require 'origami)
 (global-origami-mode t)
-(global-set-key (kbd "<C-return>") 'origami-toggle-node)
+(global-set-key (kbd "C--") 'origami-toggle-node)
+
 ;;(global-set-key "\C-c @ \C-M-s" 'origami-open-all-nodes)
 ;;(global-set-key "\C-c @ \C-M-h" 'origami-close-all-nodes)
 ;; (global-set-key "\C-c @ \C-s" 'origami-open-node)
@@ -55,7 +60,7 @@
 (require 'yafolding)
 ;; (yafolding-mode t)
 
-;;; for ecb
+;;; for ecb，不过ecb和spacemacs不兼容。
 (setq ecb-display-news-for-upgrade nil)
 (setq ecb-tip-of-the-day nil)
 (setq stack-trace-on-error t)
@@ -77,6 +82,10 @@
 ;; (setq helm-split-window-default-side 'below)
 ;; (setq helm-split-window-in-side-p           t)
 ;; (setq helm-always-two-windows t)
+
+;; UI,Project,Navigitar
+(global-set-key [f8] 'neotree-toggle)
+(setq projectile-switch-project-action 'neotree-projectile-action)
 
 
 (defun dotspacemacs/layers ()
@@ -138,6 +147,7 @@ values."
      html
      javascript
      shell-script
+     swift
      sql
      ycmd
 
@@ -147,6 +157,7 @@ values."
      gtags
      yaml
      latex ;; 可能导致主界面freeze
+     spacemacs-layouts
 
      (ranger :variables ranger-show-preview t)
      ;; sr-speedbar  ;; 目前还很难用
@@ -307,6 +318,13 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+  (setq-default
+   dotspacemacs-check-for-update nil
+   dotspacemacs-elpa-https t
+   dotspacemacs-line-numbers t
+   dotspacemacs-startup-recent-list-size 10
+   dotspacemacs-auto-resume-layouts t
+   )
   )
 
 (defun dotspacemacs/user-config ()
@@ -318,9 +336,11 @@ layers configuration. You are free to put any user code."
     (setq default-tab-width 4)
     (setq tab-width 4)
     (setq c-basic-offset 4)
+    (setq-default c-basic-offset 4)
     (setq go-indent-level 4)
     (setq php-indent-level 4)
     (setq python-indent-level 4)
+    (setq python-indent-offset 4)
     (setq ruby-indent-level 4)
     (setq enh-ruby-indent-level 4)
     (setq js-indent-level 4)
@@ -341,6 +361,12 @@ layers configuration. You are free to put any user code."
     ;; (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)))
     )
 )
+
+;; spacemacs 0.105两个重要的变化，也是小坑，
+;; --insecure
+;; dotspacemacs-check-for-update
+;; 前者帮助在不通畅的网络环境下下载包，第二个是保证程序安装完成后，不再需要通畅的网络支持。
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
