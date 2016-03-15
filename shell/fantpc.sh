@@ -15,3 +15,10 @@ cat /proc/acpi/ibm/fan
 # 不过感觉fancontrol这个脚本控制有问题，不灵活，适用性也不好，调整转速值不理想。
 # 最近发现电脑休眠唤醒后，风扇不会自动恢复转动。
 # 环境thinkpad x240，archlinux，kenerl-4.2/3，kde5.4
+
+# 老的系统上，可能要配置一下，才能够控制风扇，
+# echo "options thinkpad_acpi fan_control=1" | sudo tee /etc/modprobe.d/thinkfan.conf
+# sudo modprobe -rv thinkpad_acpi
+# sudo modprobe -v thinkpad_acpi
+
+

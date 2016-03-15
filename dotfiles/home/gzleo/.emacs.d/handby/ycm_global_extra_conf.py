@@ -38,9 +38,9 @@ flags = [
     '-Wall',
     '-Wextra',
     '-Werror',
-    '-Wc++98-compat',
-    '-Wno-long-long',
-    '-Wno-variadic-macros',
+    # '-Wc++98-compat',
+    # '-Wno-long-long',
+    # '-Wno-variadic-macros',
     '-fexceptions',
     '-DNDEBUG',
     # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
@@ -98,6 +98,12 @@ def YcmCorePreload():
     flags.append('/usr/include/qt/QtNetwork')
     flags.append('-isystem')
     flags.append('/usr/include/qt/QtDBus')
+    flags.append('-isystem')
+    flags.append('/usr/include/qt/QtQml')
+    flags.append('-isystem')
+    flags.append('/usr/include/qt/QtQuick')
+    flags.append('-isystem')
+    flags.append('/usr/include/qt/QtQuickWidgets')
 
     print('ycm config flags:', len(flags))
 

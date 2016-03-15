@@ -242,11 +242,11 @@ def auto_proxy_address(flow):
     logging.debug('Result proxy: ' + pxy)
     if pxy == 'DIRECT;':
         logging.debug('Changing upstream local proxy server to :8118...')
-        flow.live.change_server(('127.0.0.1', 8118), persistent_change=True)
+        flow.live.change_upstream_proxy_server(('127.0.0.1', 8118))
     else:
         logging.debug('Changing upstream proxy server to :8116...')
         # flow.live.change_server(('127.0.0.1', 8116), persistent_change=True)
-        flow.live.change_server(('127.0.0.1', 8113), persistent_change=True)
+        flow.live.change_upstream_proxy_server(('127.0.0.1', 8113))
 
     return
 

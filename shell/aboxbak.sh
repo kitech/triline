@@ -20,6 +20,7 @@ etcfiles="
 ~/.emacs
 ~/.spacemacs
 ~/.emacs.d/handby
+~/.emacs.d/private
 ~/.vimrc
 ~/.gtkrc-2.0
 ~/.xinitrc
@@ -31,7 +32,9 @@ etcfiles="
 ~/.gitconfig
 ~/.gitignore
 ~/.tmux.conf
+~/.ngrok
 ~/.pip/pip.conf
+~/.babelrc
 ~/bin/elimg
 ~/bin/winerun
 ~/.config/flake8

@@ -21,6 +21,7 @@
 #127.0.0.1  qtchina.tk www.qtchina.tk
 127.0.0.1  mysql-n 
 127.0.0.1  pma.qtchina.net wim.qtchina.net 
+127.0.0.1 oc.fixlan.tk
 
 
 123.57.191.150 git.coc.io # git.coderoncloud.com
@@ -28,6 +29,13 @@
 #127.0.0.1 git.coc.io git.coderoncloud.com
 127.0.0.1 gitlab-mysql-n
 127.0.0.1 gitlab-redis-n
+
+#127.0.0.1 ngrok.daoapp.io
+#127.0.0.1 offlap.ngrok.daoapp.io
+#127.0.0.1 ngrok.me test.ngrok.me
+# 45.78.18.235 test.ngrok.t0.daoapp.io ngrok.t0.daoapp.io
+# 192.168.1.100 fixlan.tk hom.fixlan.tk www.fixlan.tk
+
 
 ################### shit network fix
 # 153.121.46.102 xmpp.jp

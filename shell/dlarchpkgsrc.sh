@@ -37,7 +37,11 @@ curl $proxy "$tree_url" > $pkgname/pkgsrc.tree.html
 echo ""
 echo ""
 
-upaths=$(html2text $pkgname/pkgsrc.tree.html |grep "^\-rw"|awk -F\( '{print $4}'|awk -F\) '{print $1}')
+html2text=/usr/bin/html2text2
+if [ ! -e $html2text ] ; then
+   html2text=/usr/bin/html2text
+fi
+upaths=$($html2text $pkgname/pkgsrc.tree.html |grep "^\-rw"|awk -F\( '{print $4}'|awk -F\) '{print $1}')
 # echo $files
 
 cnter=0
@@ -58,6 +62,7 @@ echo "===================================="
 echo "Total got $cnter files for $pkgname."
 
 if [ -f $pkgname/pkgsrc.tree.html ] ; then
-    rm -f $pkgname/pkgsrc.tree.html
+    true
+    # rm -f $pkgname/pkgsrc.tree.html
 fi
 

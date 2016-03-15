@@ -53,6 +53,7 @@ function vdfuse_remount()
     fi
 
     sleep 1;
+    sleep 5;
     ntfs-3g -o ro /mnt/vdfuse/Partition1 /mnt/vsd1
 
     sleep 3;

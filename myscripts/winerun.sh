@@ -95,6 +95,14 @@ function runverb_qq()
     wine "C:/Program Files/Tencent/QQ/Bin/QQ.exe"
 }
 
+function runclean_qq()
+{
+    killall -9 TXPlatform.exe
+    killall -9 QQ.exe
+    killall -9 QQProtect.exe
+    killall -9 Tencentdl.exe
+}
+
 function runverb_weixin()
 {
     export WINEPREFIX=$HOME/.local/share/wineprefixes/qq
@@ -131,22 +139,62 @@ function runverb_evernote()
     wine "C:/Program Files/Evernote/Evernote/Evernote.exe"
 }
 
+function runclean_evernote()
+{
+    killall -9 EvernoteClipper.exe
+    killall -9 Evernote.exe
+    killall -9 EvernoteTray.exe
+}
+
 function runverb_ynote()
 {
     export WINEPREFIX=$HOME/.local/share/wineprefixes/ynote
     wine "C:/Program Files/Youdao/YoudaoNote/YoudaoNote.exe"
 }
 
+function runverb_list()
+{
+    lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote"
+    nlst=$(echo $lst|wc -w)
+    echo "wine verb list: ($nlst)"
+    idx=0
+    for verb in $lst; do
+        idx=$(expr $idx + 1)
+        echo -e "\t${idx}.\t${verb}"
+    done
+}
+
 ### main
 if [ x"$act" == x"" ] ; then
     echo "Need least one argument";
 elif [ x"$act" == x"clean" ] ; then
-    cleanup_wine_process;
+    verb=$2
+    case $verb in
+        'qq')
+            runclean_qq;
+        ;;
+        'evernote')
+            runclean_evernote;
+        ;;
+        *)
+            read -p "Are you sure clean all verbs? (Y/N): " agree
+            if [ x"$agree" == x"Y" ] || [ x"$agree" == x'y' ] ; then
+                cleanup_wine_process;
+            else
+                echo "Usage:"
+                echo -e "\twinerun clean [verb]"
+            fi
+        ;;
+    esac
+
 else
     fn="runverb_${act}";
-    echo $fn;
-    
-    if [ x"$act" == x"qqintl" ] ; then
+    echo "runing ${fn}...";
+
+    # TODO use case expression
+    if [ x"$act" == x"list" ] ; then
+        runverb_list;
+    elif [ x"$act" == x"qqintl" ] ; then
         runverb_qqintl;
     elif [ x"$act" == x"TM2013P2" ] ; then
         runverb_TM2013P2;

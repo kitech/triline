@@ -93,7 +93,7 @@ function rewrite_args()
 }
 
 if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
-       || [ x"$subcmd" == x"rebase" ] ; then
+       || [ x"$subcmd" == x"rebase" ] || [ x"$subcmd" == x"tag" ] ; then
     cleanup_with_user;
 
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
@@ -107,6 +107,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     a=$(echo $origin | grep "git.leju.com") && run_with_leju;
     a=$(echo $origin | grep "github.com") && run_with_mine;
     a=$(echo $origin | grep "bitbucket.org")  && run_with_mine;
+    a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
     a=$(echo $origin | grep "git.oschina.net")  && run_with_mine;
     a=$(echo $origin | grep "kde.org")  && run_with_mine;
 

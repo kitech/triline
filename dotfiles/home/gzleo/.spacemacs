@@ -6,12 +6,14 @@
 (require 'gzleo)
 
 (set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
+;;(set-variable 'ycmd-server-command '("python" "/home/gzleo/oss/ycmd/ycmd"))
 (set-variable 'ycmd-global-config (expand-file-name "~/.emacs.d/handby/ycm_global_extra_conf.py"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (add-hook 'c++-mode-hook 'ycmd-mode)
 (add-hook 'cc-mode-hook 'ycmd-mode)
 (add-hook 'c-mode-hook 'ycmd-mode)
 (add-hook 'python-mode-hook 'ycmd-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'php-mode-hook 'ycmd-mode)
 (add-hook 'go-mode-hook 'ycmd-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
@@ -30,17 +32,24 @@
 (global-set-key "\M-n" 'duplicate-following-line)
 
 ;; (require 'protobuf-mode)
+(defconst my-protobuf-style
+  '((c-basic-offset . 4)
+    (indent-tabs-mode . nil)))
+(add-hook 'protobuf-mode-hook
+          (lambda () (c-add-style "my-style" my-protobuf-style t)))
 (autoload 'protobuf-mode "protobuf-mode" "Protobuf mode." t)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+(load "/usr/lib/python3.5/site-packages/kivy/tools/highlight/kivy-mode.el")
+(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20151216.1315/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20150924.406/"))
-(require 'dash)
-(require 's)
-(require 'origami)
-(global-origami-mode t)
-(global-set-key (kbd "C--") 'origami-toggle-node)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160223.1028/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160115.58/"))
+;(require 'dash)
+;(require 's)
+;(require 'origami)
+;(global-origami-mode t)
+;(global-set-key (kbd "C--") 'origami-toggle-node)
 
 ;;(global-set-key "\C-c @ \C-M-s" 'origami-open-all-nodes)
 ;;(global-set-key "\C-c @ \C-M-h" 'origami-close-all-nodes)
@@ -161,6 +170,9 @@ values."
 
      (ranger :variables ranger-show-preview t)
      ;; sr-speedbar  ;; 目前还很难用
+
+     ;; private layers
+     systemd123
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -341,10 +353,12 @@ layers configuration. You are free to put any user code."
     (setq php-indent-level 4)
     (setq python-indent-level 4)
     (setq python-indent-offset 4)
+    (setq python-indent 4)
     (setq ruby-indent-level 4)
     (setq enh-ruby-indent-level 4)
     (setq js-indent-level 4)
     (setq-default flycheck-flake8-maximum-line-length 100)
+    ;; (setq python-shell-interpreter "python")
     ;; (setq helm-completing-read-handlers-alist
     ;;       '((minibuffer-complete . ido)))
     ;; (setq helm-split-window-default-side 'below)

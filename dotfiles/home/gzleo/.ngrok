@@ -1,0 +1,20 @@
+server_addr: fixlan.tk:4443
+trust_host_root_certs: false
+
+tunnels:
+  hom:
+    proto:
+      https: 80
+      http: 80
+  act:
+    proto:
+      https: 80
+      http: 80
+  fixlan.tk:
+    proto:
+      https: 80
+      http: 80
+  ssh:
+    proto:
+        tcp: 22
+ 

@@ -39,6 +39,7 @@ export GIT_CURL_VERBOSE=0
 
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
+export LIBGUESTFS_PATH=$HOME/vms/appliance
 
 JAVA_OPTS="-Xmx128M -Xms16M -Xss2M"
 JAVA_HOME=/usr/lib/jvm/default

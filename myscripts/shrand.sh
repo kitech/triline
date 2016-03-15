@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# 几种获取rand值的方法。
+
 ####### 0-11位数字
 rand_by_date=$(date +%N)
 

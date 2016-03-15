@@ -2,11 +2,13 @@ package main
 
 import (
 	// "bufio"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
 	"net"
 	"net/http"
+	// "os"
 	"strconv"
 	"strings"
 	"time"
@@ -34,6 +36,22 @@ func (this *CEProbeServer) poll(w http.ResponseWriter, req *http.Request) {
 	time.Sleep(50000 * time.Second)
 }
 
+// 测试http服务器的下载速度，带宽
+func (this *CEProbeServer) speed(w http.ResponseWriter, req *http.Request) {
+
+	rlen := 0
+	for {
+		num := rand.NormFloat64()
+		str := fmt.Sprintf("%v", num)
+		rlen += len(str)
+		if rlen > 1024*1024*10 {
+			break
+		}
+		strings.NewReader(str).WriteTo(w)
+	}
+
+}
+
 var cepsrv = NewCEProbeServer()
 
 func main() {
@@ -42,6 +60,7 @@ func main() {
 	http.HandleFunc("/", cepsrv.index)
 	http.HandleFunc("/hello", cepsrv.hello)
 	http.HandleFunc("/poll", cepsrv.poll)
+	http.HandleFunc("/speed", cepsrv.speed)
 
 	///
 	ln, err := net.Listen("tcp", ":8050")
@@ -86,5 +105,8 @@ func main() {
 		}
 	}()
 
-	http.ListenAndServe(":8080", nil)
+	err = http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Panic(err)
+	}
 }
