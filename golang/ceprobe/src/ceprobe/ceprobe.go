@@ -14,6 +14,12 @@ import (
 	"time"
 )
 
+/*
+// TODO
+下载速度，上传速度。（服务器间的速度）
+ssh端口。
+*/
+
 type CEProbeServer struct {
 	reqcnt int
 }
@@ -62,15 +68,15 @@ func main() {
 	http.HandleFunc("/poll", cepsrv.poll)
 	http.HandleFunc("/speed", cepsrv.speed)
 
-	///
-	ln, err := net.Listen("tcp", ":8050")
+	/// 测试tcp端口是否可用
+	tln, err := net.Listen("tcp", ":8050")
 	if err != nil {
 		log.Println("Listen tcp error", err)
 	}
 
 	go func() {
 		for {
-			conn, err := ln.Accept()
+			conn, err := tln.Accept()
 			if err != nil {
 				log.Println("accept error", err)
 			}
@@ -84,6 +90,18 @@ func main() {
 		}
 	}()
 
+	// 测试UDP端口是否可用
+	ServerAddr, err := net.ResolveUDPAddr("udp", ":8050")
+	uln, err := net.ListenUDP("udp", ServerAddr)
+	if err != nil {
+		log.Println("Listen udp error", err)
+	}
+
+	go func() {
+		log.Println(uln)
+	}()
+
+	// 测试对外访问是否可用
 	go func() {
 		urls := []string{
 			"http://news.baidu.com/",
@@ -105,7 +123,8 @@ func main() {
 		}
 	}()
 
-	err = http.ListenAndServe(":8080", nil)
+	// 测试http服务是否可用
+	err = http.ListenAndServe(":8070", nil)
 	if err != nil {
 		log.Panic(err)
 	}

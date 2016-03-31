@@ -50,6 +50,8 @@ etcfiles="
 ~/.config/tox/yatsen21.ini
 ~/.config/tox/yatsen31.tox
 ~/.config/tox/yatsen31.ini
+~/.config/powerline/config.json
+~/.zsh
 ~/.cow/rc
 ~/.cow/rc.eg
 ~/.cow/direct

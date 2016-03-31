@@ -5,6 +5,7 @@
 */30 * * * * akonadictl stop
 */30 * * * * balooctl  stop
 * */1 * * *  /home/`id -un`/triline/shell/aboxbak.sh 
+0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null
 
 # * * * * * ntpdate s1a.time.edu.cn
 # * * * * * ntpdate 207.32.191.59
