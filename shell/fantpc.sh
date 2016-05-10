@@ -3,6 +3,11 @@
 # 手动调整风扇转速，控制/proc/acpi/ibm/fan的命令行工具
 # level <level> (<level> is 0-7, auto, disengaged, full-speed)
 level=$1
+if [ x"$level" = x"" ] ; then
+    echo "fantpc.sh <level>"
+    exit
+fi
+
 echo "level $level" > /proc/acpi/ibm/fan
 ret=$?
 if [ x"$ret" != x"0" ] ; then

@@ -101,6 +101,7 @@ function runclean_qq()
     killall -9 QQ.exe
     killall -9 QQProtect.exe
     killall -9 Tencentdl.exe
+    killall -9 bugreport
 }
 
 function runverb_weixin()

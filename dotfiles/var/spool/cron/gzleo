@@ -6,6 +6,7 @@
 */30 * * * * balooctl  stop
 * */1 * * *  /home/`id -un`/triline/shell/aboxbak.sh 
 0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null
+* */3 * * * sudo find  -type f /var/spool/postfix/maildrop/ |sudo xargs rm -f
 
 # * * * * * ntpdate s1a.time.edu.cn
 # * * * * * ntpdate 207.32.191.59

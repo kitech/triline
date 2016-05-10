@@ -43,8 +43,8 @@
 (add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160223.1028/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160115.58/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160306.1222/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160429.727/"))
 ;(require 'dash)
 ;(require 's)
 ;(require 'origami)
@@ -159,6 +159,7 @@ values."
      swift
      sql
      ycmd
+     elm
 
      dockerfile
      dash
