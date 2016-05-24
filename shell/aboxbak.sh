@@ -37,6 +37,7 @@ etcfiles="
 ~/.babelrc
 ~/bin/elimg
 ~/bin/winerun
+~/bin/qq
 ~/.config/flake8
 ~/.config/systemd/user
 ~/.config/systemd/user/postgresql.service
@@ -46,6 +47,8 @@ etcfiles="
 ~/.config/systemd/user/delegate-shadowsocks.service
 ~/.config/systemd/user/delegate-v2ray.service
 ~/.config/systemd/user/delegate-tor.service
+~/.config/tox/2yatsen21.tox
+~/.config/tox/2yatsen21.ini
 ~/.config/tox/yatsen21.tox
 ~/.config/tox/yatsen21.ini
 ~/.config/tox/yatsen31.tox
