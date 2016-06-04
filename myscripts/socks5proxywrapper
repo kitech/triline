@@ -7,4 +7,19 @@ SELF=$(readlink -f $0)
 
 set -x
 echo "$SELF..."
-/usr/bin/connect -H 127.0.0.1:8117 "$@"
+
+CONNECT=/usr/local/bin/connect
+if [ ! -e $CONNECT ] ; then
+    CONNECT=/usr/bin/connect
+fi
+
+SSHPXY_MODE=HTTP
+# SSHPXY_MODE=SOCKS
+
+if [ x"$SSHPXY_MODE" == x"HTTP" ] ; then
+    $CONNECT -H 127.0.0.1:8117 "$@"
+elif [ x"$SSHPXY_MODE" == x"SOCKS" ] ; then
+    $CONNECT -S 127.0.0.1:1080 "$@"
+else
+    false
+fi

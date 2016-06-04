@@ -5,7 +5,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/handby/"))
 (require 'gzleo)
 
-(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
+(set-variable 'ycmd-server-command '("python2" "/home/gzleo/oss/YouCompleteMe/third_party/ycmd/ycmd/"))
+;(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
 ;;(set-variable 'ycmd-server-command '("python" "/home/gzleo/oss/ycmd/ycmd"))
 (set-variable 'ycmd-global-config (expand-file-name "~/.emacs.d/handby/ycm_global_extra_conf.py"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
@@ -39,8 +40,8 @@
           (lambda () (c-add-style "my-style" my-protobuf-style t)))
 (autoload 'protobuf-mode "protobuf-mode" "Protobuf mode." t)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
-(load "/usr/lib/python3.5/site-packages/kivy/tools/highlight/kivy-mode.el")
-(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
+;(load "/usr/lib/python3.5/site-packages/kivy/tools/highlight/kivy-mode.el")
+;(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160306.1222/"))
@@ -73,7 +74,7 @@
 (setq ecb-display-news-for-upgrade nil)
 (setq ecb-tip-of-the-day nil)
 (setq stack-trace-on-error t)
-(require 'ecb)
+;(require 'ecb)
 ;; (setq ecb-compile-window t)
 ;; (setq ecb-compile-window-height 6)
 ;; (setq ecb-layout-name "left8")  ;; and left8 is the default

@@ -5,10 +5,10 @@ SELF=$(readlink -f $0)
 #echo "$SELF"
 
 #ssh -o ProxyCommand="/path/to/socks5proxywrapper %h %p" "$@"
-if [ -d "$HOME/myscripts-svn" ] ; then
-    ssh -o ProxyCommand="$HOME/myscripts-svn/socks5proxywrapper %h %p" "$@"
+if [ -d "$HOME/triline/myscripts-svn" ] ; then
+    ssh -o ProxyCommand="$HOME/triline/myscripts-svn/socks5proxywrapper %h %p" "$@"
 else
-    ssh -o ProxyCommand="$HOME/myscripts/socks5proxywrapper %h %p" "$@"
+    ssh -o ProxyCommand="$HOME/triline/myscripts/socks5proxywrapper %h %p" "$@"
 fi
 
 # 用法

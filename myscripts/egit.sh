@@ -19,7 +19,10 @@
 # 2015-05-07 支持不同站点间的仓库镜像提交
 
 
-GIT=/usr/bin/git
+GIT=/usr/local/bin/git
+if [ ! -e $GIT ] ; then
+    GIT=/usr/bin/git
+fi
 subcmd=$1
 ARGV=$@
 ARGC=$#
