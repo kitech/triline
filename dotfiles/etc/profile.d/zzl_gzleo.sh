@@ -20,14 +20,18 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export DEPENDS="fcitx"
 
+
+# export XAUTHORITY=/tmp/.Xauthority-r
 if [ "$EUID" = "0" ] || [ "USER" = "root" ] ; then
         export LANG=en_US.UTF-8
         export LC_ALL=en_US.UTF-8
         export LC_CTYPE=en_US.UTF-8
+	#export XAUTHORITY=/tmp/.Xauthority-r0
 else
         export LANG=zh_CN.UTF-8
         export LC_ALL=zh_CN.UTF-8
         export LC_CTYPE=zh_CN.UTF-8
+	#export XAUTHORITY=/tmp/.Xauthority-r
 fi
 #export LDFLAGS=-lgomp
 

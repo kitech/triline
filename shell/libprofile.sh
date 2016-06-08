@@ -36,7 +36,8 @@ if [ x"$mach" == x"Darwin" ] ; then
     export PATH=$(brew --prefix protobuf3)/bin:$PATH
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/findutils/libexec/gnuman:$MANPATH
     # export PYTHONPATH=$PYTHONPATH:.:/usr/local/lib/python2.7/site-packages
-    export DISPLAY=/private/tmp/com.apple.launchd.WfbJjH5QJo/org.macosforge.xquartz:0
+    # 每次重启电脑都会改变xquartz的这个环境变量
+    # export DISPLAY=/private/tmp/com.apple.launchd.dmd4ii1CgP/org.macosforge.xquartz:0
     export X11_PREFS_DOMAIN=org.macosforge.xquartz.X11
     # export XAUTHORITY=$HOME/.Xauthority_share_non_lock
 fi
@@ -52,7 +53,7 @@ export DTPXY=127.0.0.1:8117
 export GIT_SSH=$HOME/triline/myscripts/socks5proxyssh
 export GIT_TRACE=0
 export GIT_CURL_VERBOSE=0
-export HOMEBREW_GITHUB_API_TOKEN=738895ed2a9e814b11ceb5ad6f26a9bb9e83cd61
+export HOMEBREW_GITHUB_API_TOKEN=08e4846ae157896fd404c81396af3e6a4256477a
 
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
