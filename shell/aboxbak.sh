@@ -37,6 +37,7 @@ etcfiles="
 ~/.babelrc
 ~/bin/elimg
 ~/bin/winerun
+~/bin/vxrun
 ~/bin/qq
 ~/.config/flake8
 ~/.config/systemd/user

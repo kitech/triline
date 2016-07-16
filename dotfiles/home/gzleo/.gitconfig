@@ -1,0 +1,12 @@
+[http]
+	proxy = http://127.0.0.1:8117
+[socks]
+	proxy = 127.0.0.1:1080
+    
+[core]
+	#gitproxy=$HOME/myscripts/socks5proxyssh
+
+[gui]
+	encoding = utf-8
+[core]
+	quotepath = false

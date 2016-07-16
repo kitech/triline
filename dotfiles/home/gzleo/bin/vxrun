@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# usage:
+#    vxrun xterm
+
+# echo $@
+
+function vxrund()
+{
+    export LANG=zh_CN.UTF-8
+    export LC_ALL=zh_CN.UTF-8
+
+    exec "$@"
+}
+
+function vxrunc()
+{
+    echo $@
+    ssh -p 2222 -CXY -i $HOME/.ssh/id_rsa_vx gzleo@127.0.0.1 "/home/gzleo/bin/vxrund $@" &
+    # ssh -p 2222 -CXY -i $HOME/.ssh/id_rsa_vx gzleo@127.0.0.1 "$@" &
+}
+
+vxrunc "$@"

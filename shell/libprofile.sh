@@ -42,6 +42,13 @@ if [ x"$mach" == x"Darwin" ] ; then
     # export XAUTHORITY=$HOME/.Xauthority_share_non_lock
 fi
 
+# HiDPI
+function hidpi_mode() {
+    export GDK_SCALE=2
+    export GDK_DPI_SCALE=0.5
+}
+[ x"$mach" == x"Linux" ] && hidpi_mode
+
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc

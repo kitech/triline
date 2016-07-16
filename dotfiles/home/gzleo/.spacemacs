@@ -32,7 +32,8 @@
 (global-set-key "\M-p" 'duplicate-previous-line)
 (global-set-key "\M-n" 'duplicate-following-line)
 
-;; (require 'protobuf-mode)
+
+(require 'protobuf-mode)
 (defconst my-protobuf-style
   '((c-basic-offset . 4)
     (indent-tabs-mode . nil)))
