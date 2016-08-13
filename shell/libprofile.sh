@@ -5,7 +5,8 @@
 ### [[ -f ~/myscripts/mybash_profile ]] && . ~/myscripts/mybash_profile
 
 alias ls='ls --color=auto'
-alias ll='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
+alias ll='ls --color=auto -l --time-style="+%Y/%m/%d %H:%I:%S"'
+alias llh='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias lla='ls -a --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
@@ -20,13 +21,14 @@ alias git=$HOME/triline/myscripts/egit.sh
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
 
-mach=$(uname -s)
+march=$(uname -s)
+mbp=$(lspci | grep FaceTime)
 
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/bin:$HOME/.local/bin
-export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts
+export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts:$HOME/triline/python
 export PATH=$PATH:$HOME/golib/bin:$HOME/work/bin:$HOME/oss/bin  # for other compiled go bin
 
-if [ x"$mach" == x"Darwin" ] ; then
+if [ x"$march" == x"Darwin" ] ; then
     export PATH=$HOME/.nix-profile/bin:$PATH
     export PATH=/usr/local/sbin:$PATH
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
@@ -44,10 +46,18 @@ fi
 
 # HiDPI
 function hidpi_mode() {
+    # GTK3
     export GDK_SCALE=2
-    export GDK_DPI_SCALE=0.5
+    # GTK2
+    # export GDK_DPI_SCALE=0.5
+    # QT5
+    # export QT_AUTO_SCREEN_SCALE_FACTOR=1
 }
-[ x"$mach" == x"Linux" ] && hidpi_mode
+
+# HiDPI vars
+if [ x"$mbp" != x"" ] && [ x"$march" == x"Linux" ] ; then
+    hidpi_mode
+fi
 
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH

@@ -1,6 +1,12 @@
 #!/bin/bash
 # generated: Sun Jun 21 15:13:50 CST 2015
 
+# macbookpro key
+echo 2 > /sys/module/hid_apple/parameters/fnmode
+echo 0 >  /sys/module/hid_apple/parameters/iso_layout
+echo 1 > /sys/module/hid_apple/parameters/swap_opt_cmd
+
+
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 
 su - gzleo -c "/home/gzleo/myscripts/vdmnt2.sh m"

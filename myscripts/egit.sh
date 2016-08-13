@@ -36,15 +36,15 @@ function run_with_mine()
 
     email=
     if [ x"$idx" == x"4" ] ; then
-        email=kitech@users.sf.net
-    elif [ x"$idx" == x"3" ] ; then
         email=drswinghead@gmail.com
+    elif [ x"$idx" == x"3" ] ; then
+        email=drswinghead@163.com
     elif [ x"$idx" == x"2" ] ; then
-        email=yatsen3@gmail.com
+        email=drswinghead@gmail.com
     elif [ x"$idx" == x"1" ] ; then
         email=drswinghead@163.com
     else
-        email=yatseni@163.com
+        email=drswinghead@gmail.com
     fi
 
     if [ x"$email" == x"" ] ; then

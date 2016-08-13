@@ -21,7 +21,7 @@
 #127.0.0.1  qtchina.tk www.qtchina.tk
 127.0.0.1  mysql-n 
 127.0.0.1  pma.qtchina.net wim.qtchina.net 
-127.0.0.1 oc.fixlan.tk
+# 127.0.0.1 oc.fixlan.tk
 
 
 123.57.191.150 git.coc.io # git.coderoncloud.com

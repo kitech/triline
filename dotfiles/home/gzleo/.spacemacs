@@ -5,8 +5,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/handby/"))
 (require 'gzleo)
 
-(set-variable 'ycmd-server-command '("python2" "/home/gzleo/oss/YouCompleteMe/third_party/ycmd/ycmd/"))
-;(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
+;(set-variable 'ycmd-server-command '("python2" "/home/gzleo/oss/YouCompleteMe/third_party/ycmd/ycmd/"))
+(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
 ;;(set-variable 'ycmd-server-command '("python" "/home/gzleo/oss/ycmd/ycmd"))
 (set-variable 'ycmd-global-config (expand-file-name "~/.emacs.d/handby/ycm_global_extra_conf.py"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
@@ -231,10 +231,11 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 17
+                               :size 32
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.0)
+
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
