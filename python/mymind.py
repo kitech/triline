@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 from urllib.parse import urlparse
 
@@ -143,6 +144,7 @@ class WebAppWin(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(os.path.dirname(__file__) + '/logo64.png'))
     screens = QGuiApplication.screens()
     print('screen count:', len(screens))
     print(screens[0].devicePixelRatio(), screens[0].logicalDotsPerInch())
