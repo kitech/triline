@@ -62,6 +62,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QToolButton" name="toolButton_4">
+        <property name="text">
+         <string>&amp;New</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton_2">
         <property name="text">
          <string>LANMode</string>

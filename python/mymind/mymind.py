@@ -43,11 +43,14 @@ class WebPage(QWebPage):
 
 
 class WebView(QWebView):
+    linkHovered = pyqtSignal(str, str, str)
+
     def __init__(self, parent=None):
         super(WebView, self).__init__(parent)
         self.wp = WebPage()
         self.setPage(self.wp)
         self.wp.setLinkDelegationPolicy(QWebPage.DelegateAllLinks)
+        self.wp.linkHovered.connect(self.linkHovered)
         return
 
     def createWindow(self, winType):
@@ -73,7 +76,9 @@ class WebAppWin(QMainWindow):
 
         self.uiw.toolButton.clicked.connect(self.onGoto)
         self.uiw.pushButton.clicked.connect(self.onHome)
+        self.uiw.toolButton_4.clicked.connect(self.onNewMind)
         self.uiw.pushButton_3.clicked.connect(self.reset)
+        self.uiw.comboBox.keyPressEvent = self.onAddressBoxKey
 
         QWebSettings.globalSettings().setAttribute(QWebSettings.PluginsEnabled, True)
         QWebSettings.globalSettings().setAttribute(QWebSettings.JavascriptEnabled, True)
@@ -99,6 +104,7 @@ class WebAppWin(QMainWindow):
         self.wv.linkClicked.connect(self.onClickLink)
         self.wv.loadProgress.connect(self.onLoadProgress)
         self.wv.titleChanged.connect(self.onChangeTitle)
+        self.wv.linkHovered.connect(self.onHoverLink)
 
         return
 
@@ -122,6 +128,18 @@ class WebAppWin(QMainWindow):
         self.uiw.comboBox.setCurrentText(hu)
         return
 
+    def onNewMind(self):
+        hu = self.homeUrl + '?url=new'
+        if self.uiw.pushButton_2.isChecked():
+            hostSegs = self.urlObj.netloc.split(':')[0].split('.')
+            hostSegs[0] = hostSegs[0] + 'i'
+            host = '.'.join(hostSegs)
+            hu = 'http://{}:443{}{}?url=new'.format(host, self.urlObj.path, self.urlObj.query)
+        print('loading: {}'.format(hu))
+        self.wv.load(QUrl(hu))
+        self.uiw.comboBox.setCurrentText(hu)
+        return
+
     def onChangeUrl(self, url: QUrl):
         self.uiw.comboBox.setCurrentText(url.toString())
         return
@@ -137,6 +155,17 @@ class WebAppWin(QMainWindow):
 
     def onChangeTitle(self, title):
         self.setWindowTitle('mymind: {}'.format(title))
+        return
+
+    def onHoverLink(self, url, alt, title):
+        self.statusBar().showMessage(url)
+        return
+
+    def onAddressBoxKey(self, evt):
+        # print(evt, evt.key(), evt.text())
+        # TODO accept() not usable
+        evt.setAccepted(True)
+        self.onGoto()
         return
 
 
