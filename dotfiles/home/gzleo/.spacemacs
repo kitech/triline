@@ -6,23 +6,26 @@
 (require 'gzleo)
 
 ;(set-variable 'ycmd-server-command '("python2" "/home/gzleo/oss/YouCompleteMe/third_party/ycmd/ycmd/"))
-(set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
-;;(set-variable 'ycmd-server-command '("python" "/home/gzleo/oss/ycmd/ycmd"))
+;; (set-variable 'ycmd-server-command '("python2" "/usr/share/vim/vimfiles/third_party/ycmd/ycmd/"))
+(set-variable 'ycmd-server-command '("python" "/home/gzleo/oss/ycmd/ycmd"))
 (set-variable 'ycmd-global-config (expand-file-name "~/.emacs.d/handby/ycm_global_extra_conf.py"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
+;; (add-hook 'after-init-hook #'neotree-show)
+;; (add-hook 'buffer-list-update-hook #'neotree-find) ;; infinite loop
 (add-hook 'c++-mode-hook 'ycmd-mode)
 (add-hook 'cc-mode-hook 'ycmd-mode)
 (add-hook 'c-mode-hook 'ycmd-mode)
 (add-hook 'python-mode-hook 'ycmd-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
+;; (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'php-mode-hook 'ycmd-mode)
 (add-hook 'go-mode-hook 'ycmd-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
-;; (add-hook 'ruby-mode-hook 'ycmd-mode)
+(add-hook 'ruby-mode-hook 'ycmd-mode)
 ;; (add-hook 'enhruby-mode-hook 'ycmd-mode)
 ;; (add-hook 'enh-ruby-mode-hook 'ycmd-mode)
 ;; (global-ycmd-mode t)
+(setq ycmd-force-semantic-completion t)
 
 ;; (load "~/.emacs.d/shackle.el")
 ;; (shackle-mode t)
@@ -45,8 +48,8 @@
 ;(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160306.1222/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160429.727/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160820.501/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160928.636/"))
 ;(require 'dash)
 ;(require 's)
 ;(require 'origami)
@@ -84,6 +87,15 @@
 ;; (add-hook 'ecb-deactivate-hook
 ;; (lambda () (modify-all-frames-parameters '((width . 80)))))
 
+;; UI,Project,Navigitar
+(global-set-key [f8] 'neotree-toggle)
+;; (neotree-show)
+;; (neotree-toggle)
+;; (neotree-mode)
+;; (call-interactively 'neotree-show)
+(defadvice helm-projectile-find-file (after helm-projectile-find-file activate)
+  (neotree-dir default-directory))
+
 ;; (setq helm-completing-read-handlers-alist
    ;;   '((minibuffer-complete . ido)))
 ;; (setq helm-autoresize-max-height 30)
@@ -93,11 +105,6 @@
 ;; (setq helm-split-window-default-side 'below)
 ;; (setq helm-split-window-in-side-p           t)
 ;; (setq helm-always-two-windows t)
-
-;; UI,Project,Navigitar
-(global-set-key [f8] 'neotree-toggle)
-(setq projectile-switch-project-action 'neotree-projectile-action)
-
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -334,13 +341,15 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  (setq-default
-   dotspacemacs-check-for-update nil
-   dotspacemacs-elpa-https t
-   dotspacemacs-line-numbers t
-   dotspacemacs-startup-recent-list-size 10
-   dotspacemacs-auto-resume-layouts t
-   )
+  (progn 
+    (setq-default
+     dotspacemacs-check-for-update nil
+     dotspacemacs-elpa-https t
+     dotspacemacs-line-numbers t
+     dotspacemacs-startup-recent-list-size 10
+     dotspacemacs-auto-resume-layouts t
+     )
+    )
   )
 
 (defun dotspacemacs/user-config ()
@@ -354,6 +363,7 @@ layers configuration. You are free to put any user code."
     (setq c-basic-offset 4)
     (setq-default c-basic-offset 4)
     (setq go-indent-level 4)
+    (setq go-tab-width 4)
     (setq php-indent-level 4)
     (setq python-indent-level 4)
     (setq python-indent-offset 4)
@@ -362,12 +372,17 @@ layers configuration. You are free to put any user code."
     (setq enh-ruby-indent-level 4)
     (setq js-indent-level 4)
     (setq-default flycheck-flake8-maximum-line-length 100)
-    ;; (setq python-shell-interpreter "python")
-    ;; (setq helm-completing-read-handlers-alist
+    (setq projectile-switch-project-action 'neotree-projectile-action)
+    (setq neo-show-hidden-files t)
+    (setq neo-smart-open t)
+    (setq neo-window-width 25) ;; it's defualt
+    (neotree-show)
+    ;; (set
+    ;; (se
     ;;       '((minibuffer-complete . ido)))
-    ;; (setq helm-split-window-default-side 'below)
-    ;; (setq helm-split-window-in-side-p           t)
-    ;; (setq helm-always-two-windows t)
+    ;; (set
+    ;; (set
+    ;; (set
 
     ;; (push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
     ;; (add-hook 'helm-after-initialize-hook (lambda ()
@@ -376,7 +391,7 @@ layers configuration. You are free to put any user code."
     ;;  Restore popwin-mode after a Helm session finishes.
     ;; (add-hook 'helm-cleanup-hook (lambda () (popwin-mode 1)))
 
-    ;; (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)))
+    ;; (set
     )
 )
 
@@ -398,7 +413,10 @@ layers configuration. You are free to put any user code."
       (ecb-sources-buffer-name 0.16 . 0.21212121212121213)
       (ecb-methods-buffer-name 0.16 . 0.3333333333333333)
       (ecb-history-buffer-name 0.16 . 0.15151515151515152)))))
- '(ecb-options-version "2.40"))
+ '(ecb-options-version "2.40")
+ '(package-selected-packages
+   (quote
+    (pug-mode zeal-at-point yapfify yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit systemd swift-mode stickyfunc-enhance srefactor sql-indent spaceline powerline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort popwin pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox spinner pangu-spacing orgit org-projectile org-present org org-pomodoro alert log4e gntp org-plus-contrib org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd live-py-mode linum-relative link-hint less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jade-mode info+ indent-guide ido-vertical-mode hydra hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make projectile helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-cscope xcscope helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md ggtags flycheck-ycmd flycheck-rust seq flycheck-pos-tip flycheck-elm flycheck pkg-info epl flx-ido flx find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens spacemacs-theme quelpa evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump drupal-mode disaster diminish diff-hl define-word cython-mode company-ycmd company-web company-tern company-statistics company-go company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode clean-aindent-mode clang-format chruby chinese-pyim cargo bundler bind-map bind-key auto-yasnippet auto-highlight-symbol auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

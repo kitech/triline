@@ -5,10 +5,12 @@
 echo 2 > /sys/module/hid_apple/parameters/fnmode
 echo 0 >  /sys/module/hid_apple/parameters/iso_layout
 echo 1 > /sys/module/hid_apple/parameters/swap_opt_cmd
-
+# macbookpro suspend
+awk '$3 ~ "enabled" {print $1}' /proc/acpi/wakeup | xargs -I{} echo "{}" > /proc/acpi/wakeup
+echo LID0 > /proc/acpi/wakeup
 
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 
-su - gzleo -c "/home/gzleo/myscripts/vdmnt2.sh m"
+# su - gzleo -c "/home/gzleo/myscripts/vdmnt2.sh m"
 
 

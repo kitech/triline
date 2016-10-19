@@ -35,7 +35,7 @@ end
 # maybe
 refresh_aurdb() and exit if pkgname == 'refresh'
 
-ret = mysystem("yaourt -G -y #{pkgname}");
+ret = mysystem("yaourt -G -y aur/#{pkgname}");
 # 关于yaourt的返回值，包不存在:1，包正常下载:1，包覆盖返回:130
 # 不好判断哪种调用成功，哪种调用失败，判断目录吧
 abort("can not get pkgbuild: #{pkgname}") if !Dir.exists?(pkgname)

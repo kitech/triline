@@ -153,6 +153,17 @@ function runverb_ynote()
     wine "C:/Program Files/Youdao/YoudaoNote/YoudaoNote.exe"
 }
 
+function runverb_wechat()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/wechat
+    wine "C:/Program Files/Tencent/WeChat/WeChat.exe"
+}
+
+function runclean_wechat()
+{
+    killall -9 WeChat.exe
+}
+
 function runverb_list()
 {
     lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote"
@@ -177,6 +188,9 @@ elif [ x"$act" == x"clean" ] ; then
         'evernote')
             runclean_evernote;
         ;;
+        'wechat')
+            runclean_wechat;
+            ;;
         *)
             read -p "Are you sure clean all verbs? (Y/N): " agree
             if [ x"$agree" == x"Y" ] || [ x"$agree" == x'y' ] ; then
@@ -217,6 +231,8 @@ else
         runverb_evernote;
     elif [ x"$act" == x"ynote" ] ; then
         runverb_ynote;
+    elif [ x"$act" == x"wechat" ] ; then
+        runverb_wechat;
     else
         echo "Not impled: $act";
     fi

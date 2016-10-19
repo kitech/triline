@@ -146,6 +146,7 @@ class WebAppWin(QMainWindow):
 
     def onClickLink(self, url: QUrl):
         print(url)
+        # TODO 判断是否本app的域名
         self.wv.load(QUrl(url))
         return
 
