@@ -113,11 +113,12 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
     a=$(echo $origin | grep "git.oschina.net")  && run_with_mine;
     a=$(echo $origin | grep "kde.org")  && run_with_mine;
+    a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
 
     user_name=$($GIT config --global user.name);
     user_email=$($GIT config --global user.email);
     echo "Using author: ${user_name} <${user_email}>...";
-    
+
     # set -x
     # run real git command now.
     $GIT "$@"
@@ -161,7 +162,8 @@ elif [ x"$subcmd" == x"push" ] ; then
         elif [ x"$priv" == x"false" ] || [ x"$priv" == x"" ] ; then
             true;
             if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] \
-                   || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] ; then
+                   || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] \
+                   || [ x"$rs" == x"gitlab" ]; then
                 newargs=
                 for arg in "$@" ; do
                     # echo "argx: $arg";

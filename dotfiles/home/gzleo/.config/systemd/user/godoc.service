@@ -1,0 +1,15 @@
+[Unit]
+Description=godoc service
+
+[Service]
+Type=fork
+Environment="GOPATH=/home/me/golib:/home/me/oss:/home/me/work"
+# ExecStart=/usr/bin/godoc -http :2006 -play -index -timestamps
+ExecStart=/usr/bin/godoc -http :2006 -play -timestamps
+ExecStop=
+# ExecReload=
+# Restart=on-failure|on-abnormal
+
+[Install]
+WantedBy=default.target
+

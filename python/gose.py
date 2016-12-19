@@ -91,20 +91,72 @@ def handler_install(args):
     gose.install(args.pkgname)
     return
 
+
+# find the package src directory
+def handler_find(args):
+    GOPATH = os.getenv('GOPATH')
+
+    import sys
+
+    def walkdir(_dir):
+        pkgdirs = []
+        topentries = os.listdir(_dir)
+        for e in topentries:
+            if e == '.git': continue
+            path = _dir + '/' + e
+            if not os.path.isdir(path): continue
+            if os.path.islink(path): continue
+            idx = e.find(args.pkgname)
+            # == or hasPrefix or hasSuffix
+            if e == args.pkgname or idx == 0 \
+               or (idx > 0 and idx + len(args.pkgname) == len(e)):
+                # print('found', args.pkgname, e, idx, len(e), path)
+                # return path
+                pkgdirs.append(path)
+            else:
+                found = walkdir(path)
+                for f in found: pkgdirs.append(f)
+        return pkgdirs
+
+    pkgdirs = []
+    fields = GOPATH.split(':')
+    for field in fields:
+        found = walkdir(field + '/src')
+        for f in found: pkgdirs.append(f)
+
+    if len(pkgdirs) > 0:
+        print('do you want to goto? ', pkgdirs)
+    else:
+        print('not found {} in {}'.format(args.pkgname, fields))
+    return
+
 parser = argparse.ArgumentParser('gose')
 subparsers = parser.add_subparsers()
-parser_search = subparsers.add_parser('search', help='search help')
+
+parser_search = subparsers.add_parser('search', help='search package with specific name')
 parser_search.add_argument('pkgname', help='golang package name. like php-go')
 parser_search.set_defaults(func=handler_search)
-parser_install = subparsers.add_parser('install', help='install help')
+
+parser_install = subparsers.add_parser('install', help='install the first found package')
 parser_install.add_argument('pkgname', help='golang package name. like php-go')
 parser_install.set_defaults(func=handler_install)
-pr = parser.parse_args()
 
+parser_goto = subparsers.add_parser('find', help='find the package in $GOPATH')
+parser_goto.add_argument('pkgname', help='golang package name. like php-go')
+parser_goto.set_defaults(func=handler_find)
+
+parser_goto = subparsers.add_parser('update', help='find and update the package in $GOPATH')
+parser_goto.add_argument('pkgname', help='golang package name. like php-go')
+parser_goto.set_defaults(func=handler_find)
+
+parser_goto = subparsers.add_parser('updateall', help='update all packages in $GOPATH')
+parser_goto.add_argument('pkgname', help='golang package name. like php-go')
+parser_goto.set_defaults(func=handler_find)
+
+pr = parser.parse_args()
 # print(pr._get_kwargs())
 # print(pr._get_args())
 # print(pr)
-
 if len(pr._get_kwargs()) > 0:
     pr.func(pr)
 else:

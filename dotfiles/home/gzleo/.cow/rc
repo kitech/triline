@@ -5,13 +5,16 @@
 # 或者在自动代理配置中填入 http://127.0.0.1:8117/pac
 listen = http://0.0.0.0:8117
 #listen = http://127.0.0.1:8117
-loadBalance = latency
+# loadBalance = latency
 # loadBalance = hash
 logFile = /home/gzleo/.meow/cow.log
 judgeByIP = true
 
 # local 本地（不需要设置，默认cow会直连）
 # proxy = http://127.0.0.1:8118
+
+# http://xduotai.com/7EiAhhYOA.pac
+# proxy = http://43.241.225.3:25272
 
 # toxtun
 # proxy = socks5://127.0.0.1:1080

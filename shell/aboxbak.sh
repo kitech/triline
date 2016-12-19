@@ -48,6 +48,7 @@ etcfiles="
 ~/.config/systemd/user/delegate-shadowsocks.service
 ~/.config/systemd/user/delegate-v2ray.service
 ~/.config/systemd/user/delegate-tor.service
+~/.config/systemd/user/godoc.service
 ~/.config/tox/2yatsen21.tox
 ~/.config/tox/2yatsen21.ini
 ~/.config/tox/yatsen21.tox
