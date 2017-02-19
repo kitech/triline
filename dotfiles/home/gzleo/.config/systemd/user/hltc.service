@@ -1,0 +1,18 @@
+# home laptop toxtun client for ssh protocol
+
+[Unit]
+Description=hltc service
+
+[Service]
+Type=fork
+# Environment="GOPATH=/home/me/golib:/home/me/oss:/home/me/work"
+# ExecStart=/usr/bin/gnatsd
+WorkingDirectory=/home/gzleo/var
+ExecStart=/home/gzleo/oss/toxtun-go/toxtun -kcp-mode fast -config /home/gzleo/var/toxtun_whtun.ini.hltc client
+# ExecStop=
+# ExecReload=
+# Restart=on-failure|on-abnormal
+
+[Install]
+WantedBy=default.target
+

@@ -9,3 +9,5 @@
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
 
+eval $(thefuck --alias ohfuck)
+

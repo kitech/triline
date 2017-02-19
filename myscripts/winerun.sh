@@ -99,6 +99,7 @@ function runclean_qq()
 {
     killall -9 TXPlatform.exe
     killall -9 QQ.exe
+    killall -9 QQApp.exe
     killall -9 QQProtect.exe
     killall -9 Tencentdl.exe
     killall -9 bugreport
@@ -164,6 +165,33 @@ function runclean_wechat()
     killall -9 WeChat.exe
 }
 
+function runverb_youku()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/youku
+    wine "C:/Program Files/YouKu/YoukuClient/YoukuDesktop.exe"
+}
+
+function runclean_youku()
+{
+    killall -9 YoukuDesktop.exe
+}
+
+function runverb_iqiyi()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/iqiyi
+    wine "C:/Program Files/IQIYI Video/PStyle/QiyiClient.exe"
+}
+
+function runclean_iqiyi()
+{
+    killall -9 QyClient.exe
+    killall -9 QyService.exe
+    killall -9 QyPlayer.exe
+    killall -9 QyFragment.exe
+    killall -9 QyKernel.exe
+    killall -9 mDNSResponder.exe
+}
+
 function runverb_list()
 {
     lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote"
@@ -190,6 +218,9 @@ elif [ x"$act" == x"clean" ] ; then
         ;;
         'wechat')
             runclean_wechat;
+        ;;
+        'iqiyi')
+            runclean_iqiyi;
             ;;
         *)
             read -p "Are you sure clean all verbs? (Y/N): " agree
@@ -233,12 +264,16 @@ else
         runverb_ynote;
     elif [ x"$act" == x"wechat" ] ; then
         runverb_wechat;
+    elif [ x"$act" == x"youku" ] ; then
+        runverb_youku;
+    elif [ x"$act" == x"iqiyi" ] ; then
+        runverb_iqiyi;
     else
         echo "Not impled: $act";
     fi
 fi
 
-exit;
+# exit;
 
 
 

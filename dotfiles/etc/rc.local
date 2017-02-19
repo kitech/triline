@@ -1,13 +1,17 @@
 #!/bin/bash
 # generated: Sun Jun 21 15:13:50 CST 2015
 
+# for lxc
+echo 1 | tee /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -s 10.0.3.0/24 -j MASQUERADE
+
 # macbookpro key
-echo 2 > /sys/module/hid_apple/parameters/fnmode
-echo 0 >  /sys/module/hid_apple/parameters/iso_layout
-echo 1 > /sys/module/hid_apple/parameters/swap_opt_cmd
+# echo 2 > /sys/module/hid_apple/parameters/fnmode
+# echo 0 >  /sys/module/hid_apple/parameters/iso_layout
+# echo 1 > /sys/module/hid_apple/parameters/swap_opt_cmd
 # macbookpro suspend
-awk '$3 ~ "enabled" {print $1}' /proc/acpi/wakeup | xargs -I{} echo "{}" > /proc/acpi/wakeup
-echo LID0 > /proc/acpi/wakeup
+# awk '$3 ~ "enabled" {print $1}' /proc/acpi/wakeup | xargs -I{} echo "{}" > /proc/acpi/wakeup
+# echo LID0 > /proc/acpi/wakeup
 
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 

@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     QStringList targs = a.arguments();
 
     if (!apps.contains(a.applicationName())) {
+        qDebug()<<"Unknown webapp:"<<a.applicationName()<<", expected:"<<apps.keys();
         return -1;
     }
 

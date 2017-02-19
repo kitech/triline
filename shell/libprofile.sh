@@ -24,7 +24,7 @@ alias pwdxs='pwd | xsel -p -b'
 march=$(uname -s)
 mbp=$(lspci | grep FaceTime)
 
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin:$HOME/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts:$HOME/triline/python
 export PATH=$PATH:$HOME/golib/bin:$HOME/work/bin:$HOME/oss/bin  # for other compiled go bin
 

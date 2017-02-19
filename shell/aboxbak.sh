@@ -49,6 +49,7 @@ etcfiles="
 ~/.config/systemd/user/delegate-v2ray.service
 ~/.config/systemd/user/delegate-tor.service
 ~/.config/systemd/user/godoc.service
+~/.config/systemd/user/gnatsd.service
 ~/.config/tox/2yatsen21.tox
 ~/.config/tox/2yatsen21.ini
 ~/.config/tox/yatsen21.tox
@@ -111,6 +112,11 @@ for ef in $etcfiles ; do
 
     if [ ! -e $ef ] ; then
         echo "The file not exists: $ef, omited."
+        continue;
+    fi
+
+    if [ ! -r $ef ] ; then
+        echo "The file not readable: $ef, omited."
         continue;
     fi
 

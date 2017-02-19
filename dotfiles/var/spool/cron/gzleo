@@ -4,9 +4,9 @@
 */30 * * * * systemctl --user restart mitmis
 */30 * * * * akonadictl stop
 */30 * * * * balooctl  stop
-* */1 * * *  /home/`id -un`/triline/shell/aboxbak.sh 
+* */1 * * *  /home/`id -un`/triline/shell/aboxbak.sh > /dev/null 
 0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null
-* */3 * * * sudo find  -type f /var/spool/postfix/maildrop/ |sudo xargs rm -f
+* */3 * * * sudo find /var/spool/postfix/maildrop/ -type f |sudo xargs rm -f
 
 # * * * * * ntpdate s1a.time.edu.cn
 # * * * * * ntpdate 207.32.191.59

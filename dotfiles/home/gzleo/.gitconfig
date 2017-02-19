@@ -1,5 +1,6 @@
 [http]
 	proxy = http://127.0.0.1:8117
+	postBuffer = 10m
 [socks]
 	proxy = 127.0.0.1:1080
     
