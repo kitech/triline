@@ -96,7 +96,8 @@ function rewrite_args()
 }
 
 if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
-       || [ x"$subcmd" == x"rebase" ] || [ x"$subcmd" == x"tag" ] || [ x"$subcmd" == x"subtree" ] ; then
+       || [ x"$subcmd" == x"rebase" ] || [ x"$subcmd" == x"tag" ] || [ x"$subcmd" == x"subtree" ] \
+       || [ x"$subcmd" == x"annex" ] ; then
     cleanup_with_user;
 
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')

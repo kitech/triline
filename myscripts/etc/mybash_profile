@@ -36,6 +36,7 @@ export DTPXY=127.0.0.1:8117
 export GIT_SSH=$HOME/myscripts/socks5proxyssh
 export GIT_TRACE=0
 export GIT_CURL_VERBOSE=0
+#export GIT_SSL_NO_VERIFY=1
 
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32

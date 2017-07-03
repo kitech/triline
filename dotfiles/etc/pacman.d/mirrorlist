@@ -12,6 +12,7 @@
 #Server = http://ftp.osuosl.org/pub/archlinux/$repo/os/$arch
 # Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+# Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 # Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ip=$1
+curl "http://ip.cn/index.php?ip=$ip"

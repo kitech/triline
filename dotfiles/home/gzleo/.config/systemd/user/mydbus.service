@@ -1,0 +1,13 @@
+[Unit]
+Description=dbus service over TCP
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dbus-daemon --config-file=/tmp/mydbus.conf --print-address --address=tcp:host=localhost,bind=0.0.0.0,port=55560,family=ipv4 --nofork
+ExecStop=
+# ExecReload=
+# Restart=on-failure|on-abnormal
+
+[Install]
+WantedBy=default.target
+

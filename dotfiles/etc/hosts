@@ -22,6 +22,7 @@
 127.0.0.1  mysql-n 
 127.0.0.1  pma.qtchina.net wim.qtchina.net 
 # 127.0.0.1 oc.fixlan.tk
+# 106.3.136.248 bestweshop.dianking.cn
 
 
 123.57.191.150 git.coc.io # git.coderoncloud.com
@@ -35,10 +36,24 @@
 #127.0.0.1 ngrok.me test.ngrok.me
 # 45.78.18.235 test.ngrok.t0.daoapp.io ngrok.t0.daoapp.io
 # 192.168.1.100 fixlan.tk hom.fixlan.tk www.fixlan.tk
+10.0.0.6 v.fixlan.tk
+
+### pcbeta
+218.93.127.136  pcbeta.com 
+218.93.127.136  mac.pcbeta.com 
+218.93.127.136  bbs.pcbeta.com 
+218.93.127.136  uc.pcbeta.com 
+218.93.127.136  www.pcbeta.com 
+218.93.127.136  cdn.pcbeta.css.inimc.com 
+218.93.127.136  static.template.pcbeta.com 
+218.93.127.136  i.pcbeta.com 
+218.93.127.136  cdn.pcbeta.static.inimc.com 
 
 ################### shit network fix
+# 160.16.217.191 xmpp.jp conference.xmpp.jp
 149.56.134.238 chat.freenode.net
 # 153.121.46.102 xmpp.jp
+151.101.40.193 i.imgur.com imgur.com
 # 127.0.0.2  secure.gravatar.com
 # 23.32.241.33 download.virtualbox.org
 # 127.0.0.1 ajax.googleapis.com

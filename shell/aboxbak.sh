@@ -82,6 +82,7 @@ etcfiles="
 /etc/systemd/system/delegate-tor.service
 /etc/supervisord.conf
 /etc/supervisor.d
+/etc/samba/smb.conf
 /var/spool/cron
 "
 

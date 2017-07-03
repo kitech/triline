@@ -48,6 +48,10 @@
 ;(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 ;(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 
+(require 'qmake-mode)
+(add-to-list 'auto-mode-alist '("\\.pr[io]$" . qmake-mode))
+(add-to-list 'auto-mode-alist '("\\.g4\\'" . antlr-mode))
+
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160820.501/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160928.636/"))
@@ -74,6 +78,7 @@
 ;; yafolding的问题，光标定位不准确，在括号范围内时。
 (require 'yafolding)
 ;; (yafolding-mode t)
+(require 'header2)
 
 ;;; for ecb，不过ecb和spacemacs不兼容。
 (setq ecb-display-news-for-upgrade nil)
@@ -106,6 +111,8 @@
 ;; (setq helm-split-window-default-side 'below)
 ;; (setq helm-split-window-in-side-p           t)
 ;; (setq helm-always-two-windows t)
+
+
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -150,7 +157,7 @@ values."
      markdown
      org
      (shell :variables
-            shell-default-height 30
+            shell-default-height 20
             shell-default-position 'bottom)
      syntax-checking
      version-control
@@ -240,7 +247,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 32
+                               :size 20
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -366,6 +373,7 @@ layers configuration. You are free to put any user code."
     (setq-default c-basic-offset 4)
     (setq go-indent-level 4)
     (setq go-tab-width 4)
+    (setq gofmt-command "goimports")
     (setq php-indent-level 4)
     (setq python-indent-level 4)
     (setq python-indent-offset 4)

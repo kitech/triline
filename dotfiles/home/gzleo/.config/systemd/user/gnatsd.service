@@ -2,7 +2,7 @@
 Description=gnatsd service
 
 [Service]
-Type=fork
+Type=simple
 Environment="GOPATH=/home/me/golib:/home/me/oss:/home/me/work"
 # ExecStart=/usr/bin/godoc -http :2006 -play -index -timestamps
 ExecStart=/usr/bin/gnatsd

@@ -5,7 +5,7 @@
 # 或者在自动代理配置中填入 http://127.0.0.1:8117/pac
 listen = http://0.0.0.0:8117
 #listen = http://127.0.0.1:8117
-# loadBalance = latency
+loadBalance = latency
 # loadBalance = hash
 logFile = /home/gzleo/.meow/cow.log
 judgeByIP = true
@@ -14,6 +14,8 @@ judgeByIP = true
 # proxy = http://127.0.0.1:8118
 
 # http://xduotai.com/7EiAhhYOA.pac
+# proxy = http://43.241.225.3:25272
+# proxy = http://103.227.76.18:25272
 # proxy = http://43.241.225.3:25272
 
 # toxtun
@@ -42,6 +44,9 @@ proxy = http://10.0.0.6:8113
 
 # i2p 本地
 # proxy = http://127.0.0.1:4444
+
+# ultra gate(ugate)
+# proxy = http://127.0.0.1:9666
 
 # shadowsocks 二级代理
 # proxy = ss://aes-128-cfb:password@1.2.3.4:8388

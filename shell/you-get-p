@@ -1,0 +1,4 @@
+#!/bin/sh
+
+you-get -p smplayer "$1"
+
