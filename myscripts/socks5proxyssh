@@ -1,14 +1,21 @@
 #!/bin/sh
 
-set -x
+# set -x
 SELF=$(readlink -f $0)
 #echo "$SELF"
 
+# fix second account
+SSHIDENT=
+if [[ "$2" =~ ^git-.+\ \'kitech/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
+    # echo "got the second account: kitech"
+    SSHIDENT="-i $HOME/.ssh/id_rsa_github"
+fi
+
 #ssh -o ProxyCommand="/path/to/socks5proxywrapper %h %p" "$@"
-if [ -d "$HOME/triline/myscripts-svn" ] ; then
-    ssh -o ProxyCommand="$HOME/triline/myscripts-svn/socks5proxywrapper %h %p" "$@"
+if [ -d "$HOME/triline/myscripts-svn" ]; then
+    ssh $SSHIDENT -o ProxyCommand="$HOME/triline/myscripts-svn/socks5proxywrapper %h %p" "$@"
 else
-    ssh -o ProxyCommand="$HOME/triline/myscripts/socks5proxywrapper %h %p" "$@"
+    ssh $SSHIDENT -o ProxyCommand="$HOME/triline/myscripts/socks5proxywrapper %h %p" "$@"
 fi
 
 # 用法

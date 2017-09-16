@@ -113,6 +113,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     a=$(echo $origin | grep "bitbucket.org")  && run_with_mine;
     a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
     a=$(echo $origin | grep "git.oschina.net")  && run_with_mine;
+    a=$(echo $origin | grep "gitee.com")  && run_with_mine;
     a=$(echo $origin | grep "kde.org")  && run_with_mine;
     a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
 
@@ -130,12 +131,14 @@ elif [ x"$subcmd" == x"push" ] ; then
     # 自动镜像提交
     true;
 
+    echo "Egit info:"
     priv=$(git config --get custom.private)
-    echo "is priv: $priv";
-    brch=$(git branch)
-    echo "cur branch: $brch"
+    if [[ x"$priv" == x"" ]]; then priv='false'; fi
+    echo "Repo is priv: $priv";
+    brch=$(git branch -v | head -n 1)
+    echo "Cur branch: $brch"
     a3="ffffff"
-    echo "$@, $1 $2 $3 $4"
+    echo "Subcmd: $@, $1 $2 $3 $4"
     echo "============"
 
     # origin push

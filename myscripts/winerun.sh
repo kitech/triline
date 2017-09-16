@@ -139,6 +139,7 @@ function runverb_evernote()
 {
     export WINEPREFIX=$HOME/.local/share/wineprefixes/evernote
     wine "C:/Program Files/Evernote/Evernote/Evernote.exe"
+    # wine "C:/users/gzleo/Local Settings/Application Data/Apps/Evernote/Evernote/Evernote.exe"
 }
 
 function runclean_evernote()
@@ -163,6 +164,18 @@ function runverb_wechat()
 function runclean_wechat()
 {
     killall -9 WeChat.exe
+}
+
+function runverb_dingtalk()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/dingtalk
+    wine "C:/Program Files/DingDing/main/current/DingTalk.exe"
+}
+
+function runclean_dingtalk()
+{
+    killall -9 DingTalk.exe
+    killall -9 DingTalkHelper.exe
 }
 
 function runverb_youku()
@@ -219,6 +232,9 @@ elif [ x"$act" == x"clean" ] ; then
         'wechat')
             runclean_wechat;
         ;;
+        'dingtalk')
+            runclean_dingtalk;
+        ;;
         'iqiyi')
             runclean_iqiyi;
             ;;
@@ -264,6 +280,8 @@ else
         runverb_ynote;
     elif [ x"$act" == x"wechat" ] ; then
         runverb_wechat;
+    elif [ x"$act" == x"dingtalk" ] ; then
+        runverb_dingtalk;
     elif [ x"$act" == x"youku" ] ; then
         runverb_youku;
     elif [ x"$act" == x"iqiyi" ] ; then
