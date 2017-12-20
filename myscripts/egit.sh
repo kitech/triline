@@ -97,7 +97,8 @@ function rewrite_args()
 
 if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
        || [ x"$subcmd" == x"rebase" ] || [ x"$subcmd" == x"tag" ] || [ x"$subcmd" == x"subtree" ] \
-       || [ x"$subcmd" == x"annex" ] ; then
+       || [ x"$subcmd" == x"annex" ] || [ x"$subcmd" == x"var" ] \
+       || [ x"$subcmd" == x"cherry-pick" ]; then
     cleanup_with_user;
 
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
@@ -135,7 +136,7 @@ elif [ x"$subcmd" == x"push" ] ; then
     priv=$(git config --get custom.private)
     if [[ x"$priv" == x"" ]]; then priv='false'; fi
     echo "Repo is priv: $priv";
-    brch=$(git branch -v | head -n 1)
+    brch=$(git branch -v | grep "^\* " | head -n 1)
     echo "Cur branch: $brch"
     a3="ffffff"
     echo "Subcmd: $@, $1 $2 $3 $4"
@@ -167,7 +168,7 @@ elif [ x"$subcmd" == x"push" ] ; then
             true;
             if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] \
                    || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] \
-                   || [ x"$rs" == x"gitlab" ]; then
+                   || [ x"$rs" == x"gitlab" ] || [ x"$rs" == x"gitea" ]; then
                 newargs=
                 for arg in "$@" ; do
                     # echo "argx: $arg";

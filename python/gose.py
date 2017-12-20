@@ -92,11 +92,12 @@ def handler_install(args):
     return
 
 
+import sys
+
+
 # find the package src directory
 def handler_find(args):
     GOPATH = os.getenv('GOPATH')
-
-    import sys
 
     def walkdir(_dir):
         pkgdirs = []
@@ -130,6 +131,38 @@ def handler_find(args):
         print('not found {} in {}'.format(args.pkgname, fields))
     return
 
+
+def handler_upable(args):
+    print(args)
+    GOPATH = os.getenv('GOPATH')
+    fields = GOPATH.split(':')
+    gitcnt = 0
+    totcnt = 0
+    os.environ.putenv('https_proxy', '127.0.0.1:8117')
+    os.environ.putenv('http_proxy', '127.0.0.1:8117')
+
+    for field in fields:
+        for root, dirs, files in os.walk(field + '/src', topdown=False):
+            # print(root, dirs, files)
+            totcnt = totcnt + 1
+            if gitcnt > 9: break
+            if ".git" in dirs:
+                print("gitroot...", root, dirs)
+                gitcnt = gitcnt + 1
+                os.chdir(root)
+                os.system("git remote -v")
+                os.system("git pull")
+            else:
+                if ".git" not in root:
+                    parts = root.split("/src/")
+                    os.system("go get -v -u " + parts[1])
+        if gitcnt > 9: break
+
+    print(gitcnt, totcnt)
+    return
+
+
+# args parser
 parser = argparse.ArgumentParser('gose')
 subparsers = parser.add_subparsers()
 
@@ -152,6 +185,10 @@ parser_goto.set_defaults(func=handler_find)
 parser_goto = subparsers.add_parser('updateall', help='update all packages in $GOPATH')
 parser_goto.add_argument('pkgname', help='golang package name. like php-go')
 parser_goto.set_defaults(func=handler_find)
+
+parser_goto = subparsers.add_parser('upable', help='find can update packages in $GOPATH')
+# parser_goto.add_argument('pkgname', help='golang package name. like php-go')
+parser_goto.set_defaults(func=handler_upable)
 
 pr = parser.parse_args()
 # print(pr._get_kwargs())

@@ -11,6 +11,7 @@ alias lla='ls -a --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
 alias scu='systemctl --user'
+alias jcu='journalctl --user'
 #alias ssh=$HOME/myscripts/assh.sh
 alias aria2c='aria2c -x 5 -k 1M'
 alias ec='emacsclient -n'
@@ -20,6 +21,15 @@ alias git=$HOME/triline/myscripts/egit.sh
 # about X selection
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
+# inspired by go escape cmd
+alias mka='make all'
+alias mkb='make build'
+alias mkt='make test'
+alias mkd='make deploy'
+alias mkr='make release'
+alias mku='make run'
+alias mks='make smoke'
+alias mkp='make package'
 
 march=$(uname -s)
 mbp=$(lspci | grep FaceTime)

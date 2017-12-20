@@ -37,7 +37,6 @@ proxy = http://10.0.0.6:8113
 
 # tor 本地
 # proxy = socks5://127.0.0.1:9050
-# proxy = http://127.0.0.1:8115
 
 # lantern 本地
 # proxy = http://127.0.0.1:8787
@@ -45,8 +44,12 @@ proxy = http://10.0.0.6:8113
 # i2p 本地
 # proxy = http://127.0.0.1:4444
 
-# ultra gate(ugate)
+# ultra gate(ugate)(wujie)
 # proxy = http://127.0.0.1:9666
+
+# psiphon3 via vbox winxp port forward
+# proxy = http://127.0.0.1:1845
+# proxy = socks5://127.0.0.1:1846
 
 # shadowsocks 二级代理
 # proxy = ss://aes-128-cfb:password@1.2.3.4:8388

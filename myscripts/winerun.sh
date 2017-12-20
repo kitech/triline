@@ -11,7 +11,7 @@
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
 
-### confgs
+### for confgs
 WTPREFIX=$HOME/.local/share/wineprefixes
 
 ### cmd arguments
@@ -151,7 +151,7 @@ function runclean_evernote()
 
 function runverb_ynote()
 {
-    export WINEPREFIX=$HOME/.local/share/wineprefixes/ynote
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/youdaonote
     wine "C:/Program Files/Youdao/YoudaoNote/YoudaoNote.exe"
 }
 
@@ -205,6 +205,29 @@ function runclean_iqiyi()
     killall -9 mDNSResponder.exe
 }
 
+function runverb_hdsql()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/heidisql
+    wine "C:/Program Files/HeidiSQL/heidisql.exe"
+}
+
+function runclean_hdsql()
+{
+    killall -9 heidisql.exe
+}
+
+function runverb_thunder()
+{
+    /opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
+}
+
+function runclean_thunder()
+{
+    killall -9 Thunder.exe
+    killall -9 ThunderPreload.exe
+    killall -9 KKV.exe
+}
+
 function runverb_list()
 {
     lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote"
@@ -237,6 +260,12 @@ elif [ x"$act" == x"clean" ] ; then
         ;;
         'iqiyi')
             runclean_iqiyi;
+            ;;
+        'hdsql')
+            runclean_hdsql;
+            ;;
+        'thunder')
+            runclean_thunder;
             ;;
         *)
             read -p "Are you sure clean all verbs? (Y/N): " agree
@@ -286,6 +315,10 @@ else
         runverb_youku;
     elif [ x"$act" == x"iqiyi" ] ; then
         runverb_iqiyi;
+    elif [ x"$act" == x"hdsql" ]; then
+        runverb_hdsql;
+    elif [ x"$act" == x"thunder" ]; then
+        runverb_thunder;
     else
         echo "Not impled: $act";
     fi

@@ -1,0 +1,109 @@
+#!/bin/sh
+
+debpkg=$(basename $1)
+debpath=$(readlink -f $1)
+pwd=$(pwd)
+
+tmpdir=/tmp/
+tmpdir=$(mktemp -d)
+
+deb_pkgname=$(echo "$debpkg"|awk -F_ '{print $1}')
+echo $deb_pkgname
+deb_arch=$(echo "$debpkg"|awk -F_ '{print $3}'|awk -F\. '{print $1}')
+echo $deb_arch
+deb_version=$(echo "$debpkg"|awk -F_ '{print $2}')
+echo $deb_version
+deb_pkgrel=$(echo $deb_version|awk -F\- '{print $2}')
+echo $deb_pkgrel
+if [ -z "$deb_pkgrel" ]; then
+    deb_pkgrel=1
+else
+    deb_version=$(echo $deb_version|awk -F\- '{print $1}')
+fi
+echo $deb_version
+echo $deb_pkgrel
+# exit
+# TODO pkgname pkgversion from meta info
+
+set -x
+cd $tmpdir
+echo $debpkg
+
+ar -v -x "$debpath"
+
+cat>PKGBUILD<<EOF
+# Maintainer: abc <abc@efg.com>
+pkgname=$deb_pkgname
+pkgver=$deb_version
+pkgrel=1
+epoch=
+pkgdesc="hehehhe"
+arch=('$deb_arch')
+url="https://github.com/envsh/pacdeb"
+license=('GPL')
+# groups=()
+# depends=()
+# makedepends=()
+# checkdepends=()
+# optdepends=()
+# provides=()
+# conflicts=()
+# replaces=()
+# backup=()
+# options=()
+# install=
+# changelog=
+source=()
+
+# noextract=()
+
+# set -x
+extract_sources()
+{
+  mkdir -v "\$srcdir/\$pkgname-\$pkgver"
+}
+
+prepare() {
+  true
+}
+
+build() {
+  true
+}
+
+check() {
+  true
+}
+
+package() {
+  cd "\$srcdir/\$pkgname-\$pkgver"
+  mkdir -p "\$pkgdir/usr/share/"
+  touch "\$pkgdir/usr/share/by-pacdeb-\$pkgname"
+  if [ -f ../../data.tar.xz ]; then
+    tar xf ../../data.tar.xz -C "\$pkgdir/"
+  fi
+  if [ -f ../../data.tar.gz ]; then
+    tar xf ../../data.tar.gz -C "\$pkgdir/"
+  fi
+}
+
+# vim:set ts=2 sw=2 et:
+EOF
+
+if [ ! -f PKGBUILD ]; then
+    echo "PKGBUILD file not found. wtf."
+fi
+
+makepkg -f --skipchecksums --ignorearch
+
+# tar Jcvfp /tmp/abc.tar.xz .
+# ls -lh /tmp/abc.tar.xz
+# file /tmp/abc.tar.xz
+
+archpkgfile=/archrepo/packages/$deb_pkgname-$deb_version-1-x86_64.pkg.tar.xz
+ls -lh $archpkgfile
+file $archpkgfile
+testpkg $archpkgfile
+
+cd "$pwd"
+rm -rf "$tmpdir"

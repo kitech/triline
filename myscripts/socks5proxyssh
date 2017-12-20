@@ -6,10 +6,15 @@ SELF=$(readlink -f $0)
 
 # fix second account
 SSHIDENT=
-if [[ "$2" =~ ^git-.+\ \'kitech/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
+if [[ "$2" =~ ^git-.+\ \'/?kitech/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
     # echo "got the second account: kitech"
     SSHIDENT="-i $HOME/.ssh/id_rsa_github"
 fi
+if [[ "$2" =~ ^git-.+\ \'/?aitjcize/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
+    # echo "got the second account: kitech"
+    SSHIDENT="-i $HOME/.ssh/id_rsa_github"
+fi
+
 
 #ssh -o ProxyCommand="/path/to/socks5proxywrapper %h %p" "$@"
 if [ -d "$HOME/triline/myscripts-svn" ]; then

@@ -71,6 +71,7 @@ etcfiles="
 /etc/resolv.conf.head
 /etc/resolv.dnsmasq.conf
 /etc/dnsmasq.conf
+/etc/unbound/unbound.conf
 /etc/sudoers
 /etc/hostname
 /etc/locale.gen
@@ -83,6 +84,7 @@ etcfiles="
 /etc/supervisord.conf
 /etc/supervisor.d
 /etc/samba/smb.conf
+/etc/conf.d/etcd3
 /var/spool/cron
 "
 
@@ -106,8 +108,10 @@ for ef in $etcfiles ; do
 
     # echo ${ef:0:2}
     first_char=${ef:0:2}
+    in_home=
 
     if [ x"$first_char" == x"~/" ] ; then
+        in_home="yes"
         ef="$HOME/${ef:2}"
     fi
 
@@ -125,6 +129,8 @@ for ef in $etcfiles ; do
     ref="$ef"  # for link, must keep it there, not realpath
     # echo "$ef => $ref"
 
+    # ef="/home/me/${ef:2}" # TODO 试试这个？
+    # ef="/home/`id -u`/${ef:2}" # TODO 试试这个？
     if [ -d $ref ] ; then
         path=$BAKDIR$ref
         if [ ! -e $path ] ; then

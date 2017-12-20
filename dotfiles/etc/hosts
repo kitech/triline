@@ -10,12 +10,18 @@
 #10.10.8.128 static.xiaojukeji.com
 #127.0.0.1 crm.xiaojukeji.com
 #10.10.8.128 crm.xiaojukeji.com
-10.97.27.122 crm.xiaojukeji.com
+# 10.97.27.122 crm.xiaojukeji.com
 #10.10.8.128 game.xiaojukeji.com
+# 123.207.209.94 base.xiaojukeji.com 
+10.95.120.49  base-test.xiaojukeji.com
 
 127.0.0.2  secure.gravatar.com
 23.32.241.33 download.virtualbox.org
 
+# 127.0.0.1 ynote.youdao.com note.youdao.com
+59.111.179.138 ynote.youdao.com note.youdao.com
+35.186.213.138 www.evernote.com
+# 10.0.0.6 www.evernote.com
 106.3.136.243 bug.youwuku.cn
 106.3.136.242 svn.youwuku.cn
 
@@ -27,6 +33,7 @@
 # 127.0.0.1 oc.fixlan.tk
 # 106.3.136.248 bestweshop.dianking.cn
 
+127.0.0.1 p.as.wiz.cn p.note.wiz.cn p.kshttps0.wiz.cn p.api.wiz.cn p.share.fromwiz.com
 
 123.57.191.150 git.coc.io # git.coderoncloud.com
 #172.17.0.22 git.coc.io git.coderoncloud.com
@@ -40,6 +47,10 @@
 # 45.78.18.235 test.ngrok.t0.daoapp.io ngrok.t0.daoapp.io
 # 192.168.1.100 fixlan.tk hom.fixlan.tk www.fixlan.tk
 10.0.0.6 v.fixlan.tk
+127.0.0.1 imi.fixlan.tk
+10.0.0.6 wwwi.fixlan.tk
+127.0.0.1 piwik.fixlan.tk
+127.0.0.1 scalar.imi.fixlan.tk
 
 ### pcbeta
 218.93.127.136  pcbeta.com 
@@ -51,6 +62,8 @@
 218.93.127.136  static.template.pcbeta.com 
 218.93.127.136  i.pcbeta.com 
 218.93.127.136  cdn.pcbeta.static.inimc.com 
+127.0.0.1 hub5btmain.sandai.net
+127.0.0.1 hub5emu.sandai.net 
 
 ################### shit network fix
 # 160.16.217.191 xmpp.jp conference.xmpp.jp
@@ -66,6 +79,8 @@
 # 127.0.0.1  tromey.com
 # 127.0.0.1  melpa.org
 #mirrors.dormforce.net dl-ssl.google.com
-202.115.22.208 dl-ssl.google.com
-202.115.22.208 dl.google.com
+#202.115.22.208 dl-ssl.google.com
+#202.115.22.208 dl.google.com
+#61.49.51.49 dl.google.com
+#123.15.57.34 dl.google.com
 # End of file
