@@ -46,12 +46,12 @@ cp -Rvp /dev/*random ./dev/
 cp -Rvp /dev/d* ./dev/
 cp -Rvp /dev .
 
-cp -v /home/gzleo/.viminfo ./root/
-cp -v /home/gzleo/.emacs ./root/
-cp -Rv /home/gzleo/.emacs.d ./root/
-cp -v /home/gzleo/.Xresources ./root/
-cp -v /home/gzleo/zh.reg ./root/
-cp -v /home/gzleo/.bash_profile ./root/
+cp -v /home/me/.viminfo ./root/
+cp -v /home/me/.emacs ./root/
+cp -Rv /home/me/.emacs.d ./root/
+cp -v /home/me/.Xresources ./root/
+cp -v /home/me/zh.reg ./root/
+cp -v /home/me/.bash_profile ./root/
 # cp -Rv /root/.vmware ./root/
 # cp -Rv /root/bin ./root/
 

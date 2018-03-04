@@ -15,6 +15,6 @@ iptables -t nat -A POSTROUTING -s 10.0.3.0/24 -j MASQUERADE
 
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 
-# su - gzleo -c "/home/gzleo/myscripts/vdmnt2.sh m"
+# su - gzleo -c "/home/me/myscripts/vdmnt2.sh m"
 
 

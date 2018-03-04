@@ -28,6 +28,12 @@
 #
 # For more information, please refer to <http://unlicense.org/>
 
+import sys
+
+PY_MAJOR, PY_MINOR = sys.version_info[ 0 : 2 ]
+
+print(PY_MAJOR, PY_MINOR)
+
 import os
 import ycm_core
 

@@ -35,6 +35,7 @@ etcfiles="
 ~/.ngrok
 ~/.pip/pip.conf
 ~/.babelrc
+~/synergy.conf
 ~/bin/elimg
 ~/bin/winerun
 ~/bin/vxrun
@@ -50,6 +51,7 @@ etcfiles="
 ~/.config/systemd/user/delegate-tor.service
 ~/.config/systemd/user/godoc.service
 ~/.config/systemd/user/gnatsd.service
+~/.config/systemd/user/synergys.service
 ~/.config/tox/2yatsen21.tox
 ~/.config/tox/2yatsen21.ini
 ~/.config/tox/yatsen21.tox
@@ -57,6 +59,8 @@ etcfiles="
 ~/.config/tox/yatsen31.tox
 ~/.config/tox/yatsen31.ini
 ~/.config/powerline/config.json
+~/.config/vivaldi-snapshot/Default/Bookmarks
+~/.config/vivaldi-snapshot/Default/Notes
 ~/.zsh
 ~/.cow/rc
 ~/.cow/rc.eg

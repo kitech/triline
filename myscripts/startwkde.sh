@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-#sudo ln -sv /home/gzleo/myscripts/startkde-wayland /usr/bin/
+#sudo ln -sv /home/me/myscripts/startkde-wayland /usr/bin/
 
 export DISPLAY=:99
 export WAYLAND_DISPLAY=wayland-system-0

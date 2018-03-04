@@ -138,7 +138,7 @@ def test_gmpush():
     bsc = Connection('localhost', 11300)
     logging.debug('Connected bsc')
     gitcmdline = base64.b64encode("git push origin master".encode()).decode()
-    gmcmdline = '--cmd gmpush --pwd /home/gzleo/opensource/wxagent --rawcmdline %s --hehere 123' % gitcmdline
+    gmcmdline = '--cmd gmpush --pwd /home/me/opensource/wxagent --rawcmdline %s --hehere 123' % gitcmdline
     bsc.put(gmcmdline)
 
     return

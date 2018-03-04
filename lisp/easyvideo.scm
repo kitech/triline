@@ -20,10 +20,10 @@
 (define cmd (reduce (lambda (elem prev)
                       (if (access? elem F_OK)
                           (string-copy elem) (string-copy prev))) "None"
-                          '("/home/gzleo/opensource/smplayer/src/funweb/you-get/you-get"
-                            "/home/gzleo/opensource/smplayer-mix/src/funweb/you-get/you-get"
-                            "/home/gzleo/opensource/smplayer-git/src/funweb/you-get/you-get"
-                            "/home/gzleo/workspace1/smplayer/src/funweb/you-get/you-get"
+                          '("/home/me/opensource/smplayer/src/funweb/you-get/you-get"
+                            "/home/me/opensource/smplayer-mix/src/funweb/you-get/you-get"
+                            "/home/me/opensource/smplayer-git/src/funweb/you-get/you-get"
+                            "/home/me/workspace1/smplayer/src/funweb/you-get/you-get"
                             "/usr/bin/you-get")))
 (displayf (string-append "Using you-get ... " cmd))
 

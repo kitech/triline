@@ -10,6 +10,10 @@ if [[ "$2" =~ ^git-.+\ \'/?kitech/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; the
     # echo "got the second account: kitech"
     SSHIDENT="-i $HOME/.ssh/id_rsa_github"
 fi
+if [[ "$2" =~ ^git-.+\ \'/?qtchina/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
+    # echo "got the second account: kitech"
+    SSHIDENT="-i $HOME/.ssh/id_rsa_github"
+fi
 if [[ "$2" =~ ^git-.+\ \'/?aitjcize/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
     # echo "got the second account: kitech"
     SSHIDENT="-i $HOME/.ssh/id_rsa_github"

@@ -10,7 +10,7 @@ DESTDIR=$(readlink -f $1)
 SRCDIR=$(readlink -f $2)
 
 GIT_USER="gzleo"
-GIT_EMAIL="yatseni3@gmail.com"
+GIT_EMAIL="yatseni5@gmail.com"
 git config user.email "$GIT_EMAIL"
 git config user.name "$GIT_USER"
 
@@ -44,7 +44,11 @@ for dir in $DIRS; do
     # git subtree split --prefix "$dir" -b "$dir"
 done
 
-echo "Add dir to new repo..."
+echo "Add dir to new repo...$DESTDIR"
+if [ x"$DESTDIR" == x"" ];then
+    echo "must set DESTDIR!!! will clean."
+    exit
+fi
 mkdir -p "$DESTDIR"
 rm -rf "$DESTDIR/.git"
 rm -rf "$DESTDIR"/*

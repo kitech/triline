@@ -72,7 +72,8 @@ fi
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
-
+export QML_DISABLE_DISK_CACHE=1   #禁止生成.qmlc
+#export GOCACHE=off  #禁止golang生成build cache
 export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
 export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 

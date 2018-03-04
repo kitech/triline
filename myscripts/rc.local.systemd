@@ -5,7 +5,7 @@ hostname myarchlap
 /usr/bin/modprobe vboxnetflt
 /usr/bin/modprobe vboxnetadp
 
-/home/gzleo/auto_light.sh &
+/home/me/auto_light.sh &
 
 
 

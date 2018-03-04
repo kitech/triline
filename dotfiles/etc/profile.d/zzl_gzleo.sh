@@ -37,7 +37,7 @@ fi
 
 
 export ORACLE_HOME=/opt/instantclient
-export TNS_ADMIN=/home/gzleo/
+export TNS_ADMIN=/home/me/
 
 #ulimit -n 20000
 ulimit -c unlimited

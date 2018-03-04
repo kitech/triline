@@ -31,7 +31,7 @@ fi
 echo $MY_PID > $pid_file
 
 ###########
-tor_bridges_dir=/home/gzleo/documents/tor_bridges
+tor_bridges_dir=/home/me/documents/tor_bridges
 export proxy=on
 export https_proxy=http://127.0.0.1:8118/
 export http_proxy=http://127.0.0.1:8118/

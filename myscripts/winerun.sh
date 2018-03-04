@@ -102,6 +102,7 @@ function runclean_qq()
     killall -9 QQApp.exe
     killall -9 QQProtect.exe
     killall -9 Tencentdl.exe
+    killall -9 QQExternal.exe
     killall -9 bugreport
 }
 
@@ -176,6 +177,7 @@ function runclean_dingtalk()
 {
     killall -9 DingTalk.exe
     killall -9 DingTalkHelper.exe
+    killall -9 DingTalkUpdater.exe
 }
 
 function runverb_youku()

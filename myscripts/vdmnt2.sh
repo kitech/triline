@@ -4,7 +4,7 @@
 # vdmnt.sh <m|u|r>
 
 vdi_disk_path=/mnt/sda6/vms/datastore.vdi
-vdi_disk_path="/home/gzleo/VirtualBox VMs/miniwinxp32/NewVirtualDisk1.vdi"
+vdi_disk_path="/home/me/VirtualBox VMs/miniwinxp32/NewVirtualDisk1.vdi"
 qcow2_disk_path=/mnt/sda6/vms/datastore.qcow2
 
 set -x

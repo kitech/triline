@@ -1,0 +1,14 @@
+[Unit]
+Description=socat local tcp:8622 -> 96.86:22 over udp udp:96.86:2222
+After=network.target
+
+[Service]
+# server: socat -d -d  udp4-listen:2222,fork tcp4-connect:127.0.0.1:22
+# ExecStart=/usr/bin/socat -t0 -T0 -d -d TCP-LISTEN:8622,fork UDP4-CONNECT:10.95.96.86:2222
+# ExecStart=/usr/bin/kcptun-client -r "10.95.96.86:8622" -l ":8622" -mode fast3 -crypt none -nocomp
+ExecStart=/home/me/oss/kcptun/kcptun-clientx -r "10.95.96.86:8622" -l ":8622" -mode fast3 -crypt none -nocomp
+# User=znc
+
+[Install]
+WantedBy=multi-user.target
+
