@@ -6,11 +6,11 @@ fixlan.tk
 iqiyi.com
 meijutt.com
 xunlei.com
-addons.mozilla.org
-download.mozilla.org
-download-installer.cdn.mozilla.net
-cdn.mozilla.net
-mozilla.org
-mozilla.net
+#addons.mozilla.org
+#download.mozilla.org
+#download-installer.cdn.mozilla.net
+#cdn.mozilla.net
+#mozilla.org
+#mozilla.net
 # 如果是两段的域名，则采用子域名通配。如果是三段域名，则采用当前子域名匹配
 

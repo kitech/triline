@@ -85,6 +85,7 @@ function run_with_didi()
 
 function cleanup_with_user()
 {
+    cp $HOME/.gitconfig $HOME/.gitconfig.bak
     $GIT config --global --unset user.email
     $GIT config --global --unset user.name
     $GIT config --global --remove-section user
@@ -103,7 +104,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
 
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
     # git repo url
-    # echo $origin
+    echo "$subcmd, $origin"
 
     [ x"$origin" == x"" ] && run_with_mine;
     ### fix just local git storage file:///some/path
@@ -117,6 +118,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
     a=$(echo $origin | grep "gitee.com")  && run_with_mine;
     a=$(echo $origin | grep "kde.org")  && run_with_mine;
     a=$(echo $origin | grep "gitlab.com")  && run_with_mine;
+    a=$(echo $origin | grep "archlinux.org")  && run_with_mine;
 
     user_name=$($GIT config --global user.name);
     user_email=$($GIT config --global user.email);

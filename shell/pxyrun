@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# set -x
+
+export https_proxy=$DTPXY
+export http_proxy=$DTPXY
+
+"$@"
+

@@ -89,6 +89,7 @@ etcfiles="
 /etc/supervisor.d
 /etc/samba/smb.conf
 /etc/conf.d/etcd3
+/etc/unrealircd/unrealircd.conf
 /var/spool/cron
 "
 

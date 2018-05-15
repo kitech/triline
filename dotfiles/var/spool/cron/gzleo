@@ -9,6 +9,7 @@
 * */3 * * * sudo find /var/spool/postfix/maildrop/ -type f |sudo xargs rm -f
 #*/7 * * * * /home/me/work/disf-tools/dtreportc -run-mode dev
 */15 * * * * /home/me/oss/src/mkuse/disopt/disopt duckdns > /tmp/disopt_ddns.log 2>&1
+* *  3 * *  rm -f "/home/me/Edraw/亿图图示/ThemeGlobal.cfg"
 
 # * * * * * ntpdate s1a.time.edu.cn
 # * * * * * ntpdate 207.32.191.59

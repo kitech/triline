@@ -41,7 +41,7 @@ echo "All exist: $AllExist."
 
 for dir in $DIRS; do
     echo "Spliting $dir ..."
-    # git subtree split --prefix "$dir" -b "$dir"
+    git subtree split --prefix "$dir" -b "$dir"
 done
 
 echo "Add dir to new repo...$DESTDIR"
@@ -53,6 +53,7 @@ mkdir -p "$DESTDIR"
 rm -rf "$DESTDIR/.git"
 rm -rf "$DESTDIR"/*
 
+# TODO 1. split to new repo. 2. split to exist repo, like merge
 cd "$DESTDIR"
 git init
 echo  > inited.md
