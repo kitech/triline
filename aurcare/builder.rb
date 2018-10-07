@@ -46,19 +46,23 @@ Dir.chdir(pkgname) do
     exit if !ret;
 end
 
-# 删除老版本的包
+# 删除旧版本的包
 ret = mysystem("rm -fv #{pkgname}*.pkg.tar.xz")
 
-ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz .");
+ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz ./");
 abort('move pkg error.') if !ret;
+
+#ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz /archrepo/packages/");
+#abort('move pkg error2.') if !ret;
 
 ret = mysystem("repo-add aurcare.db.tar.gz #{pkgname}*.pkg.tar.xz");
 abort('repo add error.') if !ret;
-ret = mysystem("git add -v #{pkgname}*.pkg.tar.xz");
-abort('add to git error.') if !ret;
+#ret = mysystem("git add -v #{pkgname}*.pkg.tar.xz");
+#abort('add to git error.') if !ret;
 
 refresh_aurdb();
 
 # 打包失败的临时文件，手动决定如果处理，有可能要查找错误原因，有可能直接删除。
 # 删除成功打包的临时文件。
-mysystem("rm -rf ./#{pkgname}")
+ret = mysystem("rm -rf ./#{pkgname}")
+abort('clean build dir error.') if !ret;

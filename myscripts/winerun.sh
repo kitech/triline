@@ -220,7 +220,9 @@ function runclean_hdsql()
 
 function runverb_thunder()
 {
-    /opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
+    #/opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
+    export WINEPREFIX=$HOME/.deepinwine/Deepin-ThunderSpeed
+    wine "C:/Program Files/Thunder Network/Thunder/Thunder.exe"
 }
 
 function runclean_thunder()
@@ -228,6 +230,31 @@ function runclean_thunder()
     killall -9 Thunder.exe
     killall -9 ThunderPreload.exe
     killall -9 KKV.exe
+}
+
+function runverb_thunderx()
+{
+    #/opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
+    export WINEPREFIX=$HOME/.deepinwine/Deepin-ThunderSpeed.o
+    wine "C:/Program Files/Thunder Network/Thunder/Program/Thunder.exe"
+}
+
+function runclean_thunderx()
+{
+    killall -9 Thunder.exe
+    killall -9 ThunderPreload.exe
+    killall -9 KKV.exe
+}
+
+function runverb_si3()
+{
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/directinstalled
+    wine "C:/Program Files/Source Insight 3/Insight3.exe"
+}
+
+function runclean_si3()
+{
+    killall -9 Insight3.exe
 }
 
 function runverb_list()
@@ -268,6 +295,9 @@ elif [ x"$act" == x"clean" ] ; then
             ;;
         'thunder')
             runclean_thunder;
+            ;;
+        'thunderx')
+            runclean_thunderx;
             ;;
         *)
             read -p "Are you sure clean all verbs? (Y/N): " agree
@@ -321,6 +351,10 @@ else
         runverb_hdsql;
     elif [ x"$act" == x"thunder" ]; then
         runverb_thunder;
+    elif [ x"$act" == x"thunderx" ]; then
+        runverb_thunderx;
+    elif [ x"$act" == x"si3" ]; then
+        runverb_si3;
     else
         echo "Not impled: $act";
     fi

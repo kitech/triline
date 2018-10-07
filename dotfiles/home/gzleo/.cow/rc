@@ -23,6 +23,10 @@ judgeByIP = true
 # proxy = http://127.0.0.1:8113
 # proxy = http://10.0.0.6:8113
 
+# ultra gate(ugate)(wujie)
+proxy = http://127.0.0.1:9666
+# proxy = http://10.0.0.7:9666
+
 # shadowsocks 本地
 # proxy = socks5://127.0.0.1:1080
 # proxy = socks5://192.168.1.6:1081
@@ -43,9 +47,6 @@ judgeByIP = true
 
 # i2p 本地
 # proxy = http://127.0.0.1:4444
-
-# ultra gate(ugate)(wujie)
-proxy = http://127.0.0.1:9666
 
 # psiphon3 via vbox winxp port forward
 # proxy = http://127.0.0.1:1845

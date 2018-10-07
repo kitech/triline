@@ -11,3 +11,8 @@
 	encoding = utf-8
 [core]
 	quotepath = false
+[user]
+	email = egitop@uhole.xyz
+	name = egitop
+[pack]
+	threads = 2

@@ -4,7 +4,7 @@
 SELF=$(readlink -f $0)
 #echo "$SELF"
 
-# fix second account
+# fix second account. also see $HOME/.ssh/config
 SSHIDENT=
 if [[ "$2" =~ ^git-.+\ \'/?kitech/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
     # echo "got the second account: kitech"
@@ -17,6 +17,15 @@ fi
 if [[ "$2" =~ ^git-.+\ \'/?aitjcize/.+\.git\'$ && "$1" =~ ^git@github.com$ ]]; then
     # echo "got the second account: kitech"
     SSHIDENT="-i $HOME/.ssh/id_rsa_github"
+fi
+if [[ "$2" =~ ^git-.+\ \'/?kitech/.+\.git\'$ && "$1" =~ ^git@gitlab.com$ ]]; then
+    # echo "got the second account: kitech"
+    SSHIDENT="-i $HOME/.ssh/id_rsa_gitlab"
+fi
+# echo "hehe |$2|, |$1|" >> /tmp/gitssh.log
+if [[ "$2" =~ ^git-.+\ \'/?fixos/.+\.git\'$ && "$1" =~ ^git@gitee.com$ ]]; then
+    # echo "got the second account: fixos"
+    SSHIDENT="-i $HOME/.ssh/id_rsa_oschina_fixos"
 fi
 
 

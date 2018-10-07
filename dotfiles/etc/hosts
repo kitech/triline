@@ -67,16 +67,18 @@
 127.0.0.1 hub5emu.sandai.net 
 
 ################### shit network fix
+127.0.0.1 getck.pan.baidu.com
 # 160.16.217.191 xmpp.jp conference.xmpp.jp
 149.56.134.238 chat.freenode.net
 # 153.121.46.102 xmpp.jp
-151.101.40.193 i.imgur.com imgur.com
+# 151.101.40.193 i.imgur.com imgur.com
 # 127.0.0.2  secure.gravatar.com
 # 23.32.241.33 download.virtualbox.org
 # 127.0.0.1 ajax.googleapis.com
 # 127.0.0.1 fonts.googleapis.com
 2404:6800:4005:802::1008 chrome.google.com
 127.0.0.1  ajax.googleapis.com
+127.0.0.1 platform.twitter.com syndication.twitter.com
 # 127.0.0.1  tromey.com
 # 127.0.0.1  melpa.org
 #mirrors.dormforce.net dl-ssl.google.com

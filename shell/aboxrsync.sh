@@ -10,3 +10,5 @@ sudo rsync -aAXv --delete --delete-excluded --progress --bwlimit=7M --exclude={"
 
 # restore
 
+# rsync -aAXv --delete --delete-excluded --progress --bwlimit=7M root@10.0.0.7:/mnt/sda5/ossetup/oarch_rsync_rootfs/  /mnt/
+

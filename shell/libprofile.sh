@@ -3,11 +3,13 @@
 ### ref this file
 ### add line to $HOME/.bash_profile
 ### [[ -f ~/myscripts/mybash_profile ]] && . ~/myscripts/mybash_profile
+MYSHFILE_DIR=$HOME/triline/shell
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l --time-style="+%Y/%m/%d %H:%I:%S"'
 alias llh='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias lla='ls -a --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
+alias less='less -X'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
 alias scu='systemctl --user'
@@ -74,6 +76,7 @@ export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
 export QML_DISABLE_DISK_CACHE=1   #禁止生成.qmlc
 #export GOCACHE=off  #禁止golang生成build cache
+export GOCACHE=/xcache-go-build
 export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
 export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 
@@ -107,50 +110,6 @@ alias youtube-dl='youtube-dl --proxy 127.0.0.1:8117'
 # 显示go get的网络流量进度
 # strace -f -e trace=network go get github.com/divan/gofresh 2>&1 | pv -i 0.05 > /dev/null
 
-function ipowerline() {
-    kn=$(uname -s)
-    . /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-}
+# lots mincmd as shell functions, and can directly call it on command line.
+. $MYSHFILE_DIR/mincmd.sh
 
-### go version select
-function gover_help() {
-    echo "gover <list | select | download | remove | unset>"
-    echo "   select <git | x.y.z>"
-}
-
-ORIGPATH=
-function gover() {
-    VERDIR=$HOME/govers
-    cmd=$1
-    arg0=$2
-    if [ x"$ORIGPATH" == x"" ] ; then
-        ORIGPATH=$PATH
-    fi
-
-    case $cmd in
-        l|list)
-            selected=
-            for d in `ls $VERDIR/`; do
-                if [ x"$d" == x"go" ]; then
-                    echo "selected: $(basename $(realpath $VERDIR/$d))"
-                else
-                    echo "$d"
-                fi
-            done
-            ;;
-        s|select)
-                    d=$VERDIR/go-$arg0
-                    unlink $VERDIR/go
-                    ln -sv go-$arg0 $VERDIR/go
-                    export GOROOT=$VERDIR/go
-                    export PATH=$VERDIR/go/bin:$PATH
-                    ;;
-                unset)
-                    unset GOROOT
-                    export PATH=$ORIGPATH
-                    ;;
-        *)
-            echo 'what?'
-            ;;
-    esac
-}

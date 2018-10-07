@@ -1,11 +1,26 @@
 export PATH=/opt/andndk16/bin/:$PATH
-export CC=/opt/andndk16/bin/arm-linux-androideabi-clang
-export CXX=/opt/andndk16/bin/arm-linux-androideabi-clang++
-export CPP=/opt/andndk16/bin/arm-linux-androideabi-cpp
+function andclang()
+{
+    export CC=/opt/andndk16/bin/arm-linux-androideabi-clang
+    export CXX=/opt/andndk16/bin/arm-linux-androideabi-clang++
+    export CPP=/opt/andndk16/bin/arm-linux-androideabi-cpp
+}
+
+function andgcc()
+{
+    export CC=/opt/andndk16/bin/arm-linux-androideabi-gcc
+    export CXX=/opt/andndk16/bin/arm-linux-androideabi-g++
+    export CPP=/opt/andndk16/bin/arm-linux-androideabi-cpp
+}
+
+# andgcc;
+andclang;
+
 export CXXCPP=$CPP
 export AR=/opt/andndk16/bin/arm-linux-androideabi-ar
 export LD=/opt/andndk16/bin/arm-linux-androideabi-ld
 export RANLIB=/opt/andndk16/bin/arm-linux-androideabi-ranlib
+
 export SYSROOT=/opt/andndk16/sysroot
 export CFLAGS="-isystem ${SYSROOT}/usr/include -isystem ${SYSROOT}/usr/include/arm-linux-androideabi/ -fPIE -DANDROID -Wno-multichar -D__ANDROID_API__=16"
 export CXXFLAGS=$CFLAGS

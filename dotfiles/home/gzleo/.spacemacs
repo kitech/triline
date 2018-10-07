@@ -22,7 +22,8 @@
 (add-hook 'python-mode-hook 'ycmd-mode)
 ;; (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'php-mode-hook 'ycmd-mode)
-(add-hook 'go-mode-hook 'ycmd-mode)
+(add-hook 'go-mode-hook 'ycmd-mode) ;; fix two duplicate gocode conflict with company-go
+(add-hook 'go-mode-hook (lambda () (company-mode -1)) 'append)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'ruby-mode-hook 'ycmd-mode)
@@ -101,13 +102,14 @@
 ;; (lambda () (modify-all-frames-parameters '((width . 80)))))
 
 ;; UI,Project,Navigitar
-(global-set-key [f8] 'neotree-toggle)
+;; (global-set-key [f8] 'neotree-toggle)
+;; (global-set-key [f8] 'treemacs)
 ;; (neotree-show)
 ;; (neotree-toggle)
 ;; (neotree-mode)
 ;; (call-interactively 'neotree-show)
-(defadvice helm-projectile-find-file (after helm-projectile-find-file activate)
-  (neotree-dir default-directory))
+;;(defadvice helm-projectile-find-file (after helm-projectile-find-file activate)
+;;  (neotree-dir default-directory))
 
 ;; (setq helm-completing-read-handlers-alist
    ;;   '((minibuffer-complete . ido)))
@@ -151,7 +153,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(nginx
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -163,13 +165,13 @@ This function should only modify configuration layer settings."
      emacs-lisp
      ;; git
      ;; markdown
-     neotree
+     ;; neotree
+     treemacs
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
      ;; version-control
      
      auto-completion
@@ -205,6 +207,10 @@ This function should only modify configuration layer settings."
      elm
      ruby
      (ruby :variables ruby-enable-enh-ruby-mode t)
+     crystal
+     julia
+     kotlin
+     haskell
 
      ;; dockerfile
      dash
@@ -626,6 +632,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
      dotspacemacs-line-numbers t
      dotspacemacs-startup-recent-list-size 10
      dotspacemacs-auto-resume-layouts t
+
      )
 )
 
@@ -636,15 +643,20 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-
   (progn
+    (setq history-length 100)
+    ;;(put 'minibuffer-history 'history-length 50)
+    ;;(put 'evil-ex-history 'history-length 50)
+    ;;(put 'kill-ring 'history-length 25)
     (setq indent-tabs-mode nil)
     (setq default-tab-width 4)
     (setq tab-width 4)
     (setq c-basic-offset 4)
     (setq-default c-basic-offset 4)
+    (setq-default flycheck-global-modes nil) ;; case go's flycheck will run 'go build', use too much memory for big project.
     (setq go-indent-level 4)
     (setq go-tab-width 4)
+    (setq go-format-before-save t)
     (setq gofmt-command "goimports")
     (setq php-indent-level 4)
     (setq python-indent-level 4)
@@ -653,12 +665,16 @@ before packages are loaded."
     (setq ruby-indent-level 4)
     (setq enh-ruby-indent-level 4)
     (setq js-indent-level 4)
+    (setq crystal-indent-level 4)
+    (setq dart-indent-level 4)
     (setq-default flycheck-flake8-maximum-line-length 100)
-    (setq projectile-switch-project-action 'neotree-projectile-action)
-    (setq neo-show-hidden-files t)
-    (setq neo-smart-open t)
-    (setq neo-window-width 25) ;; it's defualt
-    (neotree-show)
+    ;; (setq projectile-switch-project-action 'neotree-projectile-action)
+    (setq-default treemacs-use-follow-mode t)
+    (setq-default treemacs-width 25)
+    ;;(setq neo-show-hidden-files t)
+    ;;(setq neo-smart-open t)
+    ;;(setq neo-window-width 25) ;; it's defualt
+    ;;(neotree-show)
     ;; (set
     ;; (se
     ;;       '((minibuffer-complete . ido)))
@@ -684,7 +700,6 @@ before packages are loaded."
 ;; 前者帮助在不通畅的网络环境下下载包，第二个是保证程序安装完成后，不再需要通畅的网络支持。
 
 ;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -697,7 +712,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (powershell zeal-at-point yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill typit toml-mode toc-org tagedit symon swift-mode sudoku string-inflection stickyfunc-enhance srefactor sql-indent spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs realgud rbenv ranger rake rainbow-delimiters racer pyvenv pytest pyim pyenv-mode py-isort pug-mode protobuf-mode popwin plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode password-generator paradox pangu-spacing pacmacs overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-restclient ob-http ob-cfengine3 nlinum-relative neotree nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lsp-ui lsp-python lorem-ipsum livid-mode live-py-mode link-hint less-css-mode json-mode js2-refactor js-doc indent-guide importmagic impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-ctest helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio godoctor go-tag go-rename go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy font-lock+ flycheck-ycmd flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-elm flx-ido find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode disaster diminish diff-hl define-word cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-rtags company-restclient company-php company-lsp company-go company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode cmake-ide clean-aindent-mode clang-format chruby centered-cursor-mode cargo bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-complete-rst auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell 2048-game))))
+    (intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell dante lcr company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode zeal-at-point yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill typit treemacs-projectile toml-mode toc-org tagedit symon swift-mode sudoku string-inflection stickyfunc-enhance srefactor sql-indent spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs rbenv ranger rake rainbow-delimiters racer pyvenv pytest pyim pyenv-mode py-isort pug-mode protobuf-mode prettier-js powershell popwin play-crystal plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode password-generator paradox pangu-spacing pacmacs overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-restclient ob-http ob-crystal ob-cfengine3 nginx-mode nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-python lsp-julia lsp-javascript-typescript lsp-go lorem-ipsum livid-mode live-py-mode link-hint kotlin-mode julia-repl julia-mode json-navigator json-mode js2-refactor js-doc inf-crystal indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-ctest helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy font-lock+ flycheck-ycmd flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-kotlin flycheck-elm flycheck-crystal flx-ido find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode disaster diminish diff-hl define-word cython-mode counsel-projectile company-ycmd company-web company-tern company-statistics company-rtags company-restclient company-php company-lsp company-go company-c-headers company-auctex company-anaconda column-enforce-mode cmake-mode cmake-ide clean-aindent-mode clang-format chruby chinese-conv centered-cursor-mode cargo bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-complete-rst auto-compile auctex-latexmk ameba aggressive-indent ace-pinyin ace-link ace-jump-helm-line ac-ispell 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

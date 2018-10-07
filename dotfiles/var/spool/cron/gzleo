@@ -5,7 +5,7 @@
 */30 * * * * akonadictl stop
 */30 * * * * balooctl  stop
 * */1 * * *  /home/me/triline/shell/aboxbak.sh > /dev/null 
-# 0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null
+# 0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null 2>&1
 * */3 * * * sudo find /var/spool/postfix/maildrop/ -type f |sudo xargs rm -f
 #*/7 * * * * /home/me/work/disf-tools/dtreportc -run-mode dev
 */15 * * * * /home/me/oss/src/mkuse/disopt/disopt duckdns > /tmp/disopt_ddns.log 2>&1

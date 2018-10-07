@@ -16,6 +16,7 @@
 # TODO 使用异步方式，push到向多个repo。
 
 ### ChangeLog
+# 2018-09-10 echo=>errcho 不再影响git命令本身
 # 2015-05-07 支持不同站点间的仓库镜像提交
 
 
@@ -27,9 +28,10 @@ subcmd=$1
 ARGV=$@
 ARGC=$#
 
+alias errcho='>&2 echo'
 function run_with_mine()
 {
-    echo "Note: run with mine...";
+    errcho "Note: run with mine...";
 
     rdn=$RANDOM # bash builtin variable
     idx=$(expr $RANDOM % 5)
@@ -48,13 +50,13 @@ function run_with_mine()
     fi
 
     if [ x"$email" == x"" ] ; then
-        echo "Empty email.";
+        errcho "Empty email.";
         exit;
     fi
 
     name=$(echo $email|awk -F@ '{print $1}');
     if [ x"$name" == x"" ] ; then
-        echo "Empty user.name."
+        errcho "Empty user.name."
         exit;
     fi
 
@@ -64,21 +66,21 @@ function run_with_mine()
     retn=$?
 
     if [ x"$rete" != x"0" ] || [ x"$retn" != x"0" ] ; then
-        echo "git config --global error.";
+        errcho "git config --global error.";
         exit;
     fi
 }
 
 function run_with_leju()
 {
-    echo "Note: run with leju...";
+    #errcho "Note: run with leju...";
     $GIT config --global user.email guangzhao1@leju.com
     $GIT config --global user.name gzleo
 }
 
 function run_with_didi()
 {
-    echo "Note: run with didi...";
+    #errcho "Note: run with didi...";
     $GIT config --global user.email liuguangzhao@didichuxing.com
     $GIT config --global user.name gzleo
 }
@@ -86,15 +88,23 @@ function run_with_didi()
 function cleanup_with_user()
 {
     cp $HOME/.gitconfig $HOME/.gitconfig.bak
-    $GIT config --global --unset user.email
-    $GIT config --global --unset user.name
-    $GIT config --global --remove-section user
+    errcho "Note: reset with tempanon...";
+    $GIT config --global user.email "egitop@uhole.xyz"
+    $GIT config --global user.name "egitop"
+    #$GIT config --global --unset user.email
+    #$GIT config --global --unset user.name
+    #$GIT config --global --remove-section user
+
+    #$GIT config --global user.email anonop@fixos.xyz
+    #$GIT config --global user.name anonop
 }
 
 function rewrite_args()
 {
     true;
 }
+
+echo x"$subcmd" >> /tmp/egit.log
 
 if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == x"merge" ] \
        || [ x"$subcmd" == x"rebase" ] || [ x"$subcmd" == x"tag" ] || [ x"$subcmd" == x"subtree" ] \
@@ -104,7 +114,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
 
     origin=$($GIT remote -v|grep origin|grep push|awk '{print $2}')
     # git repo url
-    echo "$subcmd, $origin"
+    errcho "$subcmd, $origin"
 
     [ x"$origin" == x"" ] && run_with_mine;
     ### fix just local git storage file:///some/path
@@ -122,7 +132,7 @@ if [ x"$subcmd" == x"commit" ] || [ x"$subcmd" == x"pull" ] ||  [ x"$subcmd" == 
 
     user_name=$($GIT config --global user.name);
     user_email=$($GIT config --global user.email);
-    echo "Using author: ${user_name} <${user_email}>...";
+    errcho "Using author: ${user_name} <${user_email}>...";
 
     # set -x
     # run real git command now.
@@ -134,22 +144,22 @@ elif [ x"$subcmd" == x"push" ] ; then
     # 自动镜像提交
     true;
 
-    echo "Egit info:"
+    errcho "Egit info:"
     priv=$(git config --get custom.private)
     if [[ x"$priv" == x"" ]]; then priv='false'; fi
-    echo "Repo is priv: $priv";
+    errcho "Repo is priv: $priv";
     brch=$(git branch -v | grep "^\* " | head -n 1)
-    echo "Cur branch: $brch"
+    errcho "Cur branch: $brch"
     a3="ffffff"
-    echo "Subcmd: $@, $1 $2 $3 $4"
-    echo "============"
+    errcho "Subcmd: $@, $1 $2 $3 $4"
+    errcho "============"
 
     # origin push
     $GIT "$@"
     # others push
     for rs in `git remote` ; do
         true;
-        echo "process remote: $rs ...";
+        errcho "process remote: $rs ...";
 
         if [ x"$priv" == x"true" ] ; then
             true;
@@ -163,7 +173,7 @@ elif [ x"$subcmd" == x"push" ] ; then
                     fi
                     newargs="$newargs $arg"
                 done
-                echo "Runing $GIT $newargs"
+                errcho "Runing $GIT $newargs"
                 $GIT $newargs
             fi
         elif [ x"$priv" == x"false" ] || [ x"$priv" == x"" ] ; then
@@ -179,15 +189,18 @@ elif [ x"$subcmd" == x"push" ] ; then
                     fi
                     newargs="$newargs $arg"
                 done
-                echo "Runing $GIT $newargs"
+                errcho "Runing $GIT $newargs"
                 $GIT $newargs
                 true;
             fi
         else
-            echo "check the priv option."
+            errcho "check the priv option."
         fi
     done
 else
+    # 补全会走到这里
+    #run_with_mine;
     $GIT "$@"
+    #cleanup_with_user;
 fi
 
