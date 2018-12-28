@@ -4,6 +4,9 @@
 # usage:
 #    builder.rb <refresh|package>
 
+#Dir.glob("aurcare.db.*") { |f|  puts f}
+#exit
+
 def mysystem(cmd)
     cmd = "set -x;" + cmd;
     return system(cmd);
@@ -18,6 +21,11 @@ end
 def refresh_aurdb()
     ret = mysystem("unlink aurcare.db");
     ret = mysystem("cp aurcare.db.tar.gz aurcare.db");
+    ret = mysystem("git4netup -p cnpub put aurcare.db")
+    ret = mysystem("git4netup -p cnpub put aurcare.db.tar.gz.old")
+    #ret = mysystem("rclone copy aurcare.db asytech0:aurcare/")
+    #ret = mysystem("rclone copy aurcare.db.tar.gz asytech0:aurcare/")
+    #ret = mysystem("rclone copy aurcare.db.tar.gz.old asytech0:aurcare/")
 end
 
 def help()
@@ -33,9 +41,9 @@ if pkgname == nil
 end
 
 # maybe
-refresh_aurdb() and exit if pkgname == 'refresh'
+refresh_aurdb() or true and exit if pkgname == 'refresh'
 
-ret = mysystem("yaourt -G -y aur/#{pkgname}");
+ret = mysystem("yaourt -G -y --noconfirm aur/#{pkgname}");
 # 关于yaourt的返回值，包不存在:1，包正常下载:1，包覆盖返回:130
 # 不好判断哪种调用成功，哪种调用失败，判断目录吧
 abort("can not get pkgbuild: #{pkgname}") if !Dir.exists?(pkgname)
@@ -46,19 +54,25 @@ Dir.chdir(pkgname) do
     exit if !ret;
 end
 
+
+
 # 删除旧版本的包
+#ret = mysystem("rclone delete --include 'aurcare/#{pkgname}*.pkg.tar.xz' asytech0:")
+Dir.glob("#{pkgname}*.pkg.tar.xz").each{ |f|  ret = mysystem("git4netupcn delete #{f}")}
 ret = mysystem("rm -fv #{pkgname}*.pkg.tar.xz")
 
 ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz ./");
 abort('move pkg error.') if !ret;
+ret = mysystem("repo-add aurcare.db.tar.gz #{pkgname}*.pkg.tar.xz");
+abort('repo add error.') if !ret;
 
 #ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz /archrepo/packages/");
 #abort('move pkg error2.') if !ret;
 
-ret = mysystem("repo-add aurcare.db.tar.gz #{pkgname}*.pkg.tar.xz");
-abort('repo add error.') if !ret;
 #ret = mysystem("git add -v #{pkgname}*.pkg.tar.xz");
 #abort('add to git error.') if !ret;
+Dir.glob("#{pkgname}*.pkg.tar.xz").each{ |f| ret = mysystem("git4netup -p cnpub put #{f}")}
+#ret = mysystem("rclone copy #{pkgname}*.pkg.tar.xz asytech0:aurcare/")
 
 refresh_aurdb();
 

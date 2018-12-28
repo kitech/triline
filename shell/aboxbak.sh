@@ -40,15 +40,12 @@ etcfiles="
 ~/bin/winerun
 ~/bin/vxrun
 ~/bin/qq
+~/.config/openbox/rc.xml
+~/.config/openbox/autostart
+~/.config/openbox/environment
+~/.config/tint2/tint2rc
 ~/.config/flake8
 ~/.config/systemd/user
-~/.config/systemd/user/postgresql.service
-~/.config/systemd/user/mysqld.service
-~/.config/systemd/user/mitmis.service
-~/.config/systemd/user/v2ray.service
-~/.config/systemd/user/delegate-shadowsocks.service
-~/.config/systemd/user/delegate-v2ray.service
-~/.config/systemd/user/delegate-tor.service
 ~/.config/systemd/user/godoc.service
 ~/.config/systemd/user/gnatsd.service
 ~/.config/systemd/user/synergys.service
@@ -117,7 +114,8 @@ for ef in $etcfiles ; do
 
     if [ x"$first_char" == x"~/" ] ; then
         in_home="yes"
-        ef="$HOME/${ef:2}"
+        #ef="$HOME/${ef:2}"
+        ef="/home/me/${ef:2}"
     fi
 
     if [ ! -e $ef ] ; then

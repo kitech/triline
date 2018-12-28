@@ -14,6 +14,7 @@ alias rm='rm -i'
 alias ssh='ssh -CXY'
 alias scu='systemctl --user'
 alias jcu='journalctl --user'
+alias suvc='supervisorctl'
 #alias ssh=$HOME/myscripts/assh.sh
 alias aria2c='aria2c -x 5 -k 1M'
 alias ec='emacsclient -n'

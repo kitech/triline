@@ -52,16 +52,14 @@ function core-files-delete.f() { rm -fv *P*.core ;}
 ######### network
 # usage: pxyrun <cmd>
 function pxyrun.f() {
-    export https_proxy=$DTPXY
-    export http_proxy=$DTPXY
-
+    https_proxy=$DTPXY \
+    http_proxy=$DTPXY \
+    HTTPS_PROXY=$DTPXY \
+    HTTP_PROXY=$DTPXY \
     "$@"
-
-    unset https_proxy
-    unset http_proxy
 }
 
-function ipcn.f() { curl "http://ip.cn/index.php?ip=$@" ;}
+function ipcn.f() { curl "https://ip.cn/index.php?ip=$@" ;}
 function geoip.f() { geoiplookup "$@" ;}
 # nc port check for localhost
 function ncpc.f() { nc -v localhost "$@" ;}

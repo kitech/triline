@@ -67,6 +67,10 @@
 127.0.0.1 hub5emu.sandai.net 
 
 ################### shit network fix
+192.30.253.112     github.com
+151.101.72.133    assets-cdn.github.com
+151.101.193.194    github.global.ssl.fastly.net
+
 127.0.0.1 getck.pan.baidu.com
 # 160.16.217.191 xmpp.jp conference.xmpp.jp
 149.56.134.238 chat.freenode.net
@@ -76,8 +80,8 @@
 # 23.32.241.33 download.virtualbox.org
 # 127.0.0.1 ajax.googleapis.com
 # 127.0.0.1 fonts.googleapis.com
+# 172.217.11.138 ajax.googleapis.com
 2404:6800:4005:802::1008 chrome.google.com
-127.0.0.1  ajax.googleapis.com
 127.0.0.1 platform.twitter.com syndication.twitter.com
 # 127.0.0.1  tromey.com
 # 127.0.0.1  melpa.org

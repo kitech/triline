@@ -10,3 +10,14 @@ fi
 # TODO
 # /usr/lib/gvfs/gvfsd
 # /usr/lib/gvfs/gvfsd-fuse
+
+# 在使用netctl的时候, 和NetworkManager冲突
+# mv -v /usr/bin/NetworkManager{,.bak}
+
+# systemctl stop mandb
+# systemctl disable mandb
+# systemctl stop updatedb.timer
+# systemctl disable updatedb.timer
+# systemctl stop updatedb
+# systemctl disable updatedb
+

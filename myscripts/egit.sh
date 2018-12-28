@@ -89,7 +89,7 @@ function cleanup_with_user()
 {
     cp $HOME/.gitconfig $HOME/.gitconfig.bak
     errcho "Note: reset with tempanon...";
-    $GIT config --global user.email "egitop@uhole.xyz"
+    $GIT config --global user.email "egitop@uload.xyz"
     $GIT config --global user.name "egitop"
     #$GIT config --global --unset user.email
     #$GIT config --global --unset user.name
@@ -180,7 +180,8 @@ elif [ x"$subcmd" == x"push" ] ; then
             true;
             if [ x"$rs" == x"github" ] || [ x"$rs" == x"gitcafe" ] \
                    || [ x"$rs" == x"bitbucket" ] || [ x"$rs" == x"oschina" ] \
-                   || [ x"$rs" == x"gitlab" ] || [ x"$rs" == x"gitea" ]; then
+                   || [ x"$rs" == x"gitlab" ] || [ x"$rs" == x"gitea" ] \
+                   || [ x"$rs" == x"fixlan" ]; then
                 newargs=
                 for arg in "$@" ; do
                     # echo "argx: $arg";
