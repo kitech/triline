@@ -2,8 +2,8 @@
 # */1 * * * *  echo `id -un` >> /tmp/abc.log
 # */30 * * * * /usr/bin/supervisorctl restart mitmis
 # */30 * * * * systemctl --user restart mitmis
-*/30 * * * * akonadictl stop
-*/30 * * * * balooctl  stop
+#*/30 * * * * akonadictl stop
+#*/30 * * * * balooctl  stop
 * */3 * * *  /home/me/triline/shell/aboxbak.sh > /dev/null 
 */5 * * * * curl --proxy 127.0.0.1:8113 https://www.youtube.com/ 2>&1 >/dev/null
 # 0 13 * * *  /usr/bin/curl  http://ndtox0.daoapp.io > /dev/null 2>&1

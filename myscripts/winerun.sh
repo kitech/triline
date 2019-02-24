@@ -218,14 +218,14 @@ function runclean_hdsql()
     killall -9 heidisql.exe
 }
 
-function runverb_thunder()
+function runverb_thunder5()
 {
     #/opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
     export WINEPREFIX=$HOME/.deepinwine/Deepin-ThunderSpeed
     wine "C:/Program Files/Thunder Network/Thunder/Thunder.exe"
 }
 
-function runclean_thunder()
+function runclean_thunder5()
 {
     killall -9 Thunder.exe
     killall -9 ThunderPreload.exe
@@ -293,8 +293,8 @@ elif [ x"$act" == x"clean" ] ; then
         'hdsql')
             runclean_hdsql;
             ;;
-        'thunder')
-            runclean_thunder;
+        'thunder5')
+            runclean_thunder5;
             ;;
         'thunderx')
             runclean_thunderx;
@@ -349,8 +349,8 @@ else
         runverb_iqiyi;
     elif [ x"$act" == x"hdsql" ]; then
         runverb_hdsql;
-    elif [ x"$act" == x"thunder" ]; then
-        runverb_thunder;
+    elif [ x"$act" == x"thunder5" ]; then
+        runverb_thunder5;
     elif [ x"$act" == x"thunderx" ]; then
         runverb_thunderx;
     elif [ x"$act" == x"si3" ]; then
