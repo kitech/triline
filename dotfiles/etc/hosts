@@ -5,7 +5,7 @@
 #<ip-address>	<hostname.domain.org>	<hostname>
 127.0.0.1	localhost.localdomain	localhost
 ::1		localhost.localdomain	localhost
-
+127.0.0.1 oarchbox1
 
 #10.10.8.128 static.xiaojukeji.com
 #127.0.0.1 crm.xiaojukeji.com
@@ -52,6 +52,8 @@
 10.0.0.6 wwwi.fixlan.tk
 127.0.0.1 piwik.fixlan.tk
 127.0.0.1 scalar.imi.fixlan.tk
+#101.71.139.30 git2.sixlan.tk
+#101.71.139.30 oc2.sixlan.tk
 
 ### pcbeta
 218.93.127.136  pcbeta.com 
@@ -91,3 +93,6 @@
 #61.49.51.49 dl.google.com
 #123.15.57.34 dl.google.com
 # End of file
+fc94:d3ce:8082:4d8d:19bf:544:abe1:8f9a oarchbox1 # managed by Husarnet
+fc94:d3ce:8082:4d8d:19bf:544:abe1:8f9a master # managed by Husarnet
+fc94:2569:c5b1:4c2a:cec8:1ca9:391e:9278 webterm0 # managed by Husarnet
