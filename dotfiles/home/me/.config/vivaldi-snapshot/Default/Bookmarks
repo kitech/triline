@@ -7,6 +7,9 @@
                "children": [ {
                   "date_added": "13113203582486145",
                   "id": "88",
+                  "meta_info": {
+                     "Partner": "89d44184-d23c-4d04-a1d9-a8ed0ef6a4f2"
+                  },
                   "name": "YouTube",
                   "type": "url",
                   "url": "http://www.youtube.com/"
@@ -19,30 +22,45 @@
                }, {
                   "date_added": "13113203582506746",
                   "id": "90",
+                  "meta_info": {
+                     "Partner": "92e53da8-d8ff-4608-b45d-6be289448398"
+                  },
                   "name": "Spotify Web Player",
                   "type": "url",
                   "url": "https://play.spotify.com/"
                }, {
                   "date_added": "13113203582509127",
                   "id": "91",
+                  "meta_info": {
+                     "Partner": "a40607ef-7783-4644-b7c9-9214a4c67507"
+                  },
                   "name": "Dailymotion",
                   "type": "url",
                   "url": "http://www.dailymotion.com/"
                }, {
                   "date_added": "13113203582511348",
                   "id": "92",
+                  "meta_info": {
+                     "Partner": "663d8ddb-21a1-4b44-b271-20b52fc15ad6"
+                  },
                   "name": "IMDb - Movies, TV and Celebrities",
                   "type": "url",
                   "url": "http://www.imdb.com/"
                }, {
                   "date_added": "13113203582517612",
                   "id": "93",
+                  "meta_info": {
+                     "Partner": "a0a37721-cb30-466a-92d4-b1a2031fbb2c"
+                  },
                   "name": "Rotten Tomatoes: Movies | TV Shows | Movie Trailers | Reviews",
                   "type": "url",
                   "url": "http://www.rottentomatoes.com/"
                }, {
                   "date_added": "13113203582528208",
                   "id": "94",
+                  "meta_info": {
+                     "Partner": "43f78757-cad5-479c-b553-3a9cc07b04df"
+                  },
                   "name": "Hulu | Free TV Shows and Movies - Watch Your Favorite TV Episodes and Movies Online",
                   "type": "url",
                   "url": "http://www.hulu.com/"
@@ -62,36 +80,54 @@
                "children": [ {
                   "date_added": "13113203582448350",
                   "id": "81",
+                  "meta_info": {
+                     "Partner": "a2e558ea-51b1-4434-b61b-99bceacc01b4"
+                  },
                   "name": "WSJ",
                   "type": "url",
                   "url": "http://www.wsj.com/"
                }, {
                   "date_added": "13113203582452875",
                   "id": "82",
+                  "meta_info": {
+                     "Partner": "48af625d-63b7-417c-a878-6c2ab08e6b8b"
+                  },
                   "name": "Bloomberg - Business, Financial & Economic News, Stock Quotes",
                   "type": "url",
                   "url": "http://www.bloomberg.com/"
                }, {
                   "date_added": "13113203582456785",
                   "id": "83",
+                  "meta_info": {
+                     "Partner": "40acce64-7394-413d-b1a1-9c96bf0ade5e"
+                  },
                   "name": "The Economist - World News, Politics, Economics, Business & Finance",
                   "type": "url",
                   "url": "http://www.economist.com/"
                }, {
                   "date_added": "13113203582459364",
                   "id": "84",
+                  "meta_info": {
+                     "Partner": "603018c3-d3a4-46b8-9117-d3c56b004800"
+                  },
                   "name": "FT.com - World business, finance and political news from the Financial Times",
                   "type": "url",
                   "url": "http://www.ft.com/"
                }, {
                   "date_added": "13113203582465987",
                   "id": "85",
+                  "meta_info": {
+                     "Partner": "c17731c5-2bec-4ab2-b0fa-3ffd93f6ea2c"
+                  },
                   "name": "CNBC – World Business News Leader",
                   "type": "url",
                   "url": "http://www.cnbc.com/"
                }, {
                   "date_added": "13113203582472252",
                   "id": "86",
+                  "meta_info": {
+                     "Partner": "c4b9d688-f889-45c5-9ad9-69451eded737"
+                  },
                   "name": "Forbes",
                   "type": "url",
                   "url": "http://www.forbes.com/"
@@ -106,7 +142,8 @@
                   "date_added": "13113203582438121",
                   "id": "75",
                   "meta_info": {
-                     "Description": "travel, airfare, lodging"
+                     "Description": "travel, airfare, lodging",
+                     "Partner": "d322ad07-c852-4553-a63e-f6950b22ada8"
                   },
                   "name": "TripAdvisor: Read Reviews, Compare Prices & Book",
                   "type": "url",
@@ -124,7 +161,8 @@
                   "date_added": "13113203582440476",
                   "id": "77",
                   "meta_info": {
-                     "Description": "travel, airfare, lodging"
+                     "Description": "travel, airfare, lodging",
+                     "Partner": "a6a720ce-6fba-4573-b320-0ab8cbc4b1f1"
                   },
                   "name": "CheapOair.com | Cheap Airfare",
                   "type": "url",
@@ -133,7 +171,8 @@
                   "date_added": "13113203582441712",
                   "id": "78",
                   "meta_info": {
-                     "Description": "travel"
+                     "Description": "travel",
+                     "Partner": "35233b74-2c12-4e19-8498-eb435439bd34"
                   },
                   "name": "Lower price - Hotels",
                   "type": "url",
@@ -142,6 +181,7 @@
                   "date_added": "13113203582443302",
                   "id": "79",
                   "meta_info": {
+                     "Partner": "a7e46433-c2d7-43ec-b64d-45e1b198e740",
                      "Thumbnail": "/resources/sd_dohop.png"
                   },
                   "name": "Dohop",
@@ -157,12 +197,18 @@
                "children": [ {
                   "date_added": "13113203582412050",
                   "id": "70",
+                  "meta_info": {
+                     "Partner": "8b81d975-aa26-41b5-aafe-afc1f7616bea"
+                  },
                   "name": "Yelp",
                   "type": "url",
                   "url": "http://www.yelp.com/"
                }, {
                   "date_added": "13113203582415125",
                   "id": "71",
+                  "meta_info": {
+                     "Partner": "25a1691d-9ede-4753-a2fe-d68403855be4"
+                  },
                   "name": "Craigslist",
                   "type": "url",
                   "url": "http://www.craigslist.org/"
@@ -170,6 +216,7 @@
                   "date_added": "13113203582425722",
                   "id": "72",
                   "meta_info": {
+                     "Partner": "ea5bdcf9-669e-4941-87da-178672769dfb",
                      "last_visited_desktop": "13147358832786540"
                   },
                   "name": "LivingSocial | Discover fun things to do",
@@ -178,6 +225,9 @@
                }, {
                   "date_added": "13113203582429305",
                   "id": "73",
+                  "meta_info": {
+                     "Partner": "c0328de3-b1d2-4ef3-b0c7-fab2943b9ab8"
+                  },
                   "name": "OpenTable | Restaurants and Restaurant Reservations",
                   "type": "url",
                   "url": "http://www.opentable.com/"
@@ -192,6 +242,7 @@
                   "date_added": "13113203582382490",
                   "id": "63",
                   "meta_info": {
+                     "Partner": "4c18f174-a937-42c5-b56a-50b70446b654",
                      "last_visited_desktop": "13150896986138735"
                   },
                   "name": "Goal.com | Latest Football News, Transfer Rumours & More",
@@ -200,30 +251,45 @@
                }, {
                   "date_added": "13113203582391031",
                   "id": "64",
+                  "meta_info": {
+                     "Partner": "bf553ffc-16a9-4b08-a792-70cbf059903e"
+                  },
                   "name": "NFL.com - Official Site of the National Football League",
                   "type": "url",
                   "url": "http://www.nfl.com/"
                }, {
                   "date_added": "13113203582396514",
                   "id": "65",
+                  "meta_info": {
+                     "Partner": "2ce575db-27d7-4666-bea5-8b6edc1e40ab"
+                  },
                   "name": "MLB.com: The Official Site of Major League Baseball",
                   "type": "url",
                   "url": "http://www.mlb.com/"
                }, {
                   "date_added": "13113203582399373",
                   "id": "66",
+                  "meta_info": {
+                     "Partner": "68170b78-43cc-43b6-a29e-970911783044"
+                  },
                   "name": "CBSSports.com Sports News, Fantasy Scores, Sports Video",
                   "type": "url",
                   "url": "http://www.cbssports.com/"
                }, {
                   "date_added": "13113203582406616",
                   "id": "67",
+                  "meta_info": {
+                     "Partner": "66a4d9b3-e6d5-4f78-8c56-74570478a3fa"
+                  },
                   "name": "NBA.com",
                   "type": "url",
                   "url": "http://www.nba.com/"
                }, {
                   "date_added": "13113203582408463",
                   "id": "68",
+                  "meta_info": {
+                     "Partner": "80c5a6b3-92a3-4d7d-8d18-835fa27cc3dc"
+                  },
                   "name": "Bleacher Report | Sports. Highlights. News. Now.",
                   "type": "url",
                   "url": "http://www.bleacherreport.com/"
@@ -238,7 +304,8 @@
                   "date_added": "13113203582292882",
                   "id": "52",
                   "meta_info": {
-                     "Description": "shoes, retail, apparel"
+                     "Description": "shoes, retail, apparel",
+                     "Partner": "fae837aa-75eb-423e-80eb-bab79ecf3aba"
                   },
                   "name": "Online Shoes, Clothing, Free Shipping and Returns| Zappos.com",
                   "type": "url",
@@ -247,7 +314,8 @@
                   "date_added": "13113203582299796",
                   "id": "53",
                   "meta_info": {
-                     "Description": "electronics, gadgets, gaming"
+                     "Description": "electronics, gadgets, gaming",
+                     "Partner": "880cf57e-d9fb-48ba-9d5e-d270e3ccd89a"
                   },
                   "name": "GearBest - Best Gadgets & Electronics Deals",
                   "type": "url",
@@ -265,7 +333,8 @@
                   "date_added": "13113203582305819",
                   "id": "55",
                   "meta_info": {
-                     "Description": "audio, gadgets, accessories"
+                     "Description": "audio, gadgets, accessories",
+                     "Partner": "51d8eb14-7c06-40b6-825d-d731e87acdf9"
                   },
                   "name": "Headphones, Speakers, HDMI Cables and Power Solutions from Monster",
                   "type": "url",
@@ -283,7 +352,8 @@
                   "date_added": "13113203582308768",
                   "id": "57",
                   "meta_info": {
-                     "Description": "gadgets, electronics, retail"
+                     "Description": "gadgets, electronics, retail",
+                     "Partner": "86aeeb61-c198-4cc7-ae1d-bf4fc37a2209"
                   },
                   "name": "Gift Ideas, Smart Solutions, Unique Gifts for Him & Her at Brookstone",
                   "type": "url",
@@ -292,7 +362,8 @@
                   "date_added": "13113203582316139",
                   "id": "58",
                   "meta_info": {
-                     "Description": "shopping, lifestyle"
+                     "Description": "shopping, lifestyle",
+                     "Partner": "005e5d78-cb83-43da-8ffc-8902b8379a08"
                   },
                   "name": "LEGO Shop",
                   "type": "url",
@@ -301,7 +372,8 @@
                   "date_added": "13113203582334658",
                   "id": "59",
                   "meta_info": {
-                     "Description": "gadgets, technology, shopping"
+                     "Description": "gadgets, technology, shopping",
+                     "Partner": "cf418989-f3e3-4aed-879f-b680984783be"
                   },
                   "name": "Protective Cases for iPhone, iPad, MacBook, Samsung | Speck Products",
                   "type": "url",
@@ -310,7 +382,8 @@
                   "date_added": "13113203582341121",
                   "id": "60",
                   "meta_info": {
-                     "Description": "shopping"
+                     "Description": "shopping",
+                     "Partner": "f80dcd07-5a07-48a9-b6d3-1f4ed3a9e80c"
                   },
                   "name": " Buy , Sell , Search Textbooks , Music , Movies &amp; Games Online at Half.com",
                   "type": "url",
@@ -334,42 +407,63 @@
                "children": [ {
                   "date_added": "13113203582212516",
                   "id": "44",
+                  "meta_info": {
+                     "Partner": "fcfb8892-ea5c-4e69-94b8-805db903611a"
+                  },
                   "name": "CNN.com - Breaking News, U.S., World, Weather, Entertainment & Video News",
                   "type": "url",
                   "url": "http://www.cnn.com/"
                }, {
                   "date_added": "13113203582218877",
                   "id": "45",
+                  "meta_info": {
+                     "Partner": "84922d3c-0f02-4fd1-acb2-8fc7b6da1ad3"
+                  },
                   "name": "Huffington Post - Breaking News and Opinion",
                   "type": "url",
                   "url": "http://www.huffingtonpost.com/"
                }, {
                   "date_added": "13113203582224215",
                   "id": "46",
+                  "meta_info": {
+                     "Partner": "dd3c5aa3-5695-4a3d-ae92-1a054254e9af"
+                  },
                   "name": "The Guardian | Latest news, sport and comment",
                   "type": "url",
                   "url": "http://www.theguardian.com/"
                }, {
                   "date_added": "13113203582225922",
                   "id": "47",
+                  "meta_info": {
+                     "Partner": "d71ba3fc-ae2f-4db0-ae21-69d382b14fa0"
+                  },
                   "name": "Reuters.com | Business & Financial News, Breaking US & International News",
                   "type": "url",
                   "url": "http://www.reuters.com/"
                }, {
                   "date_added": "13113203582228885",
                   "id": "48",
+                  "meta_info": {
+                     "Partner": "5796fab7-7c1c-43aa-8691-399c4f9542ab"
+                  },
                   "name": "Washington Post: Breaking News, World, US, DC News & Analysis",
                   "type": "url",
                   "url": "http://www.washingtonpost.com/"
                }, {
                   "date_added": "13113203582246337",
                   "id": "49",
+                  "meta_info": {
+                     "Partner": "c67e4e79-f967-4cfb-9e2f-8049bce17259"
+                  },
                   "name": "Examiner.com",
                   "type": "url",
                   "url": "http://www.examiner.com/"
                }, {
                   "date_added": "13113203582260952",
                   "id": "50",
+                  "meta_info": {
+                     "Partner": "96516265-8439-48cc-836b-d54ee1204d64"
+                  },
                   "name": "TIME - Breaking News, Analysis, Politics, Blogs, News Photos, Video, Tech Reviews",
                   "type": "url",
                   "url": "http://time.com/"
@@ -384,7 +478,8 @@
                   "date_added": "13113203582171747",
                   "id": "38",
                   "meta_info": {
-                     "Description": "gaming"
+                     "Description": "gaming",
+                     "Partner": "ad15a026-26fa-455c-b5eb-def54abd3da9"
                   },
                   "name": "Greenman Gaming",
                   "type": "url",
@@ -401,18 +496,27 @@
                }, {
                   "date_added": "13113203582177864",
                   "id": "40",
+                  "meta_info": {
+                     "Partner": "fe6a0340-6ec5-4087-ae33-0b48f2ee05c8"
+                  },
                   "name": "IGN",
                   "type": "url",
                   "url": "http://www.ign.com/"
                }, {
                   "date_added": "13113203582193435",
                   "id": "41",
+                  "meta_info": {
+                     "Partner": "32ebf7cd-a55e-4206-913d-d9033fa7f195"
+                  },
                   "name": "Minecraft Forum",
                   "type": "url",
                   "url": "http://www.minecraftforum.net/"
                }, {
                   "date_added": "13113203582203171",
                   "id": "42",
+                  "meta_info": {
+                     "Partner": "79c0969d-9a01-4288-9e2f-42e2da9056c8"
+                  },
                   "name": "GameFAQs - Video Game Cheats, Reviews, FAQs, Message Boards, and More",
                   "type": "url",
                   "url": "http://www.gamefaqs.com/"
@@ -437,7 +541,8 @@
                   "date_added": "13113203581903524",
                   "id": "20",
                   "meta_info": {
-                     "Description": "navigation, gadgets"
+                     "Description": "navigation, gadgets",
+                     "Partner": "4a859b81-0498-4d20-b938-b171875b2d8e"
                   },
                   "name": "Garmin | United States | Home",
                   "type": "url",
@@ -455,7 +560,8 @@
                   "date_added": "13113203581914733",
                   "id": "22",
                   "meta_info": {
-                     "Description": "electronics, networking, hardware"
+                     "Description": "electronics, networking, hardware",
+                     "Partner": "57a425b5-a2ce-47cf-82cf-a654cf49f0b9"
                   },
                   "name": "Networking, iPhone, iPad, Samsung and Kindle Accessories",
                   "type": "url",
@@ -464,7 +570,8 @@
                   "date_added": "13113203581919471",
                   "id": "23",
                   "meta_info": {
-                     "Description": "electronics, audio"
+                     "Description": "electronics, audio",
+                     "Partner": "ebe7d59f-e8fa-4185-be3b-ce1c8f93fd6d"
                   },
                   "name": "Bose - Better Sound Through Research",
                   "type": "url",
@@ -473,7 +580,8 @@
                   "date_added": "13113203581926264",
                   "id": "24",
                   "meta_info": {
-                     "Description": "Internet, domains, hosting"
+                     "Description": "Internet, domains, hosting",
+                     "Partner": "2e20cf7e-9120-4ae5-92a2-8d0301df2b36"
                   },
                   "name": "Domain Name Registration and Web Hosting | Domain.com",
                   "type": "url",
@@ -482,7 +590,8 @@
                   "date_added": "13113203581938274",
                   "id": "25",
                   "meta_info": {
-                     "Description": "electronics, hardware, computer, gadgets"
+                     "Description": "electronics, hardware, computer, gadgets",
+                     "Partner": "bbf542ff-b0b2-4c93-89e5-86b157a15a62"
                   },
                   "name": "Computer Products, Laptops, Electronics, HDTVs, Digital Cameras, Cellphones and More - Newegg.ca",
                   "type": "url",
@@ -491,7 +600,8 @@
                   "date_added": "13113203582066288",
                   "id": "26",
                   "meta_info": {
-                     "Description": "software, media"
+                     "Description": "software, media",
+                     "Partner": "80a4d660-bf67-4f56-98cb-3a6cef12d569"
                   },
                   "name": "Best Video Editing, Photo Editing, & Blu-ray Media Player | CyberLink",
                   "type": "url",
@@ -500,7 +610,8 @@
                   "date_added": "13113203582086189",
                   "id": "27",
                   "meta_info": {
-                     "Description": "gadgets, electronics"
+                     "Description": "gadgets, electronics",
+                     "Partner": "fcbfe517-a2a6-450a-9cb6-acd6a3039049"
                   },
                   "name": "iHome: Live. Life. Loud.",
                   "type": "url",
@@ -509,7 +620,8 @@
                   "date_added": "13113203582091150",
                   "id": "28",
                   "meta_info": {
-                     "Description": "gadgets, technology"
+                     "Description": "gadgets, technology",
+                     "Partner": "efe63abc-de55-4b9a-af78-52f5978a850d"
                   },
                   "name": "Jabra • Wireless Bluetooth Headsets for Office, Car & Sport",
                   "type": "url",
@@ -527,6 +639,7 @@
                   "date_added": "13113203582132745",
                   "id": "30",
                   "meta_info": {
+                     "Partner": "ee4ffa5c-650d-4c75-940d-39483e976b71",
                      "last_visited_desktop": "13184165435427406"
                   },
                   "name": "GitHub · Build software better, together.",
@@ -535,18 +648,27 @@
                }, {
                   "date_added": "13113203582135075",
                   "id": "31",
+                  "meta_info": {
+                     "Partner": "1d153ae4-35e6-4dd3-981d-4fa24fe29736"
+                  },
                   "name": "Gizmodo - Tech By Design",
                   "type": "url",
                   "url": "http://gizmodo.com/"
                }, {
                   "date_added": "13113203582137678",
                   "id": "32",
+                  "meta_info": {
+                     "Partner": "82d5ab2a-384b-4957-94ff-a3ca98bec8f4"
+                  },
                   "name": "The Verge",
                   "type": "url",
                   "url": "http://www.theverge.com/"
                }, {
                   "date_added": "13113203582145072",
                   "id": "33",
+                  "meta_info": {
+                     "Partner": "c6386d6e-0205-4ee1-8839-cdb571213c61"
+                  },
                   "name": "Engadget | Technology News, Advice and Features",
                   "type": "url",
                   "url": "http://www.engadget.com/"
@@ -554,6 +676,7 @@
                   "date_added": "13113203582147445",
                   "id": "34",
                   "meta_info": {
+                     "Partner": "c072bdbf-4750-4b02-a284-534bbf8b523f",
                      "last_visited_desktop": "13154877300439744"
                   },
                   "name": "WIRED",
@@ -563,6 +686,7 @@
                   "date_added": "13113203582149813",
                   "id": "35",
                   "meta_info": {
+                     "Partner": "d4ac963b-58be-4a0d-bd20-de3cd63ca46b",
                      "last_visited_desktop": "13165168659279089"
                   },
                   "name": "Slashdot",
@@ -572,6 +696,7 @@
                   "date_added": "13113203582156224",
                   "id": "36",
                   "meta_info": {
+                     "Partner": "fed40b61-a431-496d-868b-9c2a107fbe4f",
                      "last_visited_desktop": "13162486818488462"
                   },
                   "name": "reddit: the front page of the internet",
@@ -589,6 +714,7 @@
                   "id": "8",
                   "meta_info": {
                      "Description": "vivaldi",
+                     "Partner": "181671de-a3ea-47df-b851-a0e4fc984122",
                      "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/8",
                      "last_visited_desktop": "13184162041595165"
                   },
@@ -600,8 +726,9 @@
                   "id": "9",
                   "meta_info": {
                      "Description": "vivaldi",
-                     "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/9",
-                     "last_visited_desktop": "13172180283077149"
+                     "Partner": "7e9b4d6a-6f34-4b33-bdd7-7284d704af11",
+                     "Thumbnail": "chrome://vivaldi-data/local-image/9",
+                     "last_visited_desktop": "13201494307686104"
                   },
                   "name": "Vivaldi Community",
                   "type": "url",
@@ -611,6 +738,7 @@
                   "id": "10",
                   "meta_info": {
                      "Description": "travel, airfare",
+                     "Partner": "b63e8c61-ada6-4211-8370-df06125d410e",
                      "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/10",
                      "last_visited_desktop": "13191256562616960"
                   },
@@ -622,6 +750,7 @@
                      "date_added": "13113203581675230",
                      "id": "16",
                      "meta_info": {
+                        "Partner": "d870b737-2787-4f6d-8806-925a4de3489e",
                         "Thumbnail": "/resources/sd_techcrunch.png"
                      },
                      "name": "TechCrunch",
@@ -631,6 +760,7 @@
                      "date_added": "13113203581881690",
                      "id": "17",
                      "meta_info": {
+                        "Partner": "6dc17eef-1f80-43e7-98c2-5915c32351e2",
                         "Thumbnail": "/resources/sd_arstechnica.png"
                      },
                      "name": "Ars Technica",
@@ -640,6 +770,7 @@
                      "date_added": "13113203581894963",
                      "id": "18",
                      "meta_info": {
+                        "Partner": "00ea5410-b82e-4497-a527-02c05044905f",
                         "Thumbnail": "/resources/sd_newyorktimes.png"
                      },
                      "name": "The New York Times",
@@ -656,6 +787,7 @@
                   "id": "11",
                   "meta_info": {
                      "Description": "shopping",
+                     "Partner": "42c55163-1b3a-4280-93e3-03713d3b6e0f",
                      "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/11?1480839682289",
                      "last_visited_desktop": "13158148522605884"
                   },

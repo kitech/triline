@@ -52,10 +52,10 @@ function core-files-delete.f() { rm -fv *P*.core ;}
 ######### network
 # usage: pxyrun <cmd>
 function pxyrun.f() {
-    https_proxy=$DTPXY \
-    http_proxy=$DTPXY \
-    HTTPS_PROXY=$DTPXY \
-    HTTP_PROXY=$DTPXY \
+    https_proxy=http://$DTPXY \
+    http_proxy=http://$DTPXY \
+    HTTPS_PROXY=http://$DTPXY \
+    HTTP_PROXY=http://$DTPXY \
     "$@"
 }
 
@@ -129,4 +129,10 @@ function gover.f() {
 ####### misc
 function you-get-p.f() { you-get -p smplayer "$@";}
 function otterbrs2.f() { otter-browser --profile $HOME/.config/otter2;}
+
+# for apk install error: INSTALL_FAILED_INSUFFICIENT_STORAGE
+# fix_app com.facebook.katana
+function fix_app { adb shell "pm uninstall -k ${1}; rm -rf /data/app/${1}-*; su -c 'rm -rf /data/app-lib/${1}-*'";}
+
+function frseup { curl -v -F "c=@$1" "https://fars.ee/"; }
 

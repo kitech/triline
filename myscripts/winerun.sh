@@ -108,7 +108,7 @@ function runclean_qq()
 
 function runverb_weixin()
 {
-    export WINEPREFIX=$HOME/.local/share/wineprefixes/qq
+    export WINEPREFIX=$HOME/.local/share/wineprefixes/weixin
     wine "C:/Program Files/Tencent/WeChat/WeChat.exe"
 }
 
@@ -209,8 +209,10 @@ function runclean_iqiyi()
 
 function runverb_hdsql()
 {
+    export WINEARCH=win64 # for heidisql 10.2+
     export WINEPREFIX=$HOME/.local/share/wineprefixes/heidisql
-    wine "C:/Program Files/HeidiSQL/heidisql.exe"
+    #wine "C:/Program Files/HeidiSQL/heidisql.exe"
+    /usr/bin/heidisql # from aur heidisql
 }
 
 function runclean_hdsql()

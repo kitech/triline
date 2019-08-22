@@ -4,6 +4,9 @@
 # requires root
 set -e
 
+# reset umask to default
+umask 022
+
 hash pacstrap &>/dev/null || {
 	echo "Could not find pacstrap. Run pacman -S arch-install-scripts"
 	exit 1
@@ -19,33 +22,90 @@ export LANG="C.UTF-8"
 ROOTFS=$(mktemp -d ${TMPDIR:-/var/tmp}/rootfs-archlinux-XXXXXXXXXX)
 chmod 755 $ROOTFS
 
+# required packages
+PKGREQUIRED=(
+	bash
+	haveged
+	pacman
+	pacman-mirrorlist
+)
+
 # packages to ignore for space savings
 PKGIGNORE=(
-    cryptsetup
-    device-mapper
-    dhcpcd
-    iproute2
-    jfsutils
-    linux
-    lvm2
-    man-db
-    man-pages
-    mdadm
-    nano
-    netctl
-    openresolv
-    pciutils
-    pcmciautils
-    reiserfsprogs
-    s-nail
-    systemd-sysvcompat
-    usbutils
-    vi
-    xfsprogs
+	dhcpcd
+	diffutils
+	file
+	inetutils
+	iproute2
+	iputils
+	jfsutils
+	licenses
+	linux
+	linux-firmware
+	lvm2
+	man-db
+	man-pages
+	mdadm
+	nano
+	netctl
+	openresolv
+	pciutils
+	pcmciautils
+	psmisc
+	reiserfsprogs
+	s-nail
+	sysfsutils
+	systemd-sysvcompat
+	usbutils
+	vi
+	which
+	xfsprogs
 )
+
+PKGREMOVE=(
+	gawk
+	haveged 
+	less
+	linux-libre
+	linux-libre-firmware
+)
+
+PKGREQUIRED="${PKGREQUIRED[*]}"
 IFS=','
 PKGIGNORE="${PKGIGNORE[*]}"
 unset IFS
+PKGREMOVE="${PKGREMOVE[*]}"
+
+arch="$(uname -m)"
+case "$arch" in
+	armv*)
+		if pacman -Q archlinuxarm-keyring >/dev/null 2>&1; then
+			pacman-key --init
+			pacman-key --populate archlinuxarm
+		else
+			echo "Could not find archlinuxarm-keyring. Please, install it and run pacman-key --populate archlinuxarm"
+			exit 1
+		fi
+		PACMAN_CONF=$(mktemp ${TMPDIR:-/var/tmp}/pacman-conf-archlinux-XXXXXXXXX)
+		version="$(echo $arch | cut -c 5)"
+		sed "s/Architecture = armv/Architecture = armv${version}h/g" './mkimage-archarm-pacman.conf' > "${PACMAN_CONF}"
+		PACMAN_MIRRORLIST='Server = http://mirror.archlinuxarm.org/$arch/$repo'
+		PACMAN_EXTRA_PKGS='archlinuxarm-keyring'
+		EXPECT_TIMEOUT=1800 # Most armv* based devices can be very slow (e.g. RPiv1)
+		ARCH_KEYRING=archlinuxarm
+		DOCKER_IMAGE_NAME="armv${version}h/archlinux"
+		;;
+	*)
+		PACMAN_CONF='./mkimage-arch-pacman.conf'
+		PACMAN_MIRRORLIST='Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch'
+		PACMAN_EXTRA_PKGS=''
+		EXPECT_TIMEOUT=60
+		ARCH_KEYRING=archlinux
+		DOCKER_IMAGE_NAME=archlinux
+		;;
+esac
+
+export PACMAN_MIRRORLIST
 
 expect <<EOF
 	set send_slow {1 .1}
@@ -53,19 +113,21 @@ expect <<EOF
 		sleep .1
 		exp_send -s -- \$arg
 	}
-	set timeout 60
+	set timeout $EXPECT_TIMEOUT
 
-	spawn pacstrap -C ./mkimage-arch-pacman.conf -c -d -G -i $ROOTFS base haveged --ignore $PKGIGNORE
+	spawn pacstrap -C $PACMAN_CONF -c -d -G -i $ROOTFS base $PKGREQUIRED $PACMAN_EXTRA_PKGS --ignore $PKGIGNORE
 	expect {
 		-exact "anyway? \[Y/n\] " { send -- "n\r"; exp_continue }
 		-exact "(default=all): " { send -- "\r"; exp_continue }
 		-exact "installation? \[Y/n\]" { send -- "y\r"; exp_continue }
+		-exact "delete it? \[Y/n\]" { send -- "y\r"; exp_continue }
 	}
 EOF
 
 arch-chroot $ROOTFS /bin/sh -c 'rm -r /usr/share/man/*'
-arch-chroot $ROOTFS /bin/sh -c "haveged -w 1024; pacman-key --init; pkill haveged; pacman -Rs --noconfirm haveged; pacman-key --populate archlinux; pkill gpg-agent"
-arch-chroot $ROOTFS /bin/sh -c "ln -s /usr/share/zoneinfo/UTC /etc/localtime"
+arch-chroot $ROOTFS /bin/sh -c "haveged -w 1024; pacman-key --init; pkill haveged; pacman-key --populate $ARCH_KEYRING"
+arch-chroot $ROOTFS /bin/sh -c "ln -sf /usr/share/zoneinfo/UTC /etc/localtime"
+arch-chroot $ROOTFS /bin/sh -c "for pkg in $PKGREMOVE; do if pacman -Qi \$pkg > /dev/null 2>&1; then pacman -Rs --noconfirm \$pkg; fi; done"
 echo 'en_US.UTF-8 UTF-8' > $ROOTFS/etc/locale.gen
 arch-chroot $ROOTFS locale-gen
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
@@ -74,8 +136,17 @@ arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.kernel.org/archli
 echo 'LANG=en_US.UTF-8' > $ROOTFS/etc/locale.conf
 echo 'LANG=en_US.UTF-8' > $ROOTFS/etc/default/locale
 echo 'export LANG=en_US.UTF-8' >> $ROOTFS/etc/bash.bashrc
-arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
-arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
+echo 'alias ll="ls -l"' > $ROOTFS/etc/profile.d/often.sh
+echo 'alias llh="ls -lh"' >> $ROOTFS/etc/profile.d/often.sh
+cp -a deepclean.sh $ROOTFS/usr/bin/
+arch-chroot $ROOTFS /bin/sh -c 'pacman -Rdd --noconfirm libpcap iptables systemd dbus'
+arch-chroot $ROOTFS /bin/sh -c 'pacman -Rdd --noconfirm libnetfilter_conntrack libnfnetlink'
+arch-chroot $ROOTFS /bin/sh -c 'pacman -Rdd --noconfirm perl'
+arch-chroot $ROOTFS /bin/sh -c 'pacman -R --noconfirm icu libxml2 libcroco gettext libnl'
+arch-chroot $ROOTFS /bin/sh -c 'pacman -R --noconfirm db texinfo libusb'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'unlink /etc/localtime'
 arch-chroot $ROOTFS /bin/sh -c "cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime"
 arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/man/*'
@@ -87,12 +158,25 @@ arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/{share,lib}/perl5/*'
 arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/bin/core_perl/*'
 arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/zoneinfo/*'
 arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/iana-etc/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/share/gtk-doc/*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/include/*'
+#arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/locale'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/udev'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libasan.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/liblsan.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libtsan.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libubsan.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libgo.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libobjc.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libgfortran.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libitm.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/lib/libquadmath.so*'
+arch-chroot $ROOTFS /bin/sh -c 'rm -rf /usr/bin/{showdb,showjournal,showstat4,showwal,sqldiff,sqlite3}'
 # Keep only xterm related profiles in terminfo.
 arch-chroot $ROOTFS /bin/sh -c 'find /usr/share/terminfo/. ! -name "*xterm*" ! -name "*screen*" ! -name "*screen*" -type f -delete'
-arch-chroot $ROOTFS /bin/sh -c 'find /usr/share/texinfo/. -name "*.pm" -type f -delete'
+#arch-chroot $ROOTFS /bin/sh -c 'find /usr/share/texinfo/. -name "*.pm" -type f -delete'
 arch-chroot $ROOTFS /bin/sh -c 'find /usr/lib/. -name "*.a" -type f -delete'
 # arch-chroot $ROOTFS /bin/sh -c 'rm -f /var/lib/pacman/sync/*'
-
 
 # udev doesn't work in containers, rebuild /dev
 DEV=$ROOTFS/dev
@@ -112,6 +196,6 @@ mknod -m 600 $DEV/initctl p
 mknod -m 666 $DEV/ptmx c 5 2
 ln -sf /proc/self/fd $DEV/fd
 
-tar --numeric-owner --xattrs --acls -C $ROOTFS -c . | docker import - archlinux
-docker run -t archlinux echo Success.
+tar --numeric-owner --xattrs --acls -C $ROOTFS -c . | docker import - $DOCKER_IMAGE_NAME
+docker run --rm -t $DOCKER_IMAGE_NAME echo Success.
 rm -rf $ROOTFS

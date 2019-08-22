@@ -33,6 +33,11 @@ alias mkr='make release'
 alias mku='make run'
 alias mks='make smoke'
 alias mkp='make package'
+alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
+alias gobz="go build -gcflags \"-N -l\" -ldflags \"-w -s\""
+alias nimc='nim -p:/opt/nim/mulib c'
+alias nimr='nim -p:/opt/nim/mulib c -r'
+
 
 march=$(uname -s)
 mbp=$(lspci | grep FaceTime)
@@ -40,6 +45,7 @@ mbp=$(lspci | grep FaceTime)
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin:$HOME/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts:$HOME/triline/python
 export PATH=$PATH:$HOME/golib/bin:$HOME/work/bin:$HOME/oss/bin  # for other compiled go bin
+export PATH=$PATH:/opt/nim/bin   # /opt/nim => $HOME/.nimble
 
 if [ x"$march" == x"Darwin" ] ; then
     export PATH=$HOME/.nix-profile/bin:$PATH
@@ -57,6 +63,8 @@ if [ x"$march" == x"Darwin" ] ; then
     # export XAUTHORITY=$HOME/.Xauthority_share_non_lock
 fi
 
+function reloadme() { source ~/triline/shell/libprofile.sh; }
+
 # HiDPI
 function hidpi_mode() {
     # GTK3
@@ -73,11 +81,14 @@ if [ x"$mbp" != x"" ] && [ x"$march" == x"Linux" ] ; then
 fi
 
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
+export NIMPATH=$HOME/nimlib
+
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
 export QML_DISABLE_DISK_CACHE=1   #禁止生成.qmlc
 #export GOCACHE=off  #禁止golang生成build cache
 #export GOCACHE=/xcache-go-build # comment since go1.12 force and improve cache store
+#GOPROXY=https://goproxy.cn
 export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
 export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 

@@ -30,4 +30,4 @@
 # docker run -i -t --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix ubuntu:16.04 /bin/bash
 # gdb -p 10029 --batch -ex 'call close(4)'  # close a running process's open file description
 # chromium --process-per-site
-
+#  go tool nm -sort size -size <gobinary> | head -n 20

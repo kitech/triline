@@ -21,3 +21,8 @@ function vxrunc()
 }
 
 vxrunc "$@"
+
+# sshd_config
+# AddressFamily inet
+# X11Forward yes
+# X11UseLocalhost no

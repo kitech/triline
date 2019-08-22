@@ -30,6 +30,8 @@
 #127.0.0.1  qtchina.tk www.qtchina.tk
 127.0.0.1  mysql-n 
 127.0.0.1  pma.qtchina.net wim.qtchina.net 
+10.0.0.7 gitg.sixlan.tk
+10.0.0.7 i.sixlan.tk
 # 127.0.0.1 oc.fixlan.tk
 # 10.0.0.6 oci.fixlan.tk
 # 106.3.136.248 bestweshop.dianking.cn
@@ -81,7 +83,7 @@
 # 127.0.0.2  secure.gravatar.com
 # 23.32.241.33 download.virtualbox.org
 # 127.0.0.1 ajax.googleapis.com
-# 127.0.0.1 fonts.googleapis.com
+127.0.0.1 fonts.googleapis.com
 # 172.217.11.138 ajax.googleapis.com
 2404:6800:4005:802::1008 chrome.google.com
 127.0.0.1 platform.twitter.com syndication.twitter.com
