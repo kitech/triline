@@ -1,6 +1,7 @@
 FROM kitech/archlinux:latest
 
-ADD . /
+#ADD . /
+COPY . /
 
 RUN /bootstrap.sh
 

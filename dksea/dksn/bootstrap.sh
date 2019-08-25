@@ -6,8 +6,12 @@
 env > env.txt
 env
 cat /etc/resolv.conf
+echo "nameserver 1.1.1.1" >/etc/resolv.conf.new
+cat /etc/resolv.conf >>/etc/resolv.conf.new
+cp -v /etc/resolv.conf{.new,}
+rm -f /etc/resolv.conf.new
 
-#########
+##########
 cp /etc/hosts{,.bak}
 echo "101.6.8.193 mirrors.tuna.tsinghua.edu.cn" >> /etc/hosts
 echo "202.141.176.110 mirrors.ustc.edu.cn" >> /etc/hosts
@@ -17,6 +21,8 @@ pacman -Sy
 pacman -S --noconfirm openssh nginx iproute2 privoxy #supervisor
 pacman -S --noconfirm tmux # some tools
 pacman -S --noconfirm opendht
+pacman -S --noconfirm libx11 libxcb libxdmcp libxau libxfixes
+pacman -S --noconfirm libvpx libsodium opus
 rddpkgs="libpcap iptables libnetfilter_conntrack libnfnetlink systemd dbus"
 for p in $rddpkgs; do
     pacman -Rdd --noconfirm $p
@@ -33,7 +39,8 @@ rm -rf /usr/share/{man,doc,info,i18n,zoneinfo}/*
 /usr/bin/ssh-keygen -A
 chmod +x /entrypoint.sh
 mv /sshd_config /etc/ssh/
-mv /etc/hosts{.bak,}
+cp -v /etc/hosts{.bak,}
+rm -f /etc/hosts.bak
 
 mkdir -p /etc/nginx/conf
 mv /nginx.conf /etc/nginx/

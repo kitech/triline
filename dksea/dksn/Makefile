@@ -7,12 +7,16 @@ upbin:
 
 raw: upbin
 	docker build -t kitech/dksn .
-	rm -f peeretcd
+	#rm -f peeretcd
 
 pushraw:
 	docker push kitech/dksn
 
+# web/worker
 hrku: upbin
 	heroku container:push web -a prnetc
 	#heroku container:release web -a prnetc
+
+hkcon:
+	heroku run bash -a prnetc
 

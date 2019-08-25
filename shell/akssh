@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# auto ssh to arukas docker vps via peeretc info(dynamic login host:port)
+# usage: for ssh: akssh [extra ssh args]
+# usage: for scp: akssh <srcfile> <dstfile> [extra scp args]
+
+# 141-148
+epurl="http://localhost:5080/pcapi/endpoint?ip=163.43.82.144&port=22"
+echo "Get endpoint $epurl ..."
+endpoint=$(curl "$epurl")
+if [[ $endpoint == "" ]]; then
+    echo "Cannot get endpoint for $epurl"
+    exit -1
+fi
+
+host=$(echo $endpoint|awk -F: '{print $1}')
+port=$(echo $endpoint|awk -F: '{print $2}')
+
+echo "host=$host port=$port"
+sshcmd="ssh -C -p$port $@ root@$host"
+scpcmd="scp -C -P$port $3 $4 $5 $1 root@$host:$2"
+
+if [[ "$1" != "" ]] && ([[ -f "$1" ]] || [[ -d "$1" ]]) ; then
+    echo "scpcmd $scpcmd"
+    exec $scpcmd
+else
+    echo "sshcmd $sshcmd"
+    exec $sshcmd
+fi
