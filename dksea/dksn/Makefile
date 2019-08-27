@@ -4,8 +4,14 @@ upbin:
 	cp ~/oss/src/mkuse/peeretcd/peeretcd .
 	strip -sv peeretcd
 	upx peeretcd
+	strip -sv cvtier/cvtier || true
+	upx cvtier/cvtier  || true
+	strip -sv cvtier/tundms || true
+	upx cvtier/tundms  || true
 
 raw: upbin
+	# cp -a /somewhere/proot cvtier/
+	# cp -a /somewhere/cvtier-html cvtier/html
 	docker build -t kitech/dksn .
 	#rm -f peeretcd
 

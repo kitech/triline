@@ -45,4 +45,6 @@ rm -f /etc/hosts.bak
 mkdir -p /etc/nginx/conf
 mv /nginx.conf /etc/nginx/
 mv /upnginx.conf /etc/nginx/conf/
+mkdir -p $HOME/.curvybox/lib
+mv -v /cvtier/proot.amd64 $HOME/.curvybox/lib/libproot.so
 

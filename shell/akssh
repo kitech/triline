@@ -4,8 +4,8 @@
 # usage: for ssh: akssh [extra ssh args]
 # usage: for scp: akssh <srcfile> <dstfile> [extra scp args]
 
-# 141-148
-epurl="http://localhost:5080/pcapi/endpoint?ip=163.43.82.144&port=22"
+# 141-148-179
+epurl="http://localhost:5080/pcapi/endpoint?ip=163.43.82.173&port=22"
 echo "Get endpoint $epurl ..."
 endpoint=$(curl "$epurl")
 if [[ $endpoint == "" ]]; then
