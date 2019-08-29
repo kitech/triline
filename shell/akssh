@@ -5,14 +5,36 @@
 # usage: for scp: akssh <srcfile> <dstfile> [extra scp args]
 
 # 141-148-179
-epurl="http://localhost:5080/pcapi/endpoint?ip=163.43.82.173&port=22"
-echo "Get endpoint $epurl ..."
-endpoint=$(curl "$epurl")
-if [[ $endpoint == "" ]]; then
-    echo "Cannot get endpoint for $epurl"
-    exit -1
-fi
+ipsfx=140
+while true; do
+    endpoint=""
+    ipsfx=$(($ipsfx + 1))
+    if [[ $ipsfx == "180" ]]; then
+        break;
+    fi
+    ipfull="163.43.82.$ipsfx"
+    epurl="http://localhost:5080/pcapi/endpoint?ip=$ipfull&port=22"
+    echo "Get endpoint $epurl ..."
+    endpoint=$(curl "$epurl")
+    if [[ $endpoint == "" ]]; then
+        #echo "Cannot get endpoint for $epurl"
+        continue;
+    fi
+    host=$(echo $endpoint|awk -F: '{print $1}')
+    port=$(echo $endpoint|awk -F: '{print $2}')
+    nc -w 5 "$host" "$port"
+    ret=$?
+    if [[ $ret == 1 ]]; then
+        continue;
+    fi
 
+    break;
+done
+
+if [[ $endpoint == "" ]]; then
+    echo "Cannot get endpoint"
+    exit -1;
+fi
 host=$(echo $endpoint|awk -F: '{print $1}')
 port=$(echo $endpoint|awk -F: '{print $2}')
 

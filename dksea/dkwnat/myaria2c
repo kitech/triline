@@ -1,0 +1,4 @@
+#!/bin/sh
+
+set -x
+/usr/bin/aria2c --listen-port=16861 --dht-listen-port=16861 "$@"
