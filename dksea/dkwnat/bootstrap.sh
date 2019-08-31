@@ -21,6 +21,12 @@ pacman -Sy
 pacman -S --noconfirm openssh iproute2 openvpn
 pacman -S --noconfirm tmux # some tools
 pacman -S --noconfirm aria2 wxgtk-common transmission-cli
+
+# for amuled rename completed file
+pacman -S --noconfirm glibc
+echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
 rddpkgs="libpcap iptables libnetfilter_conntrack libnfnetlink systemd dbus"
 for p in $rddpkgs; do
     pacman -Rdd --noconfirm $p
@@ -40,5 +46,6 @@ mv /sshd_config /etc/ssh/
 cp -v /etc/hosts{.bak,}
 rm -f /etc/hosts.bak
 rm -f ovpki.tar
+
 
 

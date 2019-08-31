@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -x
+
+ARIA2_BDIR=$HOME/.aria2
+mkdir -p $ARIA2_BDIR/wa2dl
+touch $ARIA2_BDIR/aria2.session
+/usr/bin/myaria2c --force-save=true --save-session-interval=5 --log-level=notice \
+                  --check-certificate=false --enable-rpc --rpc-listen-all --rpc-allow-origin-all=true \
+                  --rpc-listen-port=16860 -d $ARIA2_BDIR/wa2dl -l $ARIA2_BDIR/aria2c.log \
+                  --dht-file-path=$ARIA2_BDIR/dht.dat --dht-file-path6=$ARIA2_BDIR/dht6.dat \
+                  --save-session=$ARIA2_BDIR/aria2.session --input-file=$ARIA2_BDIR/aria2.session \
+                  --enable-mmap=false --min-split-size=1M --disable-ipv6=true \
+                  --on-bt-download-complete=/usr/bin/aria2hook.sh \
+                  --on-download-complete=/usr/bin/aria2hook.sh
+

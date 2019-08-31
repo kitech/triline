@@ -35,7 +35,7 @@ mv -v amule.conf $HOME/.aMule/
 PHYGW=172.17.0.1
 VPNGW=10.8.0.9
 ip route add $WNAT_SRVIP/32 via 172.17.0.1
-openvpn --config wnatcli.ovpn --askpass ovpassfile >ovpn.log 2>&1 &
+/usr/bin/openvpn --config wnatcli.ovpn --askpass ovpassfile >ovpn.log 2>&1 &
 
 sleep 5;
 ip route del default
@@ -43,6 +43,11 @@ ip route add default via 10.8.0.9
 ip route add 101.6.8.193/32 via 172.17.0.1
 ip route add 202.141.176.110/32 via 172.17.0.1
 ip route add 59.111.0.251/32 via 172.17.0.1
+curl https://ip.cn
+
+LANG=zh_CN.UTF-8 /usr/bin/amuled -f
+/myaria2d &
+/usr/bin/amulehook.sh &
 
 sleep 5;
 ss -ant|grep LISTEN
