@@ -3,6 +3,7 @@
 #
 ip a
 env
+export WINEARCH=win32
 
 # 500M swap
 fallocate -v -l 500000000 /swap.img
@@ -35,6 +36,7 @@ mv -v amule.conf $HOME/.aMule/
 PHYGW=172.17.0.1
 VPNGW=10.8.0.9
 ip route add $WNAT_SRVIP/32 via 172.17.0.1
+ip route add 10.0.0.0/24 via 172.17.0.1
 /usr/bin/openvpn --config wnatcli.ovpn --askpass ovpassfile >ovpn.log 2>&1 &
 
 sleep 5;

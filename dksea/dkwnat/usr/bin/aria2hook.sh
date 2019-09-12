@@ -8,6 +8,10 @@ fpath=$3
 
 echo "ALL ARGS: $@"
 
+if [[ $fcnt == 0 ]] && [[ $fpath == "" ]]; then
+    echo "Should METADATA"
+    exit 0
+fi
 if [[ ! -d $HOME/TDDOWNLOAD ]]; then
     exit 0
 fi
@@ -19,4 +23,6 @@ if [[ $ret == 0 ]]; then
     rm -fv "$fpath"
     rm -fv "$fpath.aria2"
 fi
+
+exit 0
 
