@@ -1,0 +1,27 @@
+#!/bin/sh
+
+feh --bg-scale /usr/share/wallpapers/PastelHills/contents/images/1280x800.jpg
+
+tint2 &
+
+pnmixer &
+
+# lxqt-powermanagement &
+
+deepin-terminal &
+
+
+# official samples
+# Programs that will run after Openbox has started
+
+# Set the wallpaper
+# hsetroot ~/wallpaper.png &
+
+# Run a Composite manager
+# xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
+
+# SCIM support (for typing non-english characters)
+# scim -d &
+
+# A panel for good times
+# fbpanel &

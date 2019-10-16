@@ -44,8 +44,12 @@ scpcmd="scp -C -P$port $3 $4 $5 $1 root@$host:$2"
 
 if [[ "$1" != "" ]] && ([[ -f "$1" ]] || [[ -d "$1" ]]) ; then
     echo "scpcmd $scpcmd"
-    exec $scpcmd
+    $scpcmd
 else
     echo "sshcmd $sshcmd"
-    exec $sshcmd
+    $sshcmd
 fi
+
+ret=$?
+echo "ret=$ret"
+

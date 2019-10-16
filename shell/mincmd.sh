@@ -52,10 +52,13 @@ function core-files-delete.f() { rm -fv *P*.core ;}
 ######### network
 # usage: pxyrun <cmd>
 function pxyrun.f() {
-    https_proxy=http://$DTPXY \
-    http_proxy=http://$DTPXY \
-    HTTPS_PROXY=http://$DTPXY \
-    HTTP_PROXY=http://$DTPXY \
+    https_proxy=http://$DTPXY http_proxy=http://$DTPXY \
+    HTTPS_PROXY=http://$DTPXY HTTP_PROXY=http://$DTPXY \
+    "$@"
+}
+function pxyrun.f2() {
+    https_proxy=http://$DTPXY http_proxy=http://$DTPXY2 \
+    HTTPS_PROXY=http://$DTPXY2  HTTP_PROXY=http://$DTPXY2 \
     "$@"
 }
 

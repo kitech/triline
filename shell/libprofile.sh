@@ -34,7 +34,7 @@ alias mku='make run'
 alias mks='make smoke'
 alias mkp='make package'
 alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
-alias gobz="go build -gcflags \"-N -l\" -ldflags \"-w -s\""
+alias gobz="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\""
 alias nimc='nim -p:/opt/nim/mulib c'
 alias nimr='nim -p:/opt/nim/mulib c -r'
 
@@ -80,6 +80,10 @@ if [ x"$mbp" != x"" ] && [ x"$march" == x"Linux" ] ; then
     hidpi_mode
 fi
 
+# shit go1.13
+export GONOPROXY=on
+export GOPROXY=direct # 默认：https://proxy.golang.org,direct
+export GOSUMDB=off
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export NIMPATH=$HOME/nimlib
 
@@ -93,6 +97,7 @@ export RUBYLIB=.:$HOME/opensource/rubyjitqt/lib
 export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 
 export DTPXY=127.0.0.1:8117
+export DTPXY2=127.0.0.1:8008
 export GIT_SSH=$HOME/triline/myscripts/socks5proxyssh
 export GIT_TRACE=0
 export GIT_CURL_VERBOSE=0

@@ -40,6 +40,7 @@ etcfiles="
 ~/bin/winerun
 ~/bin/vxrun
 ~/bin/qq
+~/oss/bin/mparia2c
 ~/.config/openbox/rc.xml
 ~/.config/openbox/autostart
 ~/.config/openbox/environment

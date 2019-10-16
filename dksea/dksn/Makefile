@@ -8,6 +8,10 @@ upbin:
 	upx cvtier/cvtier  || true
 	strip -sv cvtier/tundms || true
 	upx cvtier/tundms  || true
+	mkdir -p p2pvm || true
+	cp ~/oss/src/mkuse/p2pvm/p2vmnode p2pvm/
+	strip -sv p2pvm/p2vmnode || true
+	upx p2pvm/p2vmnode || true
 
 raw: upbin
 	# cp -a /somewhere/proot cvtier/
@@ -18,10 +22,15 @@ raw: upbin
 pushraw:
 	docker push kitech/dksn
 
+# registry.heroku.com/prnetc/worker
 # web/worker
 hrku: upbin
 	heroku container:push web -a prnetc
 	#heroku container:release web -a prnetc
+
+hrkuwk: upbin
+	heroku container:push worker -a prnetc
+	#heroku container:release worker -a prnetc
 
 hkcon:
 	heroku run bash -a prnetc

@@ -24,6 +24,8 @@
 # hdparm -d1 -c1 -m16 --yes-i-know-what-i-am-doing /dev/sda
 # hdparm -Tt /dev/sda
 # ssh user@machine-where-precious-data-is "tar czpf - /some/important/data" | tar xzpf - -C /new/root/directory
+# ssh root@dest -o "ProxyCommand=corkscrew 127.0.0.1 3118 %h %p"
+# ssh root@dest -o "ProxyCommand=nc -X connect -x 127.0.0.1:3118 %h %p"
 # sqlite3 test.db .schema > schema.sql
 # filter android app log, need app runup
 # adb logcat | grep -F "`adb shell ps | grep com.example.package | cut -c10-15`"
@@ -31,3 +33,5 @@
 # gdb -p 10029 --batch -ex 'call close(4)'  # close a running process's open file description
 # chromium --process-per-site
 #  go tool nm -sort size -size <gobinary> | head -n 20
+# fingerprint
+# openssl x509 -noout -fingerprint -sha1 -inform pem -in [certificate-file.crt]

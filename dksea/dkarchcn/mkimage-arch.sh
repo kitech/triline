@@ -129,8 +129,9 @@ arch-chroot $ROOTFS /bin/sh -c "haveged -w 1024; pacman-key --init; pkill havege
 arch-chroot $ROOTFS /bin/sh -c "ln -sf /usr/share/zoneinfo/UTC /etc/localtime"
 arch-chroot $ROOTFS /bin/sh -c "for pkg in $PKGREMOVE; do if pacman -Qi \$pkg > /dev/null 2>&1; then pacman -Rs --noconfirm \$pkg; fi; done"
 echo 'en_US.UTF-8 UTF-8' > $ROOTFS/etc/locale.gen
+echo 'zh_CN.UTF-8 UTF-8' >> $ROOTFS/etc/locale.gen
 arch-chroot $ROOTFS locale-gen
-arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "#Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
 
 ### deep cleanup, deep minimize it
 echo 'LANG=en_US.UTF-8' > $ROOTFS/etc/locale.conf
@@ -144,7 +145,7 @@ arch-chroot $ROOTFS /bin/sh -c 'pacman -Rdd --noconfirm libnetfilter_conntrack l
 arch-chroot $ROOTFS /bin/sh -c 'pacman -Rdd --noconfirm perl'
 arch-chroot $ROOTFS /bin/sh -c 'pacman -R --noconfirm icu libxml2 libcroco gettext libnl'
 arch-chroot $ROOTFS /bin/sh -c 'pacman -R --noconfirm db texinfo libusb'
-arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist'
+arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'echo "Server = http://mirrors.163.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist'
 arch-chroot $ROOTFS /bin/sh -c 'unlink /etc/localtime'

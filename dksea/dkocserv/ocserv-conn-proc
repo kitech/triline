@@ -1,0 +1,21 @@
+#!/bin/sh
+
+phydev=eth0
+
+devlst=$(ip link|grep ocserv|awk '{print $2}'|cut -d : -f 1)
+echo "$devlst"
+
+infoline="dev=$DEVICE ip=$IP_REMOTE user=$USERNAME"
+set -x
+if [ x"$STATS_DURATION" != x"" ]; then
+    echo "ocserv-hook: disconn mode $infoline"
+    iptables -t filter -A FORWARD -i $phydev -o $DEVICE -j DROP
+    iptables -t filter -A FORWARD -i $DEVICE -o $phydev -j DROP
+    iptables -A INPUT -i $DEVICE -j DROP
+else
+    echo "ocserv-hook: newconn mode $infoline"
+    # let clients see each other
+    iptables -t filter -A FORWARD -i $phydev -o $DEVICE -j ACCEPT
+    iptables -t filter -A FORWARD -i $DEVICE -o $phydev -j ACCEPT
+    iptables -A INPUT -i $DEVICE -j ACCEPT
+fi

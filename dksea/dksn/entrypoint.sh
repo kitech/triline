@@ -4,13 +4,23 @@
 ip a
 env
 
-# 1G swap
-fallocate -v -l 1000000000 /swap.img
+# 500M swap
+fallocate -v -l 500000000 /swap.img
 mkswap /swap.img
 chown 0600 /swap.img
 swapon /swap.img # fail in docker
 
-if [[ $USERPASS != "" ]]; then
+if [[ $USERPASSENC != "" ]]; then
+    # for heroku, 该值可以先在其他系统生成，再配置到docker环境
+    uid=$(id -u)
+    gid=$(id -g)
+    sed -i 's/root/rootdep/' /etc/shadow
+    echo "root1:x:$uid:$gid:root1:/root1:/bin/bash" >> /etc/passwd
+    echo "root1:$USERPASSENC" >> /etc/shadow
+    echo "u$uid:$USERPASSENC" >> /etc/shadow
+    echo "dyno:$USERPASSENC" >> /etc/shadow
+    echo "root:$USERPASSENC" >> /etc/shadow
+elif [[ $USERPASS != "" ]]; then
     echo -e "${USERPASS}\n${USERPASS}" | passwd root > /dev/null 2>&1
 else
     echo "No password mode"
@@ -22,9 +32,17 @@ if [[ $NOSSHD == "" ]]; then
     /usr/bin/sshd -p 2222 -p 22
 fi
 if [[ $NONGINX == "" ]]; then
+    # fix heroku
+    if [[ $PORT != "" ]] && [[ $DYNO != "" ]]; then
+        sed -i 's/80;/'"$PORT"';/' /etc/nginx/nginx.conf
+    fi
     /usr/bin/nginx -t
     /usr/bin/nginx
 fi
+/usr/bin/privoxy --config-test /etc/privoxy/config
+/usr/bin/privoxy /etc/privoxy/config
+mkdir -p $HOME/.ssh # key login for heroku works
+#curl some key > $HOME/.ssh/authorized_keys
 
 /peeretcd >peeretcd.log 2>&1 &
 ret=$?
@@ -75,11 +93,14 @@ function putcvtdat()
 }
 
 # run cvtier
-cd /cvtier && ./start.sh
+# cd /cvtier && ./start.sh
+# run p2pvm
+export LIBP2P_ALLOW_WEAK_RSA_KEYS=1
+cd /p2pvm && ./p2vmnode --vms syth --ipfs-core-loglvl warn --syth-relays 160.16.88.249:22067 &
 
 while true; do
     sleep 5;
-    putcvtdat;
+    #putcvtdat;
     #break;
     true;
 done

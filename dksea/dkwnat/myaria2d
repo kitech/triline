@@ -5,7 +5,7 @@ set -x
 ARIA2_BDIR=$HOME/.aria2
 mkdir -p $ARIA2_BDIR/wa2dl
 touch $ARIA2_BDIR/aria2.session
-/usr/bin/myaria2c --force-save=true --save-session-interval=5 auto-save-interval=30 --log-level=notice \
+/usr/bin/myaria2c --force-save=true --save-session-interval=5 --auto-save-interval=30 --log-level=notice \
                   --check-certificate=false --enable-rpc --rpc-listen-all --rpc-allow-origin-all=true \
                   --rpc-listen-port=16860 -d $ARIA2_BDIR/wa2dl -l $ARIA2_BDIR/aria2c.log \
                   --dht-file-path=$ARIA2_BDIR/dht.dat --dht-file-path6=$ARIA2_BDIR/dht6.dat \

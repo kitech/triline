@@ -26,3 +26,5 @@ vxrunc "$@"
 # AddressFamily inet
 # X11Forward yes
 # X11UseLocalhost no
+# sshd install xauth
+

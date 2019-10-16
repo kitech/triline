@@ -19,8 +19,8 @@ echo "59.111.0.251 mirrors.163.com" >> /etc/hosts
 
 pacman -Sy
 pacman -S --noconfirm openssh nginx iproute2 privoxy #supervisor
-pacman -S --noconfirm tmux # some tools
-pacman -S --noconfirm opendht
+pacman -S --noconfirm tmux nano sudo mosh # some tools
+pacman -S --noconfirm opendht toxcore
 pacman -S --noconfirm libx11 libxcb libxdmcp libxau libxfixes
 pacman -S --noconfirm libvpx libsodium opus
 rddpkgs="libpcap iptables libnetfilter_conntrack libnfnetlink systemd dbus"
@@ -35,12 +35,14 @@ done
 rm -f /var/cache/pacman/pkg/*
 rm -rf /usr/share/{man,doc,info,i18n,zoneinfo}/*
 /usr/bin/deepclean.sh
+echo "%dyno ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 /usr/bin/ssh-keygen -A
 chmod +x /entrypoint.sh
 mv /sshd_config /etc/ssh/
 cp -v /etc/hosts{.bak,}
 rm -f /etc/hosts.bak
+rm -f /*.tar
 
 mkdir -p /etc/nginx/conf
 mv /nginx.conf /etc/nginx/
