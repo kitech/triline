@@ -41,27 +41,34 @@ if [[ $NONGINX == "" ]]; then
 fi
 mkdir -p $HOME/.ssh # key login for heroku works
 #curl some key > $HOME/.ssh/authorized_keys
+echo "meowpc" >/etc/hostname
+# hostname还需要在docker启动参数里设置
 
 export LANG=zh_CN.UTF-8
 export LC_ALL=zh_CN.UTF-8
 export LC_CTYPE=zh_CN.UTF-8
 export TERM=xterm
+cd /root
+
 # /home是个永久存储卷
 mkdir -p /home/$FUSER/
 mkdir -p /home/logs/
-cd /home/$FUSER && /gotty --reconnect --max-connection 32 --port 8080 -w --credential "$FUSER:$FPASS" --term xterm /usr/bin/tmux &
+/gotty --reconnect --max-connection 32 --port 8080 -w --credential "$FUSER:$FPASS" -t --tls-crt /etc/letsencrypt/erdesk/fullchain2.pem --tls-key /etc/letsencrypt/erdesk/privkey2.pem --term xterm /usr/bin/tmux &
 
 export DISPLAY=:0
 Xvfb :0 -screen scrn 1024x708x24 &
 sleep 1
 DISPLAY=:0 openbox --sm-disable &
+sleep 1
+feh --bg-scale /mac2012wallpaper.jpg &
 sleep 3
 tint2 &
-/usr/bin/xtermc &
+/usr/bin/xtermc -e "neofetch && bash" &
 sleep 3
-x11vnc -forever -nopw -noshm -nodpms -noxfixes -noxdamage -noxrecord -rfbport 5901 -display $DISPLAY &
+#x11vnc -forever -nopw -noshm -nodpms -noxfixes -noxdamage -noxrecord -rfbport 5901 -display $DISPLAY &
+x11vnc -forever -passwd "$FPASS" -noshm -nodpms -noxfixes -noxdamage -noxrecord -rfbport 5901 -display $DISPLAY &
 
-cd /noVNC/ && python /noVNC/utils/websockify/run --web ./ 5902 127.0.0.1:5901 &
+cd /noVNC/ && python /noVNC/utils/websockify/run --web ./ --cert=/etc/letsencrypt/erdesk/fullchain2.pem --key=/etc/letsencrypt/erdesk/privkey2.pem 5902 127.0.0.1:5901 &
 
 while true; do
     sleep 5;
@@ -69,6 +76,8 @@ while true; do
     #break;
     true;
 done
+
+# -v /path/to/letsencrypt/erdesk:/etc/letsencrypt/erdesk
 
 # TODO
 # rfbCheckFds: select: Bad file descriptor

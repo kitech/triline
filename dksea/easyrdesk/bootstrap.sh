@@ -17,13 +17,15 @@ echo "101.6.8.193 mirrors.tuna.tsinghua.edu.cn" >> /etc/hosts
 echo "202.141.176.110 mirrors.ustc.edu.cn" >> /etc/hosts
 echo "59.111.0.251 mirrors.163.com" >> /etc/hosts
 
-pacman -Sy
+pacman -Syy
+pacman -Su --noconfirm
 pacman -S --noconfirm openssh nginx iproute2 privoxy #supervisor
 pacman -S --noconfirm tmux nano sudo mosh # some tools
 pacman -S --noconfirm libx11 libxcb libxdmcp libxau libxfixes
 pacman -S --noconfirm libvpx libsodium opus
-pacman -S --noconfirm xorg-server-xvfb tint2 openbox xterm awk net-tools x11vnc wqy-zenhei wqy-microhei
+pacman -S --noconfirm xorg-server-xvfb tint2 openbox xterm awk net-tools x11vnc wqy-zenhei wqy-microhei feh
 pacman -S --noconfirm python python-numpy # noVNC need
+pacman -S --noconfirm neofetch
 #pacman -S --noconfirm firefox
 rddpkgs="libpcap iptables libnetfilter_conntrack libnfnetlink systemd"
 for p in $rddpkgs; do
