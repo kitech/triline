@@ -37,7 +37,7 @@ alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
 alias gobz="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\""
 alias nimc='nim -p:/opt/nim/mulib c'
 alias nimr='nim -p:/opt/nim/mulib c -r'
-
+#alias xtermc='xterm -u8 -geometry 120x40 -xrm XTerm*selectToClipboard:true -bg black -fg green -sh 1.2'
 
 march=$(uname -s)
 mbp=$(lspci | grep FaceTime)

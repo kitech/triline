@@ -96,7 +96,7 @@ function putcvtdat()
 # cd /cvtier && ./start.sh
 # run p2pvm
 export LIBP2P_ALLOW_WEAK_RSA_KEYS=1
-cd /p2pvm && ./p2vmnode --vms syth --ipfs-core-loglvl warn --syth-relays 160.16.88.249:22067 &
+cd /p2pvm && ./p2vmnode --vms syth --ipfs-core-loglvl warn --syth-relays 160.16.88.249:22067 >p2.log 2>&1 &
 
 while true; do
     sleep 5;

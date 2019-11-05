@@ -16,7 +16,7 @@ tmux -S $SOCK list-panes -t 0
 #tmux -S $SOCK run-shell -b -t 0 "sh -c 'top -u root'"
 
 # exec tmux -S $SOCK attach-session -t 0
-exec xterm -u8 -geometry 110x50  -xrm 'XTerm*selectToClipboard:true' -bg black -fg green \
+exec xterm -u8 -geometry 110x50  -xrm 'XTerm*selectToClipboard:true' -bg black -fg green3 \
      -e "tmux -S $SOCK attach-session -t 0"
 # xterm -u8 -maximized
 # xterm -u8 -geometry 110x50 -fn 10x20 -xrm 'XTerm*selectToClipboard:true' -bg black -fg green -fg  green/lightblue/lightgray
