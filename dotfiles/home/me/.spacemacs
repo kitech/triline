@@ -54,6 +54,7 @@
 ;(load "/usr/lib/python3.5/site-packages/kivy/tools/highlight/kivy-mode.el")
 ;(add-to-list 'auto-mode-alist '("\\.kv\\'" . kivy-mode))
 ;(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.v\\'" . go-mode))
 
 (autoload 'dart-mode "dart-mode" "Darat mode." t)
 (add-to-list 'auto-mode-alist '("\\.dart$" . dart-mode))
@@ -201,7 +202,7 @@ This function should only modify configuration layer settings."
      cmake
      python
      php
-     go
+     (go :variables go-format-before-save nil)
      ;; nim
      rust
      html
@@ -666,7 +667,7 @@ before packages are loaded."
     (setq-default flycheck-global-modes nil) ;; case go's flycheck will run 'go build', use too much memory for big project.
     (setq go-indent-level 4)
     (setq go-tab-width 4)
-    (setq go-format-before-save t)
+    (setq go-format-before-save nil)
     (setq gofmt-command "goimports")
     (setq php-indent-level 4)
     (setq python-indent-level 4)

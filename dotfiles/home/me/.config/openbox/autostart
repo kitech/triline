@@ -5,6 +5,7 @@ feh --bg-scale /usr/share/wallpapers/PastelHills/contents/images/1280x800.jpg
 tint2 &
 
 pnmixer &
+dunst &
 
 # lxqt-powermanagement &
 

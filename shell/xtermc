@@ -1,0 +1,5 @@
+#!/bin/sh
+#exec xterm -u8 -geometry 120x40 -xrm XTerm*selectToClipboard:true -bg black -fg green -sh 1.2
+exec xterm -u8 -geometry 90x30 -xrm XTerm*selectToClipboard:true -bg black -fg green4 -bdc -pc -fbb -font '*-fixed-*-*-*-18-*' "$@"
+
+# https://critical.ch/xterm/

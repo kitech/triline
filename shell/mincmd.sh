@@ -138,4 +138,4 @@ function otterbrs2.f() { otter-browser --profile $HOME/.config/otter2;}
 function fix_app { adb shell "pm uninstall -k ${1}; rm -rf /data/app/${1}-*; su -c 'rm -rf /data/app-lib/${1}-*'";}
 
 function frseup { curl -v -F "c=@$1" "https://fars.ee/"; }
-
+function neimup { curl -v -F "upfile=@$1" "http://127.0.0.1:8066/upload?fmt=plain"; }

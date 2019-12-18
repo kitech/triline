@@ -16,7 +16,7 @@ echo 10 > /proc/sys/vm/swappiness
 # echo LID0 > /proc/acpi/wakeup
 
 
-mount -t btrfs -o compress=zstd,thread_pool=2,noinode_cache,nospace_cache,rw /zhome.img /zhome/
+#mount -t btrfs -o compress=zstd,thread_pool=2,noinode_cache,nospace_cache,rw /zhome.img /zhome/
 su - gzleo -c "date && echo \$HOME" >> /tmp/d.log
 
 # su - gzleo -c "/home/me/myscripts/vdmnt2.sh m"

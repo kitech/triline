@@ -7,6 +7,8 @@
 ::1		localhost.localdomain	localhost
 127.0.0.1 oarchbox1
 
+118.24.169.84 forum.akaxin.vip bbs.akaxin.vip cms.akaxin.vip blog.akaxin.vip blog2.akaxin.vip ocdev.akaxin.vip ocpro.akaxin.vip
+
 #10.10.8.128 static.xiaojukeji.com
 #127.0.0.1 crm.xiaojukeji.com
 #10.10.8.128 crm.xiaojukeji.com
@@ -76,6 +78,8 @@
 192.30.253.112     github.com
 151.101.72.133    assets-cdn.github.com
 151.101.193.194    github.global.ssl.fastly.net
+151.101.228.133 raw.githubusercontent.com
+104.31.86.131 fars.ee
 
 127.0.0.1 getck.pan.baidu.com
 # 160.16.217.191 xmpp.jp conference.xmpp.jp

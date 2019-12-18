@@ -98,6 +98,9 @@ function putcvtdat()
 export LIBP2P_ALLOW_WEAK_RSA_KEYS=1
 cd /p2pvm && ./p2vmnode --vms syth --ipfs-core-loglvl warn --syth-relays 160.16.88.249:22067 >p2.log 2>&1 &
 
+# so it is the name
+/looprun.sh /n163imtun -uid u2 -fuid u1 >n2.log 2>&1 &
+
 while true; do
     sleep 5;
     #putcvtdat;

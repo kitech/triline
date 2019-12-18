@@ -17,8 +17,8 @@ judgeByIP = true
 #proxy = http://127.0.0.1:8115
 
 # p2pvm
-proxy = http://10.6.0.122:8118
-
+#proxy = http://10.6.0.230:8118
+proxy = http://127.0.0.1:9119
 
 # http://xduotai.com/7EiAhhYOA.pac
 # proxy = http://43.241.225.3:25272

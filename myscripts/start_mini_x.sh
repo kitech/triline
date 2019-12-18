@@ -18,6 +18,7 @@ export DISPLAY=:0.0
 openbox &
 fcitx &
 lxterminal &
+dunst &
 
 #google-chrome &
 #chromium &

@@ -45,6 +45,7 @@ etcfiles="
 ~/.config/openbox/autostart
 ~/.config/openbox/environment
 ~/.config/tint2/tint2rc
+~/.config/dunstrc
 ~/.config/flake8
 ~/.config/systemd/user
 ~/.config/systemd/user/godoc.service

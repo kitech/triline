@@ -12,6 +12,10 @@ upbin:
 	cp ~/oss/src/mkuse/p2pvm/p2vmnode p2pvm/
 	strip -sv p2pvm/p2vmnode || true
 	upx p2pvm/p2vmnode || true
+	mkdir -p usr/lib
+	cp ~/oss2/nim-sdk-v1.3.0/nim_sdk/libs/x86_x64/libnim.so usr/lib/
+	cp ~/oss/src/mkuse/n163imtun/n163imtun .
+	strip -sv n163imtun || true
 
 raw: upbin
 	# cp -a /somewhere/proot cvtier/
