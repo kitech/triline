@@ -26,6 +26,7 @@
 # ssh user@machine-where-precious-data-is "tar czpf - /some/important/data" | tar xzpf - -C /new/root/directory
 # ssh root@dest -o "ProxyCommand=corkscrew 127.0.0.1 3118 %h %p"
 # ssh root@dest -o "ProxyCommand=nc -X connect -x 127.0.0.1:3118 %h %p"
+# ssh -R 1865:127.0.0.1:1860 -R 1866:127.0.0.1:9666 -N -v me@10.0.0.32
 # sqlite3 test.db .schema > schema.sql
 # filter android app log, need app runup
 # adb logcat | grep -F "`adb shell ps | grep com.example.package | cut -c10-15`"

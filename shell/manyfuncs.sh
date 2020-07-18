@@ -6,22 +6,38 @@ function gomanyfuncs() {
     echo "package manyfuncs" >> $gofile
 
     echo "//go:noinline" >> $gofile
-    echo "func The_callee_deducer(fnidx uint32, typ byte, args ...interface{}) interface{}{return 789}" >> $gofile
+    echo "func The_callee_deducer(fnidx uint32, typ byte, ival int, sval string) uint32 {return 789}" >> $gofile
     echo >> $gofile
 
     cnter=0
     while true; do
         cnter=$((cnter+1))
-        if [[ $cnter -gt 1000 ]]; then
+        if [[ $cnter -gt 10000 ]]; then
             break
         fi
         # echo $cnter
 
+        echo "type dummy_st$cnter struct {" >> $gofile
+        echo "  f1 int" >> $gofile
+        echo "  f2 string" >> $gofile
+        echo "}" >> $gofile
+
         echo "//go:noinline" >> $gofile
         echo "func A_long_func_name_maybe_very_long_$cnter() uint32 {" >> $gofile
-        echo "  return The_callee_deducer($RANDOM, byte($RANDOM%256), 123, \"ggg\").(uint32)" >> $gofile
+        echo "  return The_callee_deducer($RANDOM, byte($RANDOM%256), 123, \"ggg\")" >> $gofile
         echo "}" >> $gofile
     done
+
+    echo "func ForceCall() {" >> $gofile
+    cnter=0
+    while true; do
+        cnter=$((cnter+1))
+        if [[ $cnter -gt 10000 ]]; then
+            break
+        fi
+        echo "A_long_func_name_maybe_very_long_$cnter()" >> $gofile
+    done
+    echo "}" >> $gofile
 }
 
 function gomanyfuncs2() {

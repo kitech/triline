@@ -5,7 +5,7 @@
 # 或者在自动代理配置中填入 http://127.0.0.1:8117/pac
 listen = http://0.0.0.0:8117
 #listen = http://127.0.0.1:8117
-loadBalance = latency
+loadBalance = backup
 # loadBalance = hash/backup/latency
 logFile = /home/me/.meow/cow.log
 judgeByIP = true
@@ -18,7 +18,7 @@ judgeByIP = true
 
 # p2pvm
 #proxy = http://10.6.0.230:8118
-proxy = http://127.0.0.1:9119
+# proxy = http://127.0.0.1:9119
 
 # http://xduotai.com/7EiAhhYOA.pac
 # proxy = http://43.241.225.3:25272
@@ -40,8 +40,10 @@ proxy = http://127.0.0.1:9119
 
 # ultra gate(ugate)(wujie)
 #proxy = http://127.0.0.1:9666
+#proxy = http://127.0.0.1:9667
 # proxy = http://10.0.0.7:9666
-#proxy = http://10.0.0.34:9666
+#proxy = http://10.0.0.31:9666
+#proxy = http://127.0.0.1:1866
 
 # shadowsocks 本地
 # proxy = socks5://127.0.0.1:1080
@@ -55,13 +57,16 @@ proxy = http://127.0.0.1:9119
 # proxy = socks5://127.0.0.1:9050
 
 # lantern 本地
-# proxy = http://127.0.0.1:8787
+# proxy = http://127.0.0.1:46007
 
 # i2p 本地
 # proxy = http://127.0.0.1:4444
 
+# psiphon3 tunnel core
+proxy = http://127.0.0.1:8081
+
 # psiphon3 via vbox winxp port forward
-# proxy = http://127.0.0.1:1845
+# proxy = http://127.0.0.1:1865
 # proxy = socks5://127.0.0.1:1846
 
 # shadowsocks 二级代理

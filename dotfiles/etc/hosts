@@ -73,7 +73,9 @@
 127.0.0.1 hub5emu.sandai.net 
 
 ################### shit network fix
-118.89.204.192 zhihu.com www.zhihu.com
+203.208.41.63 golang.google.cn
+103.41.167.234 zhihu.com www.zhihu.com
+#118.89.204.192 zhihu.com www.zhihu.com
 #13.229.188.59 github.com
 192.30.253.112     github.com
 151.101.72.133    assets-cdn.github.com

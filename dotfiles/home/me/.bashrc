@@ -9,7 +9,7 @@
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
 
-eval $(thefuck --alias ohfuck)
+# eval $(thefuck --alias ohfuck)
 
 unset http_proxy https_proxy ftp_proxy socks_proxy
 export http_proxy_=''

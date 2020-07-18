@@ -139,3 +139,20 @@ function fix_app { adb shell "pm uninstall -k ${1}; rm -rf /data/app/${1}-*; su 
 
 function frseup { curl -v -F "c=@$1" "https://fars.ee/"; }
 function neimup { curl -v -F "upfile=@$1" "http://127.0.0.1:8066/upload?fmt=plain"; }
+
+function gdbwc.f() {
+    exe=$1
+    core=$(ls *.*.P*.core|tail -n 1)
+    if [[ $core == "" ]]; then
+        echo "gdb $exe: no core files"
+    else
+        gdb $exe $core
+    fi
+}
+
+# no signal by load .gdbinit
+function gdbns.f() {
+    exe=$1
+    gdb --init-command=$HOME/triline/shell/.gdbinit.nosig $exe
+}
+

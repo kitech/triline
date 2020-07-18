@@ -224,7 +224,8 @@ function runverb_thunder5()
 {
     #/opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
     export WINEPREFIX=$HOME/.deepinwine/Deepin-ThunderSpeed
-    wine "C:/Program Files/Thunder Network/Thunder/Thunder.exe"
+    #wine "C:/Program Files/Thunder Network/Thunder/Thunder.exe"
+    wine "C:/Program Files/Thunder/Thunder.exe"
 }
 
 function runclean_thunder5()

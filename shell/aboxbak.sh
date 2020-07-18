@@ -90,6 +90,7 @@ etcfiles="
 /etc/conf.d/etcd3
 /etc/unrealircd/unrealircd.conf
 /var/spool/cron
+/opt/psiphon/config.json
 "
 
 # echo $etcfiles

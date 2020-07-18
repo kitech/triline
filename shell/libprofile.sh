@@ -35,6 +35,7 @@ alias mks='make smoke'
 alias mkp='make package'
 alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
 alias gobz="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\""
+alias gobt="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\" -trimpath"
 alias nimc='nim -p:/opt/nim/mulib c'
 alias nimr='nim -p:/opt/nim/mulib c -r'
 #alias xtermc='xterm -u8 -geometry 120x40 -xrm XTerm*selectToClipboard:true -bg black -fg green -sh 1.2'
@@ -113,6 +114,8 @@ AKKA_LIB=$HOME/jars/akka-2.3.8/lib/akka
 #export CLASSPATH=$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/akka-actor_2.11-2.3.8.jar:$AKKA_LIB/config-1.2.1.jar
 # use -Djava.ext.dirs=...替代
 JAR_EXTS=$JAVA_HOME/jre/lib/ext:$AKKA_LIB
+
+export VCPKG_ROOT=$HOME/vcpkg
 
 # queueit变量
 export QUEUEIT_HOST=127.0.0.1

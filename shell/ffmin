@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# exec /opt/firefox56/firefox --profile ~/.mozilla/firefox56
+# exec /opt/firefox52/firefox --profile ~/.mozilla/firefox56
+
+# mainline
+px=$1
+mkdir -p ~/.mozilla/firefox6x.p{1,2}
+mkdir -p ~/.mozilla/firefox4x.p{1,2,3}
+if [ x"$px" = x"1" ]; then
+    echo "ff60+ p1..., simple web page access"
+    exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p1 --new-instance
+elif [ x"$px" = x"2" ]; then
+    echo "ff60+ p2..., big memory like youtube/imgur, flash."
+    exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p2 --new-instance
+elif [ x"$px" = x"g1" ]; then
+    echo "ff45+ p1..., gpu flash 1."
+    exec /opt/ff45/firefox --profile ~/.mozilla/firefox4x.p1 --new-instance
+elif [ x"$px" = x"g2" ]; then
+    echo "ff45+ p2..., gpu flash 2."
+    exec /opt/ff45/firefox --profile ~/.mozilla/firefox4x.p2 --new-instance
+elif [ x"$px" = x"g3" ]; then
+    echo "ff45+ p3..., gpu flash 3."
+    exec /opt/ff45/firefox --profile ~/.mozilla/firefox4x.p3 --new-instance
+else
+    echo "not support $px"
+fi
+# min firefox
+# disable remote/multiple processes
+# only use 3-4 externsions
+
+# still use ff60+, because ff56 not support mp4
+
