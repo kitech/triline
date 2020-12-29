@@ -49,6 +49,11 @@ function homecleaner.f() {
 
 function core-files-delete.f() { rm -fv *P*.core ;}
 
+# wayland run like Qt/?
+function wlrun() {
+    QT_QPA_PLATFORM=wayland GDK_BACKEND=wayland CLUTTER_BACKEND=wayland SDL_VIDEODRIVER=wayland WINIT_UNIX_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 "$@"
+}
+
 ######### network
 # usage: pxyrun <cmd>
 function pxyrun.f() {
@@ -62,7 +67,8 @@ function pxyrun.f2() {
     "$@"
 }
 
-function ipcn.f() { curl "https://ip.cn/index.php?ip=$@" ;}
+#function ipcn.f() { curl "https://ip.cn/index.php?type=1&ip=$@" ;}
+function ipcn.f() { curl "https://ip.cn/api/index?type=1&ip=$@" ; echo ; }
 function geoip.f() { geoiplookup "$@" ;}
 # nc port check for localhost
 function ncpc.f() { nc -v localhost "$@" ;}
@@ -139,6 +145,12 @@ function fix_app { adb shell "pm uninstall -k ${1}; rm -rf /data/app/${1}-*; su 
 
 function frseup { curl -v -F "c=@$1" "https://fars.ee/"; }
 function neimup { curl -v -F "upfile=@$1" "http://127.0.0.1:8066/upload?fmt=plain"; }
+# https://g.ioiox.com/https://github.com/user/repo.git
+# https://hub.fastgit.org/user/repo.git
+function ghpxydl () {
+    dlurl=$1
+    curl -v "https://g.ioiox.com/$dlurl"
+}
 
 function gdbwc.f() {
     exe=$1
@@ -156,3 +168,53 @@ function gdbns.f() {
     gdb --init-command=$HOME/triline/shell/.gdbinit.nosig $exe
 }
 
+# 播放QQ最后一个已缓存的MP4视频
+# usage: playqqtv.f [nth]
+function playqqtv.f() {
+    nth=$1
+    if [ -e $nth ] || [ x"$nth" == x"0" ]; then
+        nth=1
+    fi
+    # real: QQLite/drive_c/Program Files/Tencent/QQLite/Users/QQNUM/Video/
+    dir=$HOME/Videos/qqvideo
+    topfile=$(ls -t $dir/*.mp4|head -n "$nth"|tail -n 1)
+    echo "mpv $topfile ... ($nth)"
+    #mpv --pause "$topfile"
+    mpv --keep-open "$topfile"
+}
+
+# check aur git repo is valid
+# run in aur repo dir
+function aurchk.f()
+{
+    pkgname=$(basename $(pwd))
+    echo "Ifgit: ssh://aur@aur.archlinux.org/$pkgname.git"
+    if [ ! -f .SRCINFO ]; then
+        echo "Missing .SRCINFO, fix by run 'makepkg --printsrcinfo > .SRCINFO'"
+    fi
+    echo "Cannot contains subdir(s)"
+    echo "How about repo size limit?"
+    echo "How about repo file count limit?"
+    echo "If maximum blob size (250.00KiB)? 'split -b 200K filename filename."
+}
+
+# 调用gdb 并尝试找最新的.core文件
+function gdbup.f()
+{
+    exe=$1
+    cores=$(ls -t *.core)
+    if [ x"$cores" = x"" ]; then
+        gdb "$exe"
+    else
+        core0=$(echo "$cores"|head -n 1)
+        echo "gdb $exe --core $core0"
+        gdb "$exe" --core "$core0"
+    fi
+}
+
+function valgrindvv.f()
+{
+    echo "valgrind --leak-check=full --show-leak-kinds=all $@"
+    valgrind --leak-check=full --show-leak-kinds=all "$@"
+    echo "DONE: valgrind --leak-check=full --show-leak-kinds=all $@"
+}

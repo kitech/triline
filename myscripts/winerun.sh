@@ -249,6 +249,18 @@ function runclean_thunderx()
     killall -9 KKV.exe
 }
 
+function runverb_chaoxingyunpan()
+{
+    #/opt/deepinwine/apps/Deepin-ThunderSpeed/run.sh
+    export WINEPREFIX=$HOME/.deepinwine/Deepin-ThunderSpeed
+    wine "C:/Program Files/chaoxingyunpan/ChaoXingCloudDisk.exe"
+}
+
+function runclean_chaoxingyunpan()
+{
+    killall -9 ChaoXingCloudDisk.exe
+}
+
 function runverb_si3()
 {
     export WINEPREFIX=$HOME/.local/share/wineprefixes/directinstalled
@@ -262,7 +274,7 @@ function runclean_si3()
 
 function runverb_list()
 {
-    lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote"
+    lst="qqintl TM2013P2 qqlight qq weixin meitu edraw THS QQGame evernote ynote thunder5 thunderx hdsql cxyunpan"
     nlst=$(echo $lst|wc -w)
     echo "wine verb list: ($nlst)"
     idx=0
@@ -274,7 +286,7 @@ function runverb_list()
 
 ### main
 if [ x"$act" == x"" ] ; then
-    echo "Need least one argument";
+    echo "Need least one argument, use 'list' to show commands";
 elif [ x"$act" == x"clean" ] ; then
     verb=$2
     case $verb in
@@ -301,6 +313,9 @@ elif [ x"$act" == x"clean" ] ; then
             ;;
         'thunderx')
             runclean_thunderx;
+            ;;
+        'cxyunpan')
+            runclean_chaoxingyunpan;
             ;;
         *)
             read -p "Are you sure clean all verbs? (Y/N): " agree
@@ -356,6 +371,8 @@ else
         runverb_thunder5;
     elif [ x"$act" == x"thunderx" ]; then
         runverb_thunderx;
+    elif [ x"$act" == x"cxyunpan" ]; then
+        runverb_chaoxingyunpan;
     elif [ x"$act" == x"si3" ]; then
         runverb_si3;
     else

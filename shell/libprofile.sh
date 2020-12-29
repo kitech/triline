@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -l --time-style="+%Y/%m/%d %H:%I:%S"'
 alias llh='ls --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
 alias lla='ls -a --color=auto -lh --time-style="+%Y/%m/%d %H:%I:%S"'
+alias lss='ls --color=auto -lh -t --time-style="+%Y/%m/%d %H:%I:%S"'
 alias less='less -X'
 alias rm='rm -i'
 alias ssh='ssh -CXY'
@@ -36,6 +37,8 @@ alias mkp='make package'
 alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
 alias gobz="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\""
 alias gobt="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\" -trimpath"
+alias gobo="go build -v -p 1 -trimpath"
+alias gobx="go build -v -p 1 -x -trimpath"
 alias nimc='nim -p:/opt/nim/mulib c'
 alias nimr='nim -p:/opt/nim/mulib c -r'
 #alias xtermc='xterm -u8 -geometry 120x40 -xrm XTerm*selectToClipboard:true -bg black -fg green -sh 1.2'
@@ -82,9 +85,12 @@ if [ x"$mbp" != x"" ] && [ x"$march" == x"Linux" ] ; then
 fi
 
 # shit go1.13
-export GONOPROXY=on
+export GONOPROXY=off # on
 export GOPROXY=direct # 默认：https://proxy.golang.org,direct
+# export GOPROXY=https://goproxy.baidu.com/,direct
+export GOPROXY=https://goproxy.cn,direct
 export GOSUMDB=off
+#export GOMODCACHE=$HOME/golib/pkg/mod
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 export NIMPATH=$HOME/nimlib
 
@@ -101,7 +107,8 @@ export DTPXY=127.0.0.1:8117
 export DTPXY2=127.0.0.1:8008
 export GIT_SSH=$HOME/triline/myscripts/socks5proxyssh
 export GIT_TRACE=0
-export GIT_CURL_VERBOSE=0
+# curl只会检测该变量是否存在，不关心值
+export GIT_CURL_VERBOSE_UNUSED=0
 export HOMEBREW_GITHUB_API_TOKEN=08e4846ae157896fd404c81396af3e6a4256477a
 
 export WINEARCH=win32

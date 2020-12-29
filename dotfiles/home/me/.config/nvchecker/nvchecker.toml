@@ -1,0 +1,283 @@
+[__config__]
+oldver = "old_ver.json"
+newver = "new_ver.json"
+
+[chisel-tunnel]
+source = "aur"
+
+[deb2targz]
+source = "aur"
+
+[duplicacy]
+source = "aur"
+
+[ivideon-client]
+source = "aur"
+
+[ivideon-server]
+source = "aur"
+
+[ivideon-server-headless]
+source = "aur"
+
+[libbacktrace-git]
+source = "aur"
+
+[libcgroup]
+source = "aur"
+
+[proot-bin]
+source = "aur"
+
+[psiphon-tunnel-core-git]
+source = "aur"
+
+[smplayer-qt4]
+source = "aur"
+
+[firefox56]
+source = "aur"
+
+[memleax]
+source = "aur"
+
+[retroshare]
+source = "aur"
+
+[softethervpn]
+source = "aur"
+[robustirc-bridge]
+source = "aur"
+[rc-local]
+source = "aur"
+[qweechat]
+source = "aur"
+[qt-virt-manager]
+source = "aur"
+
+[qt-inspector-qt5-git]
+source = "aur"
+#[python-yapf]
+#source = "aur"
+[pyinstaller]
+source = "aur"
+#[purple-whatsapp]
+#source = "aur"
+[pstate-frequency]
+source = "aur"
+[libprotobuf2]
+source = "aur"
+#[prelink]
+#source = "aur"
+#[prelink-systemd]
+#source = "aur"
+[ttf-oxygen]
+source = "aur"
+[perl-sys-virt]
+source = "aur"
+[osu]
+source = "aur"
+#[pacdeb]
+#source = "aur"
+[orbit2]
+source = "aur"
+[opera-legacy]
+source = "aur"
+#[opam]
+#source = "aur"
+[obfs4proxy]
+source = "aur"
+[netatop-dkms]
+source = "aur"
+
+[mingw-w64-ffmpeg]
+source = "aur"
+[mingw-w64-cppunit]
+source = "aur"
+
+#[mingw-w64-c++utilities]
+#source = "aur"
+[mingw-w64-cmake]
+source = "aur"
+[mingw-w64-environment]
+source = "aur"
+[mingw-w64-configure]
+source = "aur"
+
+[midori-flash]
+source = "aur"
+[ncurses5-compat-libs]
+source = "aur"
+[linuxdeployqt]
+source = "aur"
+[libqtxdg-git]
+source = "aur"
+[libphutil-git]
+source = "aur"
+[libmygpo-qt5-git]
+source = "aur"
+#[libclastfm]
+#source = "aur"
+[libechonest-qt5]
+source = "aur"
+#[libaom-git]
+#source = "aur"
+[heidisql]
+source = "aur"
+[gputest]
+source = "aur"
+
+[gops]
+source = "aur"
+
+[goproxy]
+source = "aur"
+
+[gnatsd]
+source = "aur"
+[git-extras]
+source = "aur"
+
+[fslint]
+source = "aur"
+[edrawmax]
+source = "aur"
+[duckdns]
+source = "aur"
+[davmail]
+source = "aur"
+[boris]
+source = "aur"
+
+#[qtile]
+#source = "aur"
+
+[utox-git]
+source = "aur"
+
+[connect]
+source = "aur"
+[crossover]
+source = "aur"
+
+
+[dingtalk-electron]
+source = "aur"
+
+[biicode]
+source = "aur"
+
+[toxcrawler-git]
+source = "aur"
+
+[shellinabox-git]
+source = "aur"
+
+[qpass-qt5]
+source = "aur"
+
+[purple-matrix-git]
+source = "aur"
+
+#[purple-whatsapp]
+#source = "aur"
+
+[php-swoole]
+source = "aur"
+
+[pdf2htmlex-git]
+source = "aur"
+
+[nitrotasks]
+source = "aur"
+
+[grpc]
+source = "aur"
+[php-grpc]
+source = "aur"
+
+[mesos]
+source = "aur"
+
+[mininet]
+source = "aur"
+
+
+[drone-cli]
+source = "aur"
+
+[folly]
+source = "aur"
+
+#[hipchat]
+#source = "aur"
+
+#[vlc-git]
+#source = "aur"
+
+[fiddler]
+source = "aur"
+
+[thinkfan]
+source = "aur"
+
+
+[libguestfs]
+source = "aur"
+
+[i2pd]
+source = "aur"
+
+[i2p-bin]
+source = "aur"
+
+[hivex]
+source = "aur"
+
+[grail]
+source = "aur"
+[frame]
+source = "aur"
+[geis]
+source = "aur"
+
+[nix]
+source = "aur"
+
+[touchegg]
+source = "aur"
+[debtap]
+source = "aur"
+#[nheko-git]
+#source = "aur"
+
+[pyqt-doc]
+source = "aur"
+
+[ocproxy-git]
+source = "aur"
+[rohc]
+source = "aur"
+
+[ripcord]
+source = "aur"
+
+[tunsocks-git]
+source = "aur"
+
+[viber]
+source = "aur"
+
+[vlang]
+source = "aur"
+[vtun]
+source = "aur"
+
+[winmacs-wallpapers]
+source = "aur"
+
+[xf86-input-mtrack-git]
+source = "aur"
+
+[zy-player-bin]
+source = "aur"

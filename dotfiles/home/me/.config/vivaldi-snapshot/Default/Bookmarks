@@ -1,10 +1,11 @@
 {
-   "checksum": "c065b3163a50d6f8f0466120f70babe2",
+   "checksum": "873eeee748659520c15dfef1ea72d0bf",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "children": [ {
                "date_added": "13211114232988619",
+               "guid": "beed9e4b-2578-47da-a3f8-28ee2ea76811",
                "id": "7",
                "meta_info": {
                   "Description": "vivaldi",
@@ -16,6 +17,7 @@
                "url": "https://vivaldi.com/bk/sd-browser-features"
             }, {
                "date_added": "13211114233070641",
+               "guid": "6ddf4fad-2163-4e45-b4b4-52bbcdb7ec4a",
                "id": "8",
                "meta_info": {
                   "Description": "vivaldi",
@@ -27,6 +29,7 @@
                "url": "https://vivaldi.com/bk/sd-community"
             }, {
                "date_added": "13211114233186468",
+               "guid": "29d2f1af-79b3-4961-aef4-43fc68ca6403",
                "id": "9",
                "meta_info": {
                   "Partner": "81faaf2a-8c43-41e6-868e-a9010bf1b0a9",
@@ -37,6 +40,7 @@
                "url": "https://vivaldi.com/bk/sd-webmail"
             }, {
                "date_added": "13211114233221483",
+               "guid": "45c5419f-9da5-46a1-a85f-b321fd29ac78",
                "id": "10",
                "meta_info": {
                   "Partner": "3ed2b980-83fd-4b07-a6da-7722c16ec601",
@@ -47,9 +51,10 @@
                "url": "https://vivaldi.com/bk/sd-get-started"
             }, {
                "date_added": "13211114233243337",
+               "guid": "e795aa5c-7ebe-449f-ba64-c76266e5a258",
                "id": "11",
                "meta_info": {
-                  "Description": "travel, airfare",
+                  "Description": "hotels, booking, apartments",
                   "Partner": "b63e8c61-ada6-4211-8370-df06125d410e",
                   "Thumbnail": "/resources/sd_booking.com.png"
                },
@@ -58,6 +63,7 @@
                "url": "https://vivaldi.com/bk/bookingcom-en-us"
             }, {
                "date_added": "13211114233268889",
+               "guid": "2f7955e7-d25b-4bb9-ab57-d29497c85660",
                "id": "12",
                "meta_info": {
                   "Description": "shopping",
@@ -69,6 +75,7 @@
                "url": "https://vivaldi.com/bk/ebay-en-us"
             }, {
                "date_added": "13211114233303911",
+               "guid": "ee226d5a-b14a-479a-9ffe-211b76a03f5e",
                "id": "13",
                "meta_info": {
                   "Description": "shopping, electronics",
@@ -80,6 +87,7 @@
                "url": "https://vivaldi.com/bk/amazon"
             }, {
                "date_added": "13211114233314687",
+               "guid": "95b713fb-e6e0-4d95-88c2-0c1cddbd4389",
                "id": "14",
                "meta_info": {
                   "Description": "travel",
@@ -91,6 +99,7 @@
                "url": "https://vivaldi.com/bk/expedia"
             }, {
                "date_added": "13211114233322778",
+               "guid": "79d41e2c-1075-4530-98f4-8ab6f3e158a5",
                "id": "15",
                "meta_info": {
                   "Description": "travel, tickets, flights",
@@ -103,6 +112,7 @@
             }, {
                "children": [ {
                   "date_added": "13211114233329479",
+                  "guid": "b544637c-54d9-4a00-8518-eb3f6830a1cb",
                   "id": "17",
                   "meta_info": {
                      "Description": "portal, start page",
@@ -114,6 +124,7 @@
                   "url": "https://vivaldi.com/bk/startme-en-us"
                }, {
                   "date_added": "13211114233329829",
+                  "guid": "31fe56aa-b7f3-4a70-895b-327683004844",
                   "id": "18",
                   "meta_info": {
                      "Partner": "d870b737-2787-4f6d-8806-925a4de3489e",
@@ -124,6 +135,7 @@
                   "url": "https://techcrunch.com/"
                }, {
                   "date_added": "13211114233330160",
+                  "guid": "b4549afc-8dae-4533-986a-2b2aa35878bf",
                   "id": "19",
                   "meta_info": {
                      "Partner": "6dc17eef-1f80-43e7-98c2-5915c32351e2",
@@ -134,6 +146,7 @@
                   "url": "https://arstechnica.com/"
                }, {
                   "date_added": "13211114233330438",
+                  "guid": "60fa723b-538d-4e0a-8e5e-6ff438fdc879",
                   "id": "20",
                   "meta_info": {
                      "Partner": "00ea5410-b82e-4497-a527-02c05044905f",
@@ -145,15 +158,76 @@
                } ],
                "date_added": "13211114233329011",
                "date_modified": "13211114233330438",
+               "guid": "bc78e796-9360-4282-b30b-417a06c94511",
                "id": "16",
                "meta_info": {
                   "Partner": "08e0fd19-5f7f-4f32-92b5-92417a412639"
                },
                "name": "News",
                "type": "folder"
+            }, {
+               "date_added": "13251879104842806",
+               "guid": "a4d0c752-2bf7-470d-85cd-8b2ddd1ec82b",
+               "id": "104",
+               "meta_info": {
+                  "Description": "video",
+                  "Partner": "a4d0c752-2bf7-470d-85cd-8b2ddd1ec82b",
+                  "Thumbnail": "/resources/sd_youtube.png"
+               },
+               "name": "YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/"
+            }, {
+               "date_added": "13251879104842878",
+               "guid": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+               "id": "105",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+                  "Thumbnail": "/resources/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/aliexpresscom-us"
+            }, {
+               "date_added": "13251879104842913",
+               "guid": "c0f2e6cc-ebba-45c0-9e7e-47480ce92b30",
+               "id": "106",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "c0f2e6cc-ebba-45c0-9e7e-47480ce92b30",
+                  "Thumbnail": "/resources/sd_homedepot.png"
+               },
+               "name": "The Home Depot",
+               "type": "url",
+               "url": "http://vivaldi.com/bk/homedepot-us"
+            }, {
+               "date_added": "13251879104842933",
+               "guid": "5ff5b9a8-0995-4a99-b381-9860ec9e4880",
+               "id": "107",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "5ff5b9a8-0995-4a99-b381-9860ec9e4880",
+                  "Thumbnail": "/resources/sd_bestbuy.png"
+               },
+               "name": "Best Buy",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/bestbuy-us"
+            }, {
+               "date_added": "13251879104842948",
+               "guid": "719c6802-36cf-40c9-b931-f9ab386db081",
+               "id": "108",
+               "meta_info": {
+                  "Partner": "719c6802-36cf-40c9-b931-f9ab386db081",
+                  "Thumbnail": "/resources/sd_airbnb.png"
+               },
+               "name": "Airbnb",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/airbnb-us-bk"
             } ],
             "date_added": "13211114232882857",
-            "date_modified": "13211114233329026",
+            "date_modified": "13251879104842948",
+            "guid": "35b18c0e-849c-4d5a-ace7-bb2b37572c45",
             "id": "6",
             "meta_info": {
                "Partner": "76bd70a3-2806-48c6-a9b2-37b68c8857b3",
@@ -164,6 +238,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233330957",
+               "guid": "b98c70e4-2ca1-41f3-868f-9e43de0742d0",
                "id": "22",
                "meta_info": {
                   "Description": "navigation, gadgets",
@@ -174,6 +249,7 @@
                "url": "https://vivaldi.com/bk/garmin-en-us"
             }, {
                "date_added": "13211114233331208",
+               "guid": "4df97899-7a89-48f0-b557-704497c4ca1e",
                "id": "23",
                "meta_info": {
                   "Description": "electronics, audio",
@@ -184,6 +260,7 @@
                "url": "https://vivaldi.com/bk/bose-en-us"
             }, {
                "date_added": "13211114233331449",
+               "guid": "c3ff3d5c-b755-4623-b052-69106401083d",
                "id": "24",
                "meta_info": {
                   "Description": "Internet, domains, hosting",
@@ -194,6 +271,7 @@
                "url": "https://vivaldi.com/bk/domaincom-en-us"
             }, {
                "date_added": "13211114233331711",
+               "guid": "dcd989a9-d70b-469f-83b9-94d9bbb79a87",
                "id": "25",
                "meta_info": {
                   "Description": "software, media",
@@ -204,6 +282,7 @@
                "url": "https://vivaldi.com/bk/cyberlinksoftware-en-us"
             }, {
                "date_added": "13211114233331955",
+               "guid": "3869371d-98e5-4c79-ba1d-cb57dc3329c7",
                "id": "26",
                "meta_info": {
                   "Description": "gadgets, electronics",
@@ -214,6 +293,7 @@
                "url": "https://vivaldi.com/bk/ihome-en-us"
             }, {
                "date_added": "13211114233332197",
+               "guid": "ed950a32-ac37-406f-b7d2-36c89a5cd4f5",
                "id": "27",
                "meta_info": {
                   "Description": "hosting, domain registration, website services",
@@ -224,6 +304,7 @@
                "url": "https://vivaldi.com/bk/11internet-en-us"
             }, {
                "date_added": "13211114233332450",
+               "guid": "9e337cb4-206d-4843-8af9-89cff1c7c1d7",
                "id": "28",
                "meta_info": {
                   "Description": "domain names",
@@ -234,6 +315,7 @@
                "url": "https://vivaldi.com/bk/namecheap-en-us"
             }, {
                "date_added": "13211114233333000",
+               "guid": "00ee5912-b1cf-46c3-b1d3-162de4a6d09c",
                "id": "29",
                "meta_info": {
                   "Partner": "ee4ffa5c-650d-4c75-940d-39483e976b71"
@@ -243,6 +325,7 @@
                "url": "https://github.com/"
             }, {
                "date_added": "13211114233333947",
+               "guid": "dc6ff2ad-b605-4ed2-8e8c-f1a79833ece7",
                "id": "30",
                "meta_info": {
                   "Partner": "1d153ae4-35e6-4dd3-981d-4fa24fe29736"
@@ -252,6 +335,7 @@
                "url": "https://gizmodo.com/"
             }, {
                "date_added": "13211114233344826",
+               "guid": "aa9e68e5-4a19-467e-9708-445ecc713a40",
                "id": "31",
                "meta_info": {
                   "Partner": "82d5ab2a-384b-4957-94ff-a3ca98bec8f4"
@@ -261,6 +345,7 @@
                "url": "https://www.theverge.com/"
             }, {
                "date_added": "13211114233359727",
+               "guid": "520267f9-73e5-4aca-98da-7fefd0836ba0",
                "id": "32",
                "meta_info": {
                   "Partner": "c6386d6e-0205-4ee1-8839-cdb571213c61"
@@ -270,6 +355,7 @@
                "url": "https://www.engadget.com/"
             }, {
                "date_added": "13211114233373571",
+               "guid": "3dacb1b9-e5d5-45cd-a686-cad28576f505",
                "id": "33",
                "meta_info": {
                   "Partner": "c072bdbf-4750-4b02-a284-534bbf8b523f"
@@ -279,6 +365,7 @@
                "url": "https://www.wired.com/"
             }, {
                "date_added": "13211114233380337",
+               "guid": "a8202224-dc76-4dfd-b551-04e657cfcd85",
                "id": "34",
                "meta_info": {
                   "Nickname": "/.",
@@ -289,6 +376,7 @@
                "url": "https://slashdot.org/"
             }, {
                "date_added": "13211114233382249",
+               "guid": "fcd10aed-a5e0-4323-96a5-a6e241ddf114",
                "id": "35",
                "meta_info": {
                   "Partner": "fed40b61-a431-496d-868b-9c2a107fbe4f"
@@ -299,6 +387,7 @@
             } ],
             "date_added": "13211114233330727",
             "date_modified": "13211114233382249",
+            "guid": "4345abf0-9391-4444-bee1-9e5bee70b157",
             "id": "21",
             "meta_info": {
                "Partner": "6402ece4-fea9-4dd0-93d5-02a4312bd84f"
@@ -308,6 +397,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233383061",
+               "guid": "ef33fb57-8ade-47e7-8927-026d4d965f51",
                "id": "37",
                "meta_info": {
                   "Description": "gaming",
@@ -318,6 +408,7 @@
                "url": "https://vivaldi.com/bk/greenmangaming-en-us"
             }, {
                "date_added": "13211114233384455",
+               "guid": "52e1af04-db8e-4bd0-8db6-8292ce6eb7c0",
                "id": "38",
                "meta_info": {
                   "Description": "games",
@@ -328,6 +419,7 @@
                "url": "https://vivaldi.com/bk/gamersgate"
             }, {
                "date_added": "13211114233392744",
+               "guid": "e62da4c9-5c3b-4e2e-ad50-da7c76ffdaf2",
                "id": "39",
                "meta_info": {
                   "Partner": "fe6a0340-6ec5-4087-ae33-0b48f2ee05c8"
@@ -337,6 +429,7 @@
                "url": "https://www.ign.com/"
             }, {
                "date_added": "13211114233395524",
+               "guid": "932c1192-da42-48c6-8409-520fa5f239a3",
                "id": "40",
                "meta_info": {
                   "Partner": "32ebf7cd-a55e-4206-913d-d9033fa7f195"
@@ -346,6 +439,7 @@
                "url": "https://www.minecraftforum.net/"
             }, {
                "date_added": "13211114233415492",
+               "guid": "c6025eb7-e6e5-4757-aaec-ea9a2fb2e373",
                "id": "41",
                "meta_info": {
                   "Partner": "79c0969d-9a01-4288-9e2f-42e2da9056c8"
@@ -356,6 +450,7 @@
             } ],
             "date_added": "13211114233382705",
             "date_modified": "13211114233415492",
+            "guid": "a6b0eef4-9cdc-4bf5-abd1-5ca18521e428",
             "id": "36",
             "meta_info": {
                "Partner": "d59ac54d-f5a0-49fb-a0ee-a67212e516ed"
@@ -365,6 +460,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233432023",
+               "guid": "a9a5287d-d03c-44b8-b57d-d3bb8078eb9e",
                "id": "43",
                "meta_info": {
                   "Partner": "fcfb8892-ea5c-4e69-94b8-805db903611a"
@@ -374,6 +470,7 @@
                "url": "https://www.cnn.com/"
             }, {
                "date_added": "13211114233432940",
+               "guid": "a0c2abb6-7f4b-4a43-87ec-b9032138e54b",
                "id": "44",
                "meta_info": {
                   "Partner": "84922d3c-0f02-4fd1-acb2-8fc7b6da1ad3"
@@ -383,6 +480,7 @@
                "url": "https://www.huffingtonpost.com/"
             }, {
                "date_added": "13211114233437965",
+               "guid": "774ae0c0-4df9-4b2c-b648-cad8dd06c2c7",
                "id": "45",
                "meta_info": {
                   "Partner": "dd3c5aa3-5695-4a3d-ae92-1a054254e9af"
@@ -392,6 +490,7 @@
                "url": "https://www.theguardian.com/"
             }, {
                "date_added": "13211114233448951",
+               "guid": "fe5032ef-9632-4db0-b75b-d9ccc09631b3",
                "id": "46",
                "meta_info": {
                   "Partner": "d71ba3fc-ae2f-4db0-ae21-69d382b14fa0"
@@ -401,6 +500,7 @@
                "url": "https://www.reuters.com/"
             }, {
                "date_added": "13211114233449526",
+               "guid": "9b4673d7-6648-49d8-8893-2b3546951144",
                "id": "47",
                "meta_info": {
                   "Partner": "5796fab7-7c1c-43aa-8691-399c4f9542ab"
@@ -410,6 +510,7 @@
                "url": "https://www.washingtonpost.com/"
             }, {
                "date_added": "13211114233450664",
+               "guid": "ab2e82e9-7f47-4250-b613-9c148b075450",
                "id": "48",
                "meta_info": {
                   "Partner": "96516265-8439-48cc-836b-d54ee1204d64"
@@ -420,6 +521,7 @@
             } ],
             "date_added": "13211114233430803",
             "date_modified": "13211114233450664",
+            "guid": "9bd28527-c844-409b-a121-3b6a563998c0",
             "id": "42",
             "meta_info": {
                "Partner": "ed005b93-cd4e-480d-88c1-953dc816bf53"
@@ -429,6 +531,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233451313",
+               "guid": "32d83979-3059-4551-b612-7fc951b583a1",
                "id": "50",
                "meta_info": {
                   "Description": "shopping",
@@ -439,6 +542,7 @@
                "url": "https://vivaldi.com/bk/aliexpresscom-us"
             }, {
                "date_added": "13211114233451619",
+               "guid": "8c87f26c-2204-460b-b20b-dbbb2e985dba",
                "id": "51",
                "meta_info": {
                   "Description": "shopping, e-commerce",
@@ -449,6 +553,7 @@
                "url": "https://vivaldi.com/bk/missguided-us"
             }, {
                "date_added": "13211114233451927",
+               "guid": "31031726-3a12-4bda-afc4-857ac08d87f0",
                "id": "52",
                "meta_info": {
                   "Description": "shoes, retail, apparel",
@@ -459,6 +564,7 @@
                "url": "https://vivaldi.com/bk/zappos-en-us"
             }, {
                "date_added": "13211114233452204",
+               "guid": "d487d282-5eea-49a0-8354-1ca8ed9eac4b",
                "id": "53",
                "meta_info": {
                   "Description": "shopping, discounts, coupons",
@@ -469,6 +575,7 @@
                "url": "https://vivaldi.com/bk/groupon"
             }, {
                "date_added": "13211114233452467",
+               "guid": "c85eb98b-8a45-48c0-b3c2-5bbf70d1a5ab",
                "id": "54",
                "meta_info": {
                   "Description": "electronics, gadgets, gaming",
@@ -479,6 +586,7 @@
                "url": "https://vivaldi.com/bk/gearbest-en-us"
             }, {
                "date_added": "13211114233452730",
+               "guid": "3391b84e-d931-4df0-9257-c4e1c54683ca",
                "id": "55",
                "meta_info": {
                   "Description": "audio, gadgets, accessories",
@@ -489,6 +597,7 @@
                "url": "https://vivaldi.com/bk/monsterproducts-en-us"
             }, {
                "date_added": "13211114233452992",
+               "guid": "6f5d43f2-3a34-4b5f-be20-9a0dc099970a",
                "id": "56",
                "meta_info": {
                   "Description": "gadgets, electronics, retail",
@@ -499,6 +608,7 @@
                "url": "https://vivaldi.com/bk/brookstonecom-en-us"
             }, {
                "date_added": "13211114233453292",
+               "guid": "7933d046-e8a9-412f-94db-8f46039d25c9",
                "id": "57",
                "meta_info": {
                   "Description": "shopping, lifestyle",
@@ -509,6 +619,7 @@
                "url": "https://vivaldi.com/bk/lego-en-us"
             }, {
                "date_added": "13211114233453552",
+               "guid": "1becc849-6baf-495b-8b62-2cbd72186e3a",
                "id": "58",
                "meta_info": {
                   "Description": "shopping, travel",
@@ -519,6 +630,7 @@
                "url": "https://vivaldi.com/bk/livingsocial-en-us"
             }, {
                "date_added": "13211114233453820",
+               "guid": "8ebf3aad-d3c2-4ad1-9b79-90f6024ec465",
                "id": "59",
                "meta_info": {
                   "Description": "gadgets, technology, shopping",
@@ -530,6 +642,7 @@
             } ],
             "date_added": "13211114233451035",
             "date_modified": "13211114233453820",
+            "guid": "2e295dd0-8e1d-406d-9e84-6d248175e4fa",
             "id": "49",
             "meta_info": {
                "Partner": "2aebbbb5-1552-42b7-a63d-58b258d0dee4"
@@ -539,6 +652,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233454302",
+               "guid": "26df6275-9bed-4d8a-8600-703e7c2e556b",
                "id": "61",
                "meta_info": {
                   "Partner": "4c18f174-a937-42c5-b56a-50b70446b654"
@@ -548,6 +662,7 @@
                "url": "https://www.goal.com/"
             }, {
                "date_added": "13211114233454554",
+               "guid": "62f4eb4f-e9ed-4963-831b-508023b01756",
                "id": "62",
                "meta_info": {
                   "Partner": "bf553ffc-16a9-4b08-a792-70cbf059903e"
@@ -557,6 +672,7 @@
                "url": "https://www.nfl.com/"
             }, {
                "date_added": "13211114233454897",
+               "guid": "a4895192-d4b7-4e25-b2f1-6db0eb117ae2",
                "id": "63",
                "meta_info": {
                   "Partner": "2ce575db-27d7-4666-bea5-8b6edc1e40ab"
@@ -566,6 +682,7 @@
                "url": "https://www.mlb.com/"
             }, {
                "date_added": "13211114233455716",
+               "guid": "52622126-01c2-4c26-bf18-01212fcb15a7",
                "id": "64",
                "meta_info": {
                   "Partner": "68170b78-43cc-43b6-a29e-970911783044"
@@ -575,6 +692,7 @@
                "url": "https://www.cbssports.com/"
             }, {
                "date_added": "13211114233456010",
+               "guid": "4181f40e-9e2b-414d-a647-1662d8f70181",
                "id": "65",
                "meta_info": {
                   "Partner": "66a4d9b3-e6d5-4f78-8c56-74570478a3fa"
@@ -584,6 +702,7 @@
                "url": "https://www.nba.com/"
             }, {
                "date_added": "13211114233456296",
+               "guid": "38dafc55-ef35-4905-bcd9-880d00e044c1",
                "id": "66",
                "meta_info": {
                   "Partner": "80c5a6b3-92a3-4d7d-8d18-835fa27cc3dc"
@@ -594,6 +713,7 @@
             } ],
             "date_added": "13211114233454080",
             "date_modified": "13211114233456296",
+            "guid": "eb822f43-ae46-4393-a77e-862d7fb45713",
             "id": "60",
             "meta_info": {
                "Partner": "8c7ce67b-4af8-4c73-820a-ff8fa3b07328"
@@ -603,6 +723,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233456837",
+               "guid": "0a714ee4-a487-46cc-a28e-8b081d6cfb00",
                "id": "68",
                "meta_info": {
                   "Description": "Restaurants, Dentists, Bars, Beauty Salons, Doctors",
@@ -613,6 +734,7 @@
                "url": "https://vivaldi.com/bk/yelp-en-us"
             }, {
                "date_added": "13211114233457102",
+               "guid": "dc0b3014-cab9-4877-95dc-b3bf51d68719",
                "id": "69",
                "meta_info": {
                   "Partner": "25a1691d-9ede-4753-a2fe-d68403855be4"
@@ -622,6 +744,7 @@
                "url": "https://www.craigslist.org/"
             }, {
                "date_added": "13211114233457345",
+               "guid": "ec919140-0440-4dbc-b475-e0f89c985a55",
                "id": "70",
                "meta_info": {
                   "Partner": "ea5bdcf9-669e-4941-87da-178672769dfb"
@@ -631,6 +754,7 @@
                "url": "https://www.livingsocial.com/"
             }, {
                "date_added": "13211114233512763",
+               "guid": "f898f487-0d82-4228-bcb6-7f62b8b7d2fb",
                "id": "71",
                "meta_info": {
                   "Partner": "c0328de3-b1d2-4ef3-b0c7-fab2943b9ab8"
@@ -641,6 +765,7 @@
             } ],
             "date_added": "13211114233456591",
             "date_modified": "13211114233512763",
+            "guid": "86cb61e2-d25e-49a5-a62c-8ab4cc84d76f",
             "id": "67",
             "meta_info": {
                "Partner": "a6550d76-5357-416a-97de-2cea3e3ea2fe"
@@ -650,6 +775,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233527773",
+               "guid": "24ca9b5c-0f50-4e18-8078-45b49a1a31fe",
                "id": "73",
                "meta_info": {
                   "Description": "flight tickets",
@@ -660,6 +786,7 @@
                "url": "https://vivaldi.com/bk/qatar"
             }, {
                "date_added": "13211114233528193",
+               "guid": "0ac2e9fc-2c4c-4a16-9191-f5cb888a44ea",
                "id": "74",
                "meta_info": {
                   "Description": "travel, hotels",
@@ -670,6 +797,7 @@
                "url": "https://vivaldi.com/bk/trivago"
             }, {
                "date_added": "13211114233528583",
+               "guid": "d40362a5-ab22-443a-ae15-507e00a15db5",
                "id": "75",
                "meta_info": {
                   "Description": "travel, apartments, guests",
@@ -680,6 +808,7 @@
                "url": "https://vivaldi.com/bk/airbnb"
             }, {
                "date_added": "13211114233528915",
+               "guid": "2d58efe3-d10d-4409-9432-6f39ab80fb1d",
                "id": "76",
                "meta_info": {
                   "Description": "travel, cars, rent",
@@ -690,6 +819,7 @@
                "url": "https://vivaldi.com/bk/rentalcars"
             }, {
                "date_added": "13211114233529208",
+               "guid": "eaaddbee-660d-480a-818e-0b8e3a28ede8",
                "id": "77",
                "meta_info": {
                   "Description": "travel, airfare, lodging",
@@ -700,6 +830,7 @@
                "url": "https://vivaldi.com/bk/tripadvisor-world"
             }, {
                "date_added": "13211114233529509",
+               "guid": "cf601119-7639-4dac-95b8-4bdd9c3ba0e7",
                "id": "78",
                "meta_info": {
                   "Description": "travel, airfare, lodging",
@@ -710,6 +841,7 @@
                "url": "https://vivaldi.com/bk/cheapoair-en-us"
             }, {
                "date_added": "13211114233529794",
+               "guid": "3b30bd25-e0c0-425e-a244-ca2cf535bc04",
                "id": "79",
                "meta_info": {
                   "Description": "travel",
@@ -720,6 +852,7 @@
                "url": "https://vivaldi.com/bk/hotelwiz-en-us"
             }, {
                "date_added": "13211114233530101",
+               "guid": "7b1808c9-0ead-4abc-a83b-6aee9a8bdd47",
                "id": "80",
                "meta_info": {
                   "Partner": "a7e46433-c2d7-43ec-b64d-45e1b198e740"
@@ -729,6 +862,7 @@
                "url": "https://vivaldi.com/bk/dohop"
             }, {
                "date_added": "13211114233530364",
+               "guid": "6ee37e55-c0b2-4056-a7d5-7f9d06c4ed63",
                "id": "81",
                "meta_info": {
                   "Description": "travel, hotels",
@@ -740,6 +874,7 @@
             } ],
             "date_added": "13211114233525962",
             "date_modified": "13211114233530364",
+            "guid": "8836a9b4-676c-4788-9f8c-8f31115d8719",
             "id": "72",
             "meta_info": {
                "Partner": "e15bbf34-d606-4fa2-8223-dc9bf134a988"
@@ -749,6 +884,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233531025",
+               "guid": "8455c9a9-c952-4b4e-9351-1024015d1db3",
                "id": "83",
                "meta_info": {
                   "Description": "business",
@@ -759,6 +895,7 @@
                "url": "https://vivaldi.com/bk/ceoworldmagazine-en-us"
             }, {
                "date_added": "13211114233531313",
+               "guid": "17d4c75c-1497-4d3a-b169-44938c1bae72",
                "id": "84",
                "meta_info": {
                   "Partner": "a2e558ea-51b1-4434-b61b-99bceacc01b4"
@@ -768,6 +905,7 @@
                "url": "https://www.wsj.com/"
             }, {
                "date_added": "13211114233531600",
+               "guid": "e0f2ccad-4125-47f3-a575-ecec14698bb6",
                "id": "85",
                "meta_info": {
                   "Partner": "48af625d-63b7-417c-a878-6c2ab08e6b8b"
@@ -777,6 +915,7 @@
                "url": "https://www.bloomberg.com/"
             }, {
                "date_added": "13211114233531928",
+               "guid": "972d9f49-e7dd-45cb-8c82-3d2a9217d883",
                "id": "86",
                "meta_info": {
                   "Partner": "40acce64-7394-413d-b1a1-9c96bf0ade5e"
@@ -786,6 +925,7 @@
                "url": "https://www.economist.com/"
             }, {
                "date_added": "13211114233532210",
+               "guid": "30630135-dfe8-416f-b295-6ae1044548f2",
                "id": "87",
                "meta_info": {
                   "Partner": "603018c3-d3a4-46b8-9117-d3c56b004800"
@@ -795,6 +935,7 @@
                "url": "https://www.ft.com/"
             }, {
                "date_added": "13211114233532568",
+               "guid": "9fa87277-dd27-4d62-8f99-e41c160404e8",
                "id": "88",
                "meta_info": {
                   "Partner": "c17731c5-2bec-4ab2-b0fa-3ffd93f6ea2c"
@@ -804,6 +945,7 @@
                "url": "https://www.cnbc.com/"
             }, {
                "date_added": "13211114233532922",
+               "guid": "a086bc5f-f6ed-483c-b139-28b1cf458d7b",
                "id": "89",
                "meta_info": {
                   "Partner": "c4b9d688-f889-45c5-9ad9-69451eded737"
@@ -814,6 +956,7 @@
             } ],
             "date_added": "13211114233530713",
             "date_modified": "13211114233532922",
+            "guid": "4ddf3b10-5571-4072-90d7-1ee98fa17f55",
             "id": "82",
             "meta_info": {
                "Partner": "bcf91f30-37f9-4386-85f1-c6e0b03059d1"
@@ -823,6 +966,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233535030",
+               "guid": "5d86dba0-3fe2-45da-8196-aa45e4d3a21f",
                "id": "91",
                "meta_info": {
                   "Partner": "89d44184-d23c-4d04-a1d9-a8ed0ef6a4f2"
@@ -832,6 +976,7 @@
                "url": "https://www.youtube.com/"
             }, {
                "date_added": "13211114233538853",
+               "guid": "39e8c375-3c74-4cd0-86ac-2ff527cbc6e1",
                "id": "92",
                "meta_info": {
                   "Partner": "92e53da8-d8ff-4608-b45d-6be289448398"
@@ -841,6 +986,7 @@
                "url": "https://play.spotify.com/"
             }, {
                "date_added": "13211114233539308",
+               "guid": "bd196947-8d09-40e6-87e7-058a5c019105",
                "id": "93",
                "meta_info": {
                   "Partner": "a40607ef-7783-4644-b7c9-9214a4c67507"
@@ -850,6 +996,7 @@
                "url": "https://www.dailymotion.com/"
             }, {
                "date_added": "13211114233539701",
+               "guid": "c23be217-f40f-4fd3-9eb1-f4fa52ba4552",
                "id": "94",
                "meta_info": {
                   "Partner": "663d8ddb-21a1-4b44-b271-20b52fc15ad6"
@@ -859,6 +1006,7 @@
                "url": "https://www.imdb.com/"
             }, {
                "date_added": "13211114233540070",
+               "guid": "deffb538-7256-4b4f-85cc-bf01696aff75",
                "id": "95",
                "meta_info": {
                   "Partner": "a0a37721-cb30-466a-92d4-b1a2031fbb2c"
@@ -868,6 +1016,7 @@
                "url": "https://www.rottentomatoes.com/"
             }, {
                "date_added": "13211114233540379",
+               "guid": "22744d62-28cd-44ad-bd2d-aca414035692",
                "id": "96",
                "meta_info": {
                   "Partner": "43f78757-cad5-479c-b553-3a9cc07b04df"
@@ -878,6 +1027,7 @@
             } ],
             "date_added": "13211114233533303",
             "date_modified": "13211114233540379",
+            "guid": "e56de955-245f-4b8f-8d50-f3933a2204ba",
             "id": "90",
             "meta_info": {
                "Partner": "592265f5-b8ad-40b8-9def-5f2a4749710f"
@@ -887,6 +1037,7 @@
          }, {
             "children": [ {
                "date_added": "13211114233540941",
+               "guid": "61e6c525-2336-46d5-87d5-7f494ed51d8e",
                "id": "98",
                "meta_info": {
                   "Description": "lifestyle, shopping",
@@ -897,6 +1048,7 @@
                "url": "https://vivaldi.com/bk/coffeeorg-en-us"
             }, {
                "date_added": "13211114233541241",
+               "guid": "acbf0e0a-89f0-414c-984a-d7dac558461e",
                "id": "99",
                "meta_info": {
                   "Description": "lifestyle, gadgets",
@@ -907,6 +1059,7 @@
                "url": "https://vivaldi.com/bk/timex-en-us"
             }, {
                "date_added": "13211114233541533",
+               "guid": "5f478d67-a745-4a61-8c24-f10b497dfff4",
                "id": "100",
                "meta_info": {
                   "Description": "lifestyle, media",
@@ -917,6 +1070,7 @@
                "url": "https://vivaldi.com/bk/kobo-en-us"
             }, {
                "date_added": "13211114233541845",
+               "guid": "fd35bc2d-4c0b-4723-ad25-f4720a8d297c",
                "id": "101",
                "meta_info": {
                   "Description": "rentals, vacations",
@@ -927,6 +1081,7 @@
                "url": "https://vivaldi.com/bk/flipkey-en-us"
             }, {
                "date_added": "13211114233542137",
+               "guid": "cfa7e61e-ba7d-454b-a7a2-ae53d77693ca",
                "id": "102",
                "meta_info": {
                   "Description": "apparel, shopping",
@@ -938,15 +1093,127 @@
             } ],
             "date_added": "13211114233540689",
             "date_modified": "13211114233542137",
+            "guid": "0460f5fc-8457-470f-b5bb-2c2f77ea9168",
             "id": "97",
             "meta_info": {
                "Partner": "bc80016b-60f0-447b-83fe-2dfdf58d8873"
             },
             "name": "Lifestyle",
             "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13251879104842975",
+               "guid": "7c8f3ab2-7248-404d-b2f7-9c3917e7ae94",
+               "id": "110",
+               "meta_info": {
+                  "Description": "shopping",
+                  "Partner": "7c8f3ab2-7248-404d-b2f7-9c3917e7ae94",
+                  "Thumbnail": "/resources/sd_walmart.png"
+               },
+               "name": "Walmart",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/walmart-pc"
+            }, {
+               "date_added": "13251879104842989",
+               "guid": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+               "id": "111",
+               "meta_info": {
+                  "Partner": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+                  "Thumbnail": "/resources/sd_booking.com.png"
+               },
+               "name": "Booking.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/booking-us-bk"
+            }, {
+               "date_added": "13251879104843006",
+               "guid": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+               "id": "112",
+               "meta_info": {
+                  "Partner": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+                  "Thumbnail": "/resources/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ali-us-bk"
+            }, {
+               "date_added": "13251879104843027",
+               "guid": "4ac3d5a6-bbdd-4b1d-92a1-eaea6df81e84",
+               "id": "113",
+               "meta_info": {
+                  "Partner": "4ac3d5a6-bbdd-4b1d-92a1-eaea6df81e84",
+                  "Thumbnail": "/resources/sd_amazon.png"
+               },
+               "name": "Amazon",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/amazon-us-bk"
+            }, {
+               "date_added": "13251879104843050",
+               "guid": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+               "id": "114",
+               "meta_info": {
+                  "Partner": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+                  "Thumbnail": "/resources/sd_ebay.png"
+               },
+               "name": "eBay",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ebay-us-bk"
+            }, {
+               "date_added": "13251879104843077",
+               "guid": "8fe00cea-a6cd-4581-b01c-265281a681c1",
+               "id": "115",
+               "meta_info": {
+                  "Partner": "8fe00cea-a6cd-4581-b01c-265281a681c1"
+               },
+               "name": "Overstock",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/overstock-us-bk"
+            }, {
+               "date_added": "13251879104843100",
+               "guid": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+               "id": "116",
+               "meta_info": {
+                  "Partner": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+                  "Thumbnail": "/resources/sd_ja_rakuten.png"
+               },
+               "name": "Rakuten",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/rakuten-us-bk"
+            }, {
+               "date_added": "13251879104843125",
+               "guid": "7e159573-093a-45aa-8822-e86f7f25a545",
+               "id": "117",
+               "meta_info": {
+                  "Partner": "7e159573-093a-45aa-8822-e86f7f25a545",
+                  "Thumbnail": "/resources/sd_expedia.png"
+               },
+               "name": "Expedia",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/expedia"
+            }, {
+               "date_added": "13251879104843148",
+               "guid": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+               "id": "118",
+               "meta_info": {
+                  "Partner": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+                  "Thumbnail": "/resources/sd_hulu.png"
+               },
+               "name": "Hulu",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/hulu"
+            } ],
+            "date_added": "13251879104842971",
+            "date_modified": "13251879104843148",
+            "guid": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba",
+            "id": "109",
+            "meta_info": {
+               "Partner": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba"
+            },
+            "name": "Bookmarks",
+            "type": "folder"
          } ],
          "date_added": "13211114211924720",
          "date_modified": "13211114233540696",
+         "guid": "00000000-0000-4000-a000-000000000002",
          "id": "1",
          "name": "书签",
          "type": "folder"
@@ -955,6 +1222,7 @@
          "children": [  ],
          "date_added": "13211114211924731",
          "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
          "id": "2",
          "name": "其他书签",
          "type": "folder"
@@ -963,6 +1231,7 @@
          "children": [  ],
          "date_added": "13211114211924745",
          "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
          "id": "3",
          "name": "移动设备书签",
          "type": "folder"
@@ -971,6 +1240,7 @@
          "children": [  ],
          "date_added": "13211114211924747",
          "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000040000",
          "id": "4",
          "name": "回收站",
          "type": "folder"

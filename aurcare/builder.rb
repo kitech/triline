@@ -3,6 +3,7 @@
 # 自动化下载并编译aur包。
 # usage:
 #    builder.rb <refresh|package>
+# must run in ~/aur/aurcare/
 
 #Dir.glob("aurcare.db.*") { |f|  puts f}
 #exit
@@ -17,12 +18,16 @@ def mysystem234(cmd)
     return system(cmd);
 end
 
+g4narg = "-p cnpub"
+g4narg = ""
+
 # 手动执行repo-add时，不会自动更新到.db结尾的库文件中，有时需要手工处理下。
 def refresh_aurdb()
+    g4narg = ""
     ret = mysystem("unlink aurcare.db");
     ret = mysystem("cp aurcare.db.tar.gz aurcare.db");
-    ret = mysystem("git4netup -p cnpub put aurcare.db")
-    ret = mysystem("git4netup -p cnpub put aurcare.db.tar.gz.old")
+    ret = mysystem("git4netup #{g4narg} put aurcare.db")
+    #ret = mysystem("git4netup #{g4narg} put aurcare.db.tar.gz.old")
     #ret = mysystem("rclone copy aurcare.db asytech0:aurcare/")
     #ret = mysystem("rclone copy aurcare.db.tar.gz asytech0:aurcare/")
     #ret = mysystem("rclone copy aurcare.db.tar.gz.old asytech0:aurcare/")
@@ -55,24 +60,25 @@ Dir.chdir(pkgname) do
 end
 
 
+PKGEXT=".pkg.tar.zst"
 
 # 删除旧版本的包
-#ret = mysystem("rclone delete --include 'aurcare/#{pkgname}*.pkg.tar.xz' asytech0:")
-Dir.glob("#{pkgname}*.pkg.tar.xz").each{ |f|  ret = mysystem("git4netupcn delete #{f}")}
-ret = mysystem("rm -fv #{pkgname}*.pkg.tar.xz")
+#ret = mysystem("rclone delete --include 'aurcare/#{pkgname}*.pkg.tar.zst' asytech0:")
+Dir.glob("#{pkgname}*.pkg.tar.zst").each{ |f|  ret = mysystem("git4netup #{g4narg} delete #{f}")}
+ret = mysystem("rm -fv #{pkgname}*.pkg.tar.zst")
 
-ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz ./");
+ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.zst ./");
 abort('move pkg error.') if !ret;
-ret = mysystem("repo-add aurcare.db.tar.gz #{pkgname}*.pkg.tar.xz");
+ret = mysystem("repo-add aurcare.db.tar.gz #{pkgname}*.pkg.tar.zst");
 abort('repo add error.') if !ret;
 
-#ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.xz /archrepo/packages/");
+#ret = mysystem("cp -v #{pkgname}/#{pkgname}*.pkg.tar.zst /archrepo/packages/");
 #abort('move pkg error2.') if !ret;
 
-#ret = mysystem("git add -v #{pkgname}*.pkg.tar.xz");
+#ret = mysystem("git add -v #{pkgname}*.pkg.tar.zst");
 #abort('add to git error.') if !ret;
-Dir.glob("#{pkgname}*.pkg.tar.xz").each{ |f| ret = mysystem("git4netup -p cnpub put #{f}")}
-#ret = mysystem("rclone copy #{pkgname}*.pkg.tar.xz asytech0:aurcare/")
+Dir.glob("#{pkgname}*.pkg.tar.zst").each{ |f| ret = mysystem("git4netup #{g4narg} put #{f}")}
+#ret = mysystem("rclone copy #{pkgname}*.pkg.tar.zst asytech0:aurcare/")
 
 refresh_aurdb();
 
@@ -80,3 +86,5 @@ refresh_aurdb();
 # 删除成功打包的临时文件。
 ret = mysystem("rm -rf ./#{pkgname}")
 abort('clean build dir error.') if !ret;
+ret = mysystem("nvtake #{pkgname}")
+

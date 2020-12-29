@@ -3,17 +3,20 @@
    "children": [ {
       "children": [  ],
       "date_added": "13211114215031171",
+      "guid": "00000000-0000-4000-a000-000000000003",
       "id": "2",
       "subject": "Other Notes",
       "type": "other"
    }, {
       "children": [  ],
       "date_added": "13211114215031172",
+      "guid": "00000000-0000-4000-a000-000000000004",
       "id": "3",
       "subject": "回收站",
       "type": "trash"
    } ],
    "date_added": "13211114215031170",
+   "guid": "00000000-0000-4000-a000-000000000002",
    "id": "1",
    "subject": "Notes",
    "type": "folder",

@@ -7,10 +7,12 @@ tint2 &
 pnmixer &
 dunst &
 
+nm-applet &
+
 # lxqt-powermanagement &
 
-deepin-terminal &
-
+# deepin-terminal &
+tilix &
 
 # official samples
 # Programs that will run after Openbox has started

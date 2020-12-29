@@ -252,11 +252,11 @@
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F2">
-        <action name="Execute">
-            <command>rofi -show run</command>
-            <!--
+      <action name="Execute">
+        <command>rofi -show run</command>
+        <!--
                  <command>rofi -combi-modi window,run,drun -show combi -modi combi</command>  -->
-        </action>
+      </action>
     </keybind>
     <keybind key="A-F4">
       <action name="Close"/>
@@ -693,8 +693,12 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-      <application name="firefox"> <decor>no</decor> </application>
-      <application name="firefox"> <decor>yes</decor> </application>
+    <application name="firefox">
+      <decor>no</decor>
+    </application>
+    <application name="firefox">
+      <decor>yes</decor>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

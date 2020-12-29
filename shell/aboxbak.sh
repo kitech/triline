@@ -47,6 +47,9 @@ etcfiles="
 ~/.config/tint2/tint2rc
 ~/.config/dunstrc
 ~/.config/flake8
+~/.config/nvchecker/nvchecker.toml
+~/.config/nvchecker/new_ver.json
+~/.config/nvchecker/new_ver.json
 ~/.config/systemd/user
 ~/.config/systemd/user/godoc.service
 ~/.config/systemd/user/gnatsd.service

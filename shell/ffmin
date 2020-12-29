@@ -5,14 +5,29 @@
 
 # mainline
 px=$1
-mkdir -p ~/.mozilla/firefox6x.p{1,2}
+mkdir -p ~/.mozilla/firefox8x.p{1,3}
+mkdir -p ~/.mozilla/firefox6x.p{1,2,3}
 mkdir -p ~/.mozilla/firefox4x.p{1,2,3}
 if [ x"$px" = x"1" ]; then
+    # really firefox66
     echo "ff60+ p1..., simple web page access"
     exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p1 --new-instance
 elif [ x"$px" = x"2" ]; then
     echo "ff60+ p2..., big memory like youtube/imgur, flash."
     exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p2 --new-instance
+elif [ x"$px" = x"3" ]; then
+    # really firefox68
+    echo "ff68+ p3..., big memory like youtube/imgur, flash."
+    export MOZ_GTK_TITLEBAR_DECORATION=client
+    export MOZ_FORCE_DISABLE_E10S=1 # disable multiple process for ff68+?
+    exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p3 --new-instance
+elif [ x"$px" = x"83" ]; then
+    # work fine for firefox{81,83,84}
+    echo "ff83+ p3..., big memory like youtube/imgur, flash."
+    ffver=$(/usr/bin/firefox --version|awk '{print $3}')
+    export MOZ_GTK_TITLEBAR_DECORATION=client
+    export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
+    exec /usr/bin/firefox --profile ~/.mozilla/firefox8x.p3 --new-instance
 elif [ x"$px" = x"g1" ]; then
     echo "ff45+ p1..., gpu flash 1."
     exec /opt/ff45/firefox --profile ~/.mozilla/firefox4x.p1 --new-instance
@@ -28,6 +43,46 @@ fi
 # min firefox
 # disable remote/multiple processes
 # only use 3-4 externsions
+# disable firefox detect captive portal, a http request: about:config network.captive-portal-service.enabled
+# about:config security.ssl.enable_ocsp_stapling -> false
 
 # still use ff60+, because ff56 not support mp4
+
+# firefox66 single process
+# conent process limit -> 1
+#
+
+# firefox68 single process
+# export MOZ_FORCE_DISABLE_E10S=1
+
+# firefox 58-60 ??? single process
+# conent process limit -> 1
+# about:config -> browser.tabs.remote.autostart -> false
+# about:config -> browser.tabs.remote.autostart.2 -> false
+
+# firefox 80+
+#set "MOZ_FORCE_DISABLE_E10S" the version of your Firefox "81.0.1" (full version number)
+#someone from reddit here reply to me to do that.
+#browser.tabs.remote.autostart false
+#browser.tabs.remote.autostart.2 false (you may need to create your own)
+#dom.ipc.processCount 0
+#browser.tabs.documentchannel to false
+#browser.tabs.remote.separateFileUriProcess to false
+#browser.tabs.remote.separatePrivilegedContentProcess to false
+
+
+# hide title bar
+# 1. export MOZ_GTK_TITLEBAR_DECORATION=client
+# 2. customize firefox -> unselect title bar
+
+# addons
+# ublock origin
+# Firefox Multi-Account Containers
+# google search link fix
+# gesture
+# greasemonkey
+# dark mode
+# eff.org/privacybadger eff.org/https-everywhere
+# noscript
+
 

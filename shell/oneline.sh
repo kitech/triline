@@ -17,6 +17,8 @@
 # pv my_big_file > backup/my_big_file
 # alias cp="rsync -avz"
 # curl -C - -O "file:///media/CORSAIR/somefile.dat"
+# curl -o "filename" -C - "url" # resume begin filename
+# python -m RangeHTTPServer
 # patchelf --set-soname libnewname.so.3.4.5 path/to/libmylibrary.so.1.2.3
 # sound/audio to pcm (raw audio)
 # sox file.mp3 -c 1 -r 44100 -b 16 -e signed-integer --endian little -t raw output.bin
@@ -36,3 +38,8 @@
 #  go tool nm -sort size -size <gobinary> | head -n 20
 # fingerprint
 # openssl x509 -noout -fingerprint -sha1 -inform pem -in [certificate-file.crt]
+# 不分享外网连接 WIFI AP
+# create_ap -n wlp4s0  aaa 123abc00
+# curl "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=vP65qsGQCxfewnTs&suffix=tar.gz" -o GeoLite2-Country.tar.gz
+# sudo bash -c 'echo 0 > /proc/sys/fs/binfmt_misc/status'
+
