@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ec=emacsclient
+$ec -e '(tool-bar-mode t)'
+sleep 5
+# -1 for off
+$ec -e '(tool-bar-mode -1)'
+# $ec -e '(spacemacs/toggle-tool-bar-off)'
+

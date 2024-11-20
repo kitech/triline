@@ -43,6 +43,14 @@
 (load "~/.emacs.d/handby/pkgbuild-mode.el")
 (global-set-key "\M-p" 'duplicate-previous-line)
 (global-set-key "\M-n" 'duplicate-following-line)
+;; some custom
+;(global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-,") 'comment-line)
+(global-set-key (kbd "C-u") 'eval-region)
+(global-set-key (kbd "<C-tab>") 'switch-to-next-buffer)
+(global-set-key (kbd "C-S-<iso-lefttab>") 'switch-to-prev-buffer)
+;; (global-set-key (kbd "<backtab>") 'switch-to-prev-buffer)
+;; <backtab>=shift+tab
 
 
 (require 'protobuf-mode)
@@ -68,20 +76,22 @@
 ;; folding, TODO dynamic load dash and s，少一个折叠指示标识，像小三角形
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/dash-20160820.501/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160928.636/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/27.1/develop/dash-20200803.1520/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/29.4/develop/dash-20240510.1327/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160928.636/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/27.1/develop/hydra-20200711.1210/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/27.1/develop/lv-20200507.1518/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/29.4/develop/hydra-20220910.1206/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/29.4/develop/lv-20200507.1518/"))
 ;(require 'dash)
 ;(require 's)
 ;(require 'origami)
-;(require 'v-mode)
-(require 'vlang-mode)
+(require 'v-mode)
+;(require 'vlang-mode)
 ;(global-origami-mode t)
 ;(global-set-key (kbd "C--") 'origami-toggle-node)
-;(add-to-list 'auto-mode-alist '("\\.v\\'" . v-mode))
-(add-to-list 'auto-mode-alist '("\\.v\\'" . vlang-mode))
-
+(add-to-list 'auto-mode-alist '("\\.v\\'" . v-mode))
+(add-to-list 'auto-mode-alist '("\\.vsh\\'" . v-mode))
+;(add-to-list 'auto-mode-alist '("\\.v\\'" . vlang-mode))
+(add-hook 'v-mode-hook `company-mode)
+          
 ;;(global-set-key "\C-c @ \C-M-s" 'origami-open-all-nodes)
 ;;(global-set-key "\C-c @ \C-M-h" 'origami-close-all-nodes)
 ;; (global-set-key "\C-c @ \C-s" 'origami-open-node)
@@ -194,6 +204,7 @@ This function should only modify configuration layer settings."
      
      auto-completion
      ;; company + gopls 占内存还是太大了，用回 company-go
+     ;;company
 	  tree-sitter
 		lsp ;; ycmd
      ;  better-defaults
@@ -203,6 +214,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      ;git
      markdown
+     tabs ;; 这个好
      ;org
      ;(shell :variables
       ;      shell-default-height 20
@@ -726,6 +738,11 @@ before packages are loaded."
     ;;  Restore popwin-mode after a Helm session finishes.
     ;; (add-hook 'helm-cleanup-hook (lambda () (popwin-mode 1)))
 
+	(menu-bar-mode t)
+	(scroll-bar-mode t)
+	(desktop-save-mode t) ; save/read session
+	(size-indication-mode t)
+	;; ctrl + Mouse-1 = goto define
     ;; (set
     )
     

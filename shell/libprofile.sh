@@ -21,7 +21,7 @@ alias aria2c='aria2c -x 5 -k 1M'
 alias ec='emacsclient -n'
 alias ecv='emacsclient -t -c -q'    # 用于简单编辑配置文件，轻量级命令行emacs view
 alias eml='emacs -nw -Q'     # 非常轻量级新的emacs实例
-alias git=$HOME/triline/myscripts/egit.sh
+# alias git=$HOME/triline/myscripts/egit.sh
 # about X selection
 alias pwdxs='pwd | xsel -p -b'
 # alias pip='pip --user'   # 以普通用户安装pip包
@@ -34,14 +34,17 @@ alias mkr='make release'
 alias mku='make run'
 alias mks='make smoke'
 alias mkp='make package'
+alias gob="go build"
 alias gobs="go build -linkshared -pkgdir $HOME/oss/pkg/linux_amd64"
 alias gobz="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\""
 alias gobt="go build -v -p 1 -gcflags \"-N -l\" -ldflags \"-w -s\" -trimpath"
 alias gobo="go build -v -p 1 -trimpath"
 alias gobx="go build -v -p 1 -x -trimpath"
-alias nimc='nim -p:/opt/nim/mulib c'
-alias nimr='nim -p:/opt/nim/mulib c -r'
+#alias nimc='nim -p:/opt/nim/mulib c'
+#alias nimr='nim -p:/opt/nim/mulib c -r'
 #alias xtermc='xterm -u8 -geometry 120x40 -xrm XTerm*selectToClipboard:true -bg black -fg green -sh 1.2'
+alias gitc='git clone'
+alias gitst='git status'
 
 march=$(uname -s)
 mbp=$(lspci | grep FaceTime)
@@ -49,7 +52,7 @@ mbp=$(lspci | grep FaceTime)
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin:$HOME/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/triline/aurcare:$HOME/triline/shell:$HOME/triline/myscripts:$HOME/triline/python
 export PATH=$PATH:$HOME/golib/bin:$HOME/work/bin:$HOME/oss/bin  # for other compiled go bin
-export PATH=$PATH:/opt/nim/bin   # /opt/nim => $HOME/.nimble
+#export PATH=$PATH:/opt/nim/bin   # /opt/nim => $HOME/.nimble
 
 if [ x"$march" == x"Darwin" ] ; then
     export PATH=$HOME/.nix-profile/bin:$PATH
@@ -92,7 +95,8 @@ export GOPROXY=https://goproxy.cn,direct
 export GOSUMDB=off
 #export GOMODCACHE=$HOME/golib/pkg/mod
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
-export NIMPATH=$HOME/nimlib
+#export NIMPATH=$HOME/nimlib
+export VFLAGS=-showcc -show-c-output -cg -g -enable-globals -w -cflags -w -cflags -O0 -cflags -fno-lto -ldflags -rdynamic
 
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
