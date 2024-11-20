@@ -72,13 +72,15 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/s-20160928.636/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/27.1/develop/hydra-20200711.1210/"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elpa/27.1/develop/lv-20200507.1518/"))
-(require 'dash)
+;(require 'dash)
 ;(require 's)
 ;(require 'origami)
-(require 'v-mode)
+;(require 'v-mode)
+(require 'vlang-mode)
 ;(global-origami-mode t)
 ;(global-set-key (kbd "C--") 'origami-toggle-node)
-(add-to-list 'auto-mode-alist '("\\.v\\'" . v-mode))
+;(add-to-list 'auto-mode-alist '("\\.v\\'" . v-mode))
+(add-to-list 'auto-mode-alist '("\\.v\\'" . vlang-mode))
 
 ;;(global-set-key "\C-c @ \C-M-s" 'origami-open-all-nodes)
 ;;(global-set-key "\C-c @ \C-M-h" 'origami-close-all-nodes)
@@ -144,7 +146,8 @@ This function should only modify configuration layer settings."
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
+   ;; dotspacemacs-distribution 'spacemacs
+	dotspacemacs-distribution 'spacemacs-base
 
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
@@ -168,7 +171,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(csv
+   '(
+		;csv
      lua
      systemd
      nginx
@@ -178,11 +182,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
-     ;; better-defaults
      emacs-lisp
-     ;; git
-     ;; markdown
      ;; neotree
      treemacs
      ;; org
@@ -194,17 +194,19 @@ This function should only modify configuration layer settings."
      
      auto-completion
      ;; company + gopls 占内存还是太大了，用回 company-go
-     better-defaults
-     chinese
+	  tree-sitter
+		lsp ;; ycmd
+     ;  better-defaults
+     ;chinese
      cscope
-     cfengine
+     ; cfengine
      emacs-lisp
-     git
+     ;git
      markdown
-     org
-     (shell :variables
-            shell-default-height 20
-            shell-default-position 'bottom)
+     ;org
+     ;(shell :variables
+      ;      shell-default-height 20
+       ;     shell-default-position 'bottom)
      syntax-checking
      version-control
      ;; flycheck
@@ -215,21 +217,17 @@ This function should only modify configuration layer settings."
      python
      php
      (go :variables go-format-before-save nil)
-     ;; nim
      rust
      html
      ;; typescript ;; a heavy subprocess: node tsserver.js
      javascript
      ;; shell-script
      swift
-     sql
-     ;; ycmd
-     ;; lsp
+     ;sql
      elm
-     ruby
      (ruby :variables ruby-enable-enh-ruby-mode t)
-     crystal
-     julia
+     ;crystal
+     ;julia
      kotlin
      haskell
 
@@ -242,19 +240,21 @@ This function should only modify configuration layer settings."
     restclient
     windows-scripts
 
-     nlinum
+     ;nlinum
      imenu-list
      gtags
+     toml
      yaml
-     latex ;; 可能导致主界面freeze
+     ;latex ;; 可能导致主界面freeze
      spacemacs-layouts
-     
+		;extra-langs
+		;QML
+
      (ranger :variables ranger-show-preview t)
      ;; sr-speedbar  ;; 目前还很难用
      games
 
      ;; private layers
-     systemd
 
      )
 
@@ -645,11 +645,18 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 ;; http(ok), https(timeout???)
 (setq configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+	'(("melpa-cn" . "https://mirrors.nju.edu.cn/elpa/melpa/")
+		("org-cn" . "https://mirrors.nju.edu.cn/elpa/org/")
+		("gnu-cn" . "https://mirrors.nju.edu.cn/elpa/gnu/")))
+	;'(("melpa-cn" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+	;	("org-cn" . "https://mirrors.ustc.edu.cn/elpa/org/")
+	;	("gnu-cn" . "https://mirrors.ustc.edu.cn/elpa/gnu/")))
+	; 垃圾 tuna 动不动就403
+    ;'(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+    ;  ("org-cn"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+    ;  ("gnu-cn"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
-           (setq-default
+     (setq-default
      dotspacemacs-check-for-update nil
      dotspacemacs-elpa-https t
      dotspacemacs-line-numbers t
@@ -742,7 +749,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ansi package-build shut-up epl git commander f dash s csv-mode counsel-gtags company-lua lua-mode nim-mode flycheck-nimsuggest commenter flycheck-nim zeal-at-point yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill typit treemacs-projectile toml-mode toc-org tagedit systemd symon swift-mode sudoku string-inflection stickyfunc-enhance srefactor sql-indent spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs rbenv ranger rake rainbow-delimiters racer pytest pyim pyenv-mode py-isort pug-mode protobuf-mode prettier-js powershell popwin play-crystal plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode password-generator paradox pangu-spacing pacmacs overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-restclient ob-http ob-crystal ob-cfengine3 nginx-mode nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-rust lsp-python lsp-julia lsp-javascript-typescript lsp-go lorem-ipsum livid-mode live-py-mode link-hint kotlin-mode julia-repl julia-mode json-navigator js2-refactor js-doc inf-crystal indent-guide importmagic impatient-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-dash helm-ctest helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy font-lock+ flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-kotlin flycheck-haskell flycheck-elm flycheck-crystal flx-ido find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elm-test-runner elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode doom-modeline dockerfile-mode docker disaster diminish diff-hl define-word cython-mode cquery counsel-projectile company-web company-tern company-statistics company-rtags company-restclient company-php company-lsp company-go company-ghci company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode cmm-mode cmake-mode cmake-ide clean-aindent-mode clang-format chruby chinese-conv centered-cursor-mode ccls cargo bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-complete-rst auto-compile ameba aggressive-indent ace-pinyin ace-link ace-jump-helm-line ac-ispell 2048-game))))
+    (ansi package-build shut-up epl git commander f dash s csv-mode counsel-gtags company-lua lua-mode nim-mode flycheck-nimsuggest commenter flycheck-nim zeal-at-point yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill typit treemacs-projectile toml-mode toc-org tagedit systemd symon swift-mode sudoku string-inflection stickyfunc-enhance srefactor spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs rbenv ranger rake rainbow-delimiters racer pytest pyenv-mode py-isort pug-mode protobuf-mode prettier-js powershell popwin play-crystal plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode password-generator paradox pangu-spacing pacmacs overseer org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-restclient ob-http ob-crystal ob-cfengine3 nginx-mode nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lsp-ui lsp-rust lsp-python lsp-julia lsp-javascript-typescript lsp-go lorem-ipsum livid-mode live-py-mode link-hint kotlin-mode julia-repl julia-mode json-navigator js2-refactor js-doc inf-crystal indent-guide importmagic impatient-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-dash helm-ctest helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy font-lock+ flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-kotlin flycheck-haskell flycheck-elm flycheck-crystal flx-ido find-by-pinyin-dired fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode elm-test-runner elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode doom-modeline dockerfile-mode docker disaster diminish diff-hl define-word cython-mode cquery counsel-projectile company-web company-tern company-statistics company-rtags company-restclient company-php company-lsp company-go company-ghci company-cabal company-c-headers company-anaconda column-enforce-mode cmm-mode cmake-mode cmake-ide clean-aindent-mode clang-format chruby chinese-conv centered-cursor-mode ccls cargo bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-complete-rst auto-compile ameba aggressive-indent ace-pinyin ace-link ace-jump-helm-line ac-ispell 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
