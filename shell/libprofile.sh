@@ -91,12 +91,12 @@ fi
 export GONOPROXY=off # on
 export GOPROXY=direct # 默认：https://proxy.golang.org,direct
 # export GOPROXY=https://goproxy.baidu.com/,direct
-export GOPROXY=https://goproxy.cn,direct
+# export GOPROXY=https://goproxy.cn,direct
 export GOSUMDB=off
 #export GOMODCACHE=$HOME/golib/pkg/mod
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 #export NIMPATH=$HOME/nimlib
-export VFLAGS=-showcc -show-c-output -cg -g -enable-globals -w -cflags -w -cflags -O0 -cflags -fno-lto -ldflags -rdynamic
+export VFLAGS="-showcc -show-c-output -cg -g -enable-globals -w -cflags -w -cflags -O0 -cflags -fno-lto -ldflags -rdynamic"
 
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
@@ -109,7 +109,7 @@ export RUST_SRC_PATH=/usr/src/rust/src   # for rust-racer
 
 export DTPXY=127.0.0.1:8117
 export DTPXY2=127.0.0.1:8008
-export GIT_SSH=$HOME/triline/myscripts/socks5proxyssh
+# export GIT_SSH=$HOME/triline/myscripts/socks5proxyssh
 export GIT_TRACE=0
 # curl只会检测该变量是否存在，不关心值
 export GIT_CURL_VERBOSE_UNUSED=0

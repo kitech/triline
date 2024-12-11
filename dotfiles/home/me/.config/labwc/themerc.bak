@@ -1,0 +1,92 @@
+!! menu background
+menu.items.bg: flat
+menu.items.bg.color: #151515
+menu.overlap.x: -6
+
+!! menu text
+menu.items.text.color: #ffffff
+menu.items.justify: left
+menu.items.disabled.text.color: #bbbbbb
+
+!! menu separator
+menu.separator.padding.height: 2
+menu.separator.color: #151515
+
+!! menu border
+menu.border.width: 6
+menu.border.color: #151515
+
+!! menu headers
+menu.title.bg: flat
+menu.title.bg.color: #151515
+menu.title.text.color: #eeeeee
+menu.title.text.justify: center
+
+!! selected menu item
+menu.items.active.bg: flat
+menu.items.active.bg.color: #eeeeee
+menu.items.active.text.color: #151515
+
+!! titlebar
+window.active.title.bg: flat
+window.active.title.bg.color: #151515
+window.inactive.title.bg: flat
+window.inactive.title.bg.color: #151515
+
+!! titlebar text
+window.label.text.justify: center
+window.active.label.bg: parentrelative
+window.active.label.text.color: #eeeeee
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #bbbbbb
+
+!! window buttons
+window.*.button.*.bg: parentrelative
+window.active.button.*.hover.bg: flat
+window.inactive.button.*.hover.bg: parentrelative
+window.*.button.*.pressed.bg: flat
+
+window.active.button.*.hover.bg.color: #151515
+window.active.button.*.hover.image.color: #ffffff
+window.active.button.*.pressed.bg.color: #151515
+
+window.active.button.*.image.color: #cccccc
+window.active.button.disabled.image.color: #bbbbbb
+window.inactive.button.*.image.color: #bbbbbb
+window.inactive.button.disabled.image.color: #bbbbbb
+
+!! borders
+window.active.border.color: #4D4D50
+window.inactive.border.color: #3D3D40
+padding.width: 8
+padding.height: 4
+window.client.padding.width: 0
+window.client.padding.height: 0
+border.width: 1
+window.handle.width: 2
+
+window.active.client.color: #151515
+window.inactive.client.color: #151515
+
+window.active.handle.bg: flat
+window.active.handle.bg.color: #151515
+window.inactive.handle.bg: flat
+window.inactive.handle.bg.color: #151515
+
+window.active.grip.bg: flat
+window.active.grip.bg.color: #151515
+window.inactive.grip.bg: flat
+window.inactive.grip.bg.color: #151515
+
+!! on-screen displays
+osd.border.width: 1
+osd.border.color: #3D3D40
+osd.label.text.color: #eeeeee
+osd.bg: flat solid
+osd.bg.color: #151515
+osd.label.bg: flat solid
+osd.label.bg.color: #151515
+osd.hilight.bg: flat solid
+osd.hilight.bg.color: #f0544c
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #4d5066

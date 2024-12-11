@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# usage: gitsplit.sh dest-dir src-dir <dir1> <dir2> <dir3>...
+function usage() {
+    echo 'Usage: gitsplit.sh dest-dir src-dir <dir1> <dir2> <dir3>...'
+}
 
 SELFDIR=$(dirname $(readlink -f $0))
 echo $SELFDIR
@@ -9,8 +11,8 @@ CURDIR=$PWD
 DESTDIR=$(readlink -f $1)
 SRCDIR=$(readlink -f $2)
 
-GIT_USER="gzleo"
-GIT_EMAIL="yatseni5@gmail.com"
+GIT_USER="gitsplit"
+GIT_EMAIL="gitsplit@wtmail.com"
 git config user.email "$GIT_EMAIL"
 git config user.name "$GIT_USER"
 
@@ -24,6 +26,8 @@ DIRS=${@:3:99}
 #######
 if [ ! -d "$SRCDIR" ]; then
     echo "src dir not exist: $SRCDIR"
+    usage;
+    exit
 fi
 
 cd "$SRCDIR"
@@ -49,18 +53,28 @@ if [ x"$DESTDIR" == x"" ];then
     echo "must set DESTDIR!!! will clean."
     exit
 fi
-mkdir -p "$DESTDIR"
-rm -rf "$DESTDIR/.git"
-rm -rf "$DESTDIR"/*
 
 # TODO 1. split to new repo. 2. split to exist repo, like merge
+dstrepomode=2
+if [ ! -d "$DESTDIR/.git" ]; then
+    dstrepomode=1
+fi
+
+mkdir -p "$DESTDIR"
 cd "$DESTDIR"
-git init
-echo  > inited.md
-git add inited.md
-git config user.email "$GIT_EMAIL"
-git config user.name "$GIT_USER"
-git commit -a -m "intied"
+
+if [ x"$dstrepomode" = x"1" ]; then
+    #rm -rf "$DESTDIR/.git"
+    #rm -rf "$DESTDIR"/*
+
+    git init
+    echo  > inited.md
+    git add inited.md
+    git config user.email "$GIT_EMAIL"
+    git config user.name "$GIT_USER"
+    git commit -a -m "intied"
+    cd -
+fi
 
 ls -lh "$DESTDIR"
 for dir in $DIRS; do
