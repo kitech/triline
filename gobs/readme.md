@@ -20,3 +20,6 @@ go test -c # the -c switch
 
 - [ ] cgo生成的c代码不兼容tinycc,否则还是有加快空间的
 
+v -keepc -skip-running tcc4cgo.vsh && CC=$PWD/tcc4cgo ./gospup.sh -v -x demo.go
+v -keepc -skip-running tcc4cgo.vsh && CC=$PWD/tcc4cgo go build  -v -x demo.go
+v -keepc -skip-running tcc4cgo.vsh && CC=$PWD/tcc4cgo go build  -v -x demo.go
