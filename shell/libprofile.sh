@@ -96,7 +96,7 @@ export GOSUMDB=off
 #export GOMODCACHE=$HOME/golib/pkg/mod
 export GOPATH=$HOME/golib:$HOME/work:$HOME/oss
 #export NIMPATH=$HOME/nimlib
-export VFLAGS="-showcc -show-c-output -cg -g -enable-globals -w -cflags -w -cflags -O0 -cflags -fno-lto -ldflags -rdynamic"
+export VFLAGS="-showcc -show-c-output -cg -g -enable-globals -w -cflags -w -cflags -O0 -cflags -fno-lto -no-parallel -ldflags -rdynamic"
 
 export LD_LIBRARY_PATH=$HOME/mylib:$LD_LIBRARY_PATH
 export PYTHONDONTWRITEBYTECODE=1  #禁止生成.pyc
