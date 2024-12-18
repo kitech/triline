@@ -34,6 +34,9 @@ https://github.com/labwc/labwc-artwork.git
     -->
     <keybind key="A-Right" />
     <keybind key="A-Left" />
+    <keybind key="A-F3">
+      <action name="Execute" command="bemenu-run -l 15 -W 0.6 -c -n --fn 15 -B 1 --fixed-height --scrollbar autohide --ignorecase" />
+    </keybind>    
     <keybind key="W-F4">
       <action name="None" />
     </keybind>

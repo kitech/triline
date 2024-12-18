@@ -61,6 +61,9 @@
   <item label="Geany Dark">
     <action name="Execute" command="env GTK_THEME=Adwaita:dark geany" />
   </item>
+  <item label="Thunar Dark">
+    <action name="Execute" command="env GTK_THEME=Adwaita:dark Thunar" />
+  </item>
   <item label="Emacs Space1">
     <action name="Execute" command="emacs --with-profile=space1" />
   </item>

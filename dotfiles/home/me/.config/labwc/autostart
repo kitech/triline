@@ -15,11 +15,12 @@
 fcitx >/dev/null 2>&1 &
 # sfwbar 不能像工具栏一样排斥窗口?要和覆盖别的窗口,要么被别的窗口覆盖
 # 优点,正常的任务栏功能
-# sfwbar >/dev/null 2>&1 &
+# topbar now
+sfwbar >/dev/null 2>&1 &
 
 # waybar not like
 # Launch a panel such as yambar or waybar.
-waybar >/dev/null 2>&1 &
+# waybar >/dev/null 2>&1 &
 
 
 # Enable notifications. Typically GNOME/KDE application notifications go
