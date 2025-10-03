@@ -18,16 +18,56 @@ elif [ x"$px" = x"2" ]; then
 elif [ x"$px" = x"3" ]; then
     # really firefox68
     echo "ff68+ p3..., big memory like youtube/imgur, flash."
+    ffexe=/mnt/sda5/opu/firefox-ffesr68/firefox
+    ffver=$($ffexe --version|awk '{print $3}')    
     export MOZ_GTK_TITLEBAR_DECORATION=client
     export MOZ_FORCE_DISABLE_E10S=1 # disable multiple process for ff68+?
-    exec /usr/bin/firefox --profile ~/.mozilla/firefox6x.p3 --new-instance
+    exec $ffexe --profile ~/.mozilla/firefox6x.p3 --new-instance
 elif [ x"$px" = x"83" ]; then
     # work fine for firefox{81,83,84}
     echo "ff83+ p3..., big memory like youtube/imgur, flash."
-    ffver=$(/usr/bin/firefox --version|awk '{print $3}')
+    ffexe=/mnt/sda5/opu/firefox-ffesr91/firefox
+    ffver=$($ffexe --version|awk '{print $3}')    
     export MOZ_GTK_TITLEBAR_DECORATION=client
     export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
-    exec /usr/bin/firefox --profile ~/.mozilla/firefox8x.p3 --new-instance
+    exec $ffexe --profile ~/.mozilla/firefox8x.p3 --new-instance
+    # ff91-115, bigmem, noext, noav,
+
+elif [ x"$px" = x"115" ]; then
+    # work fine for firefox{81,83,84}
+    echo "ff83+ p3..., big memory like youtube/imgur, flash."
+    ffexe=/mnt/sda5/opu/firefox-ffesr115/firefox
+    ffver=$($ffexe --version|awk '{print $3}')
+    echo "Running ffbin $ffver ..."
+    export MOZ_GTK_TITLEBAR_DECORATION=client
+    export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
+    exec $ffexe --profile ~/.mozilla/firefox/dfu6p7l5.default-esr-3 --new-instance
+	# 7.5+4.3+4.1%
+	# ff128还是比ff140资源使用稳一些
+	
+
+elif [ x"$px" = x"128" ]; then
+    # work fine for firefox{81,83,84}
+    echo "ff83+ p3..., big memory like youtube/imgur, flash."
+    ffexe=/mnt/sda5/opu/firefox-ffesr128/firefox
+    ffver=$($ffexe --version|awk '{print $3}')
+    echo "Running ffbin $ffver ..."
+    export MOZ_GTK_TITLEBAR_DECORATION=client
+    export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
+    exec $ffexe --profile ~/.mozilla/firefox/dfu6p7l4.default-esr-4 --new-instance
+	# 7.5+4.3+4.1%
+	# ff128还是比ff140资源使用稳一些
+
+elif [ x"$px" = x"140" ]; then
+    # work fine for firefox{81,83,84}
+    echo "ff83+ p3..., big memory like youtube/imgur, flash."
+    ffexe=/mnt/sda5/opu/firefox-ffesr140/firefox
+    ffver=$($ffexe --version|awk '{print $3}')
+    echo "Running ffbin $ffver ..."
+    export MOZ_GTK_TITLEBAR_DECORATION=client
+    export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
+    exec $ffexe --profile ~/.mozilla/firefox/itesooa5.default-esr-6 --new-instance
+	# 6.7+4.2+4.2%
 elif [ x"$px" = x"g1" ]; then
     echo "ff45+ p1..., gpu flash 1."
     exec /opt/ff45/firefox --profile ~/.mozilla/firefox4x.p1 --new-instance

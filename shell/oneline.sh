@@ -42,4 +42,6 @@
 # create_ap -n wlp4s0  aaa 123abc00
 # curl "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=vP65qsGQCxfewnTs&suffix=tar.gz" -o GeoLite2-Country.tar.gz
 # sudo bash -c 'echo 0 > /proc/sys/fs/binfmt_misc/status'
-
+# xfce4 Alt+F2
+# alacritty -o 'window.dimensions={columns=120,lines=35}' -T 'Alacritty - nvtop' -e nvtop
+# xterm -u8 -geometry 120x54  -xrm 'XTerm*selectToClipboard:true' -bg black -fg green3 -T 'xterm+ - nvtop' -e "nvtop"
