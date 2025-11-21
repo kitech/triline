@@ -9,6 +9,7 @@ if [ "${#@}" == "0" ]; then
     exit
 fi
 
+# more from napcatqq.sh "https://ghfast.top" "https://git.yylx.win/" "https://gh-proxy.com" "https://ghfile.geekertao.top" "https://gh-proxy.net" "https://j.1win.ggff.net" "https://ghm.078465.xyz" "https://gitproxy.127731.xyz" "https://jiashu.1win.eu.org" "https://github.tbedu.top"
 ACCURLS=(https://gh-proxy.com https://gh-proxy.com1 https://gh-proxy.com2)
 DFTNO=0
 CUSTOM=$DFTNO

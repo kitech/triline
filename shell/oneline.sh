@@ -37,7 +37,12 @@
 # chromium --process-per-site
 #  go tool nm -sort size -size <gobinary> | head -n 20
 # fingerprint
+# 生成https证书
 # openssl x509 -noout -fingerprint -sha1 -inform pem -in [certificate-file.crt]
+# 生成https证书2
+# openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"
+# echo '\n' > emptyline.cer
+# cat cert.cer emptyline.cer chain.cer> fullchain.cer
 # 不分享外网连接 WIFI AP
 # create_ap -n wlp4s0  aaa 123abc00
 # curl "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=vP65qsGQCxfewnTs&suffix=tar.gz" -o GeoLite2-Country.tar.gz

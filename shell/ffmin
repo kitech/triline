@@ -18,7 +18,7 @@ elif [ x"$px" = x"2" ]; then
 elif [ x"$px" = x"3" ]; then
     # really firefox68
     echo "ff68+ p3..., big memory like youtube/imgur, flash."
-    ffexe=/mnt/sda5/opu/firefox-ffesr68/firefox
+    ffexe=/opt/firefox-ffesr68/firefox
     ffver=$($ffexe --version|awk '{print $3}')    
     export MOZ_GTK_TITLEBAR_DECORATION=client
     export MOZ_FORCE_DISABLE_E10S=1 # disable multiple process for ff68+?
@@ -36,7 +36,7 @@ elif [ x"$px" = x"83" ]; then
 elif [ x"$px" = x"115" ]; then
     # work fine for firefox{81,83,84}
     echo "ff83+ p3..., big memory like youtube/imgur, flash."
-    ffexe=/mnt/sda5/opu/firefox-ffesr115/firefox
+    ffexe=/opt/firefox-ffesr115/firefox
     ffver=$($ffexe --version|awk '{print $3}')
     echo "Running ffbin $ffver ..."
     export MOZ_GTK_TITLEBAR_DECORATION=client
@@ -49,7 +49,7 @@ elif [ x"$px" = x"115" ]; then
 elif [ x"$px" = x"128" ]; then
     # work fine for firefox{81,83,84}
     echo "ff83+ p3..., big memory like youtube/imgur, flash."
-    ffexe=/mnt/sda5/opu/firefox-ffesr128/firefox
+    ffexe=/opt/firefox-ffesr128/firefox
     ffver=$($ffexe --version|awk '{print $3}')
     echo "Running ffbin $ffver ..."
     export MOZ_GTK_TITLEBAR_DECORATION=client
@@ -61,7 +61,7 @@ elif [ x"$px" = x"128" ]; then
 elif [ x"$px" = x"140" ]; then
     # work fine for firefox{81,83,84}
     echo "ff83+ p3..., big memory like youtube/imgur, flash."
-    ffexe=/mnt/sda5/opu/firefox-ffesr140/firefox
+    ffexe=/opt/firefox-ffesr140/firefox
     ffver=$($ffexe --version|awk '{print $3}')
     echo "Running ffbin $ffver ..."
     export MOZ_GTK_TITLEBAR_DECORATION=client

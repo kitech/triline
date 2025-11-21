@@ -89,7 +89,7 @@ function cleanup_with_user()
 {
     cp $HOME/.gitconfig $HOME/.gitconfig.bak
     errcho "Note: reset with tempanon...";
-    $GIT config --global user.email "egitop@uload.xyz"
+    $GIT config --global user.email "egitop@uroad.xyz"
     $GIT config --global user.name "egitop"
     #$GIT config --global --unset user.email
     #$GIT config --global --unset user.name

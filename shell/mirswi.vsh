@@ -31,4 +31,4 @@ mirfiles := {
 vcp.info(mirfiles.str())
 
 cnmirhosts := ['mirrors.nju.edu.cn', 'mirrors.ustc.edu.cn', 'mirrors.sustech.edu.cn',
-	'mirrors.sjtug.sjtu.edu.cn', 'mirrors.tuna.tsinghua.edu.cn']
+	'mirrors.sjtug.sjtu.edu.cn']
