@@ -14,7 +14,8 @@ export LC_LANG=en_US.UTF-8
 function process_monitor_oom() {
     totoomcnt=0
     while true; do
-        lines=$(ps xu | grep -E '(zed-editor|gopls|vls|v-analyzer|electron3)' | grep -v "grep -E")
+		# opencode 1G not enough
+        lines=$(ps xu | grep -E '(zed-editor|gopls|vls|v-analyzer|rust-analyzer|clangd|electron3|xfsettingsd)' | grep -v "grep -E")
         oomproccnt=0
         nearlycnt=0
         totmem=0

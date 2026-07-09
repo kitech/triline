@@ -73,7 +73,8 @@ logfn := fn[logfp](args ... Anyer) {
     // line := sprintax(...args)
     pid := os.getpid()
     ppid := os.getppid()
-    line := sprintbx(...args)
+    // line := sprintbx(...args)
+    line := vcp.sprint_interpolate(...args)
     logfp.write_string('${ppid}:${pid}: '+line+'\n') or {panic(err)}
 }
 
@@ -94,8 +95,8 @@ dstfile := os.join_path(tmpdir, os.base(cfile))
 if !newargs.last().starts_with('-'){
 if true {
     files := os.ls(oldwd) !
-    // logfn(cfile, dstfile, os.exists(cfile), files.str())
-    os.cp(cfile, dstfile) or {panic('${err},${newargs}')}
+    logfn(@FILE_LINE, cfile, dstfile, os.exists(cfile), files.str())
+    os.cp(cfile, dstfile) or {panic('${err}, ${newargs}')}
  }
 filter_code_sucks(cfile)
 if os.base(cfile) == '_cgo_export.c' {
@@ -142,8 +143,8 @@ proc.run()
 proc.wait()
 defer { proc.close() }
 cres := ifelse(proc.code == 0, 'succ', 'fail') + ': '
-logfn(cres, proc.status.str(), proc.code, proc.err, '/')// proc.str())
-logfn(newargs.str())
+logfn(@FILE_LINE, cres, proc.status.str(), proc.code, proc.err, '/')// proc.str())
+logfn(@FILE_LINE, newargs.str())
 // logfn(proc.stderr_read(), proc.stdout_read())
 if proc.code != 0 {
     logfn('cd', oldwd, '&&', tccexe, newargs.join(' '), '|| cd -')
@@ -168,4 +169,3 @@ if filecc.contains('"completed"') {
 }else{
     exit(proc.code)
 }
-

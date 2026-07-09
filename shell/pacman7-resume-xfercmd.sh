@@ -8,8 +8,9 @@ dlurl=$5
 
 fixtmpdir=$(dirname $(dirname $dltmpfile))
 fixtmpfile=$fixtmpdir/$(basename $dltmpfile)
+finalfile=${fixtmpfile/.part}
 if [ x"$fixtmpdir" == x"/var/lib/pacman/sync" ]; then
-    exec wget --passive-ftp -c -O "$dltmpfile" "$dlurl"
+    exec wget -T 20 --passive-ftp -c -O "$dltmpfile" "$dlurl"
     exit $?
 fi
 
@@ -22,14 +23,16 @@ fi
 
 set -x
 # --limit-rate=123K
-wget --passive-ftp --limit-rate=123k -c -O "$dltmpfile" "$dlurl"
+wget -T 20 --passive-ftp --limit-rate=99k -c -O "$dltmpfile" "$dlurl"
 dler_exit_code=$?
 if [ -f "$dltmpfile" ]; then
     cp -va "$dltmpfile" "$fixtmpfile"
     ls -lh "$fixtmpfile"
 fi
 if [ x"$dler_exit_code" = x"0" ]; then
+    cp -va "$dltmpfile" "$finalfile"
     rm -fv "$fixtmpfile"
+    true
 fi
 
 exit $dler_exit_code

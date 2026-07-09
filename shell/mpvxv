@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# fix fe cannot proper pass -vo=xv
+exec mpv -vo=xv "$@"

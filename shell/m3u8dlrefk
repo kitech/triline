@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# for firefox's 猫爪视频扩展
+# 在猫X, 调用程序: m3u8dlre => mailto
+echo "hehheee"
+
+#echo "1=$1" >> /tmp/m3u8fk
+#echo "2=$2" >> /tmp/m3u8fk
+#echo "3=$3" >> /tmp/m3u8fk
+
+urldecode() {
+	local encoded="$1"
+	echo -e "$(echo "$encoded" | sed 's/+/ /g;s/%/\\x/g')"
+}
+
+# should be: mailto:"https://p.b8bf.com/video/changandelizhi/第03集/index.m3u8" --save-dir "\xUSERPROFILE\x\Downloads" --del-after-done --save-name "正在播放第03集电视剧《长安的荔枝》在线免费观看 - 国产电视剧 - 小二影视-热门高清电影-免费影视大全-最新热播剧免费手机在线观看-免费追剧网_1756707163324" --auto-select
+cmdline=$(urldecode $1)
+url=$(echo $cmdline|awk -F\" '{print $2}')
+title9=$(echo $cmdline|awk -F\" '{print $6}')
+title=$(echo $title9|awk '{print $1}')
+refurl=
+echo "4=$cmdline" >> /tmp/m3u8fk
+echo "5=$url" >> /tmp/m3u8fk
+echo "6=$title" >> /tmp/m3u8fk
+
+echo "smplayer -media-title \"$title\" \"$url\"" >> /tmp/m3u8fk
+smplayer-qt4 -skingui -media-title "$title" "$url" &
+
+sleep 1233
+echo > /tmp/m3u8fk
+date >> /tmp/m3u8fk

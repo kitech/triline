@@ -2,6 +2,10 @@
 
 # exec /opt/firefox56/firefox --profile ~/.mozilla/firefox56
 # exec /opt/firefox52/firefox --profile ~/.mozilla/firefox56
+export LC_ALL=zh_CN.UTF-8
+export LC_CTYPE=zh_CN.UTF-8
+export LC_LANGUAGE=zh_CN.UTF-8
+export LANG=zh_CN.UTF-8
 
 # mainline
 px=$1
@@ -48,13 +52,13 @@ elif [ x"$px" = x"115" ]; then
 
 elif [ x"$px" = x"128" ]; then
     # work fine for firefox{81,83,84}
-    echo "ff83+ p3..., big memory like youtube/imgur, flash."
+    echo "ff128+ p3..., big memory like youtube/imgur, flash."
     ffexe=/opt/firefox-ffesr128/firefox
     ffver=$($ffexe --version|awk '{print $3}')
     echo "Running ffbin $ffver ..."
     export MOZ_GTK_TITLEBAR_DECORATION=client
     export MOZ_FORCE_DISABLE_E10S="$ffver" # disable multiple process for ff68+?
-    exec $ffexe --profile ~/.mozilla/firefox/dfu6p7l4.default-esr-4 --new-instance
+    exec apulse32 $ffexe --profile ~/.mozilla/firefox/dfu6p7l4.default-esr-4 --new-instance
 	# 7.5+4.3+4.1%
 	# ff128还是比ff140资源使用稳一些
 

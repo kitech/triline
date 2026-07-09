@@ -4,15 +4,16 @@
 # 识别参数列表中的URL并替换，只支持http协议
 # https://gh-proxy.com/https://github.com/...
 
-if [ "${#@}" == "0" ]; then
-    echo "Usage: exe [index] <git clone ghurl/curl ghurl>"
-    exit
-fi
-
 # more from napcatqq.sh "https://ghfast.top" "https://git.yylx.win/" "https://gh-proxy.com" "https://ghfile.geekertao.top" "https://gh-proxy.net" "https://j.1win.ggff.net" "https://ghm.078465.xyz" "https://gitproxy.127731.xyz" "https://jiashu.1win.eu.org" "https://github.tbedu.top"
-ACCURLS=(https://gh-proxy.com https://gh-proxy.com1 https://gh-proxy.com2)
+ACCURLS=(https://ghfast.top https://gh-proxy.com https://ghproxy.vip https://gh-proxy.com2)
 DFTNO=0
 CUSTOM=$DFTNO
+
+if [ "${#@}" == "0" ]; then
+    echo "Usage: exe [index] <git clone ghurl/curl ghurl>"
+    echo "${ACCURLS[@]}"
+    exit
+fi
 
 # check arg1 num
 numre='^[0-9]+$'
@@ -48,5 +49,3 @@ done
 
 set -x
 exec "${targs[@]}"
-
-
